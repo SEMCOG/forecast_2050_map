@@ -15,6 +15,8 @@
 import MapView from "@arcgis/core/views/MapView";
 import Map from "@arcgis/core/Map";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
+import Basemap from "@arcgis/core/Basemap";
+import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 
 
 export default {
@@ -33,8 +35,8 @@ export default {
           color: "#136400",
           style: "solid",
           outline: {
-            width: 0.2,
-            color: [255, 255, 255, 0.5]
+            width: 1,
+            color: '#000000'
           }
         };
 
@@ -43,8 +45,8 @@ export default {
           color: "#8ec61a",
           style: "solid",
           outline: {
-            width: 0.2,
-            color: [255, 255, 255, 0.5]
+            width: 1,
+            color: '#000000'
           }
         };
 
@@ -53,8 +55,8 @@ export default {
           color: "#f7f3c7",
           style: "solid",
           outline: {
-            width: 0.2,
-            color: [255, 255, 255, 0.5]
+            width: 1,
+            color: '#000000'
           }
         };
 
@@ -63,8 +65,8 @@ export default {
           color: "#FF9900",
           style: "solid",
           outline: {
-            width: 0.2,
-            color: [255, 255, 255, 0.5]
+            width: 1,
+            color: '#000000'
           }
         };
 
@@ -73,17 +75,10 @@ export default {
           color: "#F11810",
           style: "solid",
           outline: {
-            width: 0.2,
-            color: [255, 255, 255, 0.5]
+            width: 1,
+            color: '#000000'
           }
         };
-
-        /*****************************************************************
-         * Set each unique value directly in the renderer's constructor.
-         * At least one field must be used (in this case the "COL_DEG" field).
-         * The label property of each unique value will be used to indicate
-         * the field value and symbol in the legend.
-         *****************************************************************/
 
         const renderer = {
           type: "class-breaks", // autocasts as new ClassBreaksRenderer()
@@ -146,8 +141,28 @@ export default {
   },
   methods: {},
   mounted() {
+    let communityLabels = new VectorTileLayer({
+      portalItem: {
+        id: "2efeb0852a794d09973908facff29987"
+      },
+    });
 
-    this.map = new Map({basemap: 'hybrid'})
+    let community = new VectorTileLayer({
+      portalItem: {
+        id: "2127254dcb324858947dca0fc8204f9d"
+      },
+    });
+
+    let basemap = new Basemap({
+      baseLayers: [
+        community
+      ],
+      referenceLayers: [
+        communityLabels
+      ],
+    });
+
+    this.map = new Map({basemap: basemap})
 
     this.view = new MapView({
       container: this.$refs.map,
@@ -158,7 +173,7 @@ export default {
 
     this.view.ui.add("ind_select", "top-left");
 
-    this.map.add(this.forecast_layer)
+    this.map.add(this.forecast_layer, 0)
 
     this.view.whenLayerView(this.forecast_layer).then((layerView) => {
       layerView.filter = {
