@@ -1,0 +1,189 @@
+<template>
+  <div id="map" ref="map">
+    <div id="ind_select" class="esri-widget" style="padding: 10px;">
+      <label style="font-size: large; margin: 5px;" for="ind"> Choose Geography: <br> <br></label>
+      <select v-model="geotype"
+        class="esri-widget" name="ind" id="ind" style="font-size: large; padding: 10px">
+      <option value="county">Counties</option>
+      <option value="city">Communities</option>
+    </select>
+    </div>
+  </div>
+</template>
+
+<script>
+import MapView from "@arcgis/core/views/MapView";
+import Map from "@arcgis/core/Map";
+import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
+
+
+export default {
+  name: 'App',
+  components: {
+  },
+  data: function (){
+    return {
+      geotype: 'city'
+    }
+  },
+  computed: {
+    forecast_layer_renderer: function () {
+      const more3kgain = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#136400",
+          style: "solid",
+          outline: {
+            width: 0.2,
+            color: [255, 255, 255, 0.5]
+          }
+        };
+
+        const gain501to3k = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#8ec61a",
+          style: "solid",
+          outline: {
+            width: 0.2,
+            color: [255, 255, 255, 0.5]
+          }
+        };
+
+        const loss500lossto500gain = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#f7f3c7",
+          style: "solid",
+          outline: {
+            width: 0.2,
+            color: [255, 255, 255, 0.5]
+          }
+        };
+
+        const loss501to3k = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#FF9900",
+          style: "solid",
+          outline: {
+            width: 0.2,
+            color: [255, 255, 255, 0.5]
+          }
+        };
+
+      const more3kloss = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#F11810",
+          style: "solid",
+          outline: {
+            width: 0.2,
+            color: [255, 255, 255, 0.5]
+          }
+        };
+
+        /*****************************************************************
+         * Set each unique value directly in the renderer's constructor.
+         * At least one field must be used (in this case the "COL_DEG" field).
+         * The label property of each unique value will be used to indicate
+         * the field value and symbol in the legend.
+         *****************************************************************/
+
+        const renderer = {
+          type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+          field: "pop_change",
+          // legendOptions: {
+          //   title: "% of adults (25+) with a college degree"
+          // },
+          defaultSymbol: {
+            type: "simple-fill", // autocasts as new SimpleFillSymbol()
+            color: "black",
+            style: "backward-diagonal",
+            outline: {
+              width: 0.5,
+              color: [50, 50, 50, 0.6]
+            }
+          },
+          defaultLabel: "no data",
+          classBreakInfos: [
+            {
+              minValue: 3000,
+              maxValue: 10000000,
+              symbol: more3kgain,
+              label: "More than 3,000 gain"
+            },
+            {
+              minValue: 501,
+              maxValue: 3000,
+              symbol: gain501to3k,
+              label: "Gain, 501 to 3,000"
+            },
+            {
+              minValue: -500,
+              maxValue: 500,
+              symbol: loss500lossto500gain,
+              label: "Little change, 500 loss to 500 gain"
+            },
+            {
+              minValue: -3000,
+              maxValue: -501,
+              symbol: loss501to3k,
+              label: "Loss, 501 to 3,000"
+            },
+            {
+              minValue: -10000000,
+              maxValue: -3000,
+              symbol: more3kloss,
+              label: "More than 3,000 loss"
+            }
+          ]
+        };
+        return renderer
+    },
+    forecast_layer: function () {
+      return new FeatureLayer({
+        url:
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer/52",
+        renderer: this.forecast_layer_renderer
+      });
+    }
+  },
+  methods: {},
+  mounted() {
+
+    this.map = new Map({basemap: 'hybrid'})
+
+    this.view = new MapView({
+      container: this.$refs.map,
+      map: this.map,
+      center: [-83.2437186609522, 42.454430721108764],
+      zoom: 8,
+    })
+
+    this.view.ui.add("ind_select", "top-left");
+
+    this.map.add(this.forecast_layer)
+
+    this.view.whenLayerView(this.forecast_layer).then((layerView) => {
+      layerView.filter = {
+        where: `geotype = '${this.geotype}'`
+      };
+    });
+  },
+  watch: {
+    geotype: function () {
+      this.view.whenLayerView(this.forecast_layer).then((layerView) => {
+        layerView.filter = {
+          where: `geotype = '${this.geotype}'`
+        };
+      });
+    },
+  }
+}
+</script>
+
+<style>
+
+#map {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
