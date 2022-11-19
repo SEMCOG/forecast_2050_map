@@ -17,6 +17,9 @@ import Map from "@arcgis/core/Map";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import Basemap from "@arcgis/core/Basemap";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
+import FeatureEffect from "@arcgis/core/layers/support/FeatureEffect";
+import FeatureFilter from "@arcgis/core/layers/support/FeatureFilter";
+import Legend from "@arcgis/core/widgets/Legend";
 
 
 export default {
@@ -29,6 +32,55 @@ export default {
     }
   },
   computed: {
+    popup: function () {
+      const template = {
+        // autocasts as new PopupTemplate()
+        title: "{area_name} Forecast Changes",
+        content: [
+          {
+            // It is also possible to set the fieldInfos outside of the content
+            // directly in the popupTemplate. If no fieldInfos is specifically set
+            // in the content, it defaults to whatever may be set within the popupTemplate.
+            type: "fields",
+            fieldInfos: [
+              {
+                fieldName: "pop_change",
+                label: "Population Change",
+                format: {
+                  digitSeparator: true,
+                  places: 0
+                }
+              },
+              {
+                fieldName: "hh_change",
+                label: "Household Change",
+                format: {
+                  digitSeparator: true,
+                  places: 0
+                }
+              },
+              {
+                fieldName: "housing_units_change",
+                label: "Housing Unit Change",
+                format: {
+                  digitSeparator: true,
+                  places: 0
+                }
+              },
+              {
+                fieldName: "jobs_total_change",
+                label: "Jobs Total Change",
+                format: {
+                  digitSeparator: true,
+                  places: 0
+                }
+              }
+            ]
+          }
+        ]
+      };
+      return template
+    },
     forecast_layer_renderer: function () {
       const more3kgain = {
           type: "simple-fill", // autocasts as new SimpleFillSymbol()
@@ -83,19 +135,9 @@ export default {
         const renderer = {
           type: "class-breaks", // autocasts as new ClassBreaksRenderer()
           field: "pop_change",
-          // legendOptions: {
-          //   title: "% of adults (25+) with a college degree"
-          // },
-          defaultSymbol: {
-            type: "simple-fill", // autocasts as new SimpleFillSymbol()
-            color: "black",
-            style: "backward-diagonal",
-            outline: {
-              width: 0.5,
-              color: [50, 50, 50, 0.6]
-            }
+          legendOptions: {
+            title: "Population Change 2020 - 2050"
           },
-          defaultLabel: "no data",
           classBreakInfos: [
             {
               minValue: 3000,
@@ -131,11 +173,32 @@ export default {
         };
         return renderer
     },
+    forecast_layer_effect: function () {
+      const includedEffect = "drop-shadow(3px, 3px, 4px)";
+      return new FeatureEffect({
+        filter: new FeatureFilter({
+          where: "pop_change > 500"
+        }),
+        includedEffect: includedEffect
+      });
+    },
+    forecast_layer_info: function () {
+      return new FeatureLayer({
+        url:
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer/52",
+        opacity: 0,
+        legendEnabled: false,
+        popupTemplate: this.popup,
+        orderBy: {field: 'geotype'}
+      });
+    },
     forecast_layer: function () {
       return new FeatureLayer({
         url:
             "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer/52",
-        renderer: this.forecast_layer_renderer
+        title: 'Forecast Change',
+        renderer: this.forecast_layer_renderer,
+        featureEffect: this.forecast_layer_effect,
       });
     }
   },
@@ -173,13 +236,20 @@ export default {
 
     this.view.ui.add("ind_select", "top-left");
 
-    this.map.add(this.forecast_layer, 0)
+    this.map.add(this.forecast_layer)
+    this.map.add(this.forecast_layer_info)
 
     this.view.whenLayerView(this.forecast_layer).then((layerView) => {
       layerView.filter = {
         where: `geotype = '${this.geotype}'`
       };
     });
+
+    const legend = new Legend({
+      view: this.view
+    });
+
+    this.view.ui.add(legend, "bottom-left");
   },
   watch: {
     geotype: function () {
