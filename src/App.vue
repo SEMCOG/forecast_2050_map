@@ -1,12 +1,19 @@
 <template>
   <div id="map" ref="map">
     <div id="ind_select" class="esri-widget" style="padding: 10px;">
-      <label style="font-size: large; margin: 5px;" for="ind"> Choose Geography: <br> <br></label>
+      <label style="font-size: large; margin: 5px;" for="geo"> Choose Geography: </label>
       <select v-model="geotype"
-        class="esri-widget" name="ind" id="ind" style="font-size: large; padding: 10px">
-      <option value="county">Counties</option>
-      <option value="city">Communities</option>
-    </select>
+              class="esri-widget" name="geo" id="geo" style="font-size: large; padding: 10px">
+        <option value="county">Counties</option>
+        <option value="city">Communities</option>
+      </select>
+
+      <label style="font-size: large; margin: 5px;" for="ind"> Choose Indicator:</label>
+      <select v-model="ind"
+              class="esri-widget" name="ind" id="ind" style="font-size: large; padding: 10px">
+        <option value="pop_change">Population</option>
+        <option value="hh_change">Households</option>
+      </select>
     </div>
   </div>
 </template>
@@ -28,7 +35,8 @@ export default {
   },
   data: function (){
     return {
-      geotype: 'city'
+      geotype: 'city',
+      ind: 'pop_change'
     }
   },
   computed: {
@@ -134,7 +142,7 @@ export default {
 
         const renderer = {
           type: "class-breaks", // autocasts as new ClassBreaksRenderer()
-          field: "pop_change",
+          field: 'pop_change',
           legendOptions: {
             title: "Population Change 2020 - 2050"
           },
@@ -189,7 +197,7 @@ export default {
         opacity: 0,
         legendEnabled: false,
         popupTemplate: this.popup,
-        orderBy: {field: 'geotype'}
+        orderBy: {field: 'SHAPE__Area', order: 'ascending'}
       });
     },
     forecast_layer: function () {
@@ -235,6 +243,7 @@ export default {
     })
 
     this.view.ui.add("ind_select", "top-left");
+    this.view.ui.move(["zoom"], "bottom-right");
 
     this.map.add(this.forecast_layer)
     this.map.add(this.forecast_layer_info)
@@ -259,6 +268,12 @@ export default {
         };
       });
     },
+    ind: function () {
+      if (this.ind) {
+        this.forecast_layer_renderer.field = this.ind
+        this.forecast_layer.renderer = this.forecast_layer_renderer
+      }
+    }
   }
 }
 </script>
