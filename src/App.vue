@@ -272,6 +272,8 @@ export default {
       if (this.ind) {
         this.forecast_layer_renderer.field = this.ind
         this.forecast_layer.renderer = this.forecast_layer_renderer
+        this.forecast_layer_effect.filter.where = `${this.ind} > 500`
+        this.forecast_layer.featureEffect = this.forecast_layer_effect
       }
     }
   }
