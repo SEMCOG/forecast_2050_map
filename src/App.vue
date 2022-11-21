@@ -59,6 +59,7 @@ export default {
         // autocasts as new PopupTemplate()
         title: "{area_name} Forecast Changes",
         content: [
+          {type: 'text', text: `<a href="https://maps.semcog.org/forecast_report/?geoid={geoid}&geotype={geotype}"> Link to full report</a>`},
           {
             // It is also possible to set the fieldInfos outside of the content
             // directly in the popupTemplate. If no fieldInfos is specifically set
