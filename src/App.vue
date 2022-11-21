@@ -11,8 +11,13 @@
       <label style="font-size: large; margin: 5px;" for="ind"> Choose Indicator:</label>
       <select v-model="ind"
               class="esri-widget" name="ind" id="ind" style="font-size: large; padding: 10px">
-        <option value="pop_change">Population</option>
-        <option value="hh_change">Households</option>
+        <option value="pop_change">Total Population</option>
+        <option value="hh_change">Total Households</option>
+        <option value="housing_units_change">Housing Units</option>
+        <option value="jobs_total_change">Jobs</option>
+        <option value="pop_age_00_17_change">Population Ages 0-17</option>
+        <option value="pop_age_05_17_change">Population Ages 5-17</option>
+        <option value="pop_age_65_inf_change">Population Ages >= 65 </option>
       </select>
     </div>
   </div>
@@ -36,7 +41,16 @@ export default {
   data: function (){
     return {
       geotype: 'city',
-      ind: 'pop_change'
+      ind: 'pop_change',
+      ind_lookup: {
+        'pop_change': {name: 'Total Population'},
+        'hh_change': {name: 'Total Households'},
+        'housing_units_change': {name: 'Housing Units'},
+        'jobs_total_change': {name: 'Total Jobs'},
+        'pop_age_00_17_change': {name: 'Population Ages 0-17'},
+        'pop_age_05_17_change': {name: 'Population Ages 5-17'},
+        'pop_age_65_inf_change': {name: 'Population Ages >= 65'},
+      }
     }
   },
   computed: {
@@ -144,7 +158,7 @@ export default {
           type: "class-breaks", // autocasts as new ClassBreaksRenderer()
           field: 'pop_change',
           legendOptions: {
-            title: "Population Change 2020 - 2050"
+            title: "Total Population 2020 - 2050"
           },
           classBreakInfos: [
             {
@@ -271,6 +285,7 @@ export default {
     ind: function () {
       if (this.ind) {
         this.forecast_layer_renderer.field = this.ind
+        this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
         this.forecast_layer.renderer = this.forecast_layer_renderer
         this.forecast_layer_effect.filter.where = `${this.ind} > 500`
         this.forecast_layer.featureEffect = this.forecast_layer_effect
