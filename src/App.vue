@@ -196,6 +196,98 @@ export default {
         };
         return renderer
     },
+    forecast_layer_county_renderer: function () {
+      const more3kgain = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#136400",
+          style: "solid",
+          outline: {
+            width: 1,
+            color: '#000000'
+          }
+        };
+
+        const gain501to3k = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#8ec61a",
+          style: "solid",
+          outline: {
+            width: 1,
+            color: '#000000'
+          }
+        };
+
+        const loss500lossto500gain = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#f7f3c7",
+          style: "solid",
+          outline: {
+            width: 1,
+            color: '#000000'
+          }
+        };
+
+        const loss501to3k = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#FF9900",
+          style: "solid",
+          outline: {
+            width: 1,
+            color: '#000000'
+          }
+        };
+
+      const more3kloss = {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "#F11810",
+          style: "solid",
+          outline: {
+            width: 1,
+            color: '#000000'
+          }
+        };
+
+        const renderer = {
+          type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+          field: 'pop_change',
+          legendOptions: {
+            title: "Total Population 2020 - 2050"
+          },
+          classBreakInfos: [
+            {
+              minValue: 75000,
+              maxValue: 10000000,
+              symbol: more3kgain,
+              label: "More than 75,000 gain"
+            },
+            {
+              minValue: 50000,
+              maxValue: 75000,
+              symbol: gain501to3k,
+              label: "Gain, 50,000 to 75,000"
+            },
+            {
+              minValue: -50000,
+              maxValue: 50000,
+              symbol: loss500lossto500gain,
+              label: "Little change, 50,000 loss to 50,000 gain"
+            },
+            {
+              minValue: -50000,
+              maxValue: -20000,
+              symbol: loss501to3k,
+              label: "Loss, 20,000 to 50,000"
+            },
+            {
+              minValue: -10000000,
+              maxValue: -50000,
+              symbol: more3kloss,
+              label: "More than 50,000 loss"
+            }
+          ]
+        };
+        return renderer
+    },
     forecast_layer_effect: function () {
       const includedEffect = "drop-shadow(3px, 3px, 4px)";
       return new FeatureEffect({
@@ -282,12 +374,29 @@ export default {
           where: `geotype = '${this.geotype}'`
         };
       });
+      if (this.ind) {
+        this.forecast_layer_renderer.field = this.ind
+        this.forecast_layer_county_renderer.field = this.ind
+        this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
+        this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
+        if (this.geotype === 'city') {
+          this.forecast_layer.renderer = this.forecast_layer_renderer
+        } else {
+          this.forecast_layer.renderer = this.forecast_layer_county_renderer
+        }
+      }
     },
     ind: function () {
       if (this.ind) {
         this.forecast_layer_renderer.field = this.ind
+        this.forecast_layer_county_renderer.field = this.ind
         this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
-        this.forecast_layer.renderer = this.forecast_layer_renderer
+        this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
+        if (this.geotype === 'city') {
+          this.forecast_layer.renderer = this.forecast_layer_renderer
+        } else {
+          this.forecast_layer.renderer = this.forecast_layer_county_renderer
+        }
         this.forecast_layer_effect.filter.where = `${this.ind} > 500`
         this.forecast_layer.featureEffect = this.forecast_layer_effect
       }
