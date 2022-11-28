@@ -42,6 +42,7 @@ export default {
     return {
       geotype: 'city',
       ind: 'pop_change',
+      selectedFeature: null,
       ind_lookup: {
         'pop_change': {name: 'Total Population'},
         'hh_change': {name: 'Total Households'},
@@ -355,6 +356,29 @@ export default {
     this.map.add(this.forecast_layer)
     this.map.add(this.forecast_layer_info)
 
+    this.view.popup.viewModel.includeDefaultActions = false;
+    this.view.popup.alignment = 'bottom-right'
+
+    this.view.popup.watch("selectedFeature", (graphic) => {
+      if (graphic) {
+        let actions = this.view.popup.features.map((f, i) => {
+          return {
+          title:  `${f.attributes.area_name}`,
+          id: `${i}`,
+          className: "esri-icon-applications"
+        }
+        })
+        this.view.popup.actions = actions
+      }
+    });
+
+    this.view.popup.on("trigger-action", (event) => {
+      this.view.popup.selectedFeatureIndex = parseInt(event.action.id)
+      //TODO: get this working
+      this.selectedFeature = this.view.popup.selectedFeature.attributes
+      console.log(this.view.popup.selectedFeature.attributes)
+    });
+
     this.view.whenLayerView(this.forecast_layer).then((layerView) => {
       layerView.filter = {
         where: `geotype = '${this.geotype}'`
@@ -413,4 +437,10 @@ export default {
     width: 100%;
     height: 100%;
 }
+
+/*.esri-view-width-xlarge .esri-popup__main-container,*/
+/*.esri-view-width-large .esri-popup__main-container,*/
+/*.esri-view-width-medium .esri-popup__main-container {*/
+/*  width: 600px !important;*/
+/*}*/
 </style>
