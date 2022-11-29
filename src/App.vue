@@ -356,6 +356,10 @@ export default {
       map: this.map,
       center: [-83.2437186609522, 42.454430721108764],
       zoom: 8,
+      navigation: {
+        mouseWheelZoomEnabled: false,
+        browserTouchPanEnabled: false
+      }
     })
 
     this.view.ui.add("ind_select", "top-left");
@@ -366,6 +370,13 @@ export default {
 
     this.view.popup.viewModel.includeDefaultActions = false;
     this.view.popup.alignment = 'bottom-right'
+
+    this.view.watch('focused', () => {
+      this.view.navigation = {
+        mouseWheelZoomEnabled: this.view.focused,
+        browserTouchPanEnabled: this.view.focused
+      }
+    })
 
     this.view.popup.watch("selectedFeature", (graphic) => {
       if (graphic) {
