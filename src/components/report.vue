@@ -597,8 +597,11 @@ export default {
   },
   watch: {
     selectedFeature: function () {
-      if (this.selectedFeature['geotype']) {
+      if (this.selectedFeature['geotype'] ) {
         this.geotype = this.selectedFeature.geotype
+        if (this.geotype === 'mcd') {
+          this.geotype = 'city'
+        }
       }
       if (this.selectedFeature['geoid']) {
         this.selectedId = this.selectedFeature.geoid
