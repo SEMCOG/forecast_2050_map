@@ -306,6 +306,28 @@ export default {
         includedEffect: includedEffect
       });
     },
+    detroit_neighborhood_labels: function () {
+      const labelClass = {
+        // autocasts as new LabelClass()
+        symbol: {
+          type: "text",  // autocasts as new TextSymbol()
+          color: "#ffffff",
+          haloColor: "#8f6732",
+          haloSize: .5,
+          font: {  // autocast as new Font()
+            family: "Arial",
+            size: 8,
+          }
+        },
+        labelPlacement: "always-horizontal",
+        where: "geoid < 600",
+        minScale: 200000,
+        labelExpressionInfo: {
+          expression: "$feature.area_name"
+        }
+      };
+      return labelClass
+    },
     forecast_layer_info: function () {
       return new FeatureLayer({
         url:
@@ -313,6 +335,7 @@ export default {
         opacity: 0,
         legendEnabled: false,
         popupTemplate: this.popup,
+        labelingInfo: [this.detroit_neighborhood_labels],
         orderBy: {field: 'SHAPE__Area', order: 'ascending'}
       });
     },
