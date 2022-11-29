@@ -1,26 +1,32 @@
 <template>
-  <div id="map" ref="map">
-    <div id="ind_select" class="esri-widget" style="padding: 10px;">
-      <label style="font-size: large; margin: 5px;" for="geo"> Choose Geography: </label>
-      <select v-model="geotype"
-              class="esri-widget" name="geo" id="geo" style="font-size: large; padding: 10px">
-        <option value="county">Counties</option>
-        <option value="city">Communities</option>
-      </select>
+  <div id="app">
+    <div id="mapContainer">
+      <div id="map" ref="map">
+        <div id="ind_select" class="esri-widget" style="padding: 10px;">
+          <label style="font-size: large; margin: 5px;" for="geo"> Choose Geography: </label>
+          <select v-model="geotype"
+                  class="esri-widget" name="geo" id="geo" style="font-size: large; padding: 10px">
+            <option value="county">Counties</option>
+            <option value="city">Communities</option>
+          </select>
 
-      <label style="font-size: large; margin: 5px;" for="ind"> Choose Indicator:</label>
-      <select v-model="ind"
-              class="esri-widget" name="ind" id="ind" style="font-size: large; padding: 10px">
-        <option value="pop_change">Total Population</option>
-        <option value="hh_change">Total Households</option>
-        <option value="housing_units_change">Housing Units</option>
-        <option value="jobs_total_change">Jobs</option>
-        <option value="pop_age_00_17_change">Population Ages 0-17</option>
-        <option value="pop_age_05_17_change">Population Ages 5-17</option>
-        <option value="pop_age_65_inf_change">Population Ages >= 65 </option>
-      </select>
+          <label style="font-size: large; margin: 5px;" for="ind"> Choose Indicator:</label>
+          <select v-model="ind"
+                  class="esri-widget" name="ind" id="ind" style="font-size: large; padding: 10px">
+            <option value="pop_change">Total Population</option>
+            <option value="hh_change">Total Households</option>
+            <option value="housing_units_change">Housing Units</option>
+            <option value="jobs_total_change">Jobs</option>
+            <option value="pop_age_00_17_change">Population Ages 0-17</option>
+            <option value="pop_age_05_17_change">Population Ages 5-17</option>
+            <option value="pop_age_65_inf_change">Population Ages >= 65</option>
+          </select>
+        </div>
+      </div>
     </div>
+    <reportComponent v-bind:selectedFeature='selectedFeature' id="report"></reportComponent>
   </div>
+
 </template>
 
 <script>
@@ -32,11 +38,13 @@ import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import FeatureEffect from "@arcgis/core/layers/support/FeatureEffect";
 import FeatureFilter from "@arcgis/core/layers/support/FeatureFilter";
 import Legend from "@arcgis/core/widgets/Legend";
+import reportComponent from "./components/report.vue"
 
 
 export default {
   name: 'App',
   components: {
+    reportComponent
   },
   data: function (){
     return {
@@ -429,6 +437,28 @@ export default {
 </script>
 
 <style>
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 80vh auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#mapContainer {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  display: grid;
+}
+
+#report {
+  grid-column: 1;
+  grid-row: 2;
+  position: relative;
+  display: grid;
+}
 
 #map {
     padding: 0;
