@@ -42,7 +42,7 @@ export default {
     return {
       geotype: 'city',
       ind: 'pop_change',
-      selectedFeature: null,
+      selectedFeature: {},
       ind_lookup: {
         'pop_change': {name: 'Total Population'},
         'hh_change': {name: 'Total Households'},
@@ -361,6 +361,7 @@ export default {
 
     this.view.popup.watch("selectedFeature", (graphic) => {
       if (graphic) {
+        this.selectedFeature = this.view.popup.selectedFeature.attributes
         let actions = this.view.popup.features.map((f, i) => {
           return {
           title:  `${f.attributes.area_name}`,
@@ -374,9 +375,7 @@ export default {
 
     this.view.popup.on("trigger-action", (event) => {
       this.view.popup.selectedFeatureIndex = parseInt(event.action.id)
-      //TODO: get this working
       this.selectedFeature = this.view.popup.selectedFeature.attributes
-      console.log(this.view.popup.selectedFeature.attributes)
     });
 
     this.view.whenLayerView(this.forecast_layer).then((layerView) => {
