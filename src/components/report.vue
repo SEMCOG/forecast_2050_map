@@ -1,7 +1,7 @@
 <template>
-  <div id="report" v-if="report_data">
-    <div class="col_1_2 controls">
-      <div class="name">
+  <div id="report" v-if="report_data" style="margin: auto">
+    <div class="controls no-print">
+      <div class="name ">
         <ShortcutSelect
             v-bind:namesFromGeotype="namesFromGeotype"
             v-bind:geotypesForMap="['largearea', 'county', 'city']"
@@ -32,9 +32,9 @@
     <h1>{{selectedName || 'Southeast Michigan'}} - 2045 Forecast Summary</h1>
         <lineChart v-bind:chartData="summaryChart[0]"
                v-bind:options="summaryChart[1]"
-               v-bind:style="{width: '90%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
+               v-bind:style="{width: '100%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
                style="align-content: center"/>
-    <h2>Population and Households</h2>
+    <h2 class="page-break">Population and Households</h2>
     <table>
       <thead>
       <tr>
@@ -73,10 +73,9 @@
 
     <horizontalBar v-bind:chartData="ageChart[0]"
                    v-bind:options="ageChart[1]"
-                   v-bind:style="{width: '90%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
+                   v-bind:style="{width: '100%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
                    style="align-content: center"/>
-
-    <h2>Employment by Sector</h2>
+    <h2 class="page-break">Employment by Sector</h2>
     <table>
       <thead>
       <tr>
@@ -115,7 +114,7 @@
 
     <lineChart v-bind:chartData="jobChart[0]"
                v-bind:options="jobChart[1]"
-               v-bind:style="{width: '90%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
+               v-bind:style="{width: '100%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
                style="align-content: center"/>
   </div>
 </template>
@@ -830,7 +829,7 @@ table tbody tr.dashed th, table tbody tr.dashed td {
   margin: 2px;
   border: solid 2px #000000;
   border-radius: 10px;
-  width: 50%;
+  width: 100%;
 }
 
 .name {
@@ -873,6 +872,21 @@ table tbody tr.dashed th, table tbody tr.dashed td {
 
 .comm_dropdown option {
   font-size: 0.8rem;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  #report{
+    display: block !important;
+    grid-row: unset !important;
+    grid-column: unset !important;
+    margin: auto !important;
+  }
+  .page-break {
+    page-break-before: always !important;
+  }
 }
 
 </style>

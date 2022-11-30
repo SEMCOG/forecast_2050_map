@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="mapContainer">
+    <div id="mapContainer" class="no-print">
       <div id="map" ref="map">
         <div id="ind_select" class="esri-widget" style="padding: 10px;">
           <label style="font-size: large; margin: 5px;" for="geo"> Choose Geography: </label>
@@ -499,6 +499,12 @@ export default {
     margin: 0;
     width: 100%;
     height: 100%;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
 }
 
 /*.esri-view-width-xlarge .esri-popup__main-container,*/
