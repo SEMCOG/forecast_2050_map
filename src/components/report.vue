@@ -30,6 +30,10 @@
       </div>
     </div>
     <h1>{{selectedName || 'Southeast Michigan'}} - 2045 Forecast Summary</h1>
+        <lineChart v-bind:chartData="summaryChart[0]"
+               v-bind:options="summaryChart[1]"
+               v-bind:style="{width: '90%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
+               style="align-content: center"/>
     <h2>Population and Households</h2>
     <table>
       <thead>
@@ -70,7 +74,7 @@
     <horizontalBar v-bind:chartData="ageChart[0]"
                    v-bind:options="ageChart[1]"
                    v-bind:style="{width: '90%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
-                   style="margin-left: 80px"/>
+                   style="align-content: center"/>
 
     <h2>Employment by Sector</h2>
     <table>
@@ -112,7 +116,7 @@
     <lineChart v-bind:chartData="jobChart[0]"
                v-bind:options="jobChart[1]"
                v-bind:style="{width: '90%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
-               style="margin-left: 80px"/>
+               style="align-content: center"/>
   </div>
 </template>
 
@@ -297,6 +301,13 @@ export default {
       "pop_age_00_04", "pop_age_05_17", "pop_age_18_24", "pop_age_25_54", "pop_age_55_64", "pop_age_65_84", "pop_age_85_inf",
       "housing_units", "hhsize", "hh", "with_children", "with_seniors", "hh_size_1", "hh_no_car_or_lt_workers"],
       age_inds: ["pop_age_85_inf", "pop_age_65_84", "pop_age_55_64", "pop_age_25_54", "pop_age_18_24", "pop_age_05_17", "pop_age_00_04"],
+      summary_inds:["pop", "hh", "jobs_total", "housing_units"],
+      summary_inds_colors: {
+        'pop': '#5F4690',
+        'hh': '#1D6996',
+        'housing_units': '#38A6A5',
+        'jobs_total': '#0F8554',
+      },
       job_inds: ["jobs_sec_03", "jobs_sec_05", "jobs_sec_0809", "jobs_sec_1011", "jobs_sec_1415"],
       job_ind_colors: {
         'jobs_sec_03': '#5F4690',
@@ -455,6 +466,55 @@ export default {
           fontColor: 'black',
           position: 'top',
           display: true,
+        },
+        legend: {
+          display: true,
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              callback: (value) => {
+                return this.format(value);
+              }
+            }
+          }]
+        },
+        plugins: {
+          datalabels: {
+            color: 'black',
+            textShadowBlur: 6,
+            textShadowColor: 'white',
+            display: false,
+            font: {
+              weight: 'bold',
+            },
+            formatter: this.format,
+          },
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+      }]
+    },
+    summaryChart: function () {
+      return [{
+        labels: [2015, 2020, 2025, 2030, 2035, 2040, 2045],
+        datasets: this.summary_inds.map((i) => {
+          return {
+            label: this.indNameLookup[i],
+            fill: false,
+            pointRadius: 6,
+            borderColor: this.summary_inds_colors[i],
+            data: this.years.map(y => this.report_data[i][y]),
+          }
+        }),
+      }, {
+        title: {
+          text: 'Summary',
+          fontSize: 18,
+          fontColor: 'black',
+          position: 'top',
+          display: false,
         },
         legend: {
           display: true,
