@@ -27,6 +27,7 @@
           >{{ namesFromGeotype[geotype].lookup[id] }}
           </option>
         </select>
+        <calcite-button icon-start="print" color="white" style="margin-left: 20px" v-on:click="window.print()">Print</calcite-button>
       </div>
     </div>
     <h1>{{selectedName || 'Southeast Michigan'}} - 2045 Forecast Summary</h1>
@@ -126,6 +127,7 @@ import * as d3 from 'd3'
 import horizontalBar from "./horizontalBarChart.vue"
 import lineChart from "./lineChart.vue"
 import ShortcutSelect from "./ShortcutSelect.vue"
+import "@esri/calcite-components/dist/components/calcite-button";
 
 export default {
   name: 'reportComponent',

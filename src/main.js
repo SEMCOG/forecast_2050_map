@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
 Vue.config.productionTip = false
+Vue.prototype.window = window;
 
 let router = new VueRouter({
   mode: 'history',
