@@ -61,9 +61,14 @@ export default {
     if (qgeoid) {
       geoid = {'geoid': qgeoid, 'geotype': geotype}
     }
+    let qind = this.$route.query.ind
+    let ind = 'pop_change'
+    if (qgeoid) {
+      ind = qind
+    }
     return {
       geotype: geotype,
-      ind: 'pop_change',
+      ind: ind,
       selectedFeature: geoid,
       printOnLoad: this.$route.query.print,
       ind_lookup: {
@@ -335,7 +340,7 @@ export default {
           }
         },
         labelPlacement: "always-horizontal",
-        where: "geoid < 600",
+        where: "geoid < 600 and geotype = 'city'",
         minScale: 200000,
         labelExpressionInfo: {
           expression: "$feature.area_name"
@@ -370,6 +375,9 @@ export default {
       }
       if (this.geotype) {
         out.geotype = this.geotype
+      }
+      if (this.ind) {
+        out.ind = this.ind
       }
       return out
     },
@@ -502,19 +510,22 @@ export default {
         }
       }
     },
-    ind: function () {
-      if (this.ind) {
-        this.forecast_layer_renderer.field = this.ind
-        this.forecast_layer_county_renderer.field = this.ind
-        this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
-        this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
-        if (this.geotype === 'city') {
-          this.forecast_layer.renderer = this.forecast_layer_renderer
-        } else {
-          this.forecast_layer.renderer = this.forecast_layer_county_renderer
+    ind: {
+      immediate: true,
+      handler: function () {
+        if (this.ind) {
+          this.forecast_layer_renderer.field = this.ind
+          this.forecast_layer_county_renderer.field = this.ind
+          this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
+          this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
+          if (this.geotype === 'city') {
+            this.forecast_layer.renderer = this.forecast_layer_renderer
+          } else {
+            this.forecast_layer.renderer = this.forecast_layer_county_renderer
+          }
+          this.forecast_layer_effect.filter.where = `${this.ind} > 500`
+          this.forecast_layer.featureEffect = this.forecast_layer_effect
         }
-        this.forecast_layer_effect.filter.where = `${this.ind} > 500`
-        this.forecast_layer.featureEffect = this.forecast_layer_effect
       }
     }
   }
