@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div id="mapContainer" class="no-print">
+    <div id="mapContainer">
       <div id="map" ref="map">
-        <div id="ind_select" class="esri-widget" style="padding: 10px;">
+        <div id="ind_select" class="esri-widget no-print" style="padding: 10px;">
           <label style="font-size: large; margin: 5px;" for="geo"> Choose Geography: </label>
           <select v-model="geotype"
                   class="esri-widget" name="geo" id="geo" style="font-size: large; padding: 10px">
@@ -24,7 +24,10 @@
         </div>
       </div>
     </div>
-    <reportComponent v-bind:selectedFeature='selectedFeature' id="report"></reportComponent>
+    <reportComponent v-bind:selectedFeature='selectedFeature'
+                     v-on:selected-id="selectedFeature = {geoid: $event}"
+                     v-on:geotype="geotype = $event"
+                     id="report"></reportComponent>
   </div>
 
 </template>
@@ -39,6 +42,7 @@ import FeatureEffect from "@arcgis/core/layers/support/FeatureEffect";
 import FeatureFilter from "@arcgis/core/layers/support/FeatureFilter";
 import Legend from "@arcgis/core/widgets/Legend";
 import reportComponent from "./components/report.vue"
+import {diff} from 'deep-diff';
 
 
 export default {
@@ -47,10 +51,21 @@ export default {
     reportComponent
   },
   data: function (){
+    let qgeotype = this.$route.query.geotype;
+    let geotype = 'city'
+    if (qgeotype) {
+      geotype = qgeotype
+    }
+    let qgeoid = parseInt(this.$route.query.geoid, 10);
+    let geoid = {geoid: 8999}
+    if (qgeoid) {
+      geoid = {'geoid': qgeoid, 'geotype': geotype}
+    }
     return {
-      geotype: 'city',
+      geotype: geotype,
       ind: 'pop_change',
-      selectedFeature: {},
+      selectedFeature: geoid,
+      printOnLoad: this.$route.query.print,
       ind_lookup: {
         'pop_change': {name: 'Total Population'},
         'hh_change': {name: 'Total Households'},
@@ -347,7 +362,17 @@ export default {
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
       });
-    }
+    },
+    query: function () {
+      let out = {};
+      if (this.selectedFeature) {
+        out.geoid = this.selectedFeature.geoid
+      }
+      if (this.geotype) {
+        out.geotype = this.geotype
+      }
+      return out
+    },
   },
   methods: {},
   mounted() {
@@ -424,6 +449,24 @@ export default {
       layerView.filter = {
         where: `geotype = '${this.geotype}'`
       };
+      if (this.printOnLoad) {
+        let query = {
+          where: `1=1`
+        }
+        if (this.selectedFeature && this.selectedFeature.geoid !== 8999) {
+          query = {
+            where: `geoid = '${this.selectedFeature.geoid}'`
+          }
+        }
+        this.forecast_layer_info.queryExtent(query).then((e) => {
+          this.view.goTo(e.extent.expand(1.5), {animate: false, duration: 0,})
+          window.setTimeout(() => { // wait for loader to disappear
+            window.focus();
+            window.print();
+            window.close();
+          }, 2000)
+        })
+      }
     });
 
     const legend = new Legend({
@@ -433,6 +476,14 @@ export default {
     this.view.ui.add(legend, "bottom-left");
   },
   watch: {
+    query: function (oldVal, newVal) {
+      if (diff(oldVal, newVal)) {
+        this.$router.replace({
+          path: "./",
+          query: this.query
+        })
+      }
+    },
     geotype: function () {
       this.view.whenLayerView(this.forecast_layer).then((layerView) => {
         layerView.filter = {
@@ -504,6 +555,27 @@ export default {
 @media print {
   .no-print {
     display: none !important;
+  }
+
+  #app{
+    grid-template-rows: unset;
+  }
+
+  .esri-zoom {
+    display: none !important;
+  }
+
+  .esri-attribution {
+    display: none !important;
+  }
+
+  #mapContainer {
+    display: block !important;
+    grid-column: unset !important;
+    grid-row: unset !important;
+    margin: auto;
+    width: 800px;
+    height: 600px;
   }
 }
 

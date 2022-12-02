@@ -27,7 +27,7 @@
           >{{ namesFromGeotype[geotype].lookup[id] }}
           </option>
         </select>
-        <calcite-button icon-start="print" color="white" style="margin-left: 20px" v-on:click="window.print()">Print</calcite-button>
+        <calcite-button icon-start="print" color="white" style="margin-left: 20px" v-on:click="openToPrint()">Print</calcite-button>
       </div>
     </div>
     <h1>{{selectedName || 'Southeast Michigan'}} - 2045 Forecast Summary</h1>
@@ -139,9 +139,9 @@ export default {
     return {
       report_data: null,
       queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_4032_school_v2/FeatureServer/0",
-      selectedId: 8999,
+      selectedId: this.selectedFeature.geoid || 8999,
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
-      geotype: 'city',
+      geotype: this.selectedFeature.geotype || 'city',
       namesFromGeotype: Object.freeze({
         'largearea': {
           name: 'Large Areas',
@@ -559,6 +559,14 @@ export default {
       }
       return ratio
     },
+    openToPrint: function () {
+      let search = window.location.search || '?';
+      window.open(
+          window.location.pathname + search + '&print=true',
+          "",
+          "dependent=true"
+      );
+    },
     get_report_data: async function () {
       let areas = `${this.namesFromGeotype[this.geotype].column_name} = ${this.selectedId}`;
       if (this.selectedId === 8999) {
@@ -664,6 +672,7 @@ export default {
           this.geotype = 'city'
         }
       }
+      this.$emit('geotype', this.geotype)
       if (this.selectedFeature['geoid']) {
         this.selectedId = this.selectedFeature.geoid
       }
@@ -671,6 +680,7 @@ export default {
     },
     selectedId: function () {
       this.get_report_data()
+      this.$emit('selected-id', this.selectedId)
     },
   },
   mounted() {
@@ -885,6 +895,7 @@ table tbody tr.dashed th, table tbody tr.dashed td {
     grid-row: unset !important;
     grid-column: unset !important;
     margin: auto !important;
+    position: relative;
   }
   .page-break {
     page-break-before: always !important;
