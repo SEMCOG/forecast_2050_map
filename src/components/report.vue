@@ -20,11 +20,11 @@
           >Southeast Michigan
           </option>
           <option
-              v-for="id in Object.keys(namesFromGeotype[geotype].lookup)"
-              v-bind:key="id"
-              v-bind:value="id"
-              v-bind:selected="selectedId===parseInt(id, 10)"
-          >{{ namesFromGeotype[geotype].lookup[id] }}
+              v-for="(list, key) in Array.from(namesFromGeotype[geotype].lookup)"
+              v-bind:key="key"
+              v-bind:value="list[0]"
+              v-bind:selected="selectedId===parseInt(list[0], 10)"
+          >{{ list[1]}}
           </option>
         </select>
         <calcite-button icon-start="print" color="white" style="margin-left: 20px" v-on:click="openToPrint()">Print</calcite-button>
@@ -379,7 +379,7 @@ export default {
   },
   computed: {
     selectedName: function () {
-      return this.namesFromGeotype[this.geotype].lookup[this.selectedId]
+      return this.namesFromGeotype[this.geotype].lookup.get(this.selectedId.toString())
     },
     ageChart: function () {
       return [{
@@ -551,6 +551,19 @@ export default {
     format2dec: d3.format('.2f'),
     formatPercent: d3.format('.2%'),
     format: d3.format(','),
+    sortObject: function (obj) {
+      const sorted_names = Object.values(obj).sort()
+      const city_ids = Object.keys(obj)
+      let new_obj = new Map()
+      for (let n = 0; n < sorted_names.length; n++) {
+        for (let i = 0; i < city_ids.length; i++) {
+          if (obj[city_ids[i]] === sorted_names[n]) {
+            new_obj.set(city_ids[i], sorted_names[n])
+          }
+        }
+      }
+      return new_obj
+    },
     filterRatio: function (ratio) {
       if (isFinite(ratio)) {
         ratio = this.format2dec(ratio)
@@ -699,9 +712,9 @@ export default {
               counties[f.geoid] = f.area_name;
             }
           });
-          this.namesFromGeotype['city'].lookup = communities
-          this.namesFromGeotype['largearea'].lookup = largeareas
-          this.namesFromGeotype['county'].lookup = counties
+          this.namesFromGeotype['city'].lookup = this.sortObject(communities)
+          this.namesFromGeotype['largearea'].lookup = this.sortObject(largeareas)
+          this.namesFromGeotype['county'].lookup = this.sortObject(counties)
         });
 
     this.get_report_data()
