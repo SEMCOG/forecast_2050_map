@@ -577,7 +577,7 @@ export default {
       window.open(
           window.location.pathname + search + '&print=true',
           "",
-          "dependent=true"
+          " width=1200, height=1200 dependent=true"
       );
     },
     get_report_data: async function () {
@@ -736,7 +736,7 @@ export default {
 table {
   background: #FFFFFF;
   margin-bottom: 1.25rem;
-  table-layout: auto;
+  table-layout: fixed;
   width: 100%;
   border-spacing: 0;
 }
@@ -790,7 +790,7 @@ table thead tr:last-child th {
 }
 
 table tr .tableChangGap {
-  width: 3.5em;
+  width: 2%;
   background: white;
   border-color: white;
 }
@@ -854,7 +854,6 @@ table tbody tr.dashed th, table tbody tr.dashed td {
   margin: 2px;
   border: solid 2px #000000;
   border-radius: 10px;
-  width: 100%;
 }
 
 .name {
@@ -876,6 +875,19 @@ table tbody tr.dashed th, table tbody tr.dashed td {
 @media (max-width: 1000px) {
   .name {
     padding: 10px 10px 5px;
+  }
+  table tr th, table tr td {
+    padding: 0.2rem 0.425rem;
+    font-size: 0.75rem;
+    color: #222222;
+    text-align: right;
+  }
+  #report {
+    padding: 0 4% 4% 4%;
+  }
+  .controls {
+    grid-template-columns:  unset;
+    display: block;
   }
 }
 

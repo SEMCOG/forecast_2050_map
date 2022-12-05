@@ -545,15 +545,12 @@ export default {
 #mapContainer {
   grid-column: 1;
   grid-row: 1;
-  position: relative;
-  display: grid;
 }
 
 #report {
+  width: inherit;
   grid-column: 1;
   grid-row: 2;
-  position: relative;
-  display: grid;
 }
 
 #map {
