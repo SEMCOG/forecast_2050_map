@@ -577,7 +577,7 @@ export default {
       window.open(
           window.location.pathname + search + '&print=true',
           "",
-          " width=1200, height=1200 dependent=true"
+          " width=1200, height=1200"
       );
     },
     get_report_data: async function () {
