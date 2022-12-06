@@ -326,6 +326,93 @@ export default {
         includedEffect: includedEffect
       });
     },
+    events_layer_renderer: function () {
+      const colors = ["#e00d0f", "#79dcf6", "#b9a6c5", "#c27c30", "#fae29b", "#eaa51c"];
+
+      const commonProperties = {
+        type: "simple-fill",
+        style: "solid",
+        outline: {
+          width: 2,
+          color: '#ffffff'
+        }
+      };
+
+        const commercial = {
+          ...commonProperties,
+          color: colors[0]
+        };
+
+        const institutional = {
+          ...commonProperties,
+          color: colors[1]
+        };
+
+        const industrial = {
+          ...commonProperties,
+          color: colors[2]
+        };
+
+        const medical = {
+          ...commonProperties,
+          color: colors[3]
+        };
+
+      const residential = {
+          ...commonProperties,
+          color: colors[4]
+        };
+
+      const multi_residential = {
+        ...commonProperties,
+        color: colors[5]
+      };
+
+        const renderer = {
+          type: "unique-value", // autocasts as new UniqueValueRenderer()
+          field: "build_type",
+          legendOptions: {
+            title: "Building Type"
+          },
+          label: "Building Type",
+          uniqueValueGroups: [{
+              classes: [
+                  {
+                values: [21, 22, 23, 24, 25, 26, 41, 42, 43, 61, 62, 71],
+                symbol: commercial,
+                label: "Commercial"
+              },
+                {
+                  values: [11, 12, 13, 14],
+                  symbol: institutional,
+                  label: "Institutional"
+                },
+                {
+                  values: [31, 32, 33],
+                  symbol: industrial,
+                  label: "Industrial"
+                },
+                {
+                  values: [51, 52, 53],
+                  symbol: medical,
+                  label: "Medical"
+                },
+                {
+                  values: [81],
+                  symbol: residential,
+                  label: "Single-Family Residential"
+                },
+                {
+                  values: [82, 83, 84],
+                  symbol: multi_residential,
+                  label: "Multi-Family Residential"
+                }
+                ]
+            }
+          ]
+        };
+        return renderer
+    },
     detroit_neighborhood_labels: function () {
       const labelClass = {
         // autocasts as new LabelClass()
@@ -359,6 +446,40 @@ export default {
         orderBy: {field: 'SHAPE__Area', order: 'ascending'}
       });
     },
+    events_layer: function () {
+      return new FeatureLayer({
+        url:
+            "https://gis.semcog.org/server/rest/services/terra_events_2050/FeatureServer/54",
+        title: 'Construction Events',
+        minScale: 200000,
+        maxScale: 0,
+        renderer: this.events_layer_renderer,
+        //featureEffect: this.forecast_layer_effect,
+      });
+    },
+    demos_layer: function () {
+      return new FeatureLayer({
+        url:
+            "https://gis.semcog.org/server/rest/services/terra_demos_2050/FeatureServer/53",
+        title: 'Demolition Events',
+        minScale: 200000,
+        maxScale: 0,
+        renderer: {
+          type: 'simple',
+          symbol: {
+            type: "simple-fill",
+            style: "solid",
+            color: '#000000',
+            outline: {
+              width: 2,
+              color: '#000000'
+            }
+          },
+        }
+        //featureEffect: this.forecast_layer_effect,
+      });
+    },
+
     forecast_layer: function () {
       return new FeatureLayer({
         url:
@@ -423,6 +544,8 @@ export default {
 
     this.map.add(this.forecast_layer)
     this.map.add(this.forecast_layer_info)
+    this.map.add(this.demos_layer)
+    this.map.add(this.events_layer)
 
     this.view.popup.viewModel.includeDefaultActions = false;
     this.view.popup.alignment = 'bottom-right'
