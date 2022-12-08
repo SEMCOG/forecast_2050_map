@@ -438,12 +438,11 @@ export default {
     forecast_layer_info: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer/52",
-        opacity: 0,
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer/56",
+        opacity: 0.001,
         legendEnabled: false,
         popupTemplate: this.popup,
         labelingInfo: [this.detroit_neighborhood_labels],
-        orderBy: {field: 'SHAPE__Area', order: 'ascending'}
       });
     },
     events_layer: function () {
@@ -483,7 +482,7 @@ export default {
     forecast_layer: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer/52",
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer/56",
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,

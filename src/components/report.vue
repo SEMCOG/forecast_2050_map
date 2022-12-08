@@ -30,7 +30,7 @@
         <calcite-button icon-start="print" color="white" style="margin-left: 20px" v-on:click="openToPrint()">Print</calcite-button>
       </div>
     </div>
-    <h1>{{selectedName || 'Southeast Michigan'}} - 2045 Forecast Summary</h1>
+    <h1>{{selectedName || 'Southeast Michigan'}} - 2050 Forecast Summary</h1>
         <lineChart v-bind:chartData="summaryChart[0]"
                v-bind:options="summaryChart[1]"
                v-bind:style="{width: '100%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
@@ -45,14 +45,14 @@
         <th></th>
         <th></th>
         <th class="tableChangGap"></th>
-        <th colspan="2">Change 2015 - 45</th>
+        <th colspan="2">Change 2020 - 50</th>
       </tr>
       <tr>
         <th></th>
-        <th>2015</th>
-        <th>2025</th>
-        <th>2035</th>
-        <th>2045</th>
+        <th>2020</th>
+        <th>2030</th>
+        <th>2040</th>
+        <th>2050</th>
         <th class="tableChangGap"></th>
         <th>Number</th>
         <th>Percent</th>
@@ -61,13 +61,13 @@
       <tbody>
       <tr v-for="ind in hh_table_inds" v-bind:key="ind" :class="{ 'not_indent': not_indent[ind], 'dashed': dash[ind] }">
         <th>{{ indNameLookup[ind] }}</th>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2015'])}}</td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2025'])}}</td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2035'])}}</td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2045'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2020'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2030'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2040'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'])}}</td>
         <td class="tableChangGap"></td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2045'] - report_data[ind]['yr2015'])}}</td>
-        <td v-if="report_data[ind]">{{formatPercent((report_data[ind]['yr2045'] - report_data[ind]['yr2015']) / report_data[ind]['yr2015'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'] - report_data[ind]['yr2020'])}}</td>
+        <td v-if="report_data[ind]">{{formatPercent((report_data[ind]['yr2050'] - report_data[ind]['yr2020']) / report_data[ind]['yr2020'])}}</td>
       </tr>
       </tbody>
     </table>
@@ -86,14 +86,14 @@
         <th></th>
         <th></th>
         <th class="tableChangGap"></th>
-        <th colspan="2">Change 2015 - 45</th>
+        <th colspan="2">Change 2020 - 50</th>
       </tr>
       <tr>
         <th></th>
-        <th>2015</th>
-        <th>2025</th>
-        <th>2035</th>
-        <th>2045</th>
+        <th>2020</th>
+        <th>2030</th>
+        <th>2040</th>
+        <th>2050</th>
         <th class="tableChangGap"></th>
         <th>Number</th>
         <th>Percent</th>
@@ -102,13 +102,13 @@
       <tbody>
       <tr v-for="ind in indicators_table_jobs" v-bind:key="ind" :class="{ 'not_indent': ind === 'jobs_total'}">
         <th>{{ indNameLookup[ind] }}</th>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2015'])}}</td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2025'])}}</td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2035'])}}</td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2045'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2020'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2030'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2040'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'])}}</td>
         <td class="tableChangGap"></td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2045'] - report_data[ind]['yr2015'])}}</td>
-        <td v-if="report_data[ind]">{{formatPercent((report_data[ind]['yr2045'] - report_data[ind]['yr2015']) / report_data[ind]['yr2015'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'] - report_data[ind]['yr2020'])}}</td>
+        <td v-if="report_data[ind]">{{formatPercent((report_data[ind]['yr2050'] - report_data[ind]['yr2020']) / report_data[ind]['yr2020'])}}</td>
       </tr>
       </tbody>
     </table>
@@ -138,7 +138,7 @@ export default {
   data: function () {
     return {
       report_data: null,
-      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_4032_school_v2/FeatureServer/0",
+      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_325/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
       geotype: this.selectedFeature.geotype || 'city',
@@ -297,7 +297,7 @@ export default {
       }),
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
       dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, "hh": true},
-      years: ['yr2015', 'yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045'],
+      years: ['yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
       hh_table_inds: ["pop", "hh_pop", "gq_pop",
       "pop_age_00_04", "pop_age_05_17", "pop_age_18_24", "pop_age_25_54", "pop_age_55_64", "pop_age_65_84", "pop_age_85_inf",
       "housing_units", "hhsize", "hh", "with_children", "with_seniors", "hh_size_1", "hh_no_car_or_lt_workers"],
@@ -397,7 +397,7 @@ export default {
             borderColor: 'black',
             backgroundOpacity: 0.7,
             borderWidth: 1,
-            data: this.age_inds.map((i) => this.report_data[i]['yr2045'] - this.report_data[i]['yr2015']),
+            data: this.age_inds.map((i) => this.report_data[i]['yr2050'] - this.report_data[i]['yr2020']),
           },
         ],
       }, {
@@ -450,7 +450,7 @@ export default {
     },
     jobChart: function () {
       return [{
-        labels: [2015, 2020, 2025, 2030, 2035, 2040, 2045],
+        labels: [2020, 2025, 2030, 2035, 2040, 2045, 2050],
         datasets: this.job_inds.map((i) => {
           return {
             label: this.indNameLookup[i],
@@ -499,7 +499,7 @@ export default {
     },
     summaryChart: function () {
       return [{
-        labels: [2015, 2020, 2025, 2030, 2035, 2040, 2045],
+        labels: [2020, 2025, 2030, 2035, 2040, 2045, 2050],
         datasets: this.summary_inds.map((i) => {
           return {
             label: this.indNameLookup[i],
@@ -608,10 +608,6 @@ export default {
       queryObject.returnGeometry = false;
 
       queryObject.outStatistics = [{
-        onStatisticField: "yr2015",
-        outStatisticFieldName: "yr2015",
-        statisticType: "sum"
-      }, {
         onStatisticField: "yr2020",
         outStatisticFieldName: "yr2020",
         statisticType: "sum"
@@ -639,10 +635,15 @@ export default {
           onStatisticField: "yr2045",
           outStatisticFieldName: "yr2045",
           statisticType: "sum"
+        },
+      {
+          onStatisticField: "yr2050",
+          outStatisticFieldName: "yr2050",
+          statisticType: "sum"
         }];
       queryObject.groupByFieldsForStatistics = ["indicator_"];
 
-      queryObject.outFields = ["indicator_, yr2015, yr2020, yr2025, yr2030, yr2035, yr2040, yr2045"];
+      queryObject.outFields = ["indicator_, yr2020, yr2025, yr2030, yr2035, yr2040, yr2045, yr2050"];
       let report_data = {}
       // call the executeQueryJSON() method
 
