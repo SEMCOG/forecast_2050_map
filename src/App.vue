@@ -660,7 +660,7 @@ export default {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 80vh auto;
+  grid-template-rows: 700px auto;
   font-family: Arial, Helvetica, sans-serif;
 }
 

@@ -33,7 +33,7 @@
     <h1>{{selectedName || 'Southeast Michigan'}} - 2050 Forecast Summary</h1>
         <lineChart v-bind:chartData="summaryChart[0]"
                v-bind:options="summaryChart[1]"
-               v-bind:style="{width: '100%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
+               v-bind:style="{width: '100%', height: '500px', position: 'relative', border: 'solid 1px lightgray'}"
                style="align-content: center"/>
     <h2 class="page-break">Population and Households</h2>
     <table>
@@ -74,7 +74,7 @@
 
     <horizontalBar v-bind:chartData="ageChart[0]"
                    v-bind:options="ageChart[1]"
-                   v-bind:style="{width: '100%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
+                   v-bind:style="{width: '100%', height: '500px', position: 'relative', border: 'solid 1px lightgray'}"
                    style="align-content: center"/>
     <h2 class="page-break">Employment by Sector</h2>
     <table>
@@ -115,7 +115,7 @@
 
     <lineChart v-bind:chartData="jobChart[0]"
                v-bind:options="jobChart[1]"
-               v-bind:style="{width: '100%', height: '50vh', position: 'relative', border: 'solid 1px lightgray'}"
+               v-bind:style="{width: '100%', height: '500px', position: 'relative', border: 'solid 1px lightgray'}"
                style="align-content: center"/>
   </div>
 </template>
