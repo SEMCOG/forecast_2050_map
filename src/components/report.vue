@@ -30,10 +30,12 @@
         <calcite-button icon-start="print" color="white" style="margin-left: 20px" v-on:click="openToPrint()">Print</calcite-button>
       </div>
     </div>
+    <img src="header_report_new.png" alt="logo" width="80%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
     <h1>{{ selectedName || 'Southeast Michigan' }} - 2050 Forecast Summary</h1>
     <lineChart v-bind:chartData="summaryChart[0]"
                v-bind:options="summaryChart[1]"
                v-bind:style="{width: '100%', height: '500px'}"/>
+
     <h2 class="page-break">Population and Households</h2>
     <table>
       <thead>
@@ -114,6 +116,10 @@
     <lineChart v-bind:chartData="jobChart[0]"
                v-bind:options="jobChart[1]"
                v-bind:style="{width: '100%', height: '500px'}"/>
+    <div>
+      <p style="text-align: center; margin-top: 25px" class="report-footer">1001 Woodward, Suite 1400  •  Detroit, Michigan 48226  •  (313) 961-4266  •  Fax (313) 961-4869  •
+        <a href="https://semcog.org">semcog.org</a></p>
+    </div>
   </div>
 </template>
 
@@ -909,9 +915,23 @@ table tbody tr.dashed th, table tbody tr.dashed td {
   font-size: 0.8rem;
 }
 
+.print-only {
+  display: none !important; }
+
 @media print {
   .no-print {
     display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .report-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }
   #report{
     display: block !important;

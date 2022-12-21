@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img src="header_report_new.png" alt="logo" width="80%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="print-only">
     <div id="mapContainer">
       <div id="map" ref="map">
         <div id="ind_select" class="esri-widget no-print" style="padding: 10px;">
@@ -682,10 +683,19 @@ export default {
     height: 100%;
 }
 
+.print-only {
+  display: none !important;
+}
+
 @media print {
   .no-print {
     display: none !important;
   }
+
+  .print-only {
+    display: block !important;
+  }
+
 
   #app{
     grid-template-rows: unset;
