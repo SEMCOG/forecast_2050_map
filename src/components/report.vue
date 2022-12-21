@@ -30,7 +30,7 @@
         <calcite-button icon-start="print" color="white" style="margin-left: 20px" v-on:click="openToPrint()">Print</calcite-button>
       </div>
     </div>
-    <img src="header_report_new.png" alt="logo" width="80%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
+    <img src="header_report_new.png" alt="logo" width="50%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
     <h1>{{ selectedName || 'Southeast Michigan' }} - 2050 Forecast Summary</h1>
     <lineChart v-bind:chartData="summaryChart[0]"
                v-bind:options="summaryChart[1]"
