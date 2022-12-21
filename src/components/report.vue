@@ -441,7 +441,7 @@ export default {
           intersect: false,
           callbacks: {
             label: (tooltipItem, data) => {
-              var label = data.datasets[tooltipItem.datasetIndex].label || '';
+              let label = data.datasets[tooltipItem.datasetIndex].label || '';
               label += this.format(tooltipItem.xLabel);
               return label;
             },
@@ -496,6 +496,17 @@ export default {
             formatter: this.format,
           },
         },
+        tooltips: {
+          mode: 'nearest',
+          intersect: false,
+          callbacks: {
+            label: (tooltipItem, data) => {
+              let label = data.datasets[tooltipItem.datasetIndex].label + ' ' || '';
+              label += this.format(tooltipItem.yLabel);
+              return label;
+            },
+          },
+        },
         responsive: true,
         maintainAspectRatio: false,
       }]
@@ -543,6 +554,17 @@ export default {
               weight: 'bold',
             },
             formatter: this.format,
+          },
+        },
+        tooltips: {
+          mode: 'nearest',
+          intersect: false,
+          callbacks: {
+            label: (tooltipItem, data) => {
+              let label = data.datasets[tooltipItem.datasetIndex].label + ' ' || '';
+              label += this.format(tooltipItem.yLabel);
+              return label;
+            },
           },
         },
         responsive: true,
