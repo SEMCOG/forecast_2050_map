@@ -532,7 +532,7 @@ export default {
       container: this.$refs.map,
       map: this.map,
       center: [-83.2437186609522, 42.454430721108764],
-      zoom: 8,
+      zoom: 7,
       navigation: {
         mouseWheelZoomEnabled: false,
         browserTouchPanEnabled: false
@@ -661,7 +661,7 @@ export default {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 700px auto;
+  grid-template-rows: 500px auto;
   font-family: Arial, Helvetica, sans-serif;
 }
 
