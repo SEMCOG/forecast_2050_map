@@ -532,7 +532,7 @@ export default {
       container: this.$refs.map,
       map: this.map,
       center: [-83.2437186609522, 42.454430721108764],
-      zoom: 7,
+      zoom: 8,
       navigation: {
         mouseWheelZoomEnabled: false,
         browserTouchPanEnabled: false
@@ -589,6 +589,8 @@ export default {
             where: `geoid = '${this.selectedFeature.geoid}'`
           }
         }
+        this.events_layer.visible = false
+        this.demos_layer.visible = false
         this.forecast_layer_info.queryExtent(query).then((e) => {
           this.view.goTo(e.extent.expand(1.5), {animate: false, duration: 0,})
           window.setTimeout(() => { // wait for loader to disappear
@@ -661,7 +663,7 @@ export default {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 500px auto;
+  grid-template-rows: 600px auto;
   font-family: Arial, Helvetica, sans-serif;
 }
 
