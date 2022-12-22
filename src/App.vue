@@ -26,8 +26,11 @@
       </div>
     </div>
     <reportComponent v-bind:selectedFeature='selectedFeature'
+                     v-bind:printReport="printReport"
+                     v-bind:currentURL="currentURL"
                      v-on:selected-id="selectedFeature = {geoid: $event}"
                      v-on:geotype="geotype = $event"
+                     v-on:printed="resetPrinting()"
                      id="report"></reportComponent>
   </div>
 
@@ -67,11 +70,18 @@ export default {
     if (qgeoid) {
       ind = qind
     }
+    let printReport = this.$route.query.printreport
+    let print = this.$route.query.print
+    if (printReport === 'true' && !print) {
+      printReport = true
+    }
+
     return {
       geotype: geotype,
       ind: ind,
       selectedFeature: geoid,
-      printOnLoad: this.$route.query.print,
+      printOnLoad: print,
+      printReport: printReport,
       ind_lookup: {
         'pop_change': {name: 'Total Population'},
         'hh_change': {name: 'Total Households'},
@@ -500,10 +510,22 @@ export default {
       if (this.ind) {
         out.ind = this.ind
       }
+      if (this.printReport) {
+        out.printreport = this.printReport
+      }
       return out
     },
+    currentURL: function () {
+      let search = window.location.search || '?';
+      return '.' + search
+    }
   },
-  methods: {},
+  methods: {
+    resetPrinting: function () {
+      this.printReport = false
+      //window.close()
+    }
+  },
   mounted() {
     let communityLabels = new VectorTileLayer({
       portalItem: {

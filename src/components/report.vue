@@ -27,7 +27,7 @@
           >{{ list[1]}}
           </option>
         </select>
-        <calcite-button icon-start="print" color="white" style="margin-left: 20px" v-on:click="openToPrint()">Print</calcite-button>
+        <calcite-button icon-start="print" color="white" style="margin-left: 20px"><a target="_blank" :href="currentURL+'&printreport=true'" style="color: black">Print</a></calcite-button>
       </div>
     </div>
     <img src="header_report_new.png" alt="logo" width="50%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
@@ -137,7 +137,7 @@ export default {
   components: {
     horizontalBar, lineChart, ShortcutSelect
   },
-  props: ['selectedFeature'],
+  props: ['selectedFeature', 'printReport', 'currentURL'],
   data: function () {
     return {
       report_data: null,
@@ -604,6 +604,7 @@ export default {
           "",
           " width=1200, height=1200"
       );
+      this.$emit('printed')
     },
     get_report_data: async function () {
       let areas = `${this.namesFromGeotype[this.geotype].column_name} = ${this.selectedId}`;
@@ -721,6 +722,16 @@ export default {
       this.get_report_data()
       this.$emit('selected-id', this.selectedId)
     },
+    printReport: {
+      immediate: true,
+      handler: function () {
+        if (this.printReport) {
+          window.setTimeout(() => { // wait for loader to disappear
+            this.openToPrint()
+          }, 3000)
+        }
+      }
+    }
   },
   mounted() {
     fetch('land_gisad_whatnots_geo.json')
