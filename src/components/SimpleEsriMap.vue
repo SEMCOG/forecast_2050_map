@@ -18,7 +18,11 @@ export default {
 
     new MapView({
       map: webMap,
-      container: this.$refs.map
+      container: this.$refs.map,
+      navigation: {
+        mouseWheelZoomEnabled: false,
+        browserTouchPanEnabled: false
+      }
     });
   },
 }

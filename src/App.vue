@@ -4,9 +4,10 @@
          style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="print-only">
 
     <div id="intro" class="no-print">
-      <img src="SEM_0042.jpg" alt="" style="width: 100%; position: relative">
+      <div style="background-image: SEM_0042.jpg"></div>
+      <img src="SEM_0042.jpg" alt="" style="width: 100%; position: relative; top: -100px">
       <div style="margin-left: 20%; margin-right: 20%">
-        <h1>2050 Southeast Michigan Regional Development Forecast</h1>
+        <div style="font-weight: bold; font-size: 4rem;">2050 Southeast Michigan Regional Development Forecast</div>
         <p>SEMCOG began development in November 2021 of the 2050 Regional Forecast, which provides a thirty-year
           analysis
           of change in population, households, jobs, and land use for each community in the seven-county region. A new
@@ -28,9 +29,19 @@
       </div>
       <h1 style="margin-left: 20%; margin-right: 20%">Demographic Insights</h1>
       <div
-          style="margin-left: 5%; margin-right: 5%; margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px">
-        <VueSlickCarousel style="grid-column: 1; grid-row: 1">
-        </VueSlickCarousel>
+          style="margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px;">
+        <hooper :settings="demographics_carousel" style="height: auto">
+          <slide >
+            <div style="width: auto; height: auto"><img src="demographics1.JPG" style=" max-width: 100%; height: auto;" alt=""></div>
+          </slide>
+          <slide>
+            <div style="width: auto; height: auto"><img src="demographics2.JPG" style=" max-width: 100%; height: auto;" alt=""></div>
+          </slide>
+          <slide>
+            <div style="width: auto; height: auto"><img src="demographics3.JPG" style=" max-width: 100%; height: auto;" alt=""></div>
+          </slide>
+          <hooper-navigation slot="hooper-addons"></hooper-navigation>
+        </hooper>
         <SimpleEsriMap v-bind:item_id="'ca831d7efac147fdb2f6e4de902af4c9'"
                        style="grid-column: 2; grid-row: 1"></SimpleEsriMap>
       </div>
@@ -81,9 +92,12 @@ import Legend from "@arcgis/core/widgets/Legend";
 import reportComponent from "./components/report.vue"
 import {diff} from 'deep-diff';
 import SimpleEsriMap from "@/components/SimpleEsriMap.vue";
-import VueSlickCarousel from 'vue-slick-carousel'
-// optional style for arrows & dots
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import {
+  Hooper,
+  Slide,
+  Navigation as HooperNavigation
+  } from 'hooper';
+import 'hooper/dist/hooper.css';
 
 
 export default {
@@ -91,7 +105,9 @@ export default {
   components: {
     SimpleEsriMap,
     reportComponent,
-    VueSlickCarousel
+    Hooper,
+    Slide,
+    HooperNavigation
   },
   data: function () {
     let qgeotype = this.$route.query.geotype;
@@ -175,6 +191,12 @@ export default {
         ]
       };
       return template
+    },
+    demographics_carousel: function () {
+      return {
+        itemsToShow: 1,
+        centerMode: false
+      }
     },
     forecast_layer_renderer: function () {
       const more3kgain = {
@@ -706,6 +728,7 @@ export default {
   height: 100%;
   display: grid;
   grid-template-rows: auto 600px auto;
+  grid-template-columns: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
