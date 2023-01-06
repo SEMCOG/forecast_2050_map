@@ -1,6 +1,42 @@
 <template>
   <div id="app">
-    <img src="header_report_new.png" alt="logo" width="80%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="print-only">
+    <img src="header_report_new.png" alt="logo" width="80%"
+         style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="print-only">
+
+    <div id="intro" class="no-print">
+      <img src="SEM_0042.jpg" alt="" style="width: 100%; position: relative">
+      <div style="margin-left: 20%; margin-right: 20%">
+        <h1>2050 Southeast Michigan Regional Development Forecast</h1>
+        <p>SEMCOG began development in November 2021 of the 2050 Regional Forecast, which provides a thirty-year
+          analysis
+          of change in population, households, jobs, and land use for each community in the seven-county region. A new
+          forecast of the region's future is produced once every five years.
+
+          The Regional Forecast is critical in understanding how many people will live and work in our region in the
+          future. Knowing where households and jobs will be located helps us understand where to plan future
+          infrastructure improvements – roads, bridges, water and sewer.
+
+          SEMCOG’s 2050 Regional Forecast for Counties and Municipalities in Southeast Michigan will be adopted on March
+          23, 2023. Until that time, all information contained in the 2050 Regional Forecast is considered DRAFT and
+          subject to change.
+
+          SEMCOG’s 2050 Regional Forecast for Intermediate and Local School Districts, and for Small Geographic Areas
+          within communities, will be released in July 2023.
+
+          SEMCOG’s 2050 Regional Forecast for the those portions of State House and Senate Districts, U.S. Congressional
+          Districts, and Watersheds, within our region will be released in Fall 2023.</p>
+      </div>
+      <h1 style="margin-left: 20%; margin-right: 20%">Demographic Insights</h1>
+      <div
+          style="margin-left: 5%; margin-right: 5%; margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px">
+        <VueSlickCarousel style="grid-column: 1; grid-row: 1">
+        </VueSlickCarousel>
+        <SimpleEsriMap v-bind:item_id="'ca831d7efac147fdb2f6e4de902af4c9'"
+                       style="grid-column: 2; grid-row: 1"></SimpleEsriMap>
+      </div>
+
+
+    </div>
     <div id="mapContainer">
       <div id="map" ref="map">
         <div id="ind_select" class="esri-widget no-print" style="padding: 10px;">
@@ -44,14 +80,20 @@ import FeatureFilter from "@arcgis/core/layers/support/FeatureFilter";
 import Legend from "@arcgis/core/widgets/Legend";
 import reportComponent from "./components/report.vue"
 import {diff} from 'deep-diff';
+import SimpleEsriMap from "@/components/SimpleEsriMap.vue";
+import VueSlickCarousel from 'vue-slick-carousel'
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 
 export default {
   name: 'App',
   components: {
-    reportComponent
+    SimpleEsriMap,
+    reportComponent,
+    VueSlickCarousel
   },
-  data: function (){
+  data: function () {
     let qgeotype = this.$route.query.geotype;
     let geotype = 'city'
     if (qgeotype) {
@@ -136,187 +178,187 @@ export default {
     },
     forecast_layer_renderer: function () {
       const more3kgain = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#136400",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#136400",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
-        const gain501to3k = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#8ec61a",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+      const gain501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#8ec61a",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
-        const loss500lossto500gain = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#f7f3c7",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+      const loss500lossto500gain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#f7f3c7",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
-        const loss501to3k = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#FF9900",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+      const loss501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FF9900",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
       const more3kloss = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#F11810",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#F11810",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
-        const renderer = {
-          type: "class-breaks", // autocasts as new ClassBreaksRenderer()
-          field: 'pop_change',
-          legendOptions: {
-            title: "Total Population 2020 - 2050"
+      const renderer = {
+        type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+        field: 'pop_change',
+        legendOptions: {
+          title: "Total Population 2020 - 2050"
+        },
+        classBreakInfos: [
+          {
+            minValue: 3000,
+            maxValue: 10000000,
+            symbol: more3kgain,
+            label: "More than 3,000 gain"
           },
-          classBreakInfos: [
-            {
-              minValue: 3000,
-              maxValue: 10000000,
-              symbol: more3kgain,
-              label: "More than 3,000 gain"
-            },
-            {
-              minValue: 501,
-              maxValue: 3000,
-              symbol: gain501to3k,
-              label: "Gain, 501 to 3,000"
-            },
-            {
-              minValue: -500,
-              maxValue: 500,
-              symbol: loss500lossto500gain,
-              label: "Little change, 500 loss to 500 gain"
-            },
-            {
-              minValue: -3000,
-              maxValue: -501,
-              symbol: loss501to3k,
-              label: "Loss, 501 to 3,000"
-            },
-            {
-              minValue: -10000000,
-              maxValue: -3000,
-              symbol: more3kloss,
-              label: "More than 3,000 loss"
-            }
-          ]
-        };
-        return renderer
+          {
+            minValue: 501,
+            maxValue: 3000,
+            symbol: gain501to3k,
+            label: "Gain, 501 to 3,000"
+          },
+          {
+            minValue: -500,
+            maxValue: 500,
+            symbol: loss500lossto500gain,
+            label: "Little change, 500 loss to 500 gain"
+          },
+          {
+            minValue: -3000,
+            maxValue: -501,
+            symbol: loss501to3k,
+            label: "Loss, 501 to 3,000"
+          },
+          {
+            minValue: -10000000,
+            maxValue: -3000,
+            symbol: more3kloss,
+            label: "More than 3,000 loss"
+          }
+        ]
+      };
+      return renderer
     },
     forecast_layer_county_renderer: function () {
       const more3kgain = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#136400",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#136400",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
-        const gain501to3k = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#8ec61a",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+      const gain501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#8ec61a",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
-        const loss500lossto500gain = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#f7f3c7",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+      const loss500lossto500gain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#f7f3c7",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
-        const loss501to3k = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#FF9900",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+      const loss501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FF9900",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
       const more3kloss = {
-          type: "simple-fill", // autocasts as new SimpleFillSymbol()
-          color: "#F11810",
-          style: "solid",
-          outline: {
-            width: 1,
-            color: '#000000'
-          }
-        };
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#F11810",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
 
-        const renderer = {
-          type: "class-breaks", // autocasts as new ClassBreaksRenderer()
-          field: 'pop_change',
-          legendOptions: {
-            title: "Total Population 2020 - 2050"
+      const renderer = {
+        type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+        field: 'pop_change',
+        legendOptions: {
+          title: "Total Population 2020 - 2050"
+        },
+        classBreakInfos: [
+          {
+            minValue: 75000,
+            maxValue: 10000000,
+            symbol: more3kgain,
+            label: "More than 75,000 gain"
           },
-          classBreakInfos: [
-            {
-              minValue: 75000,
-              maxValue: 10000000,
-              symbol: more3kgain,
-              label: "More than 75,000 gain"
-            },
-            {
-              minValue: 50000,
-              maxValue: 75000,
-              symbol: gain501to3k,
-              label: "Gain, 50,000 to 75,000"
-            },
-            {
-              minValue: -50000,
-              maxValue: 50000,
-              symbol: loss500lossto500gain,
-              label: "Little change, 50,000 loss to 50,000 gain"
-            },
-            {
-              minValue: -50000,
-              maxValue: -20000,
-              symbol: loss501to3k,
-              label: "Loss, 20,000 to 50,000"
-            },
-            {
-              minValue: -10000000,
-              maxValue: -50000,
-              symbol: more3kloss,
-              label: "More than 50,000 loss"
-            }
-          ]
-        };
-        return renderer
+          {
+            minValue: 50000,
+            maxValue: 75000,
+            symbol: gain501to3k,
+            label: "Gain, 50,000 to 75,000"
+          },
+          {
+            minValue: -50000,
+            maxValue: 50000,
+            symbol: loss500lossto500gain,
+            label: "Little change, 50,000 loss to 50,000 gain"
+          },
+          {
+            minValue: -50000,
+            maxValue: -20000,
+            symbol: loss501to3k,
+            label: "Loss, 20,000 to 50,000"
+          },
+          {
+            minValue: -10000000,
+            maxValue: -50000,
+            symbol: more3kloss,
+            label: "More than 50,000 loss"
+          }
+        ]
+      };
+      return renderer
     },
     forecast_layer_effect: function () {
       const includedEffect = "drop-shadow(3px, 3px, 4px)";
@@ -339,80 +381,80 @@ export default {
         }
       };
 
-        const commercial = {
-          ...commonProperties,
-          color: colors[0]
-        };
+      const commercial = {
+        ...commonProperties,
+        color: colors[0]
+      };
 
-        const institutional = {
-          ...commonProperties,
-          color: colors[1]
-        };
+      const institutional = {
+        ...commonProperties,
+        color: colors[1]
+      };
 
-        const industrial = {
-          ...commonProperties,
-          color: colors[2]
-        };
+      const industrial = {
+        ...commonProperties,
+        color: colors[2]
+      };
 
-        const medical = {
-          ...commonProperties,
-          color: colors[3]
-        };
+      const medical = {
+        ...commonProperties,
+        color: colors[3]
+      };
 
       const residential = {
-          ...commonProperties,
-          color: colors[4]
-        };
+        ...commonProperties,
+        color: colors[4]
+      };
 
       const multi_residential = {
         ...commonProperties,
         color: colors[5]
       };
 
-        const renderer = {
-          type: "unique-value", // autocasts as new UniqueValueRenderer()
-          field: "build_type",
-          legendOptions: {
-            title: "Building Type"
-          },
-          label: "Building Type",
-          uniqueValueGroups: [{
-              classes: [
-                  {
-                values: [21, 22, 23, 24, 25, 26, 41, 42, 43, 61, 62, 71],
-                symbol: commercial,
-                label: "Commercial"
-              },
-                {
-                  values: [11, 12, 13, 14],
-                  symbol: institutional,
-                  label: "Institutional"
-                },
-                {
-                  values: [31, 32, 33],
-                  symbol: industrial,
-                  label: "Industrial"
-                },
-                {
-                  values: [51, 52, 53],
-                  symbol: medical,
-                  label: "Medical"
-                },
-                {
-                  values: [81],
-                  symbol: residential,
-                  label: "Single-Family Residential"
-                },
-                {
-                  values: [82, 83, 84],
-                  symbol: multi_residential,
-                  label: "Multi-Family Residential"
-                }
-                ]
+      const renderer = {
+        type: "unique-value", // autocasts as new UniqueValueRenderer()
+        field: "build_type",
+        legendOptions: {
+          title: "Building Type"
+        },
+        label: "Building Type",
+        uniqueValueGroups: [{
+          classes: [
+            {
+              values: [21, 22, 23, 24, 25, 26, 41, 42, 43, 61, 62, 71],
+              symbol: commercial,
+              label: "Commercial"
+            },
+            {
+              values: [11, 12, 13, 14],
+              symbol: institutional,
+              label: "Institutional"
+            },
+            {
+              values: [31, 32, 33],
+              symbol: industrial,
+              label: "Industrial"
+            },
+            {
+              values: [51, 52, 53],
+              symbol: medical,
+              label: "Medical"
+            },
+            {
+              values: [81],
+              symbol: residential,
+              label: "Single-Family Residential"
+            },
+            {
+              values: [82, 83, 84],
+              symbol: multi_residential,
+              label: "Multi-Family Residential"
             }
           ]
-        };
-        return renderer
+        }
+        ]
+      };
+      return renderer
     },
     detroit_neighborhood_labels: function () {
       const labelClass = {
@@ -562,10 +604,10 @@ export default {
         this.selectedFeature = this.view.popup.selectedFeature.attributes
         let actions = this.view.popup.features.map((f, i) => {
           return {
-          title:  `${f.attributes.area_name}`,
-          id: `${i}`,
-          className: "esri-icon-applications"
-        }
+            title: `${f.attributes.area_name}`,
+            id: `${i}`,
+            className: "esri-icon-applications"
+          }
         })
         this.view.popup.actions = actions
       }
@@ -663,26 +705,37 @@ export default {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 600px auto;
+  grid-template-rows: auto 600px auto;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+#intro {
+  grid-column: 1;
+  grid-row: 1
 }
 
 #mapContainer {
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 #report {
   width: inherit;
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 3;
 }
 
 #map {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .print-only {
@@ -699,7 +752,7 @@ export default {
   }
 
 
-  #app{
+  #app {
     grid-template-rows: unset;
   }
 
