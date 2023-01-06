@@ -4,6 +4,7 @@
 <script>
 import MapView from "@arcgis/core/views/MapView";
 import WebMap from "@arcgis/core/WebMap";
+import Legend from "@arcgis/core/widgets/Legend";
 
 export default {
   name: "SimpleEsriMap",
@@ -16,7 +17,7 @@ export default {
       }
     });
 
-    new MapView({
+    const view = new MapView({
       map: webMap,
       container: this.$refs.map,
       navigation: {
@@ -24,6 +25,12 @@ export default {
         browserTouchPanEnabled: false
       }
     });
+
+    const legend = new Legend({
+      view: view
+    });
+
+    view.ui.add(legend, "bottom-left");
   },
 }
 </script>

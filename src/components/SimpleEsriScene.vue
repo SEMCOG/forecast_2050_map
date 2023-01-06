@@ -4,6 +4,7 @@
 <script>
 import SceneView from "@arcgis/core/views/SceneView";
 import WebScene from "@arcgis/core/WebScene";
+import Legend from "@arcgis/core/widgets/Legend";
 
 export default {
   name: "SimpleEsriMap",
@@ -13,11 +14,11 @@ export default {
     const webScene = new WebScene({                    // Define the web scene reference
       portalItem: {
         id: this.item_id,
-        portal: "https://www.arcgis.com"               // Default: The ArcGIS Online Portal
+        portal: "https://www.arcgis.com"
       }
     });
 
-    new SceneView({                       // Load the web scene
+   const view = new SceneView({
       map: webScene,
       container: this.$refs.map,
       navigation: {
@@ -25,6 +26,12 @@ export default {
         browserTouchPanEnabled: false
       }
     });
+
+    const legend = new Legend({
+      view: view
+    });
+
+    view.ui.add(legend, "bottom-left");
   },
 }
 </script>

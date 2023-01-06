@@ -325,7 +325,11 @@ export default {
     demographics_carousel: function () {
       return {
         itemsToShow: 1,
-        centerMode: false
+        centerMode: false,
+        progress: true,
+        autoPlay: true,
+        playSpeed: 4000,
+        wheelControl: false,
       }
     },
     forecast_layer_renderer: function () {
