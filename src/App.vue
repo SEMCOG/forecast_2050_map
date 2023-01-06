@@ -46,6 +46,28 @@
                        style="grid-column: 2; grid-row: 1"></SimpleEsriMap>
       </div>
 
+      <h1 style="margin-left: 20%; margin-right: 20%">Economic Insights</h1>
+      <div
+          style="margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px;">
+        <hooper :settings="demographics_carousel" style="height: auto; grid-column: 2; grid-row: 1;">
+          <slide>
+            <div style="width: auto; height: auto"><img src="demographics1.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt=""></div>
+          </slide>
+          <slide>
+            <div style="width: auto; height: auto"><img src="demographics2.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt=""></div>
+          </slide>
+          <slide>
+            <div style="width: auto; height: auto"><img src="demographics3.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt=""></div>
+          </slide>
+          <hooper-navigation slot="hooper-addons"></hooper-navigation>
+        </hooper>
+        <SimpleEsriMap v-bind:item_id="'a784dcfb16414f159fe754a2fe1c70cd'"
+                       style="grid-column: 1; grid-row: 1"></SimpleEsriMap>
+      </div>
+
 
     </div>
     <div id="mapContainer">
