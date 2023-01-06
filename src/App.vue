@@ -1,11 +1,17 @@
 <template>
   <div id="app">
+    <SemcogHeader>
+      <span
+          style="line-height: 2em; font-size: 1em;"
+      >
+       2050 Forecast
+      </span>
+    </SemcogHeader>
     <img src="header_report_new.png" alt="logo" width="80%"
          style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="print-only">
 
     <div id="intro" class="no-print">
-      <div style="background-image: SEM_0042.jpg"></div>
-      <img src="SEM_0042.jpg" alt="" style="width: 100%; position: relative; top: -100px">
+      <img src="SEM_0042.jpg" alt="" style="width: 100%; height: 330px; position: relative; object-fit: cover;">
       <div style="margin-left: 20%; margin-right: 20%">
         <div style="font-weight: bold; font-size: 3rem;">2050 Southeast Michigan Regional Development Forecast</div>
         <div style="font-weight: bold; font-size: 2rem;">About</div>
@@ -204,6 +210,7 @@ import FeatureEffect from "@arcgis/core/layers/support/FeatureEffect";
 import FeatureFilter from "@arcgis/core/layers/support/FeatureFilter";
 import Legend from "@arcgis/core/widgets/Legend";
 import reportComponent from "./components/report.vue"
+import SemcogHeader from "./components/SemcogHeader.vue"
 import {diff} from 'deep-diff';
 import SimpleEsriMap from "@/components/SimpleEsriMap.vue";
 import SimpleEsriScene from "@/components/SimpleEsriScene.vue";
@@ -217,6 +224,7 @@ import { Timeline, TimelineItem } from "vue-cute-timeline";
 import "vue-cute-timeline/dist/index.css";
 
 
+
 export default {
   name: 'App',
   components: {
@@ -228,6 +236,7 @@ export default {
     HooperNavigation,
     timeline: Timeline,
     "timeline-item": TimelineItem,
+    SemcogHeader
   },
   data: function () {
     let qgeotype = this.$route.query.geotype;
@@ -847,25 +856,25 @@ export default {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: auto 600px auto;
+  grid-template-rows: max-content auto 600px auto;
   grid-template-columns: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 #intro {
   grid-column: 1;
-  grid-row: 1
+  grid-row: 2
 }
 
 #mapContainer {
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 3;
 }
 
 #report {
   width: inherit;
   grid-column: 1;
-  grid-row: 3;
+  grid-row: 4;
 }
 
 #map {
