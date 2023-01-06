@@ -10,6 +10,7 @@
     <img src="header_report_new.png" alt="logo" width="80%"
          style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="print-only">
 
+    <div class="report-watermark">DRAFT</div>
     <div id="intro" class="no-print">
       <img src="SEM_0042.jpg" alt="" style="width: 100%; height: 330px; position: relative; object-fit: cover;">
       <div style="margin-left: 20%; margin-right: 20%">
@@ -886,6 +887,17 @@ export default {
 
 .print-only {
   display: none !important;
+}
+
+.report-watermark {
+    position: fixed;
+    color: rgba(241, 21, 31, 0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    font-size: 6em;
+    z-index: 3000;
+    pointer-events: none;
 }
 
 @media print {
