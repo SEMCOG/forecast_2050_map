@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SemcogHeader>
+    <SemcogHeader class="no-print">
       <span
           style="line-height: 2em; font-size: 1em;"
       >
@@ -791,7 +791,7 @@ export default {
             window.focus();
             window.print();
             window.close();
-          }, 2000)
+          }, 2500)
         })
       }
     });
