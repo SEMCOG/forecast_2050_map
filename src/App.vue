@@ -7,7 +7,8 @@
       <div style="background-image: SEM_0042.jpg"></div>
       <img src="SEM_0042.jpg" alt="" style="width: 100%; position: relative; top: -100px">
       <div style="margin-left: 20%; margin-right: 20%">
-        <div style="font-weight: bold; font-size: 4rem;">2050 Southeast Michigan Regional Development Forecast</div>
+        <div style="font-weight: bold; font-size: 3rem;">2050 Southeast Michigan Regional Development Forecast</div>
+        <div style="font-weight: bold; font-size: 2rem;">About</div>
         <p>SEMCOG began development in November 2021 of the 2050 Regional Forecast, which provides a thirty-year
           analysis
           of change in population, households, jobs, and land use for each community in the seven-county region. A new
@@ -26,8 +27,36 @@
 
           SEMCOG’s 2050 Regional Forecast for the those portions of State House and Senate Districts, U.S. Congressional
           Districts, and Watersheds, within our region will be released in Fall 2023.</p>
+        <img src="header_report_new.png" alt="logo" width="50%"
+             style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
+        <p>SEMCOG's 2050 Regional Development Forecast provides a long-range and comprehensive view of future
+          demographic and economic changes in Southeast Michigan. It provides base data for updating SEMCOG’s 2050
+          Long-Range Transportation Plan and supports regional and local planning in the areas of transportation, water
+          quality, air quality, and community and economic development. Member communities use the data in planning for
+          future infrastructure and development needs.
+
+          Working with our partners at MDOT and the University of Michigan, SEMCOG developed the population and
+          employment totals for the 2050 Regional Forecast. These projections will serve as the control totals for the
+          upcoming county and community forecasts, and provide an extensive view of how Southeast Michigan will change
+          over the next 30 years. The regional control totals for the 2050 forecast were presented at SEMCOG’s October
+          13, 2022 General Assembly meeting. The slides of the presentation and related materials can be found below.
+        </p>
+        <ul>
+          <li><a href="https://semcog.org/blog/2050-regional-forecast-challenges-and-opportunities" target="_blank">2050 Regional Forecast: Challenges and Opportunities</a></li>
+          <li><a href="https://semcog.org/Portals/0/Documents/Plans-For-The-Region/Regional-Forecast/2050RegionalForecastPresentationOctober2022.pdf" target="_blank">2050 Regional Forecast Presentation</a></li>
+          <li><a href="https://www.youtube.com/watch?v=GihciBkwIvU&t=18s" target="_blank">Recorded Interview with University of Michigan Economists</a></li>
+          <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=SEMCOG%202050%20Forecast%20Summary.pdf" target="_blank">SEMCOG 2050 Regional Forecast Summary</a></li>
+        </ul>
       </div>
-      <h1 style="margin-left: 20%; margin-right: 20%">Demographic Insights</h1>
+      <div style="margin-top: 10%; margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Demographic
+        Insights
+      </div>
+      <p style="margin-left: 20%; margin-right: 20%">The region is projected to grow by 315,000 people in the next 3 decades. It will also be older, and racially
+        and ethnically diverse. The region is projected to experience significant demographic transitions in the coming
+        years because of declining birth rates and aging population. By the end of this decade, all the baby boomers
+        will be older than 65 and, the older population is projected to outnumber the children (under 18 years) for the
+        first time in the region’s history. Because of these transformative trends, net international migration is
+        expected to overtake natural increase as a leading cause of population growth in the coming decades.</p>
       <div
           style="margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px;">
         <hooper :settings="demographics_carousel" style="height: auto">
@@ -46,20 +75,35 @@
                        style="grid-column: 2; grid-row: 1"></SimpleEsriMap>
       </div>
 
-      <h1 style="margin-left: 20%; margin-right: 20%">Economic Insights</h1>
+      <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Economic
+        Insights
+      </div>
+      <p style="margin-left: 20%; margin-right: 20%">Southeast Michigan’s economy will experience modest growth over the next 30 years. Employment growth will be
+        limited by a continued labor shortage, but sectors such as healthcare, professional and technical services,
+        transportation and warehousing, and construction will provide jobs for our residents. Employment in the
+        manufacturing sector remains stable through 2030, but will start to decline after 2030 as the auto industry
+        increasingly turns its attention to electric vehicle production.</p>
       <div
           style="margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px;">
         <hooper :settings="demographics_carousel" style="height: auto; grid-column: 2; grid-row: 1;">
           <slide>
-            <div style="width: auto; height: auto"><img src="demographics1.JPG" style=" max-width: 100%; height: auto;"
+            <div style="width: auto; height: auto"><img src="econ1.JPG" style=" max-width: 100%; height: auto;"
                                                         alt=""></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="demographics2.JPG" style=" max-width: 100%; height: auto;"
+            <div style="width: auto; height: auto"><img src="econ2.JPG" style=" max-width: 100%; height: auto;"
                                                         alt=""></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="demographics3.JPG" style=" max-width: 100%; height: auto;"
+            <div style="width: auto; height: auto"><img src="econ3.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt=""></div>
+          </slide>
+                    <slide>
+            <div style="width: auto; height: auto"><img src="econ4.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt=""></div>
+          </slide>
+                    <slide>
+            <div style="width: auto; height: auto"><img src="econ5.JPG" style=" max-width: 100%; height: auto;"
                                                         alt=""></div>
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
@@ -67,7 +111,55 @@
         <SimpleEsriMap v-bind:item_id="'a784dcfb16414f159fe754a2fe1c70cd'"
                        style="grid-column: 1; grid-row: 1"></SimpleEsriMap>
       </div>
-
+      <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Land Use Insights
+      </div>
+      <p style="margin-left: 20%; margin-right: 20%">A regional forecast needs the best possible local data to establish the correct future development trends in
+        each community. For that reason, our staff has been meeting with communities to understand their future growth
+        expectations and collect data on planned development. Future residential growth is expected to be more evenly
+        split between single-family and multi-family housing units. The region will add over 100 million square feet of
+        new nonresidential buildings, concentrated in buildings that are fewer in number but larger in size.</p>
+      <div
+          style="margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px;">
+        <hooper :settings="demographics_carousel" style="height: auto; grid-column: 1; grid-row: 1;">
+          <slide>
+            <div style="width: auto; height: auto"><img src="landuse1.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt=""></div>
+          </slide>
+          <slide>
+            <div style="width: auto; height: auto"><img src="landuse2.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt=""></div>
+          </slide>
+          <slide>
+            <div style="width: auto; height: auto"><img src="landuse2.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt=""></div>
+          </slide>
+          <hooper-navigation slot="hooper-addons"></hooper-navigation>
+        </hooper>
+        <SimpleEsriScene v-bind:item_id="'c450a4667c4e414ab444977eab553841'"
+                         style="grid-column: 2; grid-row: 1"></SimpleEsriScene>
+      </div>
+      <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">A Dynamic and Changing Region
+      </div>
+      <div style="margin-left: 20%; margin-right: 20%; margin-bottom: 10%; font-size: large">
+        Timeline
+        <timeline>
+          <timeline-item> <strong>2025</strong> <br> Southeast Michigan exceeds 3 million jobs.</timeline-item>
+          <timeline-item><strong>2028</strong> <br> The senior (those aged 65+) population  now outnumbers the child (aged 0 to 17) population.</timeline-item>
+          <timeline-item><strong>2028</strong> <br> One in five people in the region are age 65 or older.</timeline-item>
+          <timeline-item><strong>2029</strong> <br> The prime working age (ages 25 to 54) labor force returns to its year 2020 figure of 1,526,000.</timeline-item>
+          <timeline-item><strong>2029</strong> <br> The entire baby boom generation will be at least 65 years old.</timeline-item>
+          <timeline-item><strong>2031</strong> <br> The first of the baby boomer generation turns 85 years old.</timeline-item>
+          <timeline-item><strong>2032</strong> <br> Motor vehicle manufacturing employment growth peaks at 115,000 jobs.</timeline-item>
+          <timeline-item><strong>2035</strong> <br> Southeast Michigan’s population exceeds 5 million people.</timeline-item>
+          <timeline-item><strong>2036</strong> <br> Health care jobs, our region’s largest employment sector, surpasses 400,000 jobs.</timeline-item>
+          <timeline-item><strong>2049</strong> <br> The entire baby boom generation will be at least 85 years old.</timeline-item>
+        </timeline>
+      </div>
+      <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Map
+      </div>
+      <p style="margin-left: 20%; margin-right: 20%">Use the map below to explore the results visually. Use the dropdown on the left to choose a layer topic of
+        interest, and view that topic by the different geography types. Click on a geography to get more information.
+        View and print the report beneath the map.</p>
 
     </div>
     <div id="mapContainer">
@@ -114,22 +206,28 @@ import Legend from "@arcgis/core/widgets/Legend";
 import reportComponent from "./components/report.vue"
 import {diff} from 'deep-diff';
 import SimpleEsriMap from "@/components/SimpleEsriMap.vue";
+import SimpleEsriScene from "@/components/SimpleEsriScene.vue";
 import {
   Hooper,
   Slide,
   Navigation as HooperNavigation
   } from 'hooper';
 import 'hooper/dist/hooper.css';
+import { Timeline, TimelineItem } from "vue-cute-timeline";
+import "vue-cute-timeline/dist/index.css";
 
 
 export default {
   name: 'App',
   components: {
     SimpleEsriMap,
+    SimpleEsriScene,
     reportComponent,
     Hooper,
     Slide,
-    HooperNavigation
+    HooperNavigation,
+    timeline: Timeline,
+    "timeline-item": TimelineItem,
   },
   data: function () {
     let qgeotype = this.$route.query.geotype;
@@ -775,12 +873,6 @@ export default {
   margin: 0;
   width: 100%;
   height: 100%;
-}
-
-h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  line-height: 1.2;
 }
 
 .print-only {
