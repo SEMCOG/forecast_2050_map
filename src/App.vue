@@ -13,7 +13,7 @@
     <div class="report-watermark">DRAFT</div>
     <div id="intro" class="no-print">
       <img src="SEM_0042.jpg" alt="" style="width: 100%; height: 330px; position: relative; object-fit: cover;">
-      <div style="margin-left: 20%; margin-right: 20%">
+      <div class="blog_margin">
         <div style="font-weight: bold; font-size: 3rem;">2050 Southeast Michigan Regional Development Forecast</div>
         <div style="font-weight: bold; font-size: 2rem;">About</div>
         <p>SEMCOG began development in November 2021 of the 2050 Regional Forecast, which provides a thirty-year
@@ -55,10 +55,10 @@
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=SEMCOG%202050%20Forecast%20Summary.pdf" target="_blank">SEMCOG 2050 Regional Forecast Summary</a></li>
         </ul>
       </div>
-      <div style="margin-top: 10%; margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Demographic
+      <div class="blog_margin" style="margin-top: 10%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Demographic
         Insights
       </div>
-      <p style="margin-left: 20%; margin-right: 20%">The region is projected to grow by 315,000 people in the next 3 decades. It will also be older, and racially
+      <p class="blog_margin">The region is projected to grow by 315,000 people in the next 3 decades. It will also be older, and racially
         and ethnically diverse. The region is projected to experience significant demographic transitions in the coming
         years because of declining birth rates and aging population. By the end of this decade, all the baby boomers
         will be older than 65 and, the older population is projected to outnumber the children (under 18 years) for the
@@ -80,10 +80,10 @@
         <SimpleEsriMap class="small_map_right" v-bind:item_id="'ca831d7efac147fdb2f6e4de902af4c9'"></SimpleEsriMap>
       </div>
 
-      <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Economic
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Economic
         Insights
       </div>
-      <p style="margin-left: 20%; margin-right: 20%">Southeast Michigan’s economy will experience modest growth over the next 30 years. Employment growth will be
+      <p class="blog_margin">Southeast Michigan’s economy will experience modest growth over the next 30 years. Employment growth will be
         limited by a continued labor shortage, but sectors such as healthcare, professional and technical services,
         transportation and warehousing, and construction will provide jobs for our residents. Employment in the
         manufacturing sector remains stable through 2030, but will start to decline after 2030 as the auto industry
@@ -114,9 +114,9 @@
         </hooper>
         <SimpleEsriMap class="small_map_left" v-bind:item_id="'a784dcfb16414f159fe754a2fe1c70cd'"></SimpleEsriMap>
       </div>
-      <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Land Use Insights
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Land Use Insights
       </div>
-      <p style="margin-left: 20%; margin-right: 20%">A regional forecast needs the best possible local data to establish the correct future development trends in
+      <p class="blog_margin">A regional forecast needs the best possible local data to establish the correct future development trends in
         each community. For that reason, our staff has been meeting with communities to understand their future growth
         expectations and collect data on planned development. Future residential growth is expected to be more evenly
         split between single-family and multi-family housing units. The region will add over 100 million square feet of
@@ -139,9 +139,9 @@
         </hooper>
         <SimpleEsriScene class="small_map_right" v-bind:item_id="'c450a4667c4e414ab444977eab553841'" ></SimpleEsriScene>
       </div>
-      <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">A Dynamic and Changing Region
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">A Dynamic and Changing Region
       </div>
-      <div style="margin-left: 20%; margin-right: 20%; margin-bottom: 10%; font-size: large">
+      <div class="blog_margin" style="margin-bottom: 10%; font-size: large">
         Timeline
         <timeline>
           <timeline-item> <strong>2025</strong> <br> Southeast Michigan exceeds 3 million jobs.</timeline-item>
@@ -156,9 +156,9 @@
           <timeline-item><strong>2049</strong> <br> The entire baby boom generation will be at least 85 years old.</timeline-item>
         </timeline>
       </div>
-      <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Map
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Map
       </div>
-      <p style="margin-left: 20%; margin-right: 20%">Use the map below to explore the results visually. Use the dropdown on the left to choose a layer topic of
+      <p class="blog_margin">Use the map below to explore the results visually. Use the dropdown on the left to choose a layer topic of
         interest, and view that topic by the different geography types. Click on a geography to get more information.
         View and print the report beneath the map.</p>
 
@@ -927,6 +927,11 @@ export default {
     pointer-events: none;
 }
 
+.blog_margin {
+  margin-left: 20%;
+  margin-right: 20%
+}
+
 @media print {
   .no-print {
     display: none !important;
@@ -960,6 +965,12 @@ export default {
 }
 
 @media (max-width: 576px) {
+
+  .blog_margin {
+    margin-left: 5%;
+    margin-right: 5%
+  }
+
   .small_map_right {
     grid-column: 1;
     grid-row: 2
