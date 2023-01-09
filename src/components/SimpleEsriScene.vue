@@ -5,6 +5,7 @@
 import SceneView from "@arcgis/core/views/SceneView";
 import WebScene from "@arcgis/core/WebScene";
 import Legend from "@arcgis/core/widgets/Legend";
+import Expand from "@arcgis/core/widgets/Expand";
 
 export default {
   name: "SimpleEsriMap",
@@ -31,7 +32,12 @@ export default {
       view: view
     });
 
-    view.ui.add(legend, "bottom-left");
+    const legend_expand = new Expand({
+      view: view,
+      content: legend
+    })
+
+    view.ui.add(legend_expand, "bottom-left");
   },
 }
 </script>
