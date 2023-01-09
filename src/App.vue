@@ -64,9 +64,8 @@
         will be older than 65 and, the older population is projected to outnumber the children (under 18 years) for the
         first time in the region’s history. Because of these transformative trends, net international migration is
         expected to overtake natural increase as a leading cause of population growth in the coming decades.</p>
-      <div
-          style="margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px;">
-        <hooper :settings="demographics_carousel" style="height: auto">
+      <div class="insight_section">
+        <hooper class="carousel_left" :settings="demographics_carousel">
           <slide >
             <div style="width: auto; height: auto"><img src="demographics1.JPG" style=" max-width: 100%; height: auto;" alt=""></div>
           </slide>
@@ -78,8 +77,7 @@
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
-        <SimpleEsriMap v-bind:item_id="'ca831d7efac147fdb2f6e4de902af4c9'"
-                       style="grid-column: 2; grid-row: 1"></SimpleEsriMap>
+        <SimpleEsriMap class="small_map_right" v-bind:item_id="'ca831d7efac147fdb2f6e4de902af4c9'"></SimpleEsriMap>
       </div>
 
       <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Economic
@@ -90,9 +88,8 @@
         transportation and warehousing, and construction will provide jobs for our residents. Employment in the
         manufacturing sector remains stable through 2030, but will start to decline after 2030 as the auto industry
         increasingly turns its attention to electric vehicle production.</p>
-      <div
-          style="margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px;">
-        <hooper :settings="demographics_carousel" style="height: auto; grid-column: 2; grid-row: 1;">
+      <div class="insight_section">
+        <hooper class="carousel_right" :settings="demographics_carousel">
           <slide>
             <div style="width: auto; height: auto"><img src="econ1.JPG" style=" max-width: 100%; height: auto;"
                                                         alt=""></div>
@@ -115,8 +112,7 @@
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
-        <SimpleEsriMap v-bind:item_id="'a784dcfb16414f159fe754a2fe1c70cd'"
-                       style="grid-column: 1; grid-row: 1"></SimpleEsriMap>
+        <SimpleEsriMap class="small_map_left" v-bind:item_id="'a784dcfb16414f159fe754a2fe1c70cd'"></SimpleEsriMap>
       </div>
       <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Land Use Insights
       </div>
@@ -125,9 +121,8 @@
         expectations and collect data on planned development. Future residential growth is expected to be more evenly
         split between single-family and multi-family housing units. The region will add over 100 million square feet of
         new nonresidential buildings, concentrated in buildings that are fewer in number but larger in size.</p>
-      <div
-          style="margin-bottom: 10%; display: grid; grid-template-columns: 50% 50%; grid-template-rows: 500px;">
-        <hooper :settings="demographics_carousel" style="height: auto; grid-column: 1; grid-row: 1;">
+      <div class="insight_section">
+        <hooper class="carousel_left" :settings="demographics_carousel">
           <slide>
             <div style="width: auto; height: auto"><img src="landuse1.JPG" style=" max-width: 100%; height: auto;"
                                                         alt=""></div>
@@ -142,8 +137,7 @@
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
-        <SimpleEsriScene v-bind:item_id="'c450a4667c4e414ab444977eab553841'"
-                         style="grid-column: 2; grid-row: 1"></SimpleEsriScene>
+        <SimpleEsriScene class="small_map_right" v-bind:item_id="'c450a4667c4e414ab444977eab553841'" ></SimpleEsriScene>
       </div>
       <div style="margin-left: 20%; margin-right: 20%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">A Dynamic and Changing Region
       </div>
@@ -882,6 +876,35 @@ export default {
   grid-row: 4;
 }
 
+.insight_section {
+  margin-bottom: 10%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 500px;
+}
+
+.small_map_right {
+  grid-column: 2;
+  grid-row: 1
+}
+
+.small_map_left {
+  grid-column: 1;
+  grid-row: 1
+}
+
+.carousel_right {
+  height: auto;
+  grid-column: 2;
+  grid-row: 1
+}
+
+.carousel_left {
+  height: auto;
+  grid-column: 1;
+  grid-row: 1
+}
+
 #map {
   padding: 0;
   margin: 0;
@@ -933,6 +956,34 @@ export default {
     margin: auto;
     width: 800px;
     height: 600px;
+  }
+}
+
+@media (max-width: 576px) {
+  .small_map_right {
+    grid-column: 1;
+    grid-row: 2
+  }
+
+  .small_map_left {
+    grid-column: 1;
+    grid-row: 2
+  }
+
+    .carousel_right {
+    grid-column: 1;
+    grid-row: 1
+  }
+
+  .carousel_left {
+    grid-column: 1;
+    grid-row: 1
+  }
+
+  .insight_section {
+    margin-bottom: 1%;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 500px;
   }
 }
 
