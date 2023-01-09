@@ -28,6 +28,17 @@ export default {
       }
     });
 
+       const newDiv = document.createElement("div");
+    newDiv.className = 'esri-widget'
+    newDiv.id = 'aboutDiv'
+
+    let title = ''
+    view.when(() => {
+      title = webScene.portalItem.title
+      newDiv.textContent = title
+    })
+
+
     const legend = new Legend({
       view: view
     });
@@ -38,6 +49,7 @@ export default {
     })
 
     view.ui.add(legend_expand, "bottom-left");
+    view.ui.add(newDiv, "top-right");
   },
 }
 </script>
@@ -48,5 +60,11 @@ export default {
   margin: 0;
   height: 100%;
   width: 100%;
+}
+
+/deep/ #aboutDiv {
+  padding: 12px;
+  width: auto;
+  font-weight: bold;
 }
 </style>
