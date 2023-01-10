@@ -6,6 +6,7 @@ import SceneView from "@arcgis/core/views/SceneView";
 import WebScene from "@arcgis/core/WebScene";
 import Legend from "@arcgis/core/widgets/Legend";
 import Expand from "@arcgis/core/widgets/Expand";
+import Fullscreen from "@arcgis/core/widgets/Fullscreen";
 
 export default {
   name: "SimpleEsriMap",
@@ -19,7 +20,7 @@ export default {
       }
     });
 
-   const view = new SceneView({
+    const view = new SceneView({
       map: webScene,
       container: this.$refs.map,
       navigation: {
@@ -28,7 +29,10 @@ export default {
       }
     });
 
-       const newDiv = document.createElement("div");
+    const fullscreen = new Fullscreen({view: view})
+    view.ui.add(fullscreen, "bottom-right");
+
+    const newDiv = document.createElement("div");
     newDiv.className = 'esri-widget'
     newDiv.id = 'aboutDiv'
 

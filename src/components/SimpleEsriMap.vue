@@ -7,6 +7,7 @@
 import MapView from "@arcgis/core/views/MapView";
 import WebMap from "@arcgis/core/WebMap";
 import Legend from "@arcgis/core/widgets/Legend";
+import Fullscreen from "@arcgis/core/widgets/Fullscreen";
 import Expand from "@arcgis/core/widgets/Expand";
 
 export default {
@@ -28,6 +29,9 @@ export default {
         browserTouchPanEnabled: false
       }
     });
+
+    const fullscreen = new Fullscreen({view: view})
+    view.ui.add(fullscreen, "bottom-right");
 
     const newDiv = document.createElement("div");
     newDiv.className = 'esri-widget'

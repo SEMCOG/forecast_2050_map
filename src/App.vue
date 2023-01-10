@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SemcogHeader class="no-print">
+    <SemcogHeader class="no-print" v-if="!printOnLoad">
       <span
           style="line-height: 2em; font-size: 1em; margin-left: 4%"
       >
@@ -12,7 +12,7 @@
 
     <div class="report-watermark">DRAFT</div>
     <div id="intro" class="no-print">
-      <img src="SEM_0042.jpg" alt="" style="width: 100%; height: 330px; position: relative; object-fit: cover;">
+      <img src="SEM_0042.jpg" alt="" style="width: 100%; height: 330px; position: relative; object-fit: cover;" v-if="!printOnLoad">
       <div class="blog_margin">
         <div style="font-weight: bold; font-size: 3rem;">2050 Southeast Michigan Regional Development Forecast</div>
         <div style="font-weight: bold; font-size: 2rem;">About</div>
@@ -34,6 +34,25 @@
 
           SEMCOG’s 2050 Regional Forecast for the those portions of State House and Senate Districts, U.S. Congressional
           Districts, and Watersheds, within our region will be released in Fall 2023.</p>
+        <div style="display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5px;
+    width: fit-content;
+margin-top: 5%; margin-bottom:5%;">
+          <a href="#report" style="text-decoration: none;">
+            <button class="esri-widget"
+                    style="display: block; font-size: 1.2em; font-weight: bold; color: #ffffff; background-color: #011f4a; cursor: pointer;">
+              Go to Report
+            </button>
+          </a>
+          <a href="#mapContainer" style="text-decoration: none;">
+            <button class="esri-widget"
+                    style="display: block; font-size: 1.2em; font-weight: bold; color: #ffffff; background-color: #011f4a; cursor: pointer;">
+              Go To Map
+            </button>
+          </a>
+        </div>
+
         <img src="header_report_new.png" alt="logo" width="50%"
              style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
         <p>SEMCOG's 2050 Regional Development Forecast provides a long-range and comprehensive view of future
@@ -55,7 +74,7 @@
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=SEMCOG%202050%20Forecast%20Summary.pdf" target="_blank">SEMCOG 2050 Regional Forecast Summary</a></li>
         </ul>
       </div>
-      <div class="blog_margin" style="margin-top: 10%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Demographic
+      <div class="blog_margin" style="margin-top: 5%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Demographic
         Insights
       </div>
       <p class="blog_margin">The region is projected to grow by 315,000 people in the next 3 decades. It will also be older, and racially
@@ -64,7 +83,7 @@
         will be older than 65 and, the older population is projected to outnumber the children (under 18 years) for the
         first time in the region’s history. Because of these transformative trends, net international migration is
         expected to overtake natural increase as a leading cause of population growth in the coming decades.</p>
-      <div class="insight_section">
+      <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_left" :settings="demographics_carousel">
           <slide >
             <div style="width: auto; height: auto"><img src="demographics1.JPG" style=" max-width: 100%; height: auto;" alt=""></div>
@@ -88,7 +107,7 @@
         transportation and warehousing, and construction will provide jobs for our residents. Employment in the
         manufacturing sector remains stable through 2030, but will start to decline after 2030 as the auto industry
         increasingly turns its attention to electric vehicle production.</p>
-      <div class="insight_section">
+      <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_right" :settings="demographics_carousel">
           <slide>
             <div style="width: auto; height: auto"><img src="econ1.JPG" style=" max-width: 100%; height: auto;"
@@ -121,7 +140,7 @@
         expectations and collect data on planned development. Future residential growth is expected to be more evenly
         split between single-family and multi-family housing units. The region will add over 100 million square feet of
         new nonresidential buildings, concentrated in buildings that are fewer in number but larger in size.</p>
-      <div class="insight_section">
+      <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_left" :settings="demographics_carousel">
           <slide>
             <div style="width: auto; height: auto"><img src="landuse1.JPG" style=" max-width: 100%; height: auto;"
@@ -141,7 +160,7 @@
       </div>
       <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">A Dynamic and Changing Region
       </div>
-      <div class="blog_margin" style="margin-bottom: 10%; font-size: large">
+      <div class="blog_margin" style="margin-bottom: 5%; font-size: large">
         Timeline
         <timeline>
           <timeline-item> <strong>2025</strong> <br> Southeast Michigan exceeds 3 million jobs.</timeline-item>
@@ -877,7 +896,7 @@ export default {
 }
 
 .insight_section {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 500px;
