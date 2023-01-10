@@ -2,7 +2,7 @@
   <div id="app">
     <SemcogHeader class="no-print">
       <span
-          style="line-height: 2em; font-size: 1em;"
+          style="line-height: 2em; font-size: 1em; margin-left: 4%"
       >
        2050 Forecast
       </span>
