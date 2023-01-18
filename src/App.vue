@@ -650,7 +650,7 @@ export default {
     forecast_layer_info: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer/56",
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
         popupTemplate: this.popup,
@@ -694,7 +694,7 @@ export default {
     forecast_layer: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer/56",
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer",
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
@@ -834,11 +834,17 @@ export default {
           where: `geotype = '${this.geotype}'`
         };
       });
+
+      let year_range = ' 2020 - 2050'
+      if (this.ind === 'jobs_total_change') {
+        year_range = ' 2019 - 2050'
+      }
+
       if (this.ind) {
         this.forecast_layer_renderer.field = this.ind
         this.forecast_layer_county_renderer.field = this.ind
-        this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
-        this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
+        this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+        this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         if (this.geotype === 'city') {
           this.forecast_layer.renderer = this.forecast_layer_renderer
         } else {
@@ -849,11 +855,16 @@ export default {
     ind: {
       immediate: true,
       handler: function () {
+        let year_range = ' 2020 - 2050'
+        if (this.ind === 'jobs_total_change') {
+          year_range = ' 2019 - 2050'
+        }
+
         if (this.ind) {
           this.forecast_layer_renderer.field = this.ind
           this.forecast_layer_county_renderer.field = this.ind
-          this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
-          this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ' 2020 - 2050'
+          this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+          this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
           if (this.geotype === 'city') {
             this.forecast_layer.renderer = this.forecast_layer_renderer
           } else {
