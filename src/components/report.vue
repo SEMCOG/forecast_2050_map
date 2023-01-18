@@ -516,9 +516,7 @@ export default {
       }]
     },
     summaryChart: function () {
-      return [{
-        labels: [2020, 2025, 2030, 2035, 2040, 2045, 2050],
-        datasets: this.summary_inds.map((i) => {
+      let datasets = this.summary_inds.map((i) => {
           return {
             label: this.indNameLookup[i],
             fill: false,
@@ -526,7 +524,32 @@ export default {
             borderColor: this.summary_inds_colors[i],
             data: this.years.map(y => this.report_data[i][y]),
           }
-        }),
+      })
+      let line_continue = {
+        fill: false,
+        label: '2019-2025 Total Jobs',
+        pointRadius: 6,
+        borderColor: this.summary_inds_colors['jobs_total'],
+        borderDash: [6, 6],
+        data: [this.report_data['jobs_total']['yr2019'], this.report_data['jobs_total']['yr2025']]
+      }
+      let scatter = {
+        label: '2019 Total Jobs Level',
+        type: 'scatter',
+        pointRadius: 7,
+        backgroundColor: '#e50707',
+        data: [{
+          x: 2020,
+          y: this.report_data['jobs_total']['yr2019']
+        }],
+      }
+
+      datasets.push(scatter)
+      datasets.push(line_continue)
+
+      return [{
+        labels: [2020, 2025, 2030, 2035, 2040, 2045, 2050],
+        datasets: datasets,
       }, {
         title: {
           text: 'Summary',
