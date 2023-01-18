@@ -85,11 +85,13 @@
         <th></th>
         <th></th>
         <th></th>
+        <th></th>
         <th class="tableChangGap"></th>
-        <th colspan="2">Change 2020 - 50</th>
+        <th colspan="2">Change 2019 - 50</th>
       </tr>
       <tr>
         <th></th>
+        <th>2019</th>
         <th>2020</th>
         <th>2030</th>
         <th>2040</th>
@@ -102,13 +104,14 @@
       <tbody>
       <tr v-for="ind in indicators_table_jobs" v-bind:key="ind" :class="{ 'not_indent': ind === 'jobs_total'}">
         <th>{{ indNameLookup[ind] }}</th>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2019'])}}</td>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2020'])}}</td>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2030'])}}</td>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2040'])}}</td>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'])}}</td>
         <td class="tableChangGap"></td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'] - report_data[ind]['yr2020'])}}</td>
-        <td v-if="report_data[ind]">{{formatPercent((report_data[ind]['yr2050'] - report_data[ind]['yr2020']) / report_data[ind]['yr2020'])}}</td>
+        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'] - report_data[ind]['yr2019'])}}</td>
+        <td v-if="report_data[ind]">{{formatPercent((report_data[ind]['yr2050'] - report_data[ind]['yr2019']) / report_data[ind]['yr2019'])}}</td>
       </tr>
       </tbody>
     </table>
@@ -141,7 +144,7 @@ export default {
   data: function () {
     return {
       report_data: null,
-      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_325/FeatureServer/0",
+      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_2008_external/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
       geotype: this.selectedFeature.geotype || 'city',
@@ -301,6 +304,7 @@ export default {
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
       dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, "hh": true},
       years: ['yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
+      job_years: ['yr2019', 'yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
       hh_table_inds: ["pop", "hh_pop", "gq_pop",
       "pop_age_00_04", "pop_age_05_17", "pop_age_18_24", "pop_age_25_54", "pop_age_55_64", "pop_age_65_84", "pop_age_85_inf",
       "housing_units", "hhsize", "hh", "with_children", "with_seniors", "hh_size_1", "hh_no_car_or_lt_workers"],
@@ -453,14 +457,14 @@ export default {
     },
     jobChart: function () {
       return [{
-        labels: [2020, 2025, 2030, 2035, 2040, 2045, 2050],
+        labels: [2019, 2020, 2025, 2030, 2035, 2040, 2045, 2050],
         datasets: this.job_inds.map((i) => {
           return {
             label: this.indNameLookup[i],
             fill: false,
             pointRadius: 6,
             borderColor: this.job_ind_colors[i],
-            data: this.years.map(y => this.report_data[i][y]),
+            data: this.job_years.map(y => this.report_data[i][y]),
           }
         }),
       }, {
@@ -633,6 +637,10 @@ export default {
       queryObject.returnGeometry = false;
 
       queryObject.outStatistics = [{
+        onStatisticField: "yr2019",
+        outStatisticFieldName: "yr2019",
+        statisticType: "sum"
+      }, {
         onStatisticField: "yr2020",
         outStatisticFieldName: "yr2020",
         statisticType: "sum"
@@ -668,7 +676,7 @@ export default {
         }];
       queryObject.groupByFieldsForStatistics = ["indicator_"];
 
-      queryObject.outFields = ["indicator_, yr2020, yr2025, yr2030, yr2035, yr2040, yr2045, yr2050"];
+      queryObject.outFields = ["indicator_, yr2019, yr2020, yr2025, yr2030, yr2035, yr2040, yr2045, yr2050"];
       let report_data = {}
       // call the executeQueryJSON() method
 
@@ -681,23 +689,23 @@ export default {
         report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))
       })
       report_data['jobs_sec_0102'] = {};
-      this.years.map((d) => {
+      this.job_years.map((d) => {
         report_data['jobs_sec_0102'][d] = report_data['jobs_sec_01'][d] + report_data['jobs_sec_02'][d]
       })
       report_data['jobs_sec_0607'] = {};
-      this.years.map((d) => {
+      this.job_years.map((d) => {
         report_data['jobs_sec_0607'][d] = report_data['jobs_sec_06'][d] + report_data['jobs_sec_07'][d]
       })
       report_data['jobs_sec_0809'] = {};
-      this.years.map((d) => {
+      this.job_years.map((d) => {
         report_data['jobs_sec_0809'][d] = report_data['jobs_sec_08'][d] + report_data['jobs_sec_09'][d]
       })
       report_data['jobs_sec_1011'] = {};
-      this.years.map((d) => {
+      this.job_years.map((d) => {
         report_data['jobs_sec_1011'][d] = report_data['jobs_sec_10'][d] + report_data['jobs_sec_11'][d]
       })
       report_data['jobs_sec_1415'] = {};
-      this.years.map((d) => {
+      this.job_years.map((d) => {
         report_data['jobs_sec_1415'][d] = report_data['jobs_sec_14'][d] + report_data['jobs_sec_15'][d]
       })
       this.report_data = report_data
