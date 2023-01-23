@@ -74,7 +74,7 @@ margin-top: 5%; margin-bottom:5%;">
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=SEMCOG%202050%20Forecast%20Summary.pdf" target="_blank">SEMCOG 2050 Regional Forecast Summary</a></li>
         </ul>
       </div>
-      <div class="blog_margin" style="margin-top: 5%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Demographic
+      <div class="blog_margin" style="margin-top: 5%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;"><calcite-icon style="color: #894444" icon="users" scale="l"></calcite-icon> Demographic
         Insights
       </div>
       <p class="blog_margin">The region is projected to grow by 315,000 people in the next 3 decades. It will also be older, and racially
@@ -99,7 +99,7 @@ margin-top: 5%; margin-bottom:5%;">
         <SimpleEsriMap class="small_map_right" v-bind:item_id="'ca831d7efac147fdb2f6e4de902af4c9'"></SimpleEsriMap>
       </div>
 
-      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Economic
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;"><calcite-icon style="color: #0f2d53" icon="credits" scale="l"></calcite-icon> Economic
         Insights
       </div>
       <p class="blog_margin">Southeast Michigan’s economy will experience modest growth over the next 30 years. Employment growth will be
@@ -133,7 +133,7 @@ margin-top: 5%; margin-bottom:5%;">
         </hooper>
         <SimpleEsriMap class="small_map_left" v-bind:item_id="'a784dcfb16414f159fe754a2fe1c70cd'"></SimpleEsriMap>
       </div>
-      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Land Use Insights
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;"><calcite-icon style="color: #8f6732" icon="plans" scale="l"></calcite-icon> Land Use Insights
       </div>
       <p class="blog_margin">A regional forecast needs the best possible local data to establish the correct future development trends in
         each community. For that reason, our staff has been meeting with communities to understand their future growth
@@ -163,16 +163,46 @@ margin-top: 5%; margin-bottom:5%;">
       <div class="blog_margin" style="margin-bottom: 5%; font-size: large">
         Timeline
         <timeline>
-          <timeline-item> <strong>2025</strong> <br> Southeast Michigan exceeds 3 million jobs.</timeline-item>
-          <timeline-item><strong>2028</strong> <br> The senior (those aged 65+) population  now outnumbers the child (aged 0 to 17) population.</timeline-item>
-          <timeline-item><strong>2028</strong> <br> One in five people in the region are age 65 or older.</timeline-item>
-          <timeline-item><strong>2029</strong> <br> The prime working age (ages 25 to 54) labor force returns to its year 2020 figure of 1,526,000.</timeline-item>
-          <timeline-item><strong>2029</strong> <br> The entire baby boom generation will be at least 65 years old.</timeline-item>
-          <timeline-item><strong>2031</strong> <br> The first of the baby boomer generation turns 85 years old.</timeline-item>
-          <timeline-item><strong>2032</strong> <br> Motor vehicle manufacturing employment growth peaks at 115,000 jobs.</timeline-item>
-          <timeline-item><strong>2035</strong> <br> Southeast Michigan’s population exceeds 5 million people.</timeline-item>
-          <timeline-item><strong>2036</strong> <br> Health care jobs, our region’s largest employment sector, surpasses 400,000 jobs.</timeline-item>
-          <timeline-item><strong>2049</strong> <br> The entire baby boom generation will be at least 85 years old.</timeline-item>
+          <timeline-item><strong>2025</strong> <br>
+            <calcite-icon icon="credits" scale="l" style="color: #0f2d53"></calcite-icon>
+            Southeast Michigan exceeds 3 million jobs.
+          </timeline-item>
+          <timeline-item><strong>2028</strong> <br>
+            <calcite-icon icon="credits" scale="l" style="color: #0f2d53"></calcite-icon>
+            The senior (those aged 65+) population now outnumbers the child (aged 0 to 17) population.
+          </timeline-item>
+          <timeline-item><strong>2028</strong> <br>
+            <calcite-icon icon="users" scale="l" style="color: #894444"></calcite-icon>
+            One in five people in the region are age 65 or older.
+          </timeline-item>
+          <timeline-item><strong>2029</strong> <br>
+            <calcite-icon icon="credits" scale="l" style="color: #0f2d53"></calcite-icon>
+            The prime working age (ages 25 to 54) labor force returns to its year 2020 figure of 1,526,000.
+          </timeline-item>
+          <timeline-item><strong>2029</strong> <br>
+            <calcite-icon icon="users" scale="l" style="color: #894444"></calcite-icon>
+            The entire baby boom generation will be at least 65 years old.
+          </timeline-item>
+          <timeline-item><strong>2031</strong> <br>
+            <calcite-icon icon="users" scale="l" style="color: #894444"></calcite-icon>
+            The first of the baby boomer generation turns 85 years old.
+          </timeline-item>
+          <timeline-item><strong>2032</strong> <br>
+            <calcite-icon icon="credits" scale="l" style="color: #0f2d53"></calcite-icon>
+            Motor vehicle manufacturing employment growth peaks at 115,000 jobs.
+          </timeline-item>
+          <timeline-item><strong>2035</strong> <br>
+            <calcite-icon icon="users" scale="l" style="color: #894444"></calcite-icon>
+            Southeast Michigan’s population exceeds 5 million people.
+          </timeline-item>
+          <timeline-item><strong>2036</strong> <br>
+            <calcite-icon icon="credits" scale="l" style="color: #0f2d53"></calcite-icon>
+            Health care jobs, our region’s largest employment sector, surpasses 400,000 jobs.
+          </timeline-item>
+          <timeline-item><strong>2049</strong> <br>
+            <calcite-icon icon="users" scale="l" style="color: #894444"></calcite-icon>
+            The entire baby boom generation will be at least 85 years old.
+          </timeline-item>
         </timeline>
       </div>
       <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Map
