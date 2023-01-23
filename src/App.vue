@@ -315,52 +315,66 @@ export default {
     }
   },
   computed: {
+    popupExpressions: function () {
+      return [
+        {
+          name: "pop_change_percent",
+          title: "pop_change_percent",
+          expression: "ROUND(($feature.pop_change / $feature.pop_start)*100, 1) + '%'"
+        },
+        {
+          name: "hh_change_percent",
+          title: "hh_change_percent",
+          expression: "ROUND(($feature.hh_change / $feature.hh_start)*100, 1) + '%'"
+        },
+        {
+          name: "housing_unit_change_percent",
+          title: "housing_unit_change_percent",
+          expression: "ROUND(($feature.housing_units_change / $feature.housing_units_start)*100, 1) + '%'"
+        },
+        {
+          name: "jobs_total_change_percent",
+          title: "jobs_total_change_percent",
+          expression: "ROUND(($feature.jobs_total_change / $feature.jobs_total_start)*100, 1) + '%'"
+        },
+      ];
+    },
     popup: function () {
       const template = {
         // autocasts as new PopupTemplate()
         title: "{area_name} Forecast Changes",
+        expressionInfos: this.popupExpressions,
         content: [
           {type: 'text', text: `<a style="display: none;"> {geoid} {geotype}</a>`}, //need this so that the geoid and type can be passed to the report
           {
-            // It is also possible to set the fieldInfos outside of the content
-            // directly in the popupTemplate. If no fieldInfos is specifically set
-            // in the content, it defaults to whatever may be set within the popupTemplate.
-            type: "fields",
-            fieldInfos: [
-              {
-                fieldName: "pop_change",
-                label: "Total Population Change",
-                format: {
-                  digitSeparator: true,
-                  places: 0
-                }
-              },
-              {
-                fieldName: "hh_change",
-                label: "Total Household Change",
-                format: {
-                  digitSeparator: true,
-                  places: 0
-                }
-              },
-              {
-                fieldName: "housing_units_change",
-                label: "Total Housing Unit Change",
-                format: {
-                  digitSeparator: true,
-                  places: 0
-                }
-              },
-              {
-                fieldName: "jobs_total_change",
-                label: "Total Jobs Change",
-                format: {
-                  digitSeparator: true,
-                  places: 0
-                }
-              }
-            ]
-          }
+            type: 'text', text: `<table>
+                                        <tr>
+                                        <th></th>
+                                       <th>Number</th>
+                                       <th>Percent</th></tr>
+                                       <tr>
+                                       <th>Total Population</th>
+                                         <td>{pop_change} </td>
+                                         <td>{expression/pop_change_percent} </td>
+                                       </tr>
+                                       <tr>
+                                       <th>Total Households</th>
+                                         <td>{hh_change} </td>
+                                         <td>{expression/hh_change_percent} </td>
+                                       </tr>
+                                       <tr>
+                                       <th>Total Housing Units</th>
+                                         <td>{housing_units_change} </td>
+                                         <td>{expression/housing_unit_change_percent} </td>
+                                       </tr>
+                                       <tr>
+                                       <th>Total Jobs</th>
+                                         <td>{jobs_total_change} </td>
+                                         <td>{expression/jobs_total_change_percent} </td>
+                                       </tr>
+                                </table>`
+          }, //need this so that the geoid and type can be passed to the report
+
         ]
       };
       return template
