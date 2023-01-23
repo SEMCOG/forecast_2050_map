@@ -227,8 +227,8 @@ margin-top: 5%; margin-bottom:5%;">
                   class="esri-widget" name="ind" id="ind" style="font-size: large; padding: 10px">
             <option value="pop_change">Total Population</option>
             <option value="hh_change">Total Households</option>
-            <option value="housing_units_change">Housing Units</option>
-            <option value="jobs_total_change">Jobs</option>
+            <option value="housing_units_change">Total Housing Units</option>
+            <option value="jobs_total_change">Total Jobs</option>
             <option value="pop_age_00_17_change">Population Ages 0-17</option>
             <option value="pop_age_05_17_change">Population Ages 5-17</option>
             <option value="pop_age_65_inf_change">Population Ages >= 65</option>
@@ -306,7 +306,7 @@ export default {
       ind_lookup: {
         'pop_change': {name: 'Total Population'},
         'hh_change': {name: 'Total Households'},
-        'housing_units_change': {name: 'Housing Units'},
+        'housing_units_change': {name: 'Total Housing Units'},
         'jobs_total_change': {name: 'Total Jobs'},
         'pop_age_00_17_change': {name: 'Population Ages 0-17'},
         'pop_age_05_17_change': {name: 'Population Ages 5-17'},
@@ -329,7 +329,7 @@ export default {
             fieldInfos: [
               {
                 fieldName: "pop_change",
-                label: "Population Change",
+                label: "Total Population Change",
                 format: {
                   digitSeparator: true,
                   places: 0
@@ -337,7 +337,7 @@ export default {
               },
               {
                 fieldName: "hh_change",
-                label: "Household Change",
+                label: "Total Household Change",
                 format: {
                   digitSeparator: true,
                   places: 0
@@ -345,7 +345,7 @@ export default {
               },
               {
                 fieldName: "housing_units_change",
-                label: "Housing Unit Change",
+                label: "Total Housing Unit Change",
                 format: {
                   digitSeparator: true,
                   places: 0
@@ -353,7 +353,7 @@ export default {
               },
               {
                 fieldName: "jobs_total_change",
-                label: "Jobs Total Change",
+                label: "Total Jobs Change",
                 format: {
                   digitSeparator: true,
                   places: 0
@@ -522,7 +522,7 @@ export default {
         type: "class-breaks", // autocasts as new ClassBreaksRenderer()
         field: 'pop_change',
         legendOptions: {
-          title: "Total Population 2020 - 2050"
+          title: "Total Population, 2020 - 2050"
         },
         classBreakInfos: [
           {
@@ -893,8 +893,8 @@ export default {
         if (this.ind) {
           this.forecast_layer_renderer.field = this.ind
           this.forecast_layer_county_renderer.field = this.ind
-          this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
-          this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+          this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
+          this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
           if (this.geotype === 'city') {
             this.forecast_layer.renderer = this.forecast_layer_renderer
           } else {
