@@ -205,7 +205,7 @@ margin-top: 5%; margin-bottom:5%;">
           </timeline-item>
         </timeline>
       </div>
-      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Map
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Forecast Map
       </div>
       <p class="blog_margin">Use the map below to explore the results visually. Use the dropdown on the left to choose a layer topic of
         interest, and view that topic by the different geography types. Click on a geography to get more information.

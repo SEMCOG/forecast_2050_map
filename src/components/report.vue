@@ -31,7 +31,7 @@
       </div>
     </div>
     <img src="header_report_new.png" alt="logo" width="50%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
-    <h1>{{ selectedName || 'Southeast Michigan' }} - 2050 Forecast Summary</h1>
+    <h1>{{ selectedName || 'Southeast Michigan' }} - 2050 Forecast Summary Report</h1>
     <lineChart v-bind:chartData="summaryChart[0]"
                v-bind:options="summaryChart[1]"
                v-bind:style="{width: '100%', height: '500px'}"/>
