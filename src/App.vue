@@ -86,13 +86,13 @@ margin-top: 5%; margin-bottom:5%;">
       <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_left" :settings="demographics_carousel">
           <slide >
-            <div style="width: auto; height: auto"><img src="demographics1.JPG" style=" max-width: 100%; height: auto;" alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/demographics1.JPG" style=" max-width: 100%; height: auto;" alt="Demographic Shifts from 2020 to 2050"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="demographics2.JPG" style=" max-width: 100%; height: auto;" alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/demographics2.JPG" style=" max-width: 100%; height: auto;" alt="Birth Rates continue to fall as Region gets Older"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="demographics3.JPG" style=" max-width: 100%; height: auto;" alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/demographics3.JPG" style=" max-width: 100%; height: auto;" alt="Demographic Components driving Population Growth"></div>
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
@@ -110,24 +110,24 @@ margin-top: 5%; margin-bottom:5%;">
       <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_right" :settings="demographics_carousel">
           <slide>
-            <div style="width: auto; height: auto"><img src="econ1.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/economics1.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt="Employment Growth is Strongest in the Next 10 Years"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="econ2.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/economics2.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt="Shifting Employment Sectors"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="econ3.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/economics3.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt="Aging Population = Greater Demand for Health Services"></div>
           </slide>
                     <slide>
-            <div style="width: auto; height: auto"><img src="econ4.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/economics4.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt="Labor Shortages Continue (Especially for Full-Time Jobs)"></div>
           </slide>
                     <slide>
-            <div style="width: auto; height: auto"><img src="econ5.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/economics5.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt="Skills! – All Jobs will Require Increased Skills"></div>
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
@@ -143,16 +143,16 @@ margin-top: 5%; margin-bottom:5%;">
       <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_left" :settings="demographics_carousel">
           <slide>
-            <div style="width: auto; height: auto"><img src="landuse1.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/landuse1.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt="Capturing Planned Development"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="landuse2.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/landuse2.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt="Building Distribution is Changing"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="landuse2.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt=""></div>
+            <div style="width: auto; height: auto"><img src="slides/landuse3.JPG" style=" max-width: 100%; height: auto;"
+                                                        alt="Future Buildings are Getting Larger"></div>
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
