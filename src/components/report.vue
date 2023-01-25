@@ -37,16 +37,16 @@
                v-bind:style="{width: '100%', height: '500px'}"/>
 
     <h2 class="page-break">Population and Households</h2>
-    <table>
+    <table style="width: 100%">
       <thead>
       <tr>
-        <th></th>
+        <th style="width: 20%"></th>
         <th></th>
         <th></th>
         <th></th>
         <th></th>
         <th class="tableChangGap"></th>
-        <th colspan="2">Change 2020 - 50</th>
+        <th colspan="2" style="width: 15%">Change 2020 - 2050</th>
       </tr>
       <tr>
         <th></th>
@@ -77,22 +77,20 @@
                    v-bind:options="ageChart[1]"
                    v-bind:style="{width: '100%', height: '500px'}"/>
     <h2 class="page-break">Employment by Sector</h2>
-    <table>
+    <table style="width: 100%">
       <thead>
       <tr>
-        <th></th>
-        <th></th>
+        <th style="width: 25%"></th>
         <th></th>
         <th></th>
         <th></th>
         <th></th>
         <th class="tableChangGap"></th>
-        <th colspan="2">Change 2019 - 50</th>
+        <th colspan="2" style="width: 15%">Change 2019 - 2050</th>
       </tr>
       <tr>
         <th></th>
         <th>2019</th>
-        <th>2020</th>
         <th>2030</th>
         <th>2040</th>
         <th>2050</th>
@@ -105,7 +103,6 @@
       <tr v-for="ind in indicators_table_jobs" v-bind:key="ind" :class="{ 'not_indent': ind === 'jobs_total'}">
         <th>{{ indNameLookup[ind] }}</th>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2019'])}}</td>
-        <td v-if="report_data[ind]">{{format(report_data[ind]['yr2020'])}}</td>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2030'])}}</td>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2040'])}}</td>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'])}}</td>
@@ -601,7 +598,7 @@ export default {
   },
   methods: {
     format2dec: d3.format('.2f'),
-    formatPercent: d3.format('.2%'),
+    formatPercent: d3.format('.1%'),
     format: d3.format(','),
     sortObject: function (obj) {
       const sorted_names = Object.values(obj).sort()
