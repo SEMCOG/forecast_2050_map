@@ -323,9 +323,49 @@ export default {
           expression: "ROUND(($feature.pop_change / $feature.pop_start)*100, 1) + '%'"
         },
         {
+          name: "pop_change_formatted",
+          title: "pop_change_formatted",
+          expression: "TEXT($feature.pop_change, '#,###')"
+        },
+        {
+          name: "pop_age_00_17_change_percent",
+          title: "pop_age_00_17_change_percent",
+          expression: "ROUND(($feature.pop_age_00_17_change / $feature.pop_age_00_17_start)*100, 1) + '%'"
+        },
+        {
+          name: "pop_age_00_17_change_formatted",
+          title: "pop_age_00_17_change_formatted",
+          expression: "TEXT($feature.pop_age_00_17_change, '#,###')"
+        },
+        {
+          name: "pop_age_05_17_change_percent",
+          title: "pop_age_05_17_change_percent",
+          expression: "ROUND(($feature.pop_change / $feature.pop_start)*100, 1) + '%'"
+        },
+        {
+          name: "pop_age_05_17_change_formatted",
+          title: "pop_age_05_17_change_formatted",
+          expression: "TEXT($feature.pop_age_05_17_change, '#,###')"
+        },
+        {
+          name: "pop_age_65_inf_change_percent",
+          title: "pop_age_65_inf_change_percent",
+          expression: "ROUND(($feature.pop_age_65_inf_change / $feature.pop_age_65_inf_start)*100, 1) + '%'"
+        },
+        {
+          name: "pop_age_65_inf_change_formatted",
+          title: "pop_age_65_inf_change_formatted",
+          expression: "TEXT($feature.pop_age_65_inf_change, '#,###')"
+        },
+        {
           name: "hh_change_percent",
           title: "hh_change_percent",
           expression: "ROUND(($feature.hh_change / $feature.hh_start)*100, 1) + '%'"
+        },
+        {
+          name: "hh_change_formatted",
+          title: "hh_change_formatted",
+          expression: "TEXT($feature.hh_change, '#,###')"
         },
         {
           name: "housing_unit_change_percent",
@@ -333,9 +373,19 @@ export default {
           expression: "ROUND(($feature.housing_units_change / $feature.housing_units_start)*100, 1) + '%'"
         },
         {
+          name: "housing_units_change_formatted",
+          title: "housing_units_change_formatted",
+          expression: "TEXT($feature.housing_units_change, '#,###')"
+        },
+        {
           name: "jobs_total_change_percent",
           title: "jobs_total_change_percent",
           expression: "ROUND(($feature.jobs_total_change / $feature.jobs_total_start)*100, 1) + '%'"
+        },
+        {
+          name: "jobs_total_change_formatted",
+          title: "jobs_total_change_formatted",
+          expression: "TEXT($feature.jobs_total_change, '#,###')"
         },
       ];
     },
@@ -344,38 +394,48 @@ export default {
         // autocasts as new PopupTemplate()
         title: "{area_name} Forecast Changes",
         expressionInfos: this.popupExpressions,
-        content: [
-          {type: 'text', text: `<a style="display: none;"> {geoid} {geotype}</a>`}, //need this so that the geoid and type can be passed to the report
-          {
-            type: 'text', text: `<table>
+        content: `<a style="display: none;"> {geoid} {geotype}</a>
+                                        <table style="width:100%">
                                         <tr>
-                                        <th></th>
-                                       <th>Number</th>
-                                       <th>Percent</th></tr>
+                                        <th style="width:50%"></th>
+                                       <th style="width:25%"><strong>Number</strong></th>
+                                       <th style="width:25%"><strong>Percent</strong></th></tr>
                                        <tr>
                                        <th>Total Population</th>
-                                         <td>{pop_change} </td>
+                                         <td>{expression/pop_change_formatted} </td>
                                          <td>{expression/pop_change_percent} </td>
                                        </tr>
                                        <tr>
+                                       <th>&nbsp&nbsp Ages 0-17</th>
+                                         <td>{expression/pop_age_00_17_change_formatted} </td>
+                                         <td>{expression/pop_age_00_17_change_percent} </td>
+                                       </tr>
+                                       <tr>
+                                       <th>&nbsp&nbsp Ages 5-17</th>
+                                         <td>{expression/pop_age_05_17_change_formatted} </td>
+                                         <td>{expression/pop_age_05_17_change_percent} </td>
+                                       </tr>
+                                       <tr>
+                                       <th>&nbsp&nbsp Ages 65+</th>
+                                         <td>{expression/pop_age_65_inf_change_formatted} </td>
+                                         <td>{expression/pop_age_65_inf_change_percent} </td>
+                                       </tr>
+                                       <tr>
                                        <th>Total Households</th>
-                                         <td>{hh_change} </td>
+                                         <td>{expression/hh_change_formatted} </td>
                                          <td>{expression/hh_change_percent} </td>
                                        </tr>
                                        <tr>
                                        <th>Total Housing Units</th>
-                                         <td>{housing_units_change} </td>
+                                         <td>{expression/housing_units_change_formatted} </td>
                                          <td>{expression/housing_unit_change_percent} </td>
                                        </tr>
                                        <tr>
                                        <th>Total Jobs</th>
-                                         <td>{jobs_total_change} </td>
+                                         <td>{expression/jobs_total_change_formatted} </td>
                                          <td>{expression/jobs_total_change_percent} </td>
                                        </tr>
                                 </table>`
-          }, //need this so that the geoid and type can be passed to the report
-
-        ]
       };
       return template
     },
