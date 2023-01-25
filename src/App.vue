@@ -73,6 +73,9 @@ margin-top: 5%; margin-bottom:5%;">
           <li><a href="https://www.youtube.com/watch?v=GihciBkwIvU&t=18s" target="_blank">Recorded Interview with University of Michigan Economists</a></li>
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=SEMCOG%202050%20Forecast%20Summary.pdf" target="_blank">SEMCOG 2050 Regional Forecast Summary</a></li>
         </ul>
+        <div style="font-size: 1.2em;">Questions?</div>
+        <p>Forecast Data: <a href="mailto:nutting@semcog.org">Jeff Nutting</a>, Forecast Map: <a
+            href="mailto:misiuk@semcog.org">Chad Misiuk</a></p>
       </div>
       <div class="blog_margin" style="margin-top: 5%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;"><calcite-icon style="color: #894444" icon="users" scale="l"></calcite-icon> Demographic
         Insights
