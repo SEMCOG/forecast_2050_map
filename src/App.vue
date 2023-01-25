@@ -392,50 +392,51 @@ export default {
     popup: function () {
       const template = {
         // autocasts as new PopupTemplate()
-        title: "{area_name} Forecast Changes",
+        title: "{area_name} Forecast Changes 2020-2050",
         expressionInfos: this.popupExpressions,
         content: `<a style="display: none;"> {geoid} {geotype}</a>
-                                        <table style="width:100%">
-                                        <tr>
-                                        <th style="width:50%"></th>
-                                       <th style="width:25%"><strong>Number</strong></th>
-                                       <th style="width:25%"><strong>Percent</strong></th></tr>
-                                       <tr>
-                                       <th>Total Population</th>
-                                         <td>{expression/pop_change_formatted} </td>
-                                         <td>{expression/pop_change_percent} </td>
-                                       </tr>
-                                       <tr>
-                                       <th>&nbsp&nbsp Ages 0-17</th>
-                                         <td>{expression/pop_age_00_17_change_formatted} </td>
-                                         <td>{expression/pop_age_00_17_change_percent} </td>
-                                       </tr>
-                                       <tr>
-                                       <th>&nbsp&nbsp Ages 5-17</th>
-                                         <td>{expression/pop_age_05_17_change_formatted} </td>
-                                         <td>{expression/pop_age_05_17_change_percent} </td>
-                                       </tr>
-                                       <tr>
-                                       <th>&nbsp&nbsp Ages 65+</th>
-                                         <td>{expression/pop_age_65_inf_change_formatted} </td>
-                                         <td>{expression/pop_age_65_inf_change_percent} </td>
-                                       </tr>
-                                       <tr>
-                                       <th>Total Households</th>
-                                         <td>{expression/hh_change_formatted} </td>
-                                         <td>{expression/hh_change_percent} </td>
-                                       </tr>
-                                       <tr>
-                                       <th>Total Housing Units</th>
-                                         <td>{expression/housing_units_change_formatted} </td>
-                                         <td>{expression/housing_unit_change_percent} </td>
-                                       </tr>
-                                       <tr>
-                                       <th>Total Jobs</th>
-                                         <td>{expression/jobs_total_change_formatted} </td>
-                                         <td>{expression/jobs_total_change_percent} </td>
-                                       </tr>
-                                </table>`
+                  <table style="width:100%">
+                  <tr>
+                  <th style="width:50%"></th>
+                 <th style="width:25%"><strong>Number</strong></th>
+                 <th style="width:25%"><strong>Percent</strong></th></tr>
+                 <tr>
+                 <th>Total Population</th>
+                   <td>{expression/pop_change_formatted} </td>
+                   <td>{expression/pop_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>&nbsp&nbsp Ages 0-17</th>
+                   <td>{expression/pop_age_00_17_change_formatted} </td>
+                   <td>{expression/pop_age_00_17_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>&nbsp&nbsp Ages 5-17</th>
+                   <td>{expression/pop_age_05_17_change_formatted} </td>
+                   <td>{expression/pop_age_05_17_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>&nbsp&nbsp Ages 65+</th>
+                   <td>{expression/pop_age_65_inf_change_formatted} </td>
+                   <td>{expression/pop_age_65_inf_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>Total Households</th>
+                   <td>{expression/hh_change_formatted} </td>
+                   <td>{expression/hh_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>Total Housing Units</th>
+                   <td>{expression/housing_units_change_formatted} </td>
+                   <td>{expression/housing_unit_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>Total Jobs <sup>*</sup></th>
+                   <td>{expression/jobs_total_change_formatted} </td>
+                   <td>{expression/jobs_total_change_percent} </td>
+                 </tr>
+          </table>
+          <div style="font-size: x-small"><sup>*</sup> Total Jobs has a base year of 2019</div>`
       };
       return template
     },
