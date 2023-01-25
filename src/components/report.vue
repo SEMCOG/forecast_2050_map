@@ -34,10 +34,10 @@
     <h1>{{ selectedName || 'Southeast Michigan' }} - 2050 Forecast Summary Report</h1>
     <lineChart v-bind:chartData="summaryChart[0]"
                v-bind:options="summaryChart[1]"
-               v-bind:style="{width: '100%', height: '500px', boxShadow: '25px 25px 17px -8px #cbc7c7'}"/>
+               v-bind:style="{width: '100%', height: '500px'}"/>
 
     <h2 class="page-break">Population and Households</h2>
-    <table style="width: 100%">
+    <table style="width: 100%; box-shadow: 2px 2px 17px #cbc7c7;">
       <thead>
       <tr>
         <th style="width: 20%"></th>
@@ -75,9 +75,9 @@
 
     <horizontalBar v-bind:chartData="ageChart[0]"
                    v-bind:options="ageChart[1]"
-                   v-bind:style="{width: '100%', height: '500px', boxShadow: '25px 25px 17px -8px #cbc7c7'}"/>
+                   v-bind:style="{width: '100%', height: '500px'}"/>
     <h2 class="page-break">Employment by Sector</h2>
-    <table style="width: 100%">
+    <table style="width: 100%; box-shadow: 2px 2px 17px #cbc7c7;">
       <thead>
       <tr>
         <th style="width: 25%"></th>
@@ -115,7 +115,7 @@
 
     <lineChart v-bind:chartData="jobChart[0]"
                v-bind:options="jobChart[1]"
-               v-bind:style="{width: '100%', height: '500px', boxShadow: '25px 25px 17px -8px #cbc7c7'}"/>
+               v-bind:style="{width: '100%', height: '500px'}"/>
     <div>
       <p style="text-align: center; margin-top: 25px" class="report-footer">1001 Woodward, Suite 1400  •  Detroit, Michigan 48226  •  (313) 961-4266  •  Fax (313) 961-4869  •
         <a href="https://semcog.org">semcog.org</a></p>
