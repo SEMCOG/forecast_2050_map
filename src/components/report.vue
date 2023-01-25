@@ -34,7 +34,7 @@
     <h1>{{ selectedName || 'Southeast Michigan' }} - 2050 Forecast Summary Report</h1>
     <lineChart v-bind:chartData="summaryChart[0]"
                v-bind:options="summaryChart[1]"
-               v-bind:style="{width: '100%', height: '500px'}"/>
+               v-bind:style="{width: '100%', height: '500px', boxShadow: '25px 25px 17px -8px #cbc7c7'}"/>
 
     <h2 class="page-break">Population and Households</h2>
     <table style="width: 100%">
@@ -75,7 +75,7 @@
 
     <horizontalBar v-bind:chartData="ageChart[0]"
                    v-bind:options="ageChart[1]"
-                   v-bind:style="{width: '100%', height: '500px'}"/>
+                   v-bind:style="{width: '100%', height: '500px', boxShadow: '25px 25px 17px -8px #cbc7c7'}"/>
     <h2 class="page-break">Employment by Sector</h2>
     <table style="width: 100%">
       <thead>
@@ -115,7 +115,7 @@
 
     <lineChart v-bind:chartData="jobChart[0]"
                v-bind:options="jobChart[1]"
-               v-bind:style="{width: '100%', height: '500px'}"/>
+               v-bind:style="{width: '100%', height: '500px', boxShadow: '25px 25px 17px -8px #cbc7c7'}"/>
     <div>
       <p style="text-align: center; margin-top: 25px" class="report-footer">1001 Woodward, Suite 1400  •  Detroit, Michigan 48226  •  (313) 961-4266  •  Fax (313) 961-4869  •
         <a href="https://semcog.org">semcog.org</a></p>
@@ -418,10 +418,18 @@ export default {
         scales: {
           xAxes: [{
             ticks: {
+              fontColor: 'black',
+              fontStyle: 'bold',
               beginAtZero: false,
               callback: (value) => {
                 return this.format(value);
               }
+            }
+          }],
+          yAxes: [{
+            ticks:{
+              fontColor: 'black',
+              fontStyle: 'bold',
             }
           }]
         },
@@ -474,14 +482,25 @@ export default {
         },
         legend: {
           display: true,
+          labels: {
+            fontColor: "black",
+          }
         },
         scales: {
           yAxes: [{
             ticks: {
+              fontColor: 'black',
+              fontStyle: 'bold',
               beginAtZero: true,
               callback: (value) => {
                 return this.format(value);
               }
+            }
+          }],
+          xAxes: [{
+            ticks:{
+              fontColor: 'black',
+              fontStyle: 'bold',
             }
           }]
         },
@@ -518,6 +537,7 @@ export default {
             label: this.indNameLookup[i],
             fill: false,
             pointRadius: 6,
+            backgroundColor: this.summary_inds_colors[i],
             borderColor: this.summary_inds_colors[i],
             data: this.years.map(y => this.report_data[i][y]),
           }
@@ -526,6 +546,7 @@ export default {
         fill: false,
         label: '2019-2025 Total Jobs',
         pointRadius: 6,
+        backgroundColor: this.summary_inds_colors['jobs_total'],
         borderColor: this.summary_inds_colors['jobs_total'],
         borderDash: [6, 6],
         data: [this.report_data['jobs_total']['yr2019'], this.report_data['jobs_total']['yr2025']]
@@ -557,14 +578,26 @@ export default {
         },
         legend: {
           display: true,
+          labels: {
+            fontColor: "black",
+             usePointStyle: true
+          }
         },
         scales: {
           yAxes: [{
             ticks: {
+              fontColor: 'black',
+              fontStyle: 'bold',
               beginAtZero: true,
               callback: (value) => {
                 return this.format(value);
               }
+            }
+          }],
+          xAxes: [{
+            ticks:{
+              fontColor: 'black',
+              fontStyle: 'bold',
             }
           }]
         },
