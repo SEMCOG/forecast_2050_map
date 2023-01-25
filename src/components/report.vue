@@ -299,11 +299,12 @@ export default {
         },
       }),
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
-      dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, "hh": true},
+      dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, 'pop_race_1': true, "hh": true},
       years: ['yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
       job_years: ['yr2019', 'yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
       hh_table_inds: ["pop", "hh_pop", "gq_pop",
       "pop_age_00_04", "pop_age_05_17", "pop_age_18_24", "pop_age_25_54", "pop_age_55_64", "pop_age_65_84", "pop_age_85_inf",
+      "pop_race_1", "pop_race_2", "pop_race_4", "pop_race_3",
       "housing_units", "hhsize", "hh", "with_children", "with_seniors", "hh_size_1", "hh_no_car_or_lt_workers"],
       age_inds: ["pop_age_85_inf", "pop_age_65_84", "pop_age_55_64", "pop_age_25_54", "pop_age_18_24", "pop_age_05_17", "pop_age_00_04"],
       summary_inds:["pop", "hh", "jobs_total", "housing_units"],
@@ -374,6 +375,10 @@ export default {
         "pop_age_18_64": "Population Age 18-64",
         "pop_age_85_inf": "Population Age 85+",
         "pop_age_65_inf": "Population Age 65+",
+        "pop_race_1": "Population Non Hispanic White",
+        "pop_race_2": "Population Non Hispanic Black",
+        "pop_race_3": "Population Hispanic",
+        "pop_race_4": "Population Non Hispanic Other",
         "with_children": "With Children (Age 0-17)",
         "with_seniors": "With Seniors (Age 65+)",
         "hh_size_1": "With One Person Only",
@@ -420,7 +425,7 @@ export default {
             ticks: {
               fontColor: 'black',
               fontStyle: 'bold',
-              beginAtZero: false,
+              beginAtZero: true,
               callback: (value) => {
                 return this.format(value);
               }
