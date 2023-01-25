@@ -315,11 +315,11 @@ export default {
       },
       job_inds: ["jobs_sec_03", "jobs_sec_05", "jobs_sec_0809", "jobs_sec_1011", "jobs_sec_1415"],
       job_ind_colors: {
-        'jobs_sec_03': '#5F4690',
-        'jobs_sec_05': '#1D6996',
-        'jobs_sec_0809': '#38A6A5',
-        'jobs_sec_1011': '#0F8554',
-        'jobs_sec_1415': '#73AF48'
+        'jobs_sec_03': '#ba00ff',
+        'jobs_sec_05': '#f39e9e',
+        'jobs_sec_0809': '#e11b08',
+        'jobs_sec_1011': '#0a6ea9',
+        'jobs_sec_1415': '#f50578'
       },
       indicators_jobs: ["jobs_total", "jobs_sec_01", "jobs_sec_02", "jobs_sec_03", "jobs_sec_04",
         "jobs_sec_05", "jobs_sec_06", "jobs_sec_07", "jobs_sec_08",
@@ -462,7 +462,7 @@ export default {
     },
     jobChart: function () {
       return [{
-        labels: [2019, 2020, 2025, 2030, 2035, 2040, 2045, 2050],
+        labels: ['1/1/2019', '1/1/2020', '1/1/2025', '1/1/2030', '1/1/2035', '1/1/2040', '1/1/2045', '1/1/2050'],
         datasets: this.job_inds.map((i) => {
           return {
             label: this.indNameLookup[i],
@@ -498,7 +498,16 @@ export default {
             }
           }],
           xAxes: [{
-            ticks:{
+            type: 'time',
+            time: {
+              unit: 'year',
+              displayFormats: {
+                year: 'YYYY'
+              }
+            },
+            distribution: 'linear',
+            ticks: {
+              source: 'labels',
               fontColor: 'black',
               fontStyle: 'bold',
             }
@@ -520,6 +529,10 @@ export default {
           mode: 'nearest',
           intersect: false,
           callbacks: {
+            title: (tooltipItem) => {
+              let year = new Date(tooltipItem[0].label).getFullYear()
+              return year
+            },
             label: (tooltipItem, data) => {
               let label = data.datasets[tooltipItem.datasetIndex].label + ' ' || '';
               label += this.format(tooltipItem.yLabel);
