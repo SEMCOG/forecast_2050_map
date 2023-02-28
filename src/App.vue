@@ -10,7 +10,7 @@
     <img src="header_report_new.png" alt="logo" width="80%"
          style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="print-only">
 
-    <div class="report-watermark">DRAFT</div>
+    <div style="display: none;" class="report-watermark">DRAFT</div>
     <div id="intro" class="no-print">
       <img src="SEM_0042.jpg" alt="" style="width: 100%; height: 330px; position: relative; object-fit: cover;" v-if="!printOnLoad">
       <div class="blog_margin">
