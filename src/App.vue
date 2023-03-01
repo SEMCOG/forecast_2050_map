@@ -916,7 +916,7 @@ export default {
             window.focus();
             window.print();
             window.close();
-          }, 1500)
+          }, 2000)
         })
       }
     });
