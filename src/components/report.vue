@@ -27,7 +27,7 @@
           >{{ list[1]}}
           </option>
         </select>
-        <calcite-button icon-start="print" color="white" style="margin-left: 20px" v-on:click="openToPrint()">Print</calcite-button>
+        <calcite-button icon-start="print" kind="neutral" style="margin-left: 20px;" v-on:click="openToPrint()">Print</calcite-button>
       </div>
     </div>
     <img src="header_report_new.png" alt="logo" width="50%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
