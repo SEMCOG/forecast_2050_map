@@ -916,7 +916,7 @@ export default {
             window.focus();
             window.print();
             window.close();
-          }, 2500)
+          }, 1500)
         })
       }
     });
@@ -1098,7 +1098,7 @@ export default {
     grid-row: unset !important;
     margin: auto;
     width: 800px;
-    height: 600px;
+    height: 500px;
   }
 }
 
