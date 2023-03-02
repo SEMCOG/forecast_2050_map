@@ -16,24 +16,25 @@
       <div class="blog_margin">
         <div style="font-weight: bold; font-size: 3rem;">2050 Southeast Michigan Regional Development Forecast</div>
         <div style="font-weight: bold; font-size: 2rem;">About</div>
-        <p>SEMCOG began development in November 2021 of the 2050 Regional Forecast, which provides a thirty-year
-          analysis
-          of change in population, households, jobs, and land use for each community in the seven-county region. A new
-          forecast of the region's future is produced once every five years.
-
-          The Regional Forecast is critical in understanding how many people will live and work in our region in the
-          future. Knowing where households and jobs will be located helps us understand where to plan future
-          infrastructure improvements – roads, bridges, water and sewer.
-
-          SEMCOG’s 2050 Regional Forecast for Counties and Municipalities in Southeast Michigan will be adopted on March
-          23, 2023. Until that time, all information contained in the 2050 Regional Forecast is considered DRAFT and
-          subject to change.
-
-          SEMCOG’s 2050 Regional Forecast for Intermediate and Local School Districts, and for Small Geographic Areas
-          within communities, will be released in July 2023.
-
-          SEMCOG’s 2050 Regional Forecast for the those portions of State House and Senate Districts, U.S. Congressional
-          Districts, and Watersheds, within our region will be released in Fall 2023.</p>
+        <p>SEMCOG's 2050 Regional Development Forecast provides a long-range and comprehensive view of future
+          demographic and economic changes in Southeast Michigan. It provides base data for updating SEMCOG’s 2050
+          Long-Range Transportation Plan and supports regional and local planning in the areas of transportation, water
+          quality, air quality, and community and economic development. Member communities use the data in planning for
+          future infrastructure and development needs.</p>
+        <p>SEMCOG began development in late 2021 of the 2050 Regional Forecast, which provides a thirty-year analysis of
+          change in population, households, jobs, and land use for each community in the seven-county region. We produce
+          a new forecast of the region's future once every five years.</p>
+        <p>The Regional Forecast and is critical in understanding how many people will live and work in our region in
+          the future. Knowing where households and jobs will be located helps us understand where to plan future
+          infrastructure improvements – roads, bridges, water and sewer.</p>
+        <h3>SEMCOG 2050 Regional Forecast – Release Dates</h3>
+        <ul>
+          <li>County and Community Forecast (March 24th, 2023)</li>
+          <li>Transportation Analysis Zone Forecast (July 1st, 2023)</li>
+          <li>Intermediate and Local School District Forecast (August 2023)</li>
+          <li>State House and Senate District Forecast (September 2023)</li>
+          <li>Watershed and Sub-Watershed Forecast (September 2023)</li>
+        </ul>
         <div style="display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 5px;
@@ -52,23 +53,30 @@ margin-top: 5%; margin-bottom:5%;">
             </button>
           </a>
         </div>
-
         <img src="header_report_new.png" alt="logo" width="50%"
              style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
-        <p>SEMCOG's 2050 Regional Development Forecast provides a long-range and comprehensive view of future
-          demographic and economic changes in Southeast Michigan. It provides base data for updating SEMCOG’s 2050
-          Long-Range Transportation Plan and supports regional and local planning in the areas of transportation, water
-          quality, air quality, and community and economic development. Member communities use the data in planning for
-          future infrastructure and development needs.
-
-          Working with our partners at MDOT and the University of Michigan, SEMCOG developed the population and
-          employment totals for the 2050 Regional Forecast. These projections will serve as the control totals for the
-          upcoming county and community forecasts, and provide an extensive view of how Southeast Michigan will change
-          over the next 30 years. The regional control totals for the 2050 forecast were presented at SEMCOG’s October
-          13, 2022 General Assembly meeting. The slides of the presentation and related materials can be found below.
-        </p>
+        <h3>County and Community Forecast</h3>
+        <p>SEMCOG’s Executive Committee approved the draft 2050 Regional Forecast for Counties and Communities on
+          February 24th, 2023, and recommended General Assembly adoption of the forecast at its March 23rd, 2023
+          meeting.</p>
         <ul>
-          <li><a href="https://semcog.org/blog/2050-regional-forecast-challenges-and-opportunities" target="_blank">2050 Regional Forecast: Challenges and Opportunities</a></li>
+          <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Regional%20Forecast%20by%20County%20and%20Community.pdf" target="_blank">2050 Regional Forecast by County and Community</a></li>
+          <li>2050 Regional Forecast Presentation to the Executive Committee</li>
+        </ul>
+        <p>Prior to completing the draft 2050 Regional Forecast for Counties and Communities, SEMCOG held a series of
+          Community Stakeholder open house meetings for the 2050 Regional Development Forecast. Three meetings were held
+          within the region during the second week of January 2023. At each of these meetings, SEMCOG released its draft
+          30-year forecast of population, households, and jobs for each county and community in Southeast Michigan.
+          Local leaders then had opportunities to review and give feedback on the draft forecast for their communities
+          and explore key regional trends.</p>
+        <h3>Regional Control Totals</h3>
+        <p>Working with our partners at MDOT and the University of Michigan, SEMCOG developed the population and
+          employment totals for the 2050 Regional Forecast. These projections served as the control totals for the
+          county and community forecasts, and provide an extensive view of how Southeast Michigan will change over the
+          next 30 years. The regional control totals for the 2050 forecast were presented at SEMCOG’s October 13, 2022
+          General Assembly meeting. The slides of the presentation and related materials can be found below.</p>
+        <ul>
+        <li><a href="https://semcog.org/blog/2050-regional-forecast-challenges-and-opportunities" target="_blank">2050 Regional Forecast: Challenges and Opportunities</a></li>
           <li><a href="https://semcog.org/Portals/0/Documents/Plans-For-The-Region/Regional-Forecast/2050RegionalForecastPresentationOctober2022.pdf" target="_blank">2050 Regional Forecast Presentation</a></li>
           <li><a href="https://www.youtube.com/watch?v=GihciBkwIvU&t=18s" target="_blank">Recorded Interview with University of Michigan Economists</a></li>
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=SEMCOG%202050%20Forecast%20Summary.pdf" target="_blank">SEMCOG 2050 Regional Forecast Summary</a></li>
