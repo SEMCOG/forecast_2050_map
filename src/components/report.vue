@@ -73,9 +73,6 @@
       </tbody>
     </table>
 
-    <horizontalBar v-bind:chartData="ageChart[0]"
-                   v-bind:options="ageChart[1]"
-                   v-bind:style="chartStyle"/>
     <h2 class="page-break">Employment by Sector</h2>
     <table style="width: 100%; box-shadow: 2px 2px 17px #cbc7c7;">
       <thead>
@@ -127,7 +124,6 @@
 import * as query from "@arcgis/core/rest/query"
 import Query from "@arcgis/core/rest/support/Query"
 import * as d3 from 'd3'
-import horizontalBar from "./horizontalBarChart.vue"
 import lineChart from "./lineChart.vue"
 import ShortcutSelect from "./ShortcutSelect.vue"
 import "@esri/calcite-components/dist/components/calcite-button";
@@ -135,13 +131,13 @@ import "@esri/calcite-components/dist/components/calcite-button";
 export default {
   name: 'reportComponent',
   components: {
-    horizontalBar, lineChart, ShortcutSelect
+    lineChart, ShortcutSelect
   },
   props: ['selectedFeature'],
   data: function () {
     return {
       report_data: null,
-      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_2008_external/FeatureServer/0",
+      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_output_external_2077/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
@@ -300,13 +296,15 @@ export default {
         },
       }),
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
-      dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, 'pop_race_1': true, "hh": true},
+      dash: {"hh_pop": true, "pop_age_00_17": true, "housing_units": true, 'pop_race_1': true, "hh": true},
       years: ['yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
       job_years: ['yr2019', 'yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
       hh_table_inds: ["pop", "hh_pop", "gq_pop",
-      "pop_age_00_04", "pop_age_05_17", "pop_age_18_24", "pop_age_25_54", "pop_age_55_64", "pop_age_65_84", "pop_age_85_inf",
-      "pop_race_1", "pop_race_2", "pop_race_4", "pop_race_3",
-      "housing_units", "hhsize", "hh", "with_children", "with_seniors", "hh_size_1", "hh_no_car_or_lt_workers"],
+      "pop_age_00_17", "pop_age_18_inf",
+      "housing_units", "hhsize", "hh", "with_children", "with_seniors"],
+      hh_inds: ["pop", "hh_pop", "gq_pop",
+        "pop_age_00_04", "pop_age_00_17", "pop_age_05_17", "pop_age_18_24", "pop_age_18_64","pop_age_25_54", "pop_age_55_64", "pop_age_65_84", "pop_age_65_inf", "pop_age_85_inf",
+        "housing_units", "hhsize", "hh", "with_children", "with_seniors"],
       age_inds: ["pop_age_85_inf", "pop_age_65_84", "pop_age_55_64", "pop_age_25_54", "pop_age_18_24", "pop_age_05_17", "pop_age_00_04"],
       summary_inds:["pop", "hh", "jobs_total", "housing_units"],
       summary_inds_colors: {
@@ -376,6 +374,7 @@ export default {
         "pop_age_18_64": "Population Age 18-64",
         "pop_age_85_inf": "Population Age 85+",
         "pop_age_65_inf": "Population Age 65+",
+        "pop_age_18_inf": "Population Age 18+",
         "pop_race_1": "Population Non Hispanic White",
         "pop_race_2": "Population Non Hispanic Black",
         "pop_race_3": "Population Hispanic",
@@ -701,7 +700,7 @@ export default {
       if (this.selectedId === 8010) {
         areas = `city_id in (3065, 6120)`;
       }
-      let indicators_query = this.hh_table_inds.concat(this.indicators_jobs);
+      let indicators_query = this.hh_inds.concat(this.indicators_jobs);
       let inds = `indicator_ in (${indicators_query.map(f => `'${f}'`).join(',')})`;
       // create the Query object
       let queryObject = new Query();
@@ -756,6 +755,11 @@ export default {
         let records = results.features
         records.map((r) => report_data[r.attributes.indicator_] = r.attributes)
       });
+
+      report_data['pop_age_18_inf'] = {};
+      this.years.map((d) => {
+        report_data['pop_age_18_inf'][d] = report_data['pop_age_18_64'][d] + report_data['pop_age_65_inf'][d]
+      })
       report_data['hhsize'] = {};
       this.years.map((d) => {
         report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))

@@ -241,8 +241,7 @@ margin-top: 5%; margin-bottom:5%;">
             <option value="housing_units_change">Total Housing Units</option>
             <option value="jobs_total_change">Total Jobs</option>
             <option value="pop_age_00_17_change">Population Ages 0-17</option>
-            <option value="pop_age_05_17_change">Population Ages 5-17</option>
-            <option value="pop_age_65_inf_change">Population Ages >= 65</option>
+            <option value="pop_age_18_inf_change">Population Ages 18+</option>
           </select>
         </div>
       </div>
@@ -321,6 +320,7 @@ export default {
         'jobs_total_change': {name: 'Total Jobs'},
         'pop_age_00_17_change': {name: 'Population Ages 0-17'},
         'pop_age_05_17_change': {name: 'Population Ages 5-17'},
+        'pop_age_18_inf_change': {name: 'Population Ages >= 18'},
         'pop_age_65_inf_change': {name: 'Population Ages >= 65'},
       }
     }
@@ -357,6 +357,16 @@ export default {
           name: "pop_age_05_17_change_formatted",
           title: "pop_age_05_17_change_formatted",
           expression: "TEXT($feature.pop_age_05_17_change, '#,###')"
+        },
+        {
+          name: "pop_age_18_inf_change_percent",
+          title: "pop_age_18_inf_change_percent",
+          expression: "ROUND(($feature.pop_age_18_inf_change / $feature.pop_age_18_inf_start)*100, 1) + '%'"
+        },
+        {
+          name: "pop_age_18_inf_change_formatted",
+          title: "pop_age_18_inf_change_formatted",
+          expression: "TEXT($feature.pop_age_18_inf_change, '#,###')"
         },
         {
           name: "pop_age_65_inf_change_percent",
@@ -422,14 +432,9 @@ export default {
                    <td>{expression/pop_age_00_17_change_percent} </td>
                  </tr>
                  <tr>
-                 <th>&nbsp&nbsp Ages 5-17</th>
-                   <td>{expression/pop_age_05_17_change_formatted} </td>
-                   <td>{expression/pop_age_05_17_change_percent} </td>
-                 </tr>
-                 <tr>
-                 <th>&nbsp&nbsp Ages 65+</th>
-                   <td>{expression/pop_age_65_inf_change_formatted} </td>
-                   <td>{expression/pop_age_65_inf_change_percent} </td>
+                 <th>&nbsp&nbsp Ages 18+</th>
+                   <td>{expression/pop_age_18_inf_change_formatted} </td>
+                   <td>{expression/pop_age_18_inf_change_percent} </td>
                  </tr>
                  <tr>
                  <th>Total Households</th>
@@ -741,28 +746,6 @@ export default {
       };
       return renderer
     },
-    detroit_neighborhood_labels: function () {
-      const labelClass = {
-        // autocasts as new LabelClass()
-        symbol: {
-          type: "text",  // autocasts as new TextSymbol()
-          color: "#ffffff",
-          haloColor: "#8f6732",
-          haloSize: .5,
-          font: {  // autocast as new Font()
-            family: "Arial",
-            size: 8,
-          }
-        },
-        labelPlacement: "always-horizontal",
-        where: "geoid < 600 and geotype = 'city'",
-        minScale: 200000,
-        labelExpressionInfo: {
-          expression: "$feature.area_name"
-        }
-      };
-      return labelClass
-    },
     forecast_layer_info: function () {
       return new FeatureLayer({
         url:
@@ -770,7 +753,7 @@ export default {
         opacity: 0.001,
         legendEnabled: false,
         popupTemplate: this.popup,
-        labelingInfo: [this.detroit_neighborhood_labels],
+        definitionExpression: "not (geoid > 500 and geoid < 600)",
       });
     },
     events_layer: function () {
@@ -814,6 +797,7 @@ export default {
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
+        definitionExpression: "not (geoid > 500 and geoid < 600)",
       });
     },
     query: function () {
