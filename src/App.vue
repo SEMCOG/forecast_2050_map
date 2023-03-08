@@ -263,6 +263,8 @@ import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import FeatureEffect from "@arcgis/core/layers/support/FeatureEffect";
 import FeatureFilter from "@arcgis/core/layers/support/FeatureFilter";
 import Legend from "@arcgis/core/widgets/Legend";
+import Expand from "@arcgis/core/widgets/Expand";
+import BasemapGallery from "@arcgis/core/widgets/BasemapGallery";
 import reportComponent from "./components/report.vue"
 import SemcogHeader from "./components/SemcogHeader.vue"
 import {diff} from 'deep-diff';
@@ -816,24 +818,43 @@ export default {
   },
   methods: {},
   mounted() {
-    let communityLabels = new VectorTileLayer({
-      portalItem: {
-        id: "2efeb0852a794d09973908facff29987"
-      },
-    });
-
-    let community = new VectorTileLayer({
-      portalItem: {
-        id: "2127254dcb324858947dca0fc8204f9d"
-      },
-    });
 
     let basemap = new Basemap({
-      baseLayers: [
-        community
-      ],
+      portalItem: {
+        id: "08c50fc63f374449a1c9128bf0ad40d8"
+      },
       referenceLayers: [
-        communityLabels
+        new VectorTileLayer({
+          portalItem: {
+            id: "2efeb0852a794d09973908facff29987"
+          },
+        })
+      ],
+    });
+
+    let uscongress_basemap = new Basemap({
+      portalItem: {
+        id: "46d0c7c69ad347ffb28ac5ef6f0d8a42"
+      },
+      referenceLayers: [
+        new VectorTileLayer({
+          portalItem: {
+            id: "9361e2b0cb5d49d892ba3485dbc9bbfd"
+          },
+        })
+      ],
+    });
+
+    let imagery_basemap = new Basemap({
+      portalItem: {
+        id: "9f160c51867846328fda3c4d1ce4552d"
+      },
+      referenceLayers: [
+        new VectorTileLayer({
+          portalItem: {
+            id: "30d6b8271e1849cd9c3042060001f425"
+          },
+        })
       ],
     });
 
@@ -917,7 +938,23 @@ export default {
       view: this.view
     });
 
-    this.view.ui.add(legend, "bottom-left");
+
+    const bgExpand = new Expand({
+      view: this.view,
+      content: new BasemapGallery({view: this.view, source: [basemap, uscongress_basemap, imagery_basemap]}),
+      expandIconClass: "esri-icon-basemap"
+    });
+    this.view.ui.add(bgExpand, "top-right");
+
+    const legExpand = new Expand({
+      expandIconClass: "esri-icon-legend",  // see https://developers.arcgis.com/javascript/latest/guide/esri-icon-font/
+      expandTooltip: "Legend", // optional, defaults to "Expand" for English locale
+      view: this.view,
+      autoCollapse: false,
+      expanded: false,
+      content: legend
+    });
+    this.view.ui.add(legExpand, "bottom-left");
   },
   watch: {
     query: function (oldVal, newVal) {
@@ -985,7 +1022,7 @@ export default {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: max-content auto 600px auto;
+  grid-template-rows: max-content auto 700px auto;
   grid-template-columns: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
