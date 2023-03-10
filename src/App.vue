@@ -560,6 +560,88 @@ export default {
       };
       return renderer
     },
+    basemapGallery: function () {
+      const bgExpand = new Expand({
+        view: this.view,
+        content: new BasemapGallery({
+          view: this.view,
+          source: this.basemaps
+        }),
+        expandIconClass: "esri-icon-basemap"
+      });
+      return bgExpand
+
+    },
+    basemaps: function () {
+      let basemap = new Basemap({
+        portalItem: {
+          id: "08c50fc63f374449a1c9128bf0ad40d8"
+        },
+        referenceLayers: [
+          new VectorTileLayer({
+            portalItem: {
+              id: "2efeb0852a794d09973908facff29987"
+            },
+          })
+        ],
+      });
+
+      let statehouse_basemap = new Basemap({
+        portalItem: {
+          id: "828cf5d1fabb42d0aecccce4c574e461"
+        },
+        referenceLayers: [
+          new VectorTileLayer({
+            portalItem: {
+              id: "2f10fe3210c64ac592352754e1171a75"
+            },
+          })
+        ],
+      });
+
+      let statesenate_basemap = new Basemap({
+        portalItem: {
+          id: "3730b4c557184974906f4dffab40b4a9"
+        },
+        referenceLayers: [
+          new VectorTileLayer({
+            portalItem: {
+              id: "5e8a1121f2824678bc3a1381ff784223"
+            },
+          })
+        ],
+      });
+
+      let uscongress_basemap = new Basemap({
+        portalItem: {
+          id: "46d0c7c69ad347ffb28ac5ef6f0d8a42"
+        },
+      });
+
+      // uscongress_basemap.when(() => {
+      //   uscongress_basemap.referenceLayers = [
+      //     new VectorTileLayer({
+      //       portalItem: {
+      //         id: "224035d0afe1475d8796bb0802963846"
+      //       },
+      //     })
+      //   ]
+      // })
+
+      let imagery_basemap = new Basemap({
+        portalItem: {
+          id: "9f160c51867846328fda3c4d1ce4552d"
+        },
+        referenceLayers: [
+          new VectorTileLayer({
+            portalItem: {
+              id: "30d6b8271e1849cd9c3042060001f425"
+            },
+          })
+        ],
+      });
+      return [basemap, uscongress_basemap, imagery_basemap, statesenate_basemap, statehouse_basemap]
+    },
     forecast_layer_county_renderer: function () {
       const more3kgain = {
         type: "simple-fill", // autocasts as new SimpleFillSymbol()
@@ -818,47 +900,7 @@ export default {
   },
   methods: {},
   mounted() {
-
-    let basemap = new Basemap({
-      portalItem: {
-        id: "08c50fc63f374449a1c9128bf0ad40d8"
-      },
-      referenceLayers: [
-        new VectorTileLayer({
-          portalItem: {
-            id: "2efeb0852a794d09973908facff29987"
-          },
-        })
-      ],
-    });
-
-    let uscongress_basemap = new Basemap({
-      portalItem: {
-        id: "46d0c7c69ad347ffb28ac5ef6f0d8a42"
-      },
-      referenceLayers: [
-        new VectorTileLayer({
-          portalItem: {
-            id: "9361e2b0cb5d49d892ba3485dbc9bbfd"
-          },
-        })
-      ],
-    });
-
-    let imagery_basemap = new Basemap({
-      portalItem: {
-        id: "9f160c51867846328fda3c4d1ce4552d"
-      },
-      referenceLayers: [
-        new VectorTileLayer({
-          portalItem: {
-            id: "30d6b8271e1849cd9c3042060001f425"
-          },
-        })
-      ],
-    });
-
-    this.map = new Map({basemap: basemap})
+    this.map = new Map({basemap: this.basemaps[0]})
 
     this.view = new MapView({
       container: this.$refs.map,
@@ -873,6 +915,7 @@ export default {
 
     this.view.ui.add("ind_select", "top-left");
     this.view.ui.move(["zoom"], "bottom-right");
+    this.view.ui.add(this.basemapGallery, "top-right");
 
     this.map.add(this.forecast_layer)
     this.map.add(this.forecast_layer_info)
@@ -937,14 +980,6 @@ export default {
     const legend = new Legend({
       view: this.view
     });
-
-
-    const bgExpand = new Expand({
-      view: this.view,
-      content: new BasemapGallery({view: this.view, source: [basemap, uscongress_basemap, imagery_basemap]}),
-      expandIconClass: "esri-icon-basemap"
-    });
-    this.view.ui.add(bgExpand, "top-right");
 
     const legExpand = new Expand({
       expandIconClass: "esri-icon-legend",  // see https://developers.arcgis.com/javascript/latest/guide/esri-icon-font/
