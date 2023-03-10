@@ -640,7 +640,7 @@ export default {
           })
         ],
       });
-      return [basemap, uscongress_basemap, imagery_basemap, statesenate_basemap, statehouse_basemap]
+      return [basemap, imagery_basemap, uscongress_basemap, statesenate_basemap, statehouse_basemap]
     },
     forecast_layer_county_renderer: function () {
       const more3kgain = {
@@ -881,6 +881,7 @@ export default {
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
+        opacity: .8,
         definitionExpression: "not (geoid > 500 and geoid < 600)",
       });
     },
