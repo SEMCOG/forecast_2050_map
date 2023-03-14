@@ -29,7 +29,8 @@
           infrastructure improvements – roads, bridges, water and sewer.</p>
         <h3>SEMCOG 2050 Regional Forecast – Release Dates</h3>
         <ul>
-          <li>County and Community Forecast (March 24th, 2023)</li>
+          <li>County and Community Forecast Population, Household, and Employment Totals (March 24th, 2023)</li>
+          <li>County and Community Forecast Additional Population and Household Distributions (April 28th, 2023)</li>
           <li>Transportation Analysis Zone Forecast (July 1st, 2023)</li>
           <li>Intermediate and Local School District Forecast (August 2023)</li>
           <li>State House and Senate District Forecast (September 2023)</li>
