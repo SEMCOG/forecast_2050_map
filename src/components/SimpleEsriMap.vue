@@ -9,6 +9,7 @@ import WebMap from "@arcgis/core/WebMap";
 import Legend from "@arcgis/core/widgets/Legend";
 import Fullscreen from "@arcgis/core/widgets/Fullscreen";
 import Expand from "@arcgis/core/widgets/Expand";
+import Search from "@arcgis/core/widgets/Search";
 
 export default {
   name: "SimpleEsriMap",
@@ -32,6 +33,13 @@ export default {
 
     const fullscreen = new Fullscreen({view: view})
     view.ui.add(fullscreen, "bottom-right");
+
+    const search = new Search({view: view})
+    const searchExp = new Expand({
+      view: view,
+      content: search
+    })
+    view.ui.add(searchExp, "top-left");
 
     const newDiv = document.createElement("div");
     newDiv.className = 'esri-widget'
