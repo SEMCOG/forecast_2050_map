@@ -95,6 +95,7 @@ margin-top: 5%; margin-bottom:5%;">
         will be older than 65 and, the older population is projected to outnumber the children (under 18 years) for the
         first time in the region’s history. Because of these transformative trends, net international migration is
         expected to overtake natural increase as a leading cause of population growth in the coming decades.</p>
+      <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your community.</p>
       <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_left" :settings="demographics_carousel">
           <slide >
@@ -119,6 +120,7 @@ margin-top: 5%; margin-bottom:5%;">
         transportation and warehousing, and construction will provide jobs for our residents. Employment in the
         manufacturing sector remains stable through 2030, but will start to decline after 2030 as the auto industry
         increasingly turns its attention to electric vehicle production.</p>
+      <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your community.</p>
       <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_right" :settings="demographics_carousel">
           <slide>
@@ -152,6 +154,7 @@ margin-top: 5%; margin-bottom:5%;">
         expectations and collect data on planned development. Future residential growth is expected to be more evenly
         split between single-family and multi-family housing units. The region will add over 100 million square feet of
         new nonresidential buildings, concentrated in buildings that are fewer in number but larger in size.</p>
+      <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your community.</p>
       <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_left" :settings="demographics_carousel">
           <slide>

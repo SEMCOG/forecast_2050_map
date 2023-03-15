@@ -33,10 +33,11 @@ export default {
     const fullscreen = new Fullscreen({view: view})
     view.ui.add(fullscreen, "bottom-right");
 
-        const search = new Search({view: view})
+    const search = new Search({view: view})
     const searchExp = new Expand({
       view: view,
-      content: search
+      content: search,
+      expandTooltip:'Search'
     })
     view.ui.add(searchExp, "top-left");
 

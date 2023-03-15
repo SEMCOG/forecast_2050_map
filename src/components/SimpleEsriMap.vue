@@ -37,7 +37,8 @@ export default {
     const search = new Search({view: view})
     const searchExp = new Expand({
       view: view,
-      content: search
+      content: search,
+      expandTooltip:'Search'
     })
     view.ui.add(searchExp, "top-left");
 
