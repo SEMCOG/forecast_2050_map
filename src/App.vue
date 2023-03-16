@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SemcogHeader class="no-print" v-if="!printOnLoad">
+    <SemcogHeader class="no-print" v-if="!printOnLoad" style="position: fixed; top: 0; z-index: 1000; width: 100%">
       <span
           style="line-height: 2em; font-size: 1em; margin-left: 4%"
       >
@@ -971,8 +971,10 @@ export default {
         }
         this.events_layer.visible = false
         this.demos_layer.visible = false
+        this.legExpand.toggle()
         this.forecast_layer_info.queryExtent(query).then((e) => {
-          this.view.goTo(e.extent.expand(1.5), {animate: false, duration: 0,})
+          let new_extent = e.extent.clone()
+          this.view.goTo(new_extent.expand(1.8), {animate: false, duration: 0,})
           window.setTimeout(() => { // wait for loader to disappear
             window.focus();
             window.print();
@@ -986,7 +988,7 @@ export default {
       view: this.view
     });
 
-    const legExpand = new Expand({
+    this.legExpand = new Expand({
       expandIconClass: "esri-icon-legend",  // see https://developers.arcgis.com/javascript/latest/guide/esri-icon-font/
       expandTooltip: "Legend", // optional, defaults to "Expand" for English locale
       view: this.view,
@@ -994,7 +996,7 @@ export default {
       expanded: false,
       content: legend
     });
-    this.view.ui.add(legExpand, "bottom-left");
+    this.view.ui.add(this.legExpand, "bottom-left");
   },
   watch: {
     query: function (oldVal, newVal) {
@@ -1166,8 +1168,8 @@ export default {
     grid-column: unset !important;
     grid-row: unset !important;
     margin: auto;
-    width: 800px;
-    height: 500px;
+    width: 100%;
+    height: 560px;
   }
 }
 

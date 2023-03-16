@@ -685,6 +685,9 @@ export default {
       if (this.selectedId === 8999) {
         areas = `large_area_id in (${this.large_area_ids.map(f => `${f}`).join(',')})`;
       }
+      if (this.selectedId === 5) {
+        areas = `large_area_id in (5)`;
+      }
       if (this.selectedId === 163) {
         areas = `large_area_id in (5, 3)`;
       }
