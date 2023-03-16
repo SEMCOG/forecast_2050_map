@@ -90,12 +90,6 @@
     "geotype": "city"
   },
   {
-    "gid": 8,
-    "area_name": "Richmond",
-    "geoid": 8025,
-    "geotype": "city"
-  },
-  {
     "gid": 101,
     "area_name": "Shelby Twp",
     "geoid": 3110,
@@ -114,33 +108,15 @@
     "geotype": "city"
   },
   {
-    "gid": 280,
-    "area_name": "Redford",
-    "geoid": 543,
-    "geotype": "city"
-  },
-  {
     "gid": 168,
     "area_name": "Marine City",
     "geoid": 6110,
     "geotype": "city"
   },
   {
-    "gid": 292,
-    "area_name": "Belle Isle",
-    "geoid": 555,
-    "geotype": "city"
-  },
-  {
     "gid": 12,
     "area_name": "Grosse Pointe Park",
     "geoid": 1075,
-    "geotype": "city"
-  },
-  {
-    "gid": 273,
-    "area_name": "Middle Woodward",
-    "geoid": 536,
     "geotype": "city"
   },
   {
@@ -186,12 +162,6 @@
     "geotype": "city"
   },
   {
-    "gid": 252,
-    "area_name": "Corktown",
-    "geoid": 515,
-    "geotype": "city"
-  },
-  {
     "gid": 45,
     "area_name": "Brandon Twp",
     "geoid": 2045,
@@ -201,12 +171,6 @@
     "gid": 218,
     "area_name": "Orchard Lake Village",
     "geoid": 2185,
-    "geotype": "city"
-  },
-  {
-    "gid": 261,
-    "area_name": "Greenfield",
-    "geoid": 524,
     "geotype": "city"
   },
   {
@@ -222,18 +186,6 @@
     "geotype": "city"
   },
   {
-    "gid": 247,
-    "area_name": "Chadsey",
-    "geoid": 510,
-    "geotype": "city"
-  },
-  {
-    "gid": 276,
-    "area_name": "Nolan",
-    "geoid": 539,
-    "geotype": "city"
-  },
-  {
     "gid": 2,
     "area_name": "Canton Twp",
     "geoid": 1020,
@@ -243,12 +195,6 @@
     "gid": 160,
     "area_name": "Emmett Twp",
     "geoid": 6070,
-    "geotype": "city"
-  },
-  {
-    "gid": 283,
-    "area_name": "Rouge",
-    "geoid": 546,
     "geotype": "city"
   },
   {
@@ -273,12 +219,6 @@
     "gid": 29,
     "area_name": "Rockwood",
     "geoid": 1165,
-    "geotype": "city"
-  },
-  {
-    "gid": 288,
-    "area_name": "Milwaukee Junction",
-    "geoid": 551,
     "geotype": "city"
   },
   {
@@ -330,18 +270,6 @@
     "geotype": "city"
   },
   {
-    "gid": 243,
-    "area_name": "Burbank",
-    "geoid": 506,
-    "geotype": "city"
-  },
-  {
-    "gid": 251,
-    "area_name": "Conner",
-    "geoid": 514,
-    "geotype": "city"
-  },
-  {
     "gid": 135,
     "area_name": "Estral Beach",
     "geoid": 5040,
@@ -372,18 +300,6 @@
     "geotype": "city"
   },
   {
-    "gid": 254,
-    "area_name": "Denby",
-    "geoid": 517,
-    "geotype": "city"
-  },
-  {
-    "gid": 259,
-    "area_name": "Foch",
-    "geoid": 522,
-    "geotype": "city"
-  },
-  {
     "gid": 212,
     "area_name": "Rochester",
     "geoid": 2230,
@@ -393,12 +309,6 @@
     "gid": 114,
     "area_name": "Lodi Twp",
     "geoid": 4050,
-    "geotype": "city"
-  },
-  {
-    "gid": 264,
-    "area_name": "Indian Village",
-    "geoid": 527,
     "geotype": "city"
   },
   {
@@ -471,12 +381,6 @@
     "gid": 191,
     "area_name": "Iosco Twp",
     "geoid": 7070,
-    "geotype": "city"
-  },
-  {
-    "gid": 263,
-    "area_name": "Hubbard Richard",
-    "geoid": 526,
     "geotype": "city"
   },
   {
@@ -555,12 +459,6 @@
     "gid": 184,
     "area_name": "Fenton (Livingston)",
     "geoid": 7027,
-    "geotype": "city"
-  },
-  {
-    "gid": 260,
-    "area_name": "Grant",
-    "geoid": 523,
     "geotype": "city"
   },
   {
@@ -654,21 +552,9 @@
     "geotype": "city"
   },
   {
-    "gid": 286,
-    "area_name": "State Fair",
-    "geoid": 549,
-    "geotype": "city"
-  },
-  {
     "gid": 9,
     "area_name": "Grosse Ile Twp",
     "geoid": 1060,
-    "geotype": "city"
-  },
-  {
-    "gid": 289,
-    "area_name": "Vernor/Junction",
-    "geoid": 552,
     "geotype": "city"
   },
   {
@@ -720,33 +606,15 @@
     "geotype": "city"
   },
   {
-    "gid": 262,
-    "area_name": "Harmony Village",
-    "geoid": 525,
-    "geotype": "city"
-  },
-  {
     "gid": 3,
     "area_name": "Dearborn",
     "geoid": 1025,
     "geotype": "city"
   },
   {
-    "gid": 268,
-    "area_name": "McDougall-Hunt",
-    "geoid": 531,
-    "geotype": "city"
-  },
-  {
     "gid": 8,
     "area_name": "Gibraltar",
     "geoid": 1055,
-    "geotype": "city"
-  },
-  {
-    "gid": 258,
-    "area_name": "Finney",
-    "geoid": 521,
     "geotype": "city"
   },
   {
@@ -822,12 +690,6 @@
     "geotype": "city"
   },
   {
-    "gid": 240,
-    "area_name": "Boynton",
-    "geoid": 503,
-    "geotype": "city"
-  },
-  {
     "gid": 44,
     "area_name": "Bloomfield Hills",
     "geoid": 2035,
@@ -852,6 +714,12 @@
     "geotype": "city"
   },
   {
+    "gid": 8,
+    "area_name": "Richmond",
+    "geoid": 8025,
+    "geotype": "city"
+  },
+  {
     "gid": 120,
     "area_name": "Salem Twp",
     "geoid": 4085,
@@ -867,12 +735,6 @@
     "gid": 177,
     "area_name": "St. Clair Twp",
     "geoid": 6155,
-    "geotype": "city"
-  },
-  {
-    "gid": 282,
-    "area_name": "Rosedale",
-    "geoid": 545,
     "geotype": "city"
   },
   {
@@ -918,12 +780,6 @@
     "geotype": "city"
   },
   {
-    "gid": 291,
-    "area_name": "Winterhalter",
-    "geoid": 554,
-    "geotype": "city"
-  },
-  {
     "gid": 161,
     "area_name": "Fort Gratiot Twp",
     "geoid": 6075,
@@ -945,18 +801,6 @@
     "gid": 93,
     "area_name": "Macomb Twp",
     "geoid": 3060,
-    "geotype": "city"
-  },
-  {
-    "gid": 275,
-    "area_name": "East Riverfront",
-    "geoid": 538,
-    "geotype": "city"
-  },
-  {
-    "gid": 255,
-    "area_name": "Durfee",
-    "geoid": 518,
     "geotype": "city"
   },
   {
@@ -1002,12 +846,6 @@
     "geotype": "city"
   },
   {
-    "gid": 239,
-    "area_name": "Bagley",
-    "geoid": 502,
-    "geotype": "city"
-  },
-  {
     "gid": 233,
     "area_name": "Dexter",
     "geoid": 4030,
@@ -1032,12 +870,6 @@
     "geotype": "city"
   },
   {
-    "gid": 269,
-    "area_name": "University",
-    "geoid": 532,
-    "geotype": "city"
-  },
-  {
     "gid": 35,
     "area_name": "Van Buren Twp",
     "geoid": 1200,
@@ -1056,18 +888,6 @@
     "geotype": "city"
   },
   {
-    "gid": 265,
-    "area_name": "Mack",
-    "geoid": 528,
-    "geotype": "city"
-  },
-  {
-    "gid": 248,
-    "area_name": "Chandler Park",
-    "geoid": 511,
-    "geotype": "city"
-  },
-  {
     "gid": 158,
     "area_name": "East China Twp",
     "geoid": 6060,
@@ -1077,12 +897,6 @@
     "gid": 214,
     "area_name": "South Lyon",
     "geoid": 2255,
-    "geotype": "city"
-  },
-  {
-    "gid": 274,
-    "area_name": "Mt. Olivet",
-    "geoid": 537,
     "geotype": "city"
   },
   {
@@ -1096,12 +910,6 @@
     "area_name": "Northville (Wayne)",
     "geoid": 1130,
     "geotype": "mcd"
-  },
-  {
-    "gid": 287,
-    "area_name": "Tireman",
-    "geoid": 550,
-    "geotype": "city"
   },
   {
     "gid": 5,
@@ -1140,12 +948,6 @@
     "geotype": "city"
   },
   {
-    "gid": 246,
-    "area_name": "Cerveny/Grandmont",
-    "geoid": 509,
-    "geotype": "city"
-  },
-  {
     "gid": 151,
     "area_name": "Brockway Twp",
     "geoid": 6015,
@@ -1167,12 +969,6 @@
     "gid": 178,
     "area_name": "Wales Twp",
     "geoid": 6160,
-    "geotype": "city"
-  },
-  {
-    "gid": 281,
-    "area_name": "Rosa Parks",
-    "geoid": 544,
     "geotype": "city"
   },
   {
@@ -1254,12 +1050,6 @@
     "geotype": "city"
   },
   {
-    "gid": 249,
-    "area_name": "Cody",
-    "geoid": 512,
-    "geotype": "city"
-  },
-  {
     "gid": 146,
     "area_name": "South Rockwood",
     "geoid": 5110,
@@ -1278,21 +1068,9 @@
     "geotype": "city"
   },
   {
-    "gid": 278,
-    "area_name": "Pembroke",
-    "geoid": 541,
-    "geotype": "city"
-  },
-  {
     "gid": 166,
     "area_name": "Kimball Twp",
     "geoid": 6100,
-    "geotype": "city"
-  },
-  {
-    "gid": 238,
-    "area_name": "Airport",
-    "geoid": 501,
     "geotype": "city"
   },
   {
@@ -1326,18 +1104,6 @@
     "geotype": "city"
   },
   {
-    "gid": 272,
-    "area_name": "Chene",
-    "geoid": 535,
-    "geotype": "city"
-  },
-  {
-    "gid": 279,
-    "area_name": "Pershing",
-    "geoid": 542,
-    "geotype": "city"
-  },
-  {
     "gid": 7,
     "area_name": "Wayne County",
     "geoid": 163,
@@ -1359,12 +1125,6 @@
     "gid": 18,
     "area_name": "Huron Twp",
     "geoid": 1105,
-    "geotype": "city"
-  },
-  {
-    "gid": 242,
-    "area_name": "Brooks",
-    "geoid": 505,
     "geotype": "city"
   },
   {
@@ -1404,12 +1164,6 @@
     "geotype": "city"
   },
   {
-    "gid": 271,
-    "area_name": "McNichols",
-    "geoid": 534,
-    "geotype": "city"
-  },
-  {
     "gid": 54,
     "area_name": "Holly Twp",
     "geoid": 2105,
@@ -1422,21 +1176,9 @@
     "geotype": "city"
   },
   {
-    "gid": 270,
-    "area_name": "Mackenzie",
-    "geoid": 533,
-    "geotype": "city"
-  },
-  {
     "gid": 130,
     "area_name": "Ash Twp",
     "geoid": 5005,
-    "geotype": "city"
-  },
-  {
-    "gid": 250,
-    "area_name": "Condon",
-    "geoid": 513,
     "geotype": "city"
   },
   {
@@ -1455,18 +1197,6 @@
     "gid": 82,
     "area_name": "White Lake Twp",
     "geoid": 2290,
-    "geotype": "city"
-  },
-  {
-    "gid": 245,
-    "area_name": "Central Business District",
-    "geoid": 508,
-    "geotype": "city"
-  },
-  {
-    "gid": 266,
-    "area_name": "Jeffries",
-    "geoid": 529,
     "geotype": "city"
   },
   {
@@ -1494,27 +1224,9 @@
     "geotype": "city"
   },
   {
-    "gid": 285,
-    "area_name": "St. Jean",
-    "geoid": 548,
-    "geotype": "city"
-  },
-  {
-    "gid": 277,
-    "area_name": "Palmer Park",
-    "geoid": 540,
-    "geotype": "city"
-  },
-  {
     "gid": 165,
     "area_name": "Kenockee Twp",
     "geoid": 6095,
-    "geotype": "city"
-  },
-  {
-    "gid": 290,
-    "area_name": "West Riverfront",
-    "geoid": 553,
     "geotype": "city"
   },
   {
@@ -1596,12 +1308,6 @@
     "geotype": "city"
   },
   {
-    "gid": 284,
-    "area_name": "Springwells",
-    "geoid": 547,
-    "geotype": "city"
-  },
-  {
     "gid": 89,
     "area_name": "Eastpointe",
     "geoid": 3035,
@@ -1644,12 +1350,6 @@
     "geotype": "city"
   },
   {
-    "gid": 256,
-    "area_name": "East Riverside",
-    "geoid": 519,
-    "geotype": "city"
-  },
-  {
     "gid": 224,
     "area_name": "Pinckney",
     "geoid": 7085,
@@ -1686,12 +1386,6 @@
     "geotype": "city"
   },
   {
-    "gid": 267,
-    "area_name": "Kettering",
-    "geoid": 530,
-    "geotype": "city"
-  },
-  {
     "gid": 133,
     "area_name": "Dundee Twp",
     "geoid": 5030,
@@ -1707,12 +1401,6 @@
     "gid": 37,
     "area_name": "Westland",
     "geoid": 1210,
-    "geotype": "city"
-  },
-  {
-    "gid": 253,
-    "area_name": "Davison",
-    "geoid": 516,
     "geotype": "city"
   },
   {
@@ -1758,12 +1446,6 @@
     "geotype": "city"
   },
   {
-    "gid": 244,
-    "area_name": "Butzel",
-    "geoid": 507,
-    "geotype": "city"
-  },
-  {
     "gid": 219,
     "area_name": "Farmington",
     "geoid": 2065,
@@ -1794,12 +1476,6 @@
     "geotype": "city"
   },
   {
-    "gid": 241,
-    "area_name": "Brightmoor",
-    "geoid": 504,
-    "geotype": "city"
-  },
-  {
     "gid": 47,
     "area_name": "Commerce Twp",
     "geoid": 2060,
@@ -1809,12 +1485,6 @@
     "gid": 152,
     "area_name": "Burtchville Twp",
     "geoid": 6020,
-    "geotype": "city"
-  },
-  {
-    "gid": 257,
-    "area_name": "Evergreen",
-    "geoid": 520,
     "geotype": "city"
   },
   {
