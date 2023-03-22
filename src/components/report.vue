@@ -68,7 +68,7 @@
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'])}}</td>
         <td class="tableChangGap"></td>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'] - report_data[ind]['yr2020'])}}</td>
-        <td v-if="report_data[ind]">{{formatPercent((report_data[ind]['yr2050'] - report_data[ind]['yr2020']) / report_data[ind]['yr2020'])}}</td>
+        <td v-if="report_data[ind]">{{filterPercent((report_data[ind]['yr2050'] - report_data[ind]['yr2020']) / report_data[ind]['yr2020'])}}</td>
       </tr>
       </tbody>
     </table>
@@ -105,7 +105,7 @@
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'])}}</td>
         <td class="tableChangGap"></td>
         <td v-if="report_data[ind]">{{format(report_data[ind]['yr2050'] - report_data[ind]['yr2019'])}}</td>
-        <td v-if="report_data[ind]">{{formatPercent((report_data[ind]['yr2050'] - report_data[ind]['yr2019']) / report_data[ind]['yr2019'])}}</td>
+        <td v-if="report_data[ind]">{{filterPercent((report_data[ind]['yr2050'] - report_data[ind]['yr2019']) / report_data[ind]['yr2019'])}}</td>
       </tr>
       </tbody>
     </table>
@@ -641,6 +641,14 @@ export default {
   methods: {
     format2dec: d3.format('.2f'),
     formatPercent: d3.format('.1%'),
+    filterPercent: function (percent) {
+      if (!isNaN(percent) && isFinite(percent)) {
+        percent = d3.format('.1%')(percent)
+      } else {
+        percent = "N/A"
+      }
+      return percent
+    },
     format: d3.format(','),
     sortObject: function (obj) {
       const sorted_names = Object.values(obj).sort()
