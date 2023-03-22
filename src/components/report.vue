@@ -137,7 +137,7 @@ export default {
   data: function () {
     return {
       report_data: null,
-      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_output_external_2077/FeatureServer/0",
+      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_generated_ga/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
@@ -301,10 +301,10 @@ export default {
       job_years: ['yr2019', 'yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
       hh_table_inds: ["pop", "hh_pop", "gq_pop",
       "pop_age_00_17", "pop_age_18_inf",
-      "housing_units", "hhsize", "hh", "with_children", "with_seniors"],
+      "housing_units", "hhsize", "hh", "with_children", "without_children", "with_seniors", "without_seniors"],
       hh_inds: ["pop", "hh_pop", "gq_pop",
         "pop_age_00_04", "pop_age_00_17", "pop_age_05_17", "pop_age_18_24", "pop_age_18_64","pop_age_25_54", "pop_age_55_64", "pop_age_65_84", "pop_age_65_inf", "pop_age_85_inf",
-        "housing_units", "hhsize", "hh", "with_children", "with_seniors"],
+        "housing_units", "hhsize", "hh", "with_children","without_children", "with_seniors", "without_seniors"],
       age_inds: ["pop_age_85_inf", "pop_age_65_84", "pop_age_55_64", "pop_age_25_54", "pop_age_18_24", "pop_age_05_17", "pop_age_00_04"],
       summary_inds:["pop", "hh", "jobs_total", "housing_units"],
       summary_inds_colors: {
@@ -313,52 +313,41 @@ export default {
         'housing_units': '#38A6A5',
         'jobs_total': '#0F8554',
       },
-      job_inds: ["jobs_sec_03", "jobs_sec_05", "jobs_sec_0809", "jobs_sec_1011", "jobs_sec_1415"],
+      job_inds: ["jobs_sec_02", "jobs_sec_04", "jobs_sec_06", "jobs_sec_07", "jobs_sec_10"],
       job_ind_colors: {
-        'jobs_sec_03': '#ba00ff',
-        'jobs_sec_05': '#f39e9e',
-        'jobs_sec_0809': '#e11b08',
-        'jobs_sec_1011': '#0a6ea9',
-        'jobs_sec_1415': '#f50578'
+        'jobs_sec_02': '#ba00ff',
+        'jobs_sec_04': '#f39e9e',
+        'jobs_sec_06': '#e11b08',
+        'jobs_sec_07': '#0a6ea9',
+        'jobs_sec_10': '#f50578'
       },
       indicators_jobs: ["jobs_total", "jobs_sec_01", "jobs_sec_02", "jobs_sec_03", "jobs_sec_04",
         "jobs_sec_05", "jobs_sec_06", "jobs_sec_07", "jobs_sec_08",
         "jobs_sec_09", "jobs_sec_10", "jobs_sec_11", "jobs_sec_12",
-        "jobs_sec_13", "jobs_sec_14", "jobs_sec_15", "jobs_sec_16",
-        "jobs_sec_17", "jobs_sec_18"],
-      indicators_table_jobs:["jobs_total", "jobs_sec_0102", "jobs_sec_03", "jobs_sec_04",
-        "jobs_sec_05", "jobs_sec_0607", "jobs_sec_0809", "jobs_sec_1011", "jobs_sec_12",
-        "jobs_sec_13", "jobs_sec_1415", "jobs_sec_16",
-        "jobs_sec_17", "jobs_sec_18"],
+        "jobs_sec_13"],
+      indicators_table_jobs:["jobs_total", "jobs_sec_01", "jobs_sec_02", "jobs_sec_03", "jobs_sec_04",
+        "jobs_sec_05", "jobs_sec_06", "jobs_sec_07", "jobs_sec_08",
+        "jobs_sec_09", "jobs_sec_10", "jobs_sec_11", "jobs_sec_12",
+        "jobs_sec_13"],
       indNameLookup: {
         'jobs_total': 'Total Jobs',
         'hh': 'Households',
         'hh_pop': 'Household Population',
         'hhsize': 'Household Size',
         'housing_units': 'Housing Units',
-        'jobs_sec_01': 'Natural Resources & Mining',
-        'jobs_sec_02': 'Construction',
-        'jobs_sec_0102': 'Nat. Resources, Mining, & Const.',
-        'jobs_sec_03': 'Manufacturing',
-        'jobs_sec_04': 'Wholesale Trade',
-        'jobs_sec_05': 'Retail Trade',
-        'jobs_sec_06': 'Transportation & Warehousing',
-        'jobs_sec_07': 'Utilities',
-        'jobs_sec_0607': 'Trans., Warehousing, & Utilities',
-        'jobs_sec_08': 'Information',
-        'jobs_sec_09': 'Financial Activities',
-        'jobs_sec_0809': 'Information & Financial Activities',
-        'jobs_sec_10': 'Professional, Scientific, & Technical Services',
-        'jobs_sec_11': 'Management of Companies & Enterprises',
-        'jobs_sec_1011': 'Prof. and Tech. Services & Corp. HQ',
-        'jobs_sec_12': 'Admin., Support, & Waste Serv.',
-        'jobs_sec_13': 'Education Services',
-        'jobs_sec_14': 'Medical Facilities',
-        'jobs_sec_15': 'Hospitals',
-        'jobs_sec_1415': 'Healthcare Services',
-        'jobs_sec_16': 'Leisure & Hospitality',
-        'jobs_sec_17': 'Other Services',
-        'jobs_sec_18': 'Public Administration',
+        'jobs_sec_01': 'Nat Res & Construction',
+        'jobs_sec_02': 'Manufacturing',
+        'jobs_sec_03': 'Wholesale Trade',
+        'jobs_sec_04': 'Retail Trade',
+        'jobs_sec_05': 'Transportation & Utlities',
+        'jobs_sec_06': 'Info. & Fin. Activities',
+        'jobs_sec_07': 'Prof./Tech. Serv. & Corp HQ',
+        'jobs_sec_08': 'Admin, Supp., & Waste Serv.',
+        'jobs_sec_09': 'Education Services',
+        'jobs_sec_10': 'Healthcare Services',
+        'jobs_sec_11': 'Leisure and Hospitality',
+        'jobs_sec_12': 'Other Services',
+        'jobs_sec_13': 'Public Administration',
         "pop": "Total Population",
         "gq_pop": "Group Quarters Population",
         "pop_age_00_04": "Population Age 0-4",
@@ -380,7 +369,9 @@ export default {
         "pop_race_3": "Population Hispanic",
         "pop_race_4": "Population Non Hispanic Other",
         "with_children": "With Children (Age 0-17)",
+        "without_children": "Without Children (Age 0-17)",
         "with_seniors": "With Seniors (Age 65+)",
+        "without_seniors": "Without Seniors (Age 65+)",
         "hh_size_1": "With One Person Only",
         "hh_no_car_or_lt_workers": "With Fewer Cars than Workers",
     }
@@ -766,26 +757,6 @@ export default {
       report_data['hhsize'] = {};
       this.years.map((d) => {
         report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))
-      })
-      report_data['jobs_sec_0102'] = {};
-      this.job_years.map((d) => {
-        report_data['jobs_sec_0102'][d] = report_data['jobs_sec_01'][d] + report_data['jobs_sec_02'][d]
-      })
-      report_data['jobs_sec_0607'] = {};
-      this.job_years.map((d) => {
-        report_data['jobs_sec_0607'][d] = report_data['jobs_sec_06'][d] + report_data['jobs_sec_07'][d]
-      })
-      report_data['jobs_sec_0809'] = {};
-      this.job_years.map((d) => {
-        report_data['jobs_sec_0809'][d] = report_data['jobs_sec_08'][d] + report_data['jobs_sec_09'][d]
-      })
-      report_data['jobs_sec_1011'] = {};
-      this.job_years.map((d) => {
-        report_data['jobs_sec_1011'][d] = report_data['jobs_sec_10'][d] + report_data['jobs_sec_11'][d]
-      })
-      report_data['jobs_sec_1415'] = {};
-      this.job_years.map((d) => {
-        report_data['jobs_sec_1415'][d] = report_data['jobs_sec_14'][d] + report_data['jobs_sec_15'][d]
       })
       this.report_data = report_data
     }
