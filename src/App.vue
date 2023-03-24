@@ -261,7 +261,7 @@ margin-top: 5%; margin-bottom:5%;">
 <script>
 import MapView from "@arcgis/core/views/MapView";
 import Map from "@arcgis/core/Map";
-//import Query from "@arcgis/core/rest/support/Query"
+import Query from "@arcgis/core/rest/support/Query"
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import Basemap from "@arcgis/core/Basemap";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
@@ -319,7 +319,7 @@ export default {
       geotype: geotype,
       ind: ind,
       selectedFeature: geoid,
-      //highlight: null,
+      highlight: null,
       printOnLoad: this.$route.query.print,
       ind_lookup: {
         'pop_change': {name: 'Total Population'},
@@ -991,31 +991,31 @@ export default {
     this.view.ui.add(this.legExpand, "bottom-left");
   },
   watch: {
-    // selectedFeature: function () {
-    //   let popup_geoids = this.view.popup.features.map((f) => {
-    //     return f.attributes.geoid
-    //   })
-    //   if (!popup_geoids.includes(this.selectedFeature.geoid)) {
-    //     this.view.popup.close()
-    //   }
-    //   if (this.selectedFeature && this.selectedFeature.geoid !== 8999) {
-    //     this.view.whenLayerView(this.forecast_layer_info).then((layerView) => {
-    //           let queryObject = new Query();
-    //           queryObject.where = 'geoid = ' + this.selectedFeature.geoid
-    //           queryObject.returnGeometry = true;
-    //           queryObject.outFields = ['objectid']
-    //           this.forecast_layer_info.queryFeatures(queryObject).then((e) => {
-    //             if (e) {
-    //               if (e.features[0].attributes) {
-    //                 this.highlight?.remove();
-    //                 this.highlight = layerView.highlight([e.features[0].attributes.objectid])
-    //               }
-    //             }
-    //           })
-    //         }
-    //     )
-    //   }
-    // },
+    selectedFeature: function () {
+      let popup_geoids = this.view.popup.features.map((f) => {
+        return f.attributes.geoid
+      })
+      if (!popup_geoids.includes(this.selectedFeature.geoid)) {
+        this.view.popup.close()
+      }
+      if (this.selectedFeature && this.selectedFeature.geoid !== 8999) {
+        this.view.whenLayerView(this.forecast_layer_info).then((layerView) => {
+              let queryObject = new Query();
+              queryObject.where = 'geoid = ' + this.selectedFeature.geoid
+              queryObject.returnGeometry = true;
+              queryObject.outFields = ['objectid']
+              this.forecast_layer_info.queryFeatures(queryObject).then((e) => {
+                if (e) {
+                  if (e.features[0].attributes) {
+                    this.highlight?.remove();
+                    this.highlight = layerView.highlight([e.features[0].attributes.objectid])
+                  }
+                }
+              })
+            }
+        )
+      }
+    },
     query: function (oldVal, newVal) {
       if (diff(oldVal, newVal)) {
         this.$router.replace({
