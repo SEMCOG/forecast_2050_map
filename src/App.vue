@@ -230,14 +230,14 @@ margin-top: 5%; margin-bottom:5%;">
     <div id="mapContainer">
       <div id="map" ref="map">
         <div id="ind_select" class="esri-widget no-print" style="padding: 10px;">
-          <label style="font-size: large; margin: 5px;" for="geo"> Choose Geography: </label>
+          <label style="margin: 5px;" for="geo"> Choose Geography: </label>
           <select v-model="geotype"
                   class="esri-widget" name="geo" id="geo" style="font-size: large; padding: 10px">
             <option value="county">Counties</option>
             <option value="city">Communities</option>
           </select>
 
-          <label style="font-size: large; margin: 5px;" for="ind"> Choose Indicator:</label>
+          <label style="margin: 5px;" for="ind"> Choose Indicator:</label>
           <select v-model="ind"
                   class="esri-widget" name="ind" id="ind" style="font-size: large; padding: 10px">
             <option value="pop_change">Total Population</option>
@@ -269,6 +269,8 @@ import FeatureEffect from "@arcgis/core/layers/support/FeatureEffect";
 import FeatureFilter from "@arcgis/core/layers/support/FeatureFilter";
 import Legend from "@arcgis/core/widgets/Legend";
 import Expand from "@arcgis/core/widgets/Expand";
+import Search from "@arcgis/core/widgets/Search";
+import Extent from "@arcgis/core/geometry/Extent.js";
 import BasemapGallery from "@arcgis/core/widgets/BasemapGallery";
 import reportComponent from "./components/report.vue"
 import SemcogHeader from "./components/SemcogHeader.vue"
@@ -895,7 +897,14 @@ export default {
       return out
     },
   },
-  methods: {},
+  methods: {
+    setHightlight: function (objectids) {
+      this.view.whenLayerView(this.forecast_layer_info).then((layerView) => {
+        this.highlight?.remove();
+        this.highlight = layerView.highlight(objectids)
+      })
+    }
+  },
   mounted() {
     this.map = new Map({basemap: this.basemaps[0]})
 
@@ -976,6 +985,54 @@ export default {
       }
     });
 
+    let searchExtent = {
+      geometry: new Extent({
+        "spatialReference": {
+          "wkid": 4326
+        },
+        "xmin": -85.448362044967,
+        "ymin": 41.635556502080156,
+        "xmax": -81.22961204496903,
+        "ymax": 43.27679957169777
+      })
+    };
+    const searchWidget = new Search({
+      view: this.view,
+      allPlaceholder: "Search Community Name or Address",
+      includeDefaultSources: false,
+      sources: [
+        {
+          layer: this.forecast_layer_info,
+          searchFields: ["area_name"],
+          suggestionTemplate: "{area_name}",
+          exactMatch: false,
+          outFields: ["*"],
+          minSuggestCharacters: 0,
+          maxSuggestions: 150,
+          placeholder: "example: Detroit",
+          name: "Communities",
+          zoomScale: 150000,
+        },
+        {
+          name: "ArcGIS World Geocoding Service",
+          placeholder: "example: 1001 Woodward Ave",
+          apiKey: "AAPKab43b82c206f4924a4ee7da9b0083af12OZiCnNjKER45-_5-D3Xz8dqugaMDaI1QI_ip0jyrPpsjEoTarUyAGlbN8ixvWMr",
+          filter:searchExtent,
+          singleLineFieldName: "SingleLine",
+          url: "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+        }
+      ]
+    });
+
+    searchWidget.on("select-result", (result) => {
+      if (result.source.name === 'Communities') {
+        this.setHightlight(result.result.feature.attributes.objectid)
+        searchWidget.clear()
+      }
+    });
+    this.view.ui.add(searchWidget, {
+      position: "top-left",
+    });
     const legend = new Legend({
       view: this.view
     });
@@ -1158,6 +1215,12 @@ export default {
   margin-right: 20%
 }
 
+.esri-search.esri-widget {
+  width: 350px;
+  height: 66px;
+  /*inset: 15px 12px 50px;*/
+}
+
 @media print {
   .no-print {
     display: none !important;
@@ -1189,6 +1252,9 @@ export default {
     height: 560px;
   }
 }
+  #ind_select>label{
+    font-size: medium;
+  }
 
 @media (max-width: 576px) {
 
@@ -1221,6 +1287,10 @@ export default {
     margin-bottom: 1%;
     grid-template-columns: 100%;
     grid-template-rows: auto 500px;
+  }
+
+  #ind_select>label{
+    font-size: small;
   }
 }
 
