@@ -931,13 +931,6 @@ export default {
     this.view.popup.viewModel.includeDefaultActions = false;
     this.view.popup.alignment = 'bottom-right'
 
-    this.view.watch('focused', () => {
-      this.view.navigation = {
-        mouseWheelZoomEnabled: this.view.focused,
-        browserTouchPanEnabled: this.view.focused
-      }
-    })
-
     this.view.popup.watch("selectedFeature", (graphic) => {
       if (graphic) {
         this.selectedFeature = this.view.popup.selectedFeature.attributes
