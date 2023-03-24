@@ -1065,6 +1065,9 @@ export default {
             }
         )
       }
+      else {
+        this.highlight?.remove();
+      }
     },
     query: function (oldVal, newVal) {
       if (diff(oldVal, newVal)) {
