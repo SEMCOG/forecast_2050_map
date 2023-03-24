@@ -125,6 +125,7 @@
 import * as query from "@arcgis/core/rest/query"
 import Query from "@arcgis/core/rest/support/Query"
 import * as d3 from 'd3'
+import debounce from 'lodash.debounce'
 import lineChart from "./lineChart.vue"
 import ShortcutSelect from "./ShortcutSelect.vue"
 import "@esri/calcite-components/dist/components/calcite-button";
@@ -605,7 +606,7 @@ export default {
           " width=1200, height=1200"
       );
     },
-    get_report_data: async function () {
+    get_report_data: debounce(async function () {
       let areas = `${this.namesFromGeotype[this.geotype].column_name} = ${this.selectedId}`;
       if (this.selectedId === 8999) {
         areas = `large_area_id in (${this.large_area_ids.map(f => `${f}`).join(',')})`;
@@ -693,7 +694,7 @@ export default {
         report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))
       })
       this.report_data = report_data
-    }
+    }, 500)
   },
   watch: {
     selectedFeature: function () {

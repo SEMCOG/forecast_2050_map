@@ -223,11 +223,12 @@ margin-top: 5%; margin-bottom:5%;">
       <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Forecast Map
       </div>
       <p class="blog_margin">Use the map below to explore the results visually. Use the dropdown on the left to choose a layer topic of
-        interest, and view that topic by the different geography types. Click on a geography to get more information.
+        interest, and view that topic by the different geography types. Search for your community name in the search box (recommended) Click on a geography to get more information.
         View and print the report beneath the map.</p>
 
     </div>
     <div id="mapContainer">
+      <calcite-loader v-if="loaded === false" class="loader" label="Loading map..."></calcite-loader>
       <div id="map" ref="map">
         <div id="ind_select" class="esri-widget no-print" style="padding: 10px;">
           <label style="margin: 5px;" for="geo"> Choose Geography: </label>
@@ -267,6 +268,7 @@ import Basemap from "@arcgis/core/Basemap";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import FeatureEffect from "@arcgis/core/layers/support/FeatureEffect";
 import FeatureFilter from "@arcgis/core/layers/support/FeatureFilter";
+import * as reactiveUtils from "@arcgis/core/core/reactiveUtils.js";
 import Legend from "@arcgis/core/widgets/Legend";
 import Expand from "@arcgis/core/widgets/Expand";
 import Search from "@arcgis/core/widgets/Search";
@@ -322,6 +324,7 @@ export default {
       ind: ind,
       selectedFeature: geoid,
       highlight: null,
+      loaded: false,
       printOnLoad: this.$route.query.print,
       ind_lookup: {
         'pop_change': {name: 'Total Population'},
@@ -571,6 +574,7 @@ export default {
     basemapGallery: function () {
       const bgExpand = new Expand({
         view: this.view,
+        expandTooltip: "Basemaps",
         content: new BasemapGallery({
           view: this.view,
           source: this.basemaps
@@ -928,8 +932,21 @@ export default {
     this.map.add(this.demos_layer)
     this.map.add(this.events_layer)
 
+    reactiveUtils.watch(
+        () => this.view?.updating,
+        () => {
+          this.loaded = true
+        });
+
     this.view.popup.viewModel.includeDefaultActions = false;
     this.view.popup.alignment = 'bottom-right'
+
+    this.view.watch('focused', () => {
+      this.view.navigation = {
+        mouseWheelZoomEnabled: this.view.focused,
+        browserTouchPanEnabled: this.view.focused
+      }
+    })
 
     this.view.popup.watch("selectedFeature", (graphic) => {
       if (graphic) {
@@ -1195,6 +1212,15 @@ export default {
   display: none !important;
 }
 
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+  z-index: 3000;
+  pointer-events: none;
+}
+
 .report-watermark {
     position: fixed;
     color: rgba(241, 21, 31, 0.5);
@@ -1232,6 +1258,14 @@ export default {
   }
 
   .esri-zoom {
+    display: none !important;
+  }
+
+  .esri-search {
+    display: none !important;
+  }
+
+  .esri-ui-top-right  {
     display: none !important;
   }
 
