@@ -29,8 +29,8 @@
           infrastructure improvements – roads, bridges, water and sewer.</p>
         <h3>SEMCOG 2050 Regional Forecast – Release Dates</h3>
         <ul>
-          <li>County and Community Forecast Population, Household, and Employment Totals (March 24th, 2023)</li>
-          <li>County and Community Forecast Additional Population and Household Distributions (April 28th, 2023)</li>
+          <li>Community Population and Household Distributions (April 28th, 2023)</li>
+          <li>Detroit Neighborhood Forecast (June 1st, 2023)</li>
           <li>Transportation Analysis Zone Forecast (July 1st, 2023)</li>
           <li>Intermediate and Local School District Forecast (August 2023)</li>
           <li>State House and Senate District Forecast (September 2023)</li>
@@ -57,19 +57,19 @@ margin-top: 5%; margin-bottom:5%;">
         <img src="header_report_new.png" alt="logo" width="50%"
              style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
         <h3>County and Community Forecast</h3>
-        <p>SEMCOG’s Executive Committee approved the draft 2050 Regional Forecast for Counties and Communities on
-          February 24th, 2023, and recommended General Assembly adoption of the forecast at its March 23rd, 2023
-          meeting.</p>
+        <p>SEMCOG’s General Assembly adopted the 2050 Regional Forecast for Counties and Communities on March 23rd,
+          2023. This includes SEMCOG’s forecast of total population, household, and employment change for each community
+          and county in Southeast Michigan, for the period 2020 through 2050.
+          Prior to General Assembly adoption, SEMCOG’s Executive Committee approved the draft 2050 Regional Forecast for
+          Counties and Communities on February 24th, 2023.</p>
         <ul>
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Regional%20Forecast%20by%20County%20and%20Community.pdf" target="_blank">2050 Regional Forecast by County and Community</a></li>
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Forecast%20Exec%20Presentation.pdf" target="_blank">2050 Regional Forecast Presentation to the Executive Committee</a></li>
         </ul>
-        <p>Prior to completing the draft 2050 Regional Forecast for Counties and Communities, SEMCOG held a series of
-          Community Stakeholder open house meetings for the 2050 Regional Development Forecast. Three meetings were held
-          within the region during the second week of January 2023. At each of these meetings, SEMCOG released its draft
-          30-year forecast of population, households, and jobs for each county and community in Southeast Michigan.
-          Local leaders then had opportunities to review and give feedback on the draft forecast for their communities
-          and explore key regional trends.</p>
+        <p>SEMCOG held three Community Stakeholder meetings during the second week of January 2023. At these meetings,
+          SEMCOG released its draft 30-year forecast of population, households, and jobs for each county and community
+          in Southeast Michigan. Local leaders then had opportunities to review and give feedback on the draft forecast
+          for their communities and explore key regional trends.</p>
         <h3>Regional Control Totals</h3>
         <p>Working with our partners at MDOT and the University of Michigan, SEMCOG developed the population and
           employment totals for the 2050 Regional Forecast. These projections served as the control totals for the
