@@ -145,7 +145,7 @@ margin-top: 5%; margin-bottom:5%;">
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
-        <SimpleEsriMap class="small_map_left" v-bind:item_id="'a784dcfb16414f159fe754a2fe1c70cd'"></SimpleEsriMap>
+        <SimpleEsriMap class="small_map_left" v-bind:item_id="'a559dc05adc24255bd5df1f7cf440d8f'"></SimpleEsriMap>
       </div>
       <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;"><calcite-icon style="color: #8f6732" icon="plans" scale="l"></calcite-icon> Land Use Insights
       </div>
