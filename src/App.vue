@@ -155,7 +155,7 @@ margin-top: 5%; margin-bottom:5%;">
         split between single-family and multi-family housing units. The region will add over 100 million square feet of
         new nonresidential buildings, concentrated in buildings that are fewer in number but larger in size.</p>
       <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your community. Moving your mouse over a slide carousel will pause the slides. You can right click to download a slide as an image.</p>
-      <div class="insight_section" v-if="!printOnLoad">
+      <div class="landuse_insight_section" v-if="!printOnLoad">
         <hooper class="carousel_left" :settings="demographics_carousel">
           <slide>
             <div style="width: auto; height: auto"><img src="slides/landuse1.JPG" style=" max-width: 100%; height: auto;"
@@ -1172,7 +1172,7 @@ export default {
   grid-row: 4;
 }
 
-.insight_section {
+.insight_section, .landuse_insight_section {
   margin-bottom: 5%;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -1317,6 +1317,12 @@ export default {
     margin-bottom: 1%;
     grid-template-columns: 100%;
     grid-template-rows: auto 500px;
+  }
+
+  .landuse_insight_section {
+    margin-bottom: 1%;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
   }
 
   #ind_select>label{
