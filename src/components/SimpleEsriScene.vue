@@ -23,7 +23,7 @@ import "@esri/calcite-components/dist/components/calcite-card";
 import PortalItem from "@arcgis/core/portal/PortalItem.js";
 
 export default {
-    name: "SimpleEsriMap",
+    name: "SimpleEsriScene",
     props: ['item_id'],
     data: function () {
         return {
