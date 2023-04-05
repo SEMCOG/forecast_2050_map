@@ -475,7 +475,7 @@ export default {
         centerMode: false,
         progress: true,
         autoPlay: true,
-        playSpeed: 4000,
+        playSpeed: 6000,
         wheelControl: false,
       }
     },
