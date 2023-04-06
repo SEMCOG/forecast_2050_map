@@ -123,7 +123,7 @@ export default {
     font-weight: bold;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 1300px) {
     #itemLink {
         display: inherit;
     }

@@ -1286,6 +1286,16 @@ export default {
     font-size: medium;
   }
 
+@media (max-width: 1300px) {
+    .blog_margin {
+        margin-left: 5%;
+        margin-right: 5%
+    }
+    .insight_section {
+        grid-template-rows: auto;
+    }
+}
+
 @media (max-width: 576px) {
 
   .blog_margin {
