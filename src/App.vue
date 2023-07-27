@@ -245,8 +245,8 @@ margin-top: 5%; margin-bottom:5%;">
             <option value="hh_change">Total Households</option>
             <option value="housing_units_change">Total Housing Units</option>
             <option value="jobs_total_change">Total Jobs</option>
-            <option value="pop_age_00_17_change">Population Ages 0-17</option>
-            <option value="pop_age_18_inf_change">Population Ages 18+</option>
+            <option value="pop_age_05_17_change">School Age Population (5-17)</option>
+            <option value="pop_age_65_inf_change">Senior Population (65+)</option>
           </select>
         </div>
       </div>
@@ -332,9 +332,9 @@ export default {
         'housing_units_change': {name: 'Total Housing Units'},
         'jobs_total_change': {name: 'Total Jobs'},
         'pop_age_00_17_change': {name: 'Population Ages 0-17'},
-        'pop_age_05_17_change': {name: 'Population Ages 5-17'},
+        'pop_age_05_17_change': {name: 'School Age Population (5-17)'},
         'pop_age_18_inf_change': {name: 'Population Ages >= 18'},
-        'pop_age_65_inf_change': {name: 'Population Ages >= 65'},
+        'pop_age_65_inf_change': {name: 'Senior Population (65+)'},
       }
     }
   },
@@ -440,14 +440,14 @@ export default {
                    <td>{expression/pop_change_percent} </td>
                  </tr>
                  <tr>
-                 <th>&nbsp&nbsp Ages 0-17</th>
-                   <td>{expression/pop_age_00_17_change_formatted} </td>
-                   <td>{expression/pop_age_00_17_change_percent} </td>
+                 <th>&nbsp&nbsp School Age(5-17)</th>
+                   <td>{expression/pop_age_05_17_change_formatted} </td>
+                   <td>{expression/pop_age_05_17_change_percent} </td>
                  </tr>
                  <tr>
-                 <th>&nbsp&nbsp Ages 18+</th>
-                   <td>{expression/pop_age_18_inf_change_formatted} </td>
-                   <td>{expression/pop_age_18_inf_change_percent} </td>
+                 <th>&nbsp&nbsp Senior(65+)</th>
+                   <td>{expression/pop_age_65_inf_change_formatted} </td>
+                   <td>{expression/pop_age_65_inf_change_percent} </td>
                  </tr>
                  <tr>
                  <th>Total Households</th>
@@ -835,7 +835,7 @@ export default {
     forecast_layer_info: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer",
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_july_draft_external_excel_v2/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
         popupTemplate: this.popup,
@@ -879,7 +879,7 @@ export default {
     forecast_layer: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_wgs/FeatureServer",
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_july_draft_external_excel_v2/FeatureServer",
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,

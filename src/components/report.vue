@@ -139,7 +139,7 @@ export default {
   data: function () {
     return {
       report_data: null,
-      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_generated_ga/FeatureServer/0",
+      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/new_whatnots_july_draft_external_excel_v2/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
@@ -298,16 +298,16 @@ export default {
         },
       }),
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
-      dash: {"hh_pop": true, "pop_age_00_17": true, "housing_units": true, 'pop_race_1': true, "hh": true},
+      dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, 'pop_race_1': true, "hh": true},
       years: ['yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
       job_years: ['yr2019', 'yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
       hh_table_inds: ["pop", "hh_pop", "gq_pop",
-      "pop_age_00_17", "pop_age_18_inf",
-      "housing_units", "hhsize", "hh", "with_children", "without_children", "with_seniors", "without_seniors"],
+      "pop_age_00_04","pop_age_05_17","pop_age_18_24", "pop_age_25_64","pop_age_65_84", "pop_age_85_inf",
+      "housing_units", "hhsize", "hh", "with_children", "without_children", "with_seniors", "without_seniors", "hh_size_1"],
       hh_inds: ["pop", "hh_pop", "gq_pop",
-        "pop_age_00_04", "pop_age_00_17", "pop_age_05_17", "pop_age_18_24", "pop_age_18_64","pop_age_25_54", "pop_age_55_64", "pop_age_65_84", "pop_age_65_inf", "pop_age_85_inf",
-        "housing_units", "hhsize", "hh", "with_children","without_children", "with_seniors", "without_seniors"],
-      age_inds: ["pop_age_85_inf", "pop_age_65_84", "pop_age_55_64", "pop_age_25_54", "pop_age_18_24", "pop_age_05_17", "pop_age_00_04"],
+        "pop_age_00_04", "pop_age_05_17", "pop_age_18_24","pop_age_25_64", "pop_age_65_84", "pop_age_85_inf",
+        "housing_units", "hhsize", "hh", "with_children","without_children", "with_seniors", "without_seniors", 'hh_size_1'],
+      age_inds: ["pop_age_85_inf", "pop_age_65_84", "pop_age_25_64", "pop_age_18_24", "pop_age_05_17", "pop_age_00_04"],
       summary_inds:["pop", "hh", "jobs_total", "housing_units"],
       summary_inds_colors: {
         'pop': '#5F4690',
@@ -685,10 +685,6 @@ export default {
         records.map((r) => report_data[r.attributes.indicator_] = r.attributes)
       });
 
-      report_data['pop_age_18_inf'] = {};
-      this.years.map((d) => {
-        report_data['pop_age_18_inf'][d] = report_data['pop_age_18_64'][d] + report_data['pop_age_65_inf'][d]
-      })
       report_data['hhsize'] = {};
       this.years.map((d) => {
         report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))
