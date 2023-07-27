@@ -1,434 +1,8 @@
 [
   {
-    "gid": 83,
-    "area_name": "Wixom",
-    "geoid": 2295,
-    "geotype": "city"
-  },
-  {
-    "gid": 173,
-    "area_name": "Port Huron Twp",
-    "geoid": 6140,
-    "geotype": "city"
-  },
-  {
-    "gid": 7,
-    "area_name": "St. Clair County",
-    "geoid": 147,
-    "geotype": "county"
-  },
-  {
-    "gid": 92,
-    "area_name": "Harrison Twp",
-    "geoid": 3050,
-    "geotype": "city"
-  },
-  {
-    "gid": 36,
-    "area_name": "Wayne",
-    "geoid": 1205,
-    "geotype": "city"
-  },
-  {
-    "gid": 145,
-    "area_name": "Raisinville Twp",
-    "geoid": 5105,
-    "geotype": "city"
-  },
-  {
-    "gid": 100,
-    "area_name": "Roseville",
-    "geoid": 3105,
-    "geotype": "city"
-  },
-  {
-    "gid": 13,
-    "area_name": "Grosse Pointe Shores (Wayne)",
-    "geoid": 1080,
-    "geotype": "mcd"
-  },
-  {
-    "gid": 116,
-    "area_name": "Manchester",
-    "geoid": 4060,
-    "geotype": "city"
-  },
-  {
-    "gid": 90,
-    "area_name": "Fraser",
-    "geoid": 3040,
-    "geotype": "city"
-  },
-  {
-    "gid": 188,
-    "area_name": "Hartland Twp",
-    "geoid": 7055,
-    "geotype": "city"
-  },
-  {
-    "gid": 58,
-    "area_name": "Lathrup Village",
-    "geoid": 2135,
-    "geotype": "city"
-  },
-  {
-    "gid": 217,
-    "area_name": "Keego Harbor",
-    "geoid": 2120,
-    "geotype": "city"
-  },
-  {
-    "gid": 198,
-    "area_name": "Capac",
-    "geoid": 6025,
-    "geotype": "city"
-  },
-  {
-    "gid": 96,
-    "area_name": "New Baltimore",
-    "geoid": 3075,
-    "geotype": "city"
-  },
-  {
-    "gid": 101,
-    "area_name": "Shelby Twp",
-    "geoid": 3110,
-    "geotype": "city"
-  },
-  {
-    "gid": 16,
-    "area_name": "Harper Woods",
-    "geoid": 1095,
-    "geotype": "city"
-  },
-  {
-    "gid": 56,
-    "area_name": "Independence Twp",
-    "geoid": 2115,
-    "geotype": "city"
-  },
-  {
-    "gid": 168,
-    "area_name": "Marine City",
-    "geoid": 6110,
-    "geotype": "city"
-  },
-  {
-    "gid": 12,
-    "area_name": "Grosse Pointe Park",
-    "geoid": 1075,
-    "geotype": "city"
-  },
-  {
-    "gid": 6,
-    "area_name": "Oakland County",
-    "geoid": 125,
-    "geotype": "county"
-  },
-  {
-    "gid": 21,
-    "area_name": "Livonia",
-    "geoid": 1120,
-    "geotype": "city"
-  },
-  {
-    "gid": 229,
-    "area_name": "Milan (Monroe)",
-    "geoid": 5080,
-    "geotype": "mcd"
-  },
-  {
-    "gid": 91,
-    "area_name": "Grosse Pointe Shores (Macomb)",
-    "geoid": 3045,
-    "geotype": "mcd"
-  },
-  {
-    "gid": 148,
-    "area_name": "Whiteford Twp",
-    "geoid": 5120,
-    "geotype": "city"
-  },
-  {
-    "gid": 141,
-    "area_name": "Luna Pier",
-    "geoid": 5070,
-    "geotype": "city"
-  },
-  {
-    "gid": 17,
-    "area_name": "Highland Park",
-    "geoid": 1100,
-    "geotype": "city"
-  },
-  {
-    "gid": 45,
-    "area_name": "Brandon Twp",
-    "geoid": 2045,
-    "geotype": "city"
-  },
-  {
-    "gid": 218,
-    "area_name": "Orchard Lake Village",
-    "geoid": 2185,
-    "geotype": "city"
-  },
-  {
-    "gid": 3,
-    "area_name": "Livingston County",
-    "geoid": 93,
-    "geotype": "county"
-  },
-  {
-    "gid": 192,
-    "area_name": "Marion Twp",
-    "geoid": 7075,
-    "geotype": "city"
-  },
-  {
-    "gid": 2,
-    "area_name": "Canton Twp",
-    "geoid": 1020,
-    "geotype": "city"
-  },
-  {
-    "gid": 160,
-    "area_name": "Emmett Twp",
-    "geoid": 6070,
-    "geotype": "city"
-  },
-  {
-    "gid": 223,
-    "area_name": "Fowlerville",
-    "geoid": 7030,
-    "geotype": "city"
-  },
-  {
-    "gid": 78,
-    "area_name": "Sylvan Lake",
-    "geoid": 2265,
-    "geotype": "city"
-  },
-  {
-    "gid": 20,
-    "area_name": "Lincoln Park",
-    "geoid": 1115,
-    "geotype": "city"
-  },
-  {
-    "gid": 29,
-    "area_name": "Rockwood",
-    "geoid": 1165,
-    "geotype": "city"
-  },
-  {
-    "gid": 41,
-    "area_name": "Rochester Hills",
-    "geoid": 2010,
-    "geotype": "city"
-  },
-  {
-    "gid": 38,
-    "area_name": "Woodhaven",
-    "geoid": 1215,
-    "geotype": "city"
-  },
-  {
-    "gid": 2,
-    "area_name": "Detroit",
-    "geoid": 5,
-    "geotype": "city"
-  },
-  {
-    "gid": 117,
-    "area_name": "Manchester Twp",
-    "geoid": 4065,
-    "geotype": "city"
-  },
-  {
-    "gid": 31,
-    "area_name": "Southgate",
-    "geoid": 1175,
-    "geotype": "city"
-  },
-  {
-    "gid": 14,
-    "area_name": "Grosse Pointe Woods",
-    "geoid": 1085,
-    "geotype": "city"
-  },
-  {
-    "gid": 205,
-    "area_name": "Center Line",
-    "geoid": 3020,
-    "geotype": "city"
-  },
-  {
-    "gid": 2,
-    "area_name": "Northville",
-    "geoid": 8020,
-    "geotype": "city"
-  },
-  {
-    "gid": 135,
-    "area_name": "Estral Beach",
-    "geoid": 5040,
-    "geotype": "city"
-  },
-  {
-    "gid": 26,
-    "area_name": "Redford Twp",
-    "geoid": 1150,
-    "geotype": "city"
-  },
-  {
-    "gid": 144,
-    "area_name": "Monroe Twp",
-    "geoid": 5095,
-    "geotype": "city"
-  },
-  {
-    "gid": 65,
-    "area_name": "Oakland Twp",
-    "geoid": 2175,
-    "geotype": "city"
-  },
-  {
-    "gid": 76,
-    "area_name": "Southfield Twp",
-    "geoid": 2252,
-    "geotype": "city"
-  },
-  {
-    "gid": 212,
-    "area_name": "Rochester",
-    "geoid": 2230,
-    "geotype": "city"
-  },
-  {
-    "gid": 114,
-    "area_name": "Lodi Twp",
-    "geoid": 4050,
-    "geotype": "city"
-  },
-  {
-    "gid": 208,
-    "area_name": "Holly",
-    "geoid": 2100,
-    "geotype": "city"
-  },
-  {
-    "gid": 69,
-    "area_name": "Oxford Twp",
-    "geoid": 2205,
-    "geotype": "city"
-  },
-  {
-    "gid": 143,
-    "area_name": "Milan Twp",
-    "geoid": 5085,
-    "geotype": "city"
-  },
-  {
-    "gid": 122,
-    "area_name": "Saline Twp",
-    "geoid": 4095,
-    "geotype": "city"
-  },
-  {
-    "gid": 105,
-    "area_name": "Washington Twp",
-    "geoid": 3135,
-    "geotype": "city"
-  },
-  {
-    "gid": 157,
-    "area_name": "Cottrellville Twp",
-    "geoid": 6055,
-    "geotype": "city"
-  },
-  {
-    "gid": 43,
-    "area_name": "Birmingham",
-    "geoid": 2030,
-    "geotype": "city"
-  },
-  {
-    "gid": 113,
-    "area_name": "Lima Twp",
-    "geoid": 4045,
-    "geotype": "city"
-  },
-  {
-    "gid": 50,
-    "area_name": "Franklin",
-    "geoid": 2080,
-    "geotype": "city"
-  },
-  {
-    "gid": 197,
-    "area_name": "Yale",
-    "geoid": 6165,
-    "geotype": "city"
-  },
-  {
-    "gid": 5,
-    "area_name": "Memphis",
-    "geoid": 8010,
-    "geotype": "city"
-  },
-  {
-    "gid": 191,
-    "area_name": "Iosco Twp",
-    "geoid": 7070,
-    "geotype": "city"
-  },
-  {
-    "gid": 227,
-    "area_name": "Brownstown Twp",
-    "geoid": 1015,
-    "geotype": "city"
-  },
-  {
-    "gid": 74,
-    "area_name": "Royal Oak Twp",
-    "geoid": 2245,
-    "geotype": "city"
-  },
-  {
-    "gid": 179,
-    "area_name": "Brighton",
-    "geoid": 7005,
-    "geotype": "city"
-  },
-  {
-    "gid": 118,
-    "area_name": "Milan (Washtenaw)",
-    "geoid": 4070,
-    "geotype": "mcd"
-  },
-  {
-    "gid": 170,
-    "area_name": "Memphis (St. Clair)",
-    "geoid": 6120,
-    "geotype": "mcd"
-  },
-  {
-    "gid": 8,
-    "area_name": "Washtenaw County",
-    "geoid": 161,
-    "geotype": "county"
-  },
-  {
-    "gid": 5,
-    "area_name": "Monroe County",
-    "geoid": 115,
-    "geotype": "county"
-  },
-  {
-    "gid": 203,
-    "area_name": "Lenox Twp",
-    "geoid": 3055,
+    "gid": 126,
+    "area_name": "Sylvan Twp",
+    "geoid": 4115,
     "geotype": "city"
   },
   {
@@ -438,951 +12,9 @@
     "geotype": "city"
   },
   {
-    "gid": 138,
-    "area_name": "Ida Twp",
-    "geoid": 5055,
-    "geotype": "city"
-  },
-  {
-    "gid": 79,
-    "area_name": "Troy",
-    "geoid": 2270,
-    "geotype": "city"
-  },
-  {
-    "gid": 169,
-    "area_name": "Marysville",
-    "geoid": 6115,
-    "geotype": "city"
-  },
-  {
-    "gid": 184,
-    "area_name": "Fenton (Livingston)",
-    "geoid": 7027,
-    "geotype": "city"
-  },
-  {
-    "gid": 1,
-    "area_name": "Allen Park",
-    "geoid": 1005,
-    "geotype": "city"
-  },
-  {
-    "gid": 24,
-    "area_name": "Northville Twp",
-    "geoid": 1135,
-    "geotype": "city"
-  },
-  {
-    "gid": 176,
-    "area_name": "St. Clair",
-    "geoid": 6150,
-    "geotype": "city"
-  },
-  {
-    "gid": 221,
-    "area_name": "Beverly Hills",
-    "geoid": 2020,
-    "geotype": "city"
-  },
-  {
-    "gid": 57,
-    "area_name": "Lake Angelus",
-    "geoid": 2125,
-    "geotype": "city"
-  },
-  {
-    "gid": 186,
-    "area_name": "Hamburg Twp",
-    "geoid": 7045,
-    "geotype": "city"
-  },
-  {
-    "gid": 66,
-    "area_name": "Oak Park",
-    "geoid": 2180,
-    "geotype": "city"
-  },
-  {
-    "gid": 174,
-    "area_name": "Richmond (St. Clair)",
-    "geoid": 6142,
-    "geotype": "city"
-  },
-  {
-    "gid": 84,
-    "area_name": "Wolverine Lake",
-    "geoid": 2300,
-    "geotype": "city"
-  },
-  {
-    "gid": 123,
-    "area_name": "Scio Twp",
-    "geoid": 4100,
-    "geotype": "city"
-  },
-  {
-    "gid": 129,
-    "area_name": "Ypsilanti Twp",
-    "geoid": 4135,
-    "geotype": "city"
-  },
-  {
-    "gid": 42,
-    "area_name": "Berkley",
-    "geoid": 2015,
-    "geotype": "city"
-  },
-  {
-    "gid": 207,
-    "area_name": "Oxford",
-    "geoid": 2200,
-    "geotype": "city"
-  },
-  {
-    "gid": 34,
-    "area_name": "Trenton",
-    "geoid": 1190,
-    "geotype": "city"
-  },
-  {
-    "gid": 182,
-    "area_name": "Conway Twp",
-    "geoid": 7020,
-    "geotype": "city"
-  },
-  {
-    "gid": 9,
-    "area_name": "Grosse Ile Twp",
-    "geoid": 1060,
-    "geotype": "city"
-  },
-  {
-    "gid": 136,
-    "area_name": "Exeter Twp",
-    "geoid": 5045,
-    "geotype": "city"
-  },
-  {
-    "gid": 15,
-    "area_name": "Hamtramck",
-    "geoid": 1090,
-    "geotype": "city"
-  },
-  {
-    "gid": 196,
-    "area_name": "Unadilla Twp",
-    "geoid": 7100,
-    "geotype": "city"
-  },
-  {
-    "gid": 155,
-    "area_name": "Clyde Twp",
-    "geoid": 6045,
-    "geotype": "city"
-  },
-  {
-    "gid": 134,
-    "area_name": "Erie Twp",
-    "geoid": 5035,
-    "geotype": "city"
-  },
-  {
-    "gid": 175,
-    "area_name": "Riley Twp",
-    "geoid": 6145,
-    "geotype": "city"
-  },
-  {
-    "gid": 95,
-    "area_name": "Mount Clemens",
-    "geoid": 3070,
-    "geotype": "city"
-  },
-  {
-    "gid": 232,
-    "area_name": "Petersburg",
-    "geoid": 5100,
-    "geotype": "city"
-  },
-  {
-    "gid": 3,
-    "area_name": "Dearborn",
-    "geoid": 1025,
-    "geotype": "city"
-  },
-  {
-    "gid": 8,
-    "area_name": "Gibraltar",
-    "geoid": 1055,
-    "geotype": "city"
-  },
-  {
-    "gid": 11,
-    "area_name": "Grosse Pointe Farms",
-    "geoid": 1070,
-    "geotype": "city"
-  },
-  {
-    "gid": 46,
-    "area_name": "Clawson",
-    "geoid": 2055,
-    "geotype": "city"
-  },
-  {
-    "gid": 98,
-    "area_name": "Ray Twp",
-    "geoid": 3085,
-    "geotype": "city"
-  },
-  {
-    "gid": 236,
-    "area_name": "Northfield Twp",
-    "geoid": 4075,
-    "geotype": "city"
-  },
-  {
-    "gid": 167,
-    "area_name": "Lynn Twp",
-    "geoid": 6105,
-    "geotype": "city"
-  },
-  {
-    "gid": 10,
-    "area_name": "Grosse Pointe",
-    "geoid": 1065,
-    "geotype": "city"
-  },
-  {
-    "gid": 94,
-    "area_name": "Memphis (Macomb)",
-    "geoid": 3065,
-    "geotype": "mcd"
-  },
-  {
-    "gid": 7,
-    "area_name": "Garden City",
-    "geoid": 1050,
-    "geotype": "city"
-  },
-  {
-    "gid": 225,
-    "area_name": "Plymouth",
-    "geoid": 1140,
-    "geotype": "city"
-  },
-  {
-    "gid": 189,
-    "area_name": "Howell",
-    "geoid": 7060,
-    "geotype": "city"
-  },
-  {
-    "gid": 201,
-    "area_name": "Richmond (Macomb)",
-    "geoid": 3090,
-    "geotype": "city"
-  },
-  {
-    "gid": 73,
-    "area_name": "Royal Oak",
-    "geoid": 2240,
-    "geotype": "city"
-  },
-  {
-    "gid": 44,
-    "area_name": "Bloomfield Hills",
-    "geoid": 2035,
-    "geotype": "city"
-  },
-  {
-    "gid": 185,
-    "area_name": "Genoa Twp",
-    "geoid": 7035,
-    "geotype": "city"
-  },
-  {
-    "gid": 211,
-    "area_name": "Lake Orion",
-    "geoid": 2130,
-    "geotype": "city"
-  },
-  {
-    "gid": 1,
-    "area_name": "Grosse Pointe Shores",
-    "geoid": 8005,
-    "geotype": "city"
-  },
-  {
-    "gid": 8,
-    "area_name": "Richmond",
-    "geoid": 8025,
-    "geotype": "city"
-  },
-  {
-    "gid": 120,
-    "area_name": "Salem Twp",
-    "geoid": 4085,
-    "geotype": "city"
-  },
-  {
-    "gid": 6,
-    "area_name": "Flat Rock (Wayne)",
-    "geoid": 1045,
-    "geotype": "city"
-  },
-  {
-    "gid": 177,
-    "area_name": "St. Clair Twp",
-    "geoid": 6155,
-    "geotype": "city"
-  },
-  {
-    "gid": 172,
-    "area_name": "Port Huron",
-    "geoid": 6135,
-    "geotype": "city"
-  },
-  {
-    "gid": 180,
-    "area_name": "Brighton Twp",
-    "geoid": 7010,
-    "geotype": "city"
-  },
-  {
-    "gid": 126,
-    "area_name": "Sylvan Twp",
-    "geoid": 4115,
-    "geotype": "city"
-  },
-  {
-    "gid": 48,
-    "area_name": "Farmington Hills",
-    "geoid": 2072,
-    "geotype": "city"
-  },
-  {
-    "gid": 131,
-    "area_name": "Bedford Twp",
-    "geoid": 5010,
-    "geotype": "city"
-  },
-  {
-    "gid": 210,
-    "area_name": "Clarkston",
-    "geoid": 2050,
-    "geotype": "city"
-  },
-  {
-    "gid": 171,
-    "area_name": "Mussey Twp",
-    "geoid": 6125,
-    "geotype": "city"
-  },
-  {
-    "gid": 161,
-    "area_name": "Fort Gratiot Twp",
-    "geoid": 6075,
-    "geotype": "city"
-  },
-  {
-    "gid": 102,
-    "area_name": "Sterling Heights",
-    "geoid": 3115,
-    "geotype": "city"
-  },
-  {
-    "gid": 60,
-    "area_name": "Madison Heights",
-    "geoid": 2150,
-    "geotype": "city"
-  },
-  {
-    "gid": 93,
-    "area_name": "Macomb Twp",
-    "geoid": 3060,
-    "geotype": "city"
-  },
-  {
-    "gid": 70,
-    "area_name": "Pleasant Ridge",
-    "geoid": 2210,
-    "geotype": "city"
-  },
-  {
-    "gid": 104,
-    "area_name": "Warren",
-    "geoid": 3130,
-    "geotype": "city"
-  },
-  {
-    "gid": 206,
-    "area_name": "Leonard",
-    "geoid": 2140,
-    "geotype": "city"
-  },
-  {
-    "gid": 52,
-    "area_name": "Hazel Park",
-    "geoid": 2090,
-    "geotype": "city"
-  },
-  {
-    "gid": 199,
-    "area_name": "Clay Twp",
-    "geoid": 6040,
-    "geotype": "city"
-  },
-  {
-    "gid": 39,
-    "area_name": "Wyandotte",
-    "geoid": 1220,
-    "geotype": "city"
-  },
-  {
-    "gid": 222,
-    "area_name": "Bloomfield Twp",
-    "geoid": 2040,
-    "geotype": "city"
-  },
-  {
-    "gid": 233,
-    "area_name": "Dexter",
-    "geoid": 4030,
-    "geotype": "city"
-  },
-  {
-    "gid": 156,
-    "area_name": "Columbus Twp",
-    "geoid": 6050,
-    "geotype": "city"
-  },
-  {
-    "gid": 220,
-    "area_name": "Bingham Farms",
-    "geoid": 2025,
-    "geotype": "city"
-  },
-  {
-    "gid": 235,
-    "area_name": "Ypsilanti",
-    "geoid": 4130,
-    "geotype": "city"
-  },
-  {
-    "gid": 35,
-    "area_name": "Van Buren Twp",
-    "geoid": 1200,
-    "geotype": "city"
-  },
-  {
-    "gid": 226,
-    "area_name": "Belleville",
-    "geoid": 1010,
-    "geotype": "city"
-  },
-  {
-    "gid": 150,
-    "area_name": "Berlin Twp (St. Clair)",
-    "geoid": 6010,
-    "geotype": "city"
-  },
-  {
-    "gid": 158,
-    "area_name": "East China Twp",
-    "geoid": 6060,
-    "geotype": "city"
-  },
-  {
-    "gid": 214,
-    "area_name": "South Lyon",
-    "geoid": 2255,
-    "geotype": "city"
-  },
-  {
-    "gid": 1,
-    "area_name": "Wayne County, excluding Detroit",
-    "geoid": 3,
-    "geotype": "largearea"
-  },
-  {
-    "gid": 23,
-    "area_name": "Northville (Wayne)",
-    "geoid": 1130,
-    "geotype": "mcd"
-  },
-  {
-    "gid": 5,
-    "area_name": "Ecorse",
-    "geoid": 1040,
-    "geotype": "city"
-  },
-  {
-    "gid": 33,
-    "area_name": "Taylor",
-    "geoid": 1185,
-    "geotype": "city"
-  },
-  {
-    "gid": 87,
-    "area_name": "Chesterfield Twp",
-    "geoid": 3025,
-    "geotype": "city"
-  },
-  {
-    "gid": 86,
-    "area_name": "Bruce Twp",
-    "geoid": 3015,
-    "geotype": "city"
-  },
-  {
-    "gid": 149,
-    "area_name": "Algonac",
-    "geoid": 6005,
-    "geotype": "city"
-  },
-  {
-    "gid": 124,
-    "area_name": "Sharon Twp",
-    "geoid": 4105,
-    "geotype": "city"
-  },
-  {
-    "gid": 151,
-    "area_name": "Brockway Twp",
-    "geoid": 6015,
-    "geotype": "city"
-  },
-  {
-    "gid": 63,
-    "area_name": "Northville (Oakland)",
-    "geoid": 2165,
-    "geotype": "mcd"
-  },
-  {
-    "gid": 200,
-    "area_name": "Richmond Twp",
-    "geoid": 3095,
-    "geotype": "city"
-  },
-  {
-    "gid": 178,
-    "area_name": "Wales Twp",
-    "geoid": 6160,
-    "geotype": "city"
-  },
-  {
-    "gid": 61,
-    "area_name": "Milford",
-    "geoid": 2155,
-    "geotype": "city"
-  },
-  {
-    "gid": 237,
-    "area_name": "Green Oak Twp",
-    "geoid": 7040,
-    "geotype": "city"
-  },
-  {
-    "gid": 67,
-    "area_name": "Orion Twp",
-    "geoid": 2190,
-    "geotype": "city"
-  },
-  {
-    "gid": 204,
-    "area_name": "Utica",
-    "geoid": 3125,
-    "geotype": "city"
-  },
-  {
-    "gid": 80,
-    "area_name": "Waterford Twp",
-    "geoid": 2280,
-    "geotype": "city"
-  },
-  {
-    "gid": 97,
-    "area_name": "New Haven",
-    "geoid": 3080,
-    "geotype": "city"
-  },
-  {
-    "gid": 28,
-    "area_name": "Riverview",
-    "geoid": 1160,
-    "geotype": "city"
-  },
-  {
-    "gid": 25,
-    "area_name": "Plymouth Twp",
-    "geoid": 1145,
-    "geotype": "city"
-  },
-  {
-    "gid": 194,
-    "area_name": "Putnam Twp",
-    "geoid": 7090,
-    "geotype": "city"
-  },
-  {
-    "gid": 115,
-    "area_name": "Lyndon Twp",
-    "geoid": 4055,
-    "geotype": "city"
-  },
-  {
-    "gid": 125,
-    "area_name": "Superior Twp",
-    "geoid": 4110,
-    "geotype": "city"
-  },
-  {
-    "gid": 190,
-    "area_name": "Howell Twp",
-    "geoid": 7065,
-    "geotype": "city"
-  },
-  {
-    "gid": 85,
-    "area_name": "Armada Twp",
-    "geoid": 3010,
-    "geotype": "city"
-  },
-  {
-    "gid": 146,
-    "area_name": "South Rockwood",
-    "geoid": 5110,
-    "geotype": "city"
-  },
-  {
-    "gid": 4,
-    "area_name": "Dearborn Heights",
-    "geoid": 1030,
-    "geotype": "city"
-  },
-  {
-    "gid": 202,
-    "area_name": "Armada",
-    "geoid": 3005,
-    "geotype": "city"
-  },
-  {
-    "gid": 166,
-    "area_name": "Kimball Twp",
-    "geoid": 6100,
-    "geotype": "city"
-  },
-  {
-    "gid": 55,
-    "area_name": "Huntington Woods",
-    "geoid": 2110,
-    "geotype": "city"
-  },
-  {
-    "gid": 228,
-    "area_name": "Carleton",
-    "geoid": 5020,
-    "geotype": "city"
-  },
-  {
-    "gid": 49,
-    "area_name": "Ferndale",
-    "geoid": 2075,
-    "geotype": "city"
-  },
-  {
-    "gid": 72,
-    "area_name": "Rose Twp",
-    "geoid": 2235,
-    "geotype": "city"
-  },
-  {
-    "gid": 30,
-    "area_name": "Romulus",
-    "geoid": 1170,
-    "geotype": "city"
-  },
-  {
-    "gid": 7,
-    "area_name": "Wayne County",
-    "geoid": 163,
-    "geotype": "county"
-  },
-  {
-    "gid": 183,
-    "area_name": "Deerfield Twp",
-    "geoid": 7025,
-    "geotype": "city"
-  },
-  {
-    "gid": 213,
-    "area_name": "Auburn Hills",
-    "geoid": 2220,
-    "geotype": "city"
-  },
-  {
-    "gid": 18,
-    "area_name": "Huron Twp",
-    "geoid": 1105,
-    "geotype": "city"
-  },
-  {
-    "gid": 154,
-    "area_name": "China Twp",
-    "geoid": 6035,
-    "geotype": "city"
-  },
-  {
-    "gid": 27,
-    "area_name": "River Rouge",
-    "geoid": 1155,
-    "geotype": "city"
-  },
-  {
-    "gid": 162,
-    "area_name": "Grant Twp",
-    "geoid": 6080,
-    "geotype": "city"
-  },
-  {
-    "gid": 147,
-    "area_name": "Summerfield Twp",
-    "geoid": 5115,
-    "geotype": "city"
-  },
-  {
-    "gid": 109,
-    "area_name": "Barton Hills",
-    "geoid": 4018,
-    "geotype": "city"
-  },
-  {
-    "gid": 193,
-    "area_name": "Oceola Twp",
-    "geoid": 7080,
-    "geotype": "city"
-  },
-  {
-    "gid": 54,
-    "area_name": "Holly Twp",
-    "geoid": 2105,
-    "geotype": "city"
-  },
-  {
-    "gid": 64,
-    "area_name": "Novi",
-    "geoid": 2170,
-    "geotype": "city"
-  },
-  {
-    "gid": 130,
-    "area_name": "Ash Twp",
-    "geoid": 5005,
-    "geotype": "city"
-  },
-  {
-    "gid": 159,
-    "area_name": "Emmett",
-    "geoid": 6065,
-    "geotype": "city"
-  },
-  {
-    "gid": 107,
-    "area_name": "Ann Arbor Twp",
-    "geoid": 4010,
-    "geotype": "city"
-  },
-  {
-    "gid": 82,
-    "area_name": "White Lake Twp",
-    "geoid": 2290,
-    "geotype": "city"
-  },
-  {
-    "gid": 209,
-    "area_name": "Fenton (Oakland)",
-    "geoid": 2073,
-    "geotype": "city"
-  },
-  {
-    "gid": 230,
-    "area_name": "Dundee",
-    "geoid": 5025,
-    "geotype": "city"
-  },
-  {
-    "gid": 71,
-    "area_name": "Pontiac",
-    "geoid": 2215,
-    "geotype": "city"
-  },
-  {
-    "gid": 195,
-    "area_name": "Tyrone Twp",
-    "geoid": 7095,
-    "geotype": "city"
-  },
-  {
-    "gid": 165,
-    "area_name": "Kenockee Twp",
-    "geoid": 6095,
-    "geotype": "city"
-  },
-  {
-    "gid": 181,
-    "area_name": "Cohoctah Twp",
-    "geoid": 7015,
-    "geotype": "city"
-  },
-  {
-    "gid": 132,
-    "area_name": "Berlin Twp (Monroe)",
-    "geoid": 5015,
-    "geotype": "city"
-  },
-  {
-    "gid": 99,
-    "area_name": "Romeo",
-    "geoid": 3100,
-    "geotype": "city"
-  },
-  {
-    "gid": 153,
-    "area_name": "Casco Twp",
-    "geoid": 6030,
-    "geotype": "city"
-  },
-  {
-    "gid": 112,
-    "area_name": "Freedom Twp",
-    "geoid": 4040,
-    "geotype": "city"
-  },
-  {
-    "gid": 68,
-    "area_name": "Ortonville",
-    "geoid": 2195,
-    "geotype": "city"
-  },
-  {
-    "gid": 119,
-    "area_name": "Pittsfield Twp",
-    "geoid": 4080,
-    "geotype": "city"
-  },
-  {
-    "gid": 59,
-    "area_name": "Lyon Twp",
-    "geoid": 2145,
-    "geotype": "city"
-  },
-  {
-    "gid": 53,
-    "area_name": "Highland Twp",
-    "geoid": 2095,
-    "geotype": "city"
-  },
-  {
-    "gid": 19,
-    "area_name": "Inkster",
-    "geoid": 1110,
-    "geotype": "city"
-  },
-  {
-    "gid": 127,
-    "area_name": "Webster Twp",
-    "geoid": 4120,
-    "geotype": "city"
-  },
-  {
-    "gid": 62,
-    "area_name": "Milford Twp",
-    "geoid": 2160,
-    "geotype": "city"
-  },
-  {
-    "gid": 216,
-    "area_name": "Novi Twp",
-    "geoid": 2172,
-    "geotype": "city"
-  },
-  {
-    "gid": 89,
-    "area_name": "Eastpointe",
-    "geoid": 3035,
-    "geotype": "city"
-  },
-  {
-    "gid": 128,
-    "area_name": "York Twp",
-    "geoid": 4125,
-    "geotype": "city"
-  },
-  {
-    "gid": 231,
-    "area_name": "Monroe",
-    "geoid": 5090,
-    "geotype": "city"
-  },
-  {
-    "gid": 111,
-    "area_name": "Dexter Twp",
-    "geoid": 4035,
-    "geotype": "city"
-  },
-  {
-    "gid": 140,
-    "area_name": "London Twp",
-    "geoid": 5065,
-    "geotype": "city"
-  },
-  {
-    "gid": 163,
-    "area_name": "Greenwood Twp",
-    "geoid": 6085,
-    "geotype": "city"
-  },
-  {
-    "gid": 137,
-    "area_name": "Frenchtown Twp",
-    "geoid": 5050,
-    "geotype": "city"
-  },
-  {
-    "gid": 224,
-    "area_name": "Pinckney",
-    "geoid": 7085,
-    "geotype": "city"
-  },
-  {
-    "gid": 121,
-    "area_name": "Saline",
-    "geoid": 4090,
-    "geotype": "city"
-  },
-  {
-    "gid": 106,
-    "area_name": "Ann Arbor",
-    "geoid": 4005,
-    "geotype": "city"
-  },
-  {
-    "gid": 88,
-    "area_name": "Clinton Twp",
-    "geoid": 3030,
-    "geotype": "city"
-  },
-  {
-    "gid": 215,
-    "area_name": "Walled Lake",
-    "geoid": 2275,
-    "geotype": "city"
-  },
-  {
-    "gid": 51,
-    "area_name": "Groveland Twp",
-    "geoid": 2085,
+    "gid": 168,
+    "area_name": "Marine City",
+    "geoid": 6110,
     "geotype": "city"
   },
   {
@@ -1392,81 +24,135 @@
     "geotype": "city"
   },
   {
-    "gid": 139,
-    "area_name": "LaSalle Twp",
-    "geoid": 5060,
+    "gid": 179,
+    "area_name": "Brighton",
+    "geoid": 7005,
     "geotype": "city"
   },
   {
-    "gid": 37,
-    "area_name": "Westland",
-    "geoid": 1210,
+    "gid": 209,
+    "area_name": "Fenton (Oakland)",
+    "geoid": 2073,
     "geotype": "city"
   },
   {
-    "gid": 81,
-    "area_name": "West Bloomfield Twp",
-    "geoid": 2285,
+    "gid": 177,
+    "area_name": "St. Clair Twp",
+    "geoid": 6155,
     "geotype": "city"
   },
   {
-    "gid": 234,
-    "area_name": "Chelsea",
-    "geoid": 4025,
+    "gid": 233,
+    "area_name": "Dexter",
+    "geoid": 4030,
     "geotype": "city"
   },
   {
-    "gid": 22,
-    "area_name": "Melvindale",
-    "geoid": 1125,
+    "gid": 119,
+    "area_name": "Pittsfield Twp",
+    "geoid": 4080,
     "geotype": "city"
   },
   {
-    "gid": 7,
-    "area_name": "Milan",
-    "geoid": 8015,
+    "gid": 178,
+    "area_name": "Wales Twp",
+    "geoid": 6160,
     "geotype": "city"
   },
   {
-    "gid": 142,
-    "area_name": "Maybee",
-    "geoid": 5075,
+    "gid": 172,
+    "area_name": "Port Huron",
+    "geoid": 6135,
     "geotype": "city"
   },
   {
-    "gid": 103,
-    "area_name": "St. Clair Shores",
-    "geoid": 3120,
+    "gid": 71,
+    "area_name": "Pontiac",
+    "geoid": 2215,
     "geotype": "city"
   },
   {
-    "gid": 77,
-    "area_name": "Springfield Twp",
-    "geoid": 2260,
+    "gid": 99,
+    "area_name": "Romeo",
+    "geoid": 3100,
     "geotype": "city"
   },
   {
-    "gid": 219,
-    "area_name": "Farmington",
-    "geoid": 2065,
+    "gid": 215,
+    "area_name": "Walled Lake",
+    "geoid": 2275,
     "geotype": "city"
   },
   {
-    "gid": 4,
-    "area_name": "Macomb County",
-    "geoid": 99,
-    "geotype": "county"
-  },
-  {
-    "gid": 187,
-    "area_name": "Handy Twp",
-    "geoid": 7050,
+    "gid": 58,
+    "area_name": "Lathrup Village",
+    "geoid": 2135,
     "geotype": "city"
   },
   {
-    "gid": 110,
-    "area_name": "Bridgewater Twp",
-    "geoid": 4020,
+    "gid": 2,
+    "area_name": "Canton Twp",
+    "geoid": 1020,
+    "geotype": "city"
+  },
+  {
+    "gid": 212,
+    "area_name": "Rochester",
+    "geoid": 2230,
+    "geotype": "city"
+  },
+  {
+    "gid": 229,
+    "area_name": "Milan (Monroe)",
+    "geoid": 5080,
+    "geotype": "mcd"
+  },
+  {
+    "gid": 246,
+    "area_name": "Cerveny/Grandmont",
+    "geoid": 509,
+    "geotype": "city"
+  },
+  {
+    "gid": 41,
+    "area_name": "Rochester Hills",
+    "geoid": 2010,
+    "geotype": "city"
+  },
+  {
+    "gid": 78,
+    "area_name": "Sylvan Lake",
+    "geoid": 2265,
+    "geotype": "city"
+  },
+  {
+    "gid": 26,
+    "area_name": "Redford Twp",
+    "geoid": 1150,
+    "geotype": "city"
+  },
+  {
+    "gid": 45,
+    "area_name": "Brandon Twp",
+    "geoid": 2045,
+    "geotype": "city"
+  },
+  {
+    "gid": 281,
+    "area_name": "Rosa Parks",
+    "geoid": 544,
+    "geotype": "city"
+  },
+  {
+    "gid": 256,
+    "area_name": "East Riverside",
+    "geoid": 519,
+    "geotype": "city"
+  },
+  {
+    "gid": 188,
+    "area_name": "Hartland Twp",
+    "geoid": 7055,
     "geotype": "city"
   },
   {
@@ -1482,15 +168,987 @@
     "geotype": "city"
   },
   {
-    "gid": 152,
-    "area_name": "Burtchville Twp",
-    "geoid": 6020,
+    "gid": 135,
+    "area_name": "Estral Beach",
+    "geoid": 5040,
     "geotype": "city"
   },
   {
-    "gid": 32,
-    "area_name": "Sumpter Twp",
-    "geoid": 1180,
+    "gid": 75,
+    "area_name": "Southfield",
+    "geoid": 2250,
+    "geotype": "city"
+  },
+  {
+    "gid": 232,
+    "area_name": "Petersburg",
+    "geoid": 5100,
+    "geotype": "city"
+  },
+  {
+    "gid": 60,
+    "area_name": "Madison Heights",
+    "geoid": 2150,
+    "geotype": "city"
+  },
+  {
+    "gid": 235,
+    "area_name": "Ypsilanti",
+    "geoid": 4130,
+    "geotype": "city"
+  },
+  {
+    "gid": 123,
+    "area_name": "Scio Twp",
+    "geoid": 4100,
+    "geotype": "city"
+  },
+  {
+    "gid": 52,
+    "area_name": "Hazel Park",
+    "geoid": 2090,
+    "geotype": "city"
+  },
+  {
+    "gid": 31,
+    "area_name": "Southgate",
+    "geoid": 1175,
+    "geotype": "city"
+  },
+  {
+    "gid": 115,
+    "area_name": "Lyndon Twp",
+    "geoid": 4055,
+    "geotype": "city"
+  },
+  {
+    "gid": 157,
+    "area_name": "Cottrellville Twp",
+    "geoid": 6055,
+    "geotype": "city"
+  },
+  {
+    "gid": 275,
+    "area_name": "East Riverfront",
+    "geoid": 538,
+    "geotype": "city"
+  },
+  {
+    "gid": 288,
+    "area_name": "Milwaukee Junction",
+    "geoid": 551,
+    "geotype": "city"
+  },
+  {
+    "gid": 242,
+    "area_name": "Brooks",
+    "geoid": 505,
+    "geotype": "city"
+  },
+  {
+    "gid": 184,
+    "area_name": "Fenton (Livingston)",
+    "geoid": 7027,
+    "geotype": "city"
+  },
+  {
+    "gid": 116,
+    "area_name": "Manchester",
+    "geoid": 4060,
+    "geotype": "city"
+  },
+  {
+    "gid": 111,
+    "area_name": "Dexter Twp",
+    "geoid": 4035,
+    "geotype": "city"
+  },
+  {
+    "gid": 151,
+    "area_name": "Brockway Twp",
+    "geoid": 6015,
+    "geotype": "city"
+  },
+  {
+    "gid": 267,
+    "area_name": "Kettering",
+    "geoid": 530,
+    "geotype": "city"
+  },
+  {
+    "gid": 8,
+    "area_name": "Gibraltar",
+    "geoid": 1055,
+    "geotype": "city"
+  },
+  {
+    "gid": 263,
+    "area_name": "Hubbard Richard",
+    "geoid": 526,
+    "geotype": "city"
+  },
+  {
+    "gid": 117,
+    "area_name": "Manchester Twp",
+    "geoid": 4065,
+    "geotype": "city"
+  },
+  {
+    "gid": 140,
+    "area_name": "London Twp",
+    "geoid": 5065,
+    "geotype": "city"
+  },
+  {
+    "gid": 43,
+    "area_name": "Birmingham",
+    "geoid": 2030,
+    "geotype": "city"
+  },
+  {
+    "gid": 127,
+    "area_name": "Webster Twp",
+    "geoid": 4120,
+    "geotype": "city"
+  },
+  {
+    "gid": 201,
+    "area_name": "Richmond (Macomb)",
+    "geoid": 3090,
+    "geotype": "city"
+  },
+  {
+    "gid": 131,
+    "area_name": "Bedford Twp",
+    "geoid": 5010,
+    "geotype": "city"
+  },
+  {
+    "gid": 278,
+    "area_name": "Pembroke",
+    "geoid": 541,
+    "geotype": "city"
+  },
+  {
+    "gid": 284,
+    "area_name": "Springwells",
+    "geoid": 547,
+    "geotype": "city"
+  },
+  {
+    "gid": 139,
+    "area_name": "LaSalle Twp",
+    "geoid": 5060,
+    "geotype": "city"
+  },
+  {
+    "gid": 260,
+    "area_name": "Grant",
+    "geoid": 523,
+    "geotype": "city"
+  },
+  {
+    "gid": 280,
+    "area_name": "Redford",
+    "geoid": 543,
+    "geotype": "city"
+  },
+  {
+    "gid": 124,
+    "area_name": "Sharon Twp",
+    "geoid": 4105,
+    "geotype": "city"
+  },
+  {
+    "gid": 6,
+    "area_name": "Oakland County",
+    "geoid": 125,
+    "geotype": "county"
+  },
+  {
+    "gid": 84,
+    "area_name": "Wolverine Lake",
+    "geoid": 2300,
+    "geotype": "city"
+  },
+  {
+    "gid": 5,
+    "area_name": "Monroe County",
+    "geoid": 115,
+    "geotype": "county"
+  },
+  {
+    "gid": 227,
+    "area_name": "Brownstown Twp",
+    "geoid": 1015,
+    "geotype": "city"
+  },
+  {
+    "gid": 175,
+    "area_name": "Riley Twp",
+    "geoid": 6145,
+    "geotype": "city"
+  },
+  {
+    "gid": 61,
+    "area_name": "Milford",
+    "geoid": 2155,
+    "geotype": "city"
+  },
+  {
+    "gid": 57,
+    "area_name": "Lake Angelus",
+    "geoid": 2125,
+    "geotype": "city"
+  },
+  {
+    "gid": 231,
+    "area_name": "Monroe",
+    "geoid": 5090,
+    "geotype": "city"
+  },
+  {
+    "gid": 109,
+    "area_name": "Barton Hills",
+    "geoid": 4018,
+    "geotype": "city"
+  },
+  {
+    "gid": 286,
+    "area_name": "State Fair",
+    "geoid": 549,
+    "geotype": "city"
+  },
+  {
+    "gid": 217,
+    "area_name": "Keego Harbor",
+    "geoid": 2120,
+    "geotype": "city"
+  },
+  {
+    "gid": 274,
+    "area_name": "Mt. Olivet",
+    "geoid": 537,
+    "geotype": "city"
+  },
+  {
+    "gid": 76,
+    "area_name": "Southfield Twp",
+    "geoid": 2252,
+    "geotype": "city"
+  },
+  {
+    "gid": 185,
+    "area_name": "Genoa Twp",
+    "geoid": 7035,
+    "geotype": "city"
+  },
+  {
+    "gid": 1,
+    "area_name": "Allen Park",
+    "geoid": 1005,
+    "geotype": "city"
+  },
+  {
+    "gid": 279,
+    "area_name": "Pershing",
+    "geoid": 542,
+    "geotype": "city"
+  },
+  {
+    "gid": 248,
+    "area_name": "Chandler Park",
+    "geoid": 511,
+    "geotype": "city"
+  },
+  {
+    "gid": 240,
+    "area_name": "Boynton",
+    "geoid": 503,
+    "geotype": "city"
+  },
+  {
+    "gid": 136,
+    "area_name": "Exeter Twp",
+    "geoid": 5045,
+    "geotype": "city"
+  },
+  {
+    "gid": 134,
+    "area_name": "Erie Twp",
+    "geoid": 5035,
+    "geotype": "city"
+  },
+  {
+    "gid": 66,
+    "area_name": "Oak Park",
+    "geoid": 2180,
+    "geotype": "city"
+  },
+  {
+    "gid": 204,
+    "area_name": "Utica",
+    "geoid": 3125,
+    "geotype": "city"
+  },
+  {
+    "gid": 228,
+    "area_name": "Carleton",
+    "geoid": 5020,
+    "geotype": "city"
+  },
+  {
+    "gid": 261,
+    "area_name": "Greenfield",
+    "geoid": 524,
+    "geotype": "city"
+  },
+  {
+    "gid": 102,
+    "area_name": "Sterling Heights",
+    "geoid": 3115,
+    "geotype": "city"
+  },
+  {
+    "gid": 210,
+    "area_name": "Clarkston",
+    "geoid": 2050,
+    "geotype": "city"
+  },
+  {
+    "gid": 148,
+    "area_name": "Whiteford Twp",
+    "geoid": 5120,
+    "geotype": "city"
+  },
+  {
+    "gid": 292,
+    "area_name": "Belle Isle",
+    "geoid": 555,
+    "geotype": "city"
+  },
+  {
+    "gid": 181,
+    "area_name": "Cohoctah Twp",
+    "geoid": 7015,
+    "geotype": "city"
+  },
+  {
+    "gid": 269,
+    "area_name": "University",
+    "geoid": 532,
+    "geotype": "city"
+  },
+  {
+    "gid": 25,
+    "area_name": "Plymouth Twp",
+    "geoid": 1145,
+    "geotype": "city"
+  },
+  {
+    "gid": 18,
+    "area_name": "Huron Twp",
+    "geoid": 1105,
+    "geotype": "city"
+  },
+  {
+    "gid": 247,
+    "area_name": "Chadsey",
+    "geoid": 510,
+    "geotype": "city"
+  },
+  {
+    "gid": 283,
+    "area_name": "Rouge",
+    "geoid": 546,
+    "geotype": "city"
+  },
+  {
+    "gid": 161,
+    "area_name": "Fort Gratiot Twp",
+    "geoid": 6075,
+    "geotype": "city"
+  },
+  {
+    "gid": 42,
+    "area_name": "Berkley",
+    "geoid": 2015,
+    "geotype": "city"
+  },
+  {
+    "gid": 193,
+    "area_name": "Oceola Twp",
+    "geoid": 7080,
+    "geotype": "city"
+  },
+  {
+    "gid": 160,
+    "area_name": "Emmett Twp",
+    "geoid": 6070,
+    "geotype": "city"
+  },
+  {
+    "gid": 239,
+    "area_name": "Bagley",
+    "geoid": 502,
+    "geotype": "city"
+  },
+  {
+    "gid": 222,
+    "area_name": "Bloomfield Twp",
+    "geoid": 2040,
+    "geotype": "city"
+  },
+  {
+    "gid": 234,
+    "area_name": "Chelsea",
+    "geoid": 4025,
+    "geotype": "city"
+  },
+  {
+    "gid": 80,
+    "area_name": "Waterford Twp",
+    "geoid": 2280,
+    "geotype": "city"
+  },
+  {
+    "gid": 244,
+    "area_name": "Butzel",
+    "geoid": 507,
+    "geotype": "city"
+  },
+  {
+    "gid": 289,
+    "area_name": "Vernor/Junction",
+    "geoid": 552,
+    "geotype": "city"
+  },
+  {
+    "gid": 13,
+    "area_name": "Grosse Pointe Shores (Wayne)",
+    "geoid": 1080,
+    "geotype": "mcd"
+  },
+  {
+    "gid": 39,
+    "area_name": "Wyandotte",
+    "geoid": 1220,
+    "geotype": "city"
+  },
+  {
+    "gid": 100,
+    "area_name": "Roseville",
+    "geoid": 3105,
+    "geotype": "city"
+  },
+  {
+    "gid": 113,
+    "area_name": "Lima Twp",
+    "geoid": 4045,
+    "geotype": "city"
+  },
+  {
+    "gid": 154,
+    "area_name": "China Twp",
+    "geoid": 6035,
+    "geotype": "city"
+  },
+  {
+    "gid": 21,
+    "area_name": "Livonia",
+    "geoid": 1120,
+    "geotype": "city"
+  },
+  {
+    "gid": 190,
+    "area_name": "Howell Twp",
+    "geoid": 7065,
+    "geotype": "city"
+  },
+  {
+    "gid": 121,
+    "area_name": "Saline",
+    "geoid": 4090,
+    "geotype": "city"
+  },
+  {
+    "gid": 79,
+    "area_name": "Troy",
+    "geoid": 2270,
+    "geotype": "city"
+  },
+  {
+    "gid": 202,
+    "area_name": "Armada",
+    "geoid": 3005,
+    "geotype": "city"
+  },
+  {
+    "gid": 1,
+    "area_name": "Wayne County, excluding Detroit",
+    "geoid": 3,
+    "geotype": "largearea"
+  },
+  {
+    "gid": 195,
+    "area_name": "Tyrone Twp",
+    "geoid": 7095,
+    "geotype": "city"
+  },
+  {
+    "gid": 146,
+    "area_name": "South Rockwood",
+    "geoid": 5110,
+    "geotype": "city"
+  },
+  {
+    "gid": 218,
+    "area_name": "Orchard Lake Village",
+    "geoid": 2185,
+    "geotype": "city"
+  },
+  {
+    "gid": 49,
+    "area_name": "Ferndale",
+    "geoid": 2075,
+    "geotype": "city"
+  },
+  {
+    "gid": 265,
+    "area_name": "Mack",
+    "geoid": 528,
+    "geotype": "city"
+  },
+  {
+    "gid": 37,
+    "area_name": "Westland",
+    "geoid": 1210,
+    "geotype": "city"
+  },
+  {
+    "gid": 82,
+    "area_name": "White Lake Twp",
+    "geoid": 2290,
+    "geotype": "city"
+  },
+  {
+    "gid": 203,
+    "area_name": "Lenox Twp",
+    "geoid": 3055,
+    "geotype": "city"
+  },
+  {
+    "gid": 249,
+    "area_name": "Cody",
+    "geoid": 512,
+    "geotype": "city"
+  },
+  {
+    "gid": 165,
+    "area_name": "Kenockee Twp",
+    "geoid": 6095,
+    "geotype": "city"
+  },
+  {
+    "gid": 104,
+    "area_name": "Warren",
+    "geoid": 3130,
+    "geotype": "city"
+  },
+  {
+    "gid": 122,
+    "area_name": "Saline Twp",
+    "geoid": 4095,
+    "geotype": "city"
+  },
+  {
+    "gid": 29,
+    "area_name": "Rockwood",
+    "geoid": 1165,
+    "geotype": "city"
+  },
+  {
+    "gid": 23,
+    "area_name": "Northville (Wayne)",
+    "geoid": 1130,
+    "geotype": "mcd"
+  },
+  {
+    "gid": 141,
+    "area_name": "Luna Pier",
+    "geoid": 5070,
+    "geotype": "city"
+  },
+  {
+    "gid": 170,
+    "area_name": "Memphis (St. Clair)",
+    "geoid": 6120,
+    "geotype": "mcd"
+  },
+  {
+    "gid": 241,
+    "area_name": "Brightmoor",
+    "geoid": 504,
+    "geotype": "city"
+  },
+  {
+    "gid": 226,
+    "area_name": "Belleville",
+    "geoid": 1010,
+    "geotype": "city"
+  },
+  {
+    "gid": 173,
+    "area_name": "Port Huron Twp",
+    "geoid": 6140,
+    "geotype": "city"
+  },
+  {
+    "gid": 287,
+    "area_name": "Tireman",
+    "geoid": 550,
+    "geotype": "city"
+  },
+  {
+    "gid": 70,
+    "area_name": "Pleasant Ridge",
+    "geoid": 2210,
+    "geotype": "city"
+  },
+  {
+    "gid": 237,
+    "area_name": "Green Oak Twp",
+    "geoid": 7040,
+    "geotype": "city"
+  },
+  {
+    "gid": 103,
+    "area_name": "St. Clair Shores",
+    "geoid": 3120,
+    "geotype": "city"
+  },
+  {
+    "gid": 92,
+    "area_name": "Harrison Twp",
+    "geoid": 3050,
+    "geotype": "city"
+  },
+  {
+    "gid": 132,
+    "area_name": "Berlin Twp (Monroe)",
+    "geoid": 5015,
+    "geotype": "city"
+  },
+  {
+    "gid": 35,
+    "area_name": "Van Buren Twp",
+    "geoid": 1200,
+    "geotype": "city"
+  },
+  {
+    "gid": 266,
+    "area_name": "Jeffries",
+    "geoid": 529,
+    "geotype": "city"
+  },
+  {
+    "gid": 12,
+    "area_name": "Grosse Pointe Park",
+    "geoid": 1075,
+    "geotype": "city"
+  },
+  {
+    "gid": 224,
+    "area_name": "Pinckney",
+    "geoid": 7085,
+    "geotype": "city"
+  },
+  {
+    "gid": 216,
+    "area_name": "Novi Twp",
+    "geoid": 2172,
+    "geotype": "city"
+  },
+  {
+    "gid": 252,
+    "area_name": "Corktown",
+    "geoid": 515,
+    "geotype": "city"
+  },
+  {
+    "gid": 207,
+    "area_name": "Oxford",
+    "geoid": 2200,
+    "geotype": "city"
+  },
+  {
+    "gid": 8,
+    "area_name": "Washtenaw County",
+    "geoid": 161,
+    "geotype": "county"
+  },
+  {
+    "gid": 262,
+    "area_name": "Harmony Village",
+    "geoid": 525,
+    "geotype": "city"
+  },
+  {
+    "gid": 51,
+    "area_name": "Groveland Twp",
+    "geoid": 2085,
+    "geotype": "city"
+  },
+  {
+    "gid": 34,
+    "area_name": "Trenton",
+    "geoid": 1190,
+    "geotype": "city"
+  },
+  {
+    "gid": 64,
+    "area_name": "Novi",
+    "geoid": 2170,
+    "geotype": "city"
+  },
+  {
+    "gid": 5,
+    "area_name": "Memphis",
+    "geoid": 8010,
+    "geotype": "city"
+  },
+  {
+    "gid": 166,
+    "area_name": "Kimball Twp",
+    "geoid": 6100,
+    "geotype": "city"
+  },
+  {
+    "gid": 7,
+    "area_name": "Milan",
+    "geoid": 8015,
+    "geotype": "city"
+  },
+  {
+    "gid": 56,
+    "area_name": "Independence Twp",
+    "geoid": 2115,
+    "geotype": "city"
+  },
+  {
+    "gid": 7,
+    "area_name": "Garden City",
+    "geoid": 1050,
+    "geotype": "city"
+  },
+  {
+    "gid": 130,
+    "area_name": "Ash Twp",
+    "geoid": 5005,
+    "geotype": "city"
+  },
+  {
+    "gid": 106,
+    "area_name": "Ann Arbor",
+    "geoid": 4005,
+    "geotype": "city"
+  },
+  {
+    "gid": 180,
+    "area_name": "Brighton Twp",
+    "geoid": 7010,
+    "geotype": "city"
+  },
+  {
+    "gid": 253,
+    "area_name": "Davison",
+    "geoid": 516,
+    "geotype": "city"
+  },
+  {
+    "gid": 7,
+    "area_name": "Wayne County",
+    "geoid": 163,
+    "geotype": "county"
+  },
+  {
+    "gid": 5,
+    "area_name": "Ecorse",
+    "geoid": 1040,
+    "geotype": "city"
+  },
+  {
+    "gid": 259,
+    "area_name": "Foch",
+    "geoid": 522,
+    "geotype": "city"
+  },
+  {
+    "gid": 200,
+    "area_name": "Richmond Twp",
+    "geoid": 3095,
+    "geotype": "city"
+  },
+  {
+    "gid": 95,
+    "area_name": "Mount Clemens",
+    "geoid": 3070,
+    "geotype": "city"
+  },
+  {
+    "gid": 9,
+    "area_name": "Grosse Ile Twp",
+    "geoid": 1060,
+    "geotype": "city"
+  },
+  {
+    "gid": 11,
+    "area_name": "Grosse Pointe Farms",
+    "geoid": 1070,
+    "geotype": "city"
+  },
+  {
+    "gid": 182,
+    "area_name": "Conway Twp",
+    "geoid": 7020,
+    "geotype": "city"
+  },
+  {
+    "gid": 105,
+    "area_name": "Washington Twp",
+    "geoid": 3135,
+    "geotype": "city"
+  },
+  {
+    "gid": 3,
+    "area_name": "Livingston County",
+    "geoid": 93,
+    "geotype": "county"
+  },
+  {
+    "gid": 72,
+    "area_name": "Rose Twp",
+    "geoid": 2235,
+    "geotype": "city"
+  },
+  {
+    "gid": 285,
+    "area_name": "St. Jean",
+    "geoid": 548,
+    "geotype": "city"
+  },
+  {
+    "gid": 1,
+    "area_name": "Grosse Pointe Shores",
+    "geoid": 8005,
+    "geotype": "city"
+  },
+  {
+    "gid": 87,
+    "area_name": "Chesterfield Twp",
+    "geoid": 3025,
+    "geotype": "city"
+  },
+  {
+    "gid": 3,
+    "area_name": "Dearborn",
+    "geoid": 1025,
+    "geotype": "city"
+  },
+  {
+    "gid": 17,
+    "area_name": "Highland Park",
+    "geoid": 1100,
+    "geotype": "city"
+  },
+  {
+    "gid": 174,
+    "area_name": "Richmond (St. Clair)",
+    "geoid": 6142,
+    "geotype": "city"
+  },
+  {
+    "gid": 90,
+    "area_name": "Fraser",
+    "geoid": 3040,
+    "geotype": "city"
+  },
+  {
+    "gid": 14,
+    "area_name": "Grosse Pointe Woods",
+    "geoid": 1085,
+    "geotype": "city"
+  },
+  {
+    "gid": 50,
+    "area_name": "Franklin",
+    "geoid": 2080,
+    "geotype": "city"
+  },
+  {
+    "gid": 258,
+    "area_name": "Finney",
+    "geoid": 521,
+    "geotype": "city"
+  },
+  {
+    "gid": 55,
+    "area_name": "Huntington Woods",
+    "geoid": 2110,
+    "geotype": "city"
+  },
+  {
+    "gid": 24,
+    "area_name": "Northville Twp",
+    "geoid": 1135,
+    "geotype": "city"
+  },
+  {
+    "gid": 276,
+    "area_name": "Nolan",
+    "geoid": 539,
+    "geotype": "city"
+  },
+  {
+    "gid": 144,
+    "area_name": "Monroe Twp",
+    "geoid": 5095,
+    "geotype": "city"
+  },
+  {
+    "gid": 250,
+    "area_name": "Condon",
+    "geoid": 513,
+    "geotype": "city"
+  },
+  {
+    "gid": 68,
+    "area_name": "Ortonville",
+    "geoid": 2195,
+    "geotype": "city"
+  },
+  {
+    "gid": 30,
+    "area_name": "Romulus",
+    "geoid": 1170,
+    "geotype": "city"
+  },
+  {
+    "gid": 254,
+    "area_name": "Denby",
+    "geoid": 517,
+    "geotype": "city"
+  },
+  {
+    "gid": 107,
+    "area_name": "Ann Arbor Twp",
+    "geoid": 4010,
+    "geotype": "city"
+  },
+  {
+    "gid": 159,
+    "area_name": "Emmett",
+    "geoid": 6065,
     "geotype": "city"
   },
   {
@@ -1500,9 +1158,681 @@
     "geotype": "city"
   },
   {
-    "gid": 75,
-    "area_name": "Southfield",
-    "geoid": 2250,
+    "gid": 271,
+    "area_name": "McNichols",
+    "geoid": 534,
+    "geotype": "city"
+  },
+  {
+    "gid": 211,
+    "area_name": "Lake Orion",
+    "geoid": 2130,
+    "geotype": "city"
+  },
+  {
+    "gid": 208,
+    "area_name": "Holly",
+    "geoid": 2100,
+    "geotype": "city"
+  },
+  {
+    "gid": 4,
+    "area_name": "Dearborn Heights",
+    "geoid": 1030,
+    "geotype": "city"
+  },
+  {
+    "gid": 67,
+    "area_name": "Orion Twp",
+    "geoid": 2190,
+    "geotype": "city"
+  },
+  {
+    "gid": 236,
+    "area_name": "Northfield Twp",
+    "geoid": 4075,
+    "geotype": "city"
+  },
+  {
+    "gid": 48,
+    "area_name": "Farmington Hills",
+    "geoid": 2072,
+    "geotype": "city"
+  },
+  {
+    "gid": 19,
+    "area_name": "Inkster",
+    "geoid": 1110,
+    "geotype": "city"
+  },
+  {
+    "gid": 46,
+    "area_name": "Clawson",
+    "geoid": 2055,
+    "geotype": "city"
+  },
+  {
+    "gid": 129,
+    "area_name": "Ypsilanti Twp",
+    "geoid": 4135,
+    "geotype": "city"
+  },
+  {
+    "gid": 187,
+    "area_name": "Handy Twp",
+    "geoid": 7050,
+    "geotype": "city"
+  },
+  {
+    "gid": 198,
+    "area_name": "Capac",
+    "geoid": 6025,
+    "geotype": "city"
+  },
+  {
+    "gid": 191,
+    "area_name": "Iosco Twp",
+    "geoid": 7070,
+    "geotype": "city"
+  },
+  {
+    "gid": 137,
+    "area_name": "Frenchtown Twp",
+    "geoid": 5050,
+    "geotype": "city"
+  },
+  {
+    "gid": 149,
+    "area_name": "Algonac",
+    "geoid": 6005,
+    "geotype": "city"
+  },
+  {
+    "gid": 186,
+    "area_name": "Hamburg Twp",
+    "geoid": 7045,
+    "geotype": "city"
+  },
+  {
+    "gid": 97,
+    "area_name": "New Haven",
+    "geoid": 3080,
+    "geotype": "city"
+  },
+  {
+    "gid": 15,
+    "area_name": "Hamtramck",
+    "geoid": 1090,
+    "geotype": "city"
+  },
+  {
+    "gid": 205,
+    "area_name": "Center Line",
+    "geoid": 3020,
+    "geotype": "city"
+  },
+  {
+    "gid": 98,
+    "area_name": "Ray Twp",
+    "geoid": 3085,
+    "geotype": "city"
+  },
+  {
+    "gid": 290,
+    "area_name": "West Riverfront",
+    "geoid": 553,
+    "geotype": "city"
+  },
+  {
+    "gid": 153,
+    "area_name": "Casco Twp",
+    "geoid": 6030,
+    "geotype": "city"
+  },
+  {
+    "gid": 138,
+    "area_name": "Ida Twp",
+    "geoid": 5055,
+    "geotype": "city"
+  },
+  {
+    "gid": 176,
+    "area_name": "St. Clair",
+    "geoid": 6150,
+    "geotype": "city"
+  },
+  {
+    "gid": 199,
+    "area_name": "Clay Twp",
+    "geoid": 6040,
+    "geotype": "city"
+  },
+  {
+    "gid": 219,
+    "area_name": "Farmington",
+    "geoid": 2065,
+    "geotype": "city"
+  },
+  {
+    "gid": 74,
+    "area_name": "Royal Oak Twp",
+    "geoid": 2245,
+    "geotype": "city"
+  },
+  {
+    "gid": 54,
+    "area_name": "Holly Twp",
+    "geoid": 2105,
+    "geotype": "city"
+  },
+  {
+    "gid": 152,
+    "area_name": "Burtchville Twp",
+    "geoid": 6020,
+    "geotype": "city"
+  },
+  {
+    "gid": 282,
+    "area_name": "Rosedale",
+    "geoid": 545,
+    "geotype": "city"
+  },
+  {
+    "gid": 251,
+    "area_name": "Conner",
+    "geoid": 514,
+    "geotype": "city"
+  },
+  {
+    "gid": 243,
+    "area_name": "Burbank",
+    "geoid": 506,
+    "geotype": "city"
+  },
+  {
+    "gid": 225,
+    "area_name": "Plymouth",
+    "geoid": 1140,
+    "geotype": "city"
+  },
+  {
+    "gid": 114,
+    "area_name": "Lodi Twp",
+    "geoid": 4050,
+    "geotype": "city"
+  },
+  {
+    "gid": 6,
+    "area_name": "Flat Rock (Wayne)",
+    "geoid": 1045,
+    "geotype": "city"
+  },
+  {
+    "gid": 158,
+    "area_name": "East China Twp",
+    "geoid": 6060,
+    "geotype": "city"
+  },
+  {
+    "gid": 183,
+    "area_name": "Deerfield Twp",
+    "geoid": 7025,
+    "geotype": "city"
+  },
+  {
+    "gid": 257,
+    "area_name": "Evergreen",
+    "geoid": 520,
+    "geotype": "city"
+  },
+  {
+    "gid": 110,
+    "area_name": "Bridgewater Twp",
+    "geoid": 4020,
+    "geotype": "city"
+  },
+  {
+    "gid": 221,
+    "area_name": "Beverly Hills",
+    "geoid": 2020,
+    "geotype": "city"
+  },
+  {
+    "gid": 150,
+    "area_name": "Berlin Twp (St. Clair)",
+    "geoid": 6010,
+    "geotype": "city"
+  },
+  {
+    "gid": 145,
+    "area_name": "Raisinville Twp",
+    "geoid": 5105,
+    "geotype": "city"
+  },
+  {
+    "gid": 8,
+    "area_name": "Richmond",
+    "geoid": 8025,
+    "geotype": "city"
+  },
+  {
+    "gid": 86,
+    "area_name": "Bruce Twp",
+    "geoid": 3015,
+    "geotype": "city"
+  },
+  {
+    "gid": 22,
+    "area_name": "Melvindale",
+    "geoid": 1125,
+    "geotype": "city"
+  },
+  {
+    "gid": 142,
+    "area_name": "Maybee",
+    "geoid": 5075,
+    "geotype": "city"
+  },
+  {
+    "gid": 93,
+    "area_name": "Macomb Twp",
+    "geoid": 3060,
+    "geotype": "city"
+  },
+  {
+    "gid": 85,
+    "area_name": "Armada Twp",
+    "geoid": 3010,
+    "geotype": "city"
+  },
+  {
+    "gid": 147,
+    "area_name": "Summerfield Twp",
+    "geoid": 5115,
+    "geotype": "city"
+  },
+  {
+    "gid": 77,
+    "area_name": "Springfield Twp",
+    "geoid": 2260,
+    "geotype": "city"
+  },
+  {
+    "gid": 171,
+    "area_name": "Mussey Twp",
+    "geoid": 6125,
+    "geotype": "city"
+  },
+  {
+    "gid": 167,
+    "area_name": "Lynn Twp",
+    "geoid": 6105,
+    "geotype": "city"
+  },
+  {
+    "gid": 94,
+    "area_name": "Memphis (Macomb)",
+    "geoid": 3065,
+    "geotype": "mcd"
+  },
+  {
+    "gid": 2,
+    "area_name": "Detroit",
+    "geoid": 5,
+    "geotype": "largearea"
+  },
+  {
+    "gid": 214,
+    "area_name": "South Lyon",
+    "geoid": 2255,
+    "geotype": "city"
+  },
+  {
+    "gid": 196,
+    "area_name": "Unadilla Twp",
+    "geoid": 7100,
+    "geotype": "city"
+  },
+  {
+    "gid": 96,
+    "area_name": "New Baltimore",
+    "geoid": 3075,
+    "geotype": "city"
+  },
+  {
+    "gid": 245,
+    "area_name": "Central Business District",
+    "geoid": 508,
+    "geotype": "city"
+  },
+  {
+    "gid": 91,
+    "area_name": "Grosse Pointe Shores (Macomb)",
+    "geoid": 3045,
+    "geotype": "mcd"
+  },
+  {
+    "gid": 230,
+    "area_name": "Dundee",
+    "geoid": 5025,
+    "geotype": "city"
+  },
+  {
+    "gid": 28,
+    "area_name": "Riverview",
+    "geoid": 1160,
+    "geotype": "city"
+  },
+  {
+    "gid": 101,
+    "area_name": "Shelby Twp",
+    "geoid": 3110,
+    "geotype": "city"
+  },
+  {
+    "gid": 36,
+    "area_name": "Wayne",
+    "geoid": 1205,
+    "geotype": "city"
+  },
+  {
+    "gid": 189,
+    "area_name": "Howell",
+    "geoid": 7060,
+    "geotype": "city"
+  },
+  {
+    "gid": 273,
+    "area_name": "Middle Woodward",
+    "geoid": 536,
+    "geotype": "city"
+  },
+  {
+    "gid": 112,
+    "area_name": "Freedom Twp",
+    "geoid": 4040,
+    "geotype": "city"
+  },
+  {
+    "gid": 88,
+    "area_name": "Clinton Twp",
+    "geoid": 3030,
+    "geotype": "city"
+  },
+  {
+    "gid": 194,
+    "area_name": "Putnam Twp",
+    "geoid": 7090,
+    "geotype": "city"
+  },
+  {
+    "gid": 163,
+    "area_name": "Greenwood Twp",
+    "geoid": 6085,
+    "geotype": "city"
+  },
+  {
+    "gid": 63,
+    "area_name": "Northville (Oakland)",
+    "geoid": 2165,
+    "geotype": "mcd"
+  },
+  {
+    "gid": 118,
+    "area_name": "Milan (Washtenaw)",
+    "geoid": 4070,
+    "geotype": "mcd"
+  },
+  {
+    "gid": 238,
+    "area_name": "Airport",
+    "geoid": 501,
+    "geotype": "city"
+  },
+  {
+    "gid": 81,
+    "area_name": "West Bloomfield Twp",
+    "geoid": 2285,
+    "geotype": "city"
+  },
+  {
+    "gid": 65,
+    "area_name": "Oakland Twp",
+    "geoid": 2175,
+    "geotype": "city"
+  },
+  {
+    "gid": 62,
+    "area_name": "Milford Twp",
+    "geoid": 2160,
+    "geotype": "city"
+  },
+  {
+    "gid": 169,
+    "area_name": "Marysville",
+    "geoid": 6115,
+    "geotype": "city"
+  },
+  {
+    "gid": 272,
+    "area_name": "Chene",
+    "geoid": 535,
+    "geotype": "city"
+  },
+  {
+    "gid": 206,
+    "area_name": "Leonard",
+    "geoid": 2140,
+    "geotype": "city"
+  },
+  {
+    "gid": 270,
+    "area_name": "Mackenzie",
+    "geoid": 533,
+    "geotype": "city"
+  },
+  {
+    "gid": 223,
+    "area_name": "Fowlerville",
+    "geoid": 7030,
+    "geotype": "city"
+  },
+  {
+    "gid": 16,
+    "area_name": "Harper Woods",
+    "geoid": 1095,
+    "geotype": "city"
+  },
+  {
+    "gid": 156,
+    "area_name": "Columbus Twp",
+    "geoid": 6050,
+    "geotype": "city"
+  },
+  {
+    "gid": 44,
+    "area_name": "Bloomfield Hills",
+    "geoid": 2035,
+    "geotype": "city"
+  },
+  {
+    "gid": 268,
+    "area_name": "McDougall-Hunt",
+    "geoid": 531,
+    "geotype": "city"
+  },
+  {
+    "gid": 7,
+    "area_name": "St. Clair County",
+    "geoid": 147,
+    "geotype": "county"
+  },
+  {
+    "gid": 73,
+    "area_name": "Royal Oak",
+    "geoid": 2240,
+    "geotype": "city"
+  },
+  {
+    "gid": 38,
+    "area_name": "Woodhaven",
+    "geoid": 1215,
+    "geotype": "city"
+  },
+  {
+    "gid": 4,
+    "area_name": "Macomb County",
+    "geoid": 99,
+    "geotype": "county"
+  },
+  {
+    "gid": 213,
+    "area_name": "Auburn Hills",
+    "geoid": 2220,
+    "geotype": "city"
+  },
+  {
+    "gid": 125,
+    "area_name": "Superior Twp",
+    "geoid": 4110,
+    "geotype": "city"
+  },
+  {
+    "gid": 27,
+    "area_name": "River Rouge",
+    "geoid": 1155,
+    "geotype": "city"
+  },
+  {
+    "gid": 192,
+    "area_name": "Marion Twp",
+    "geoid": 7075,
+    "geotype": "city"
+  },
+  {
+    "gid": 264,
+    "area_name": "Indian Village",
+    "geoid": 527,
+    "geotype": "city"
+  },
+  {
+    "gid": 33,
+    "area_name": "Taylor",
+    "geoid": 1185,
+    "geotype": "city"
+  },
+  {
+    "gid": 10,
+    "area_name": "Grosse Pointe",
+    "geoid": 1065,
+    "geotype": "city"
+  },
+  {
+    "gid": 291,
+    "area_name": "Winterhalter",
+    "geoid": 554,
+    "geotype": "city"
+  },
+  {
+    "gid": 69,
+    "area_name": "Oxford Twp",
+    "geoid": 2205,
+    "geotype": "city"
+  },
+  {
+    "gid": 220,
+    "area_name": "Bingham Farms",
+    "geoid": 2025,
+    "geotype": "city"
+  },
+  {
+    "gid": 162,
+    "area_name": "Grant Twp",
+    "geoid": 6080,
+    "geotype": "city"
+  },
+  {
+    "gid": 155,
+    "area_name": "Clyde Twp",
+    "geoid": 6045,
+    "geotype": "city"
+  },
+  {
+    "gid": 83,
+    "area_name": "Wixom",
+    "geoid": 2295,
+    "geotype": "city"
+  },
+  {
+    "gid": 128,
+    "area_name": "York Twp",
+    "geoid": 4125,
+    "geotype": "city"
+  },
+  {
+    "gid": 89,
+    "area_name": "Eastpointe",
+    "geoid": 3035,
+    "geotype": "city"
+  },
+  {
+    "gid": 255,
+    "area_name": "Durfee",
+    "geoid": 518,
+    "geotype": "city"
+  },
+  {
+    "gid": 59,
+    "area_name": "Lyon Twp",
+    "geoid": 2145,
+    "geotype": "city"
+  },
+  {
+    "gid": 143,
+    "area_name": "Milan Twp",
+    "geoid": 5085,
+    "geotype": "city"
+  },
+  {
+    "gid": 197,
+    "area_name": "Yale",
+    "geoid": 6165,
+    "geotype": "city"
+  },
+  {
+    "gid": 32,
+    "area_name": "Sumpter Twp",
+    "geoid": 1180,
+    "geotype": "city"
+  },
+  {
+    "gid": 53,
+    "area_name": "Highland Twp",
+    "geoid": 2095,
+    "geotype": "city"
+  },
+  {
+    "gid": 20,
+    "area_name": "Lincoln Park",
+    "geoid": 1115,
+    "geotype": "city"
+  },
+  {
+    "gid": 277,
+    "area_name": "Palmer Park",
+    "geoid": 540,
+    "geotype": "city"
+  },
+  {
+    "gid": 120,
+    "area_name": "Salem Twp",
+    "geoid": 4085,
+    "geotype": "city"
+  },
+  {
+    "gid": 2,
+    "area_name": "Northville",
+    "geoid": 8020,
     "geotype": "city"
   }
 ]

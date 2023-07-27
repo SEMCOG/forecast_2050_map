@@ -234,8 +234,9 @@ margin-top: 5%; margin-bottom:5%;">
           <label style="margin: 5px;" for="geo"> Choose Geography: </label>
           <select v-model="geotype"
                   class="esri-widget" name="geo" id="geo" style="font-size: large; padding: 10px">
-            <option value="county">Counties</option>
             <option value="city">Communities</option>
+            <option value="county">Counties</option>
+            <option value="largearea">Large Areas</option>
           </select>
 
           <label style="margin: 5px;" for="ind"> Choose Indicator:</label>
@@ -839,7 +840,6 @@ export default {
         opacity: 0.001,
         legendEnabled: false,
         popupTemplate: this.popup,
-        definitionExpression: "not (geoid > 500 and geoid < 600)",
       });
     },
     events_layer: function () {
@@ -884,7 +884,6 @@ export default {
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
         opacity: .8,
-        definitionExpression: "not (geoid > 500 and geoid < 600)",
       });
     },
     query: function () {
