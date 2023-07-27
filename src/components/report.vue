@@ -1,16 +1,8 @@
 <template>
   <div id="report" v-if="report_data" style="margin: auto">
     <div class="controls no-print">
-      <div class="name ">
-        <ShortcutSelect
-            v-bind:namesFromGeotype="namesFromGeotype"
-            v-bind:geotypesForMap="['largearea', 'county', 'city']"
-            v-bind:geotype="geotype"
-            v-on:set-geo-type="geotype = $event"
-        />
-      </div>
       <div style="margin-left: 36px;">
-        <span style="margin-left: 5px; margin-right: 3px; font-weight: bolder; font-size: 1.2em;">   is   </span>
+        <span style="margin-left: 5px; margin-right: 3px; font-weight: bolder; font-size: 1.2em;">Selected Community is</span>
         <select style="font-weight: bolder; font-size: 1.1em;" class='comm_dropdown'
                 v-on:change="selectedId = +$event.target.value">
           <option disabled value="">Choose a Community</option>
@@ -20,7 +12,7 @@
           >Southeast Michigan
           </option>
           <option
-              v-for="(list, key) in Array.from(namesFromGeotype[geotype].lookup)"
+              v-for="(list, key) in Array.from(namesFromGeotype['city'].lookup)"
               v-bind:key="key"
               v-bind:value="list[0]"
               v-bind:selected="selectedId===parseInt(list[0], 10)"
@@ -127,13 +119,12 @@ import Query from "@arcgis/core/rest/support/Query"
 import * as d3 from 'd3'
 import debounce from 'lodash.debounce'
 import lineChart from "./lineChart.vue"
-import ShortcutSelect from "./ShortcutSelect.vue"
 import "@esri/calcite-components/dist/components/calcite-button";
 
 export default {
   name: 'reportComponent',
   components: {
-    lineChart, ShortcutSelect
+    lineChart
   },
   props: ['selectedFeature'],
   data: function () {
@@ -143,158 +134,12 @@ export default {
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
-      geotype: this.selectedFeature.geotype || 'city',
       namesFromGeotype: Object.freeze({
-        'largearea': {
-          name: 'Large Areas',
-          singularName: 'Large Area',
-          column_name: 'large_area_id',
-          lookup: undefined
-        },
-        'county': {
-          name: 'Counties',
-          singularName: 'County',
-          column_name: 'large_area_id',
-          lookup: undefined
-        },
         'city': {
           name: 'Communities',
           singularName: 'Community',
           column_name: 'city_id',
           lookup: undefined
-        },
-        'SchoolDistrict': {
-          name: 'School Districts',
-          singularName: 'School District',
-          column_name: 'dcode',
-          lookup: {
-            47070: 'Howell Public Schools',
-            58030: 'Bedford Public Schools',
-            74100: 'Marysville Public Schools',
-            63220: 'Huron Valley Schools',
-            82160: 'Wayne-Westland Community School District',
-            82140: 'South Redford School District',
-            82095: 'Livonia Public Schools',
-            82020: 'Allen Park Public Schools',
-            82055: 'Grosse Pointe Public Schools',
-            63300: 'Waterford School District',
-            50080: 'Chippewa Valley Schools',
-            58110: 'Whiteford Agricultural Schools',
-            74050: 'East China School District',
-            81120: 'Saline Area Schools',
-            81080: 'Manchester Community Schools',
-            82300: 'Grosse Ile Township Schools',
-            58050: 'Dundee Community Schools',
-            50230: 'Warren Consolidated Schools',
-            82130: 'Romulus Community Schools',
-            82090: 'Lincoln Park Public Schools',
-            82230: 'Crestwood School District',
-            58080: 'Jefferson Schools (Monroe)',
-            58020: 'Airport Community School District',
-            82180: 'Flat Rock Community Schools',
-            82290: 'Gibraltar School District',
-            82060: 'Hamtramck Public Schools',
-            63280: 'Lamphere Public Schools',
-            74120: 'Memphis Community Schools',
-            74030: 'Algonac Community School District',
-            50040: 'Anchor Bay School District',
-            50140: "L'Anse Creuse Public Schools",
-            50160: 'Mt. Clemens Community School District',
-            50170: 'New Haven Community Schools',
-            47060: 'Hartland Consolidated Schools',
-            47030: 'Fowlerville Community Schools',
-            81050: 'Dexter Community School District',
-            81040: 'Chelsea School District',
-            81010: 'Ann Arbor Public Schools',
-            58100: 'Summerfield School District',
-            58090: 'Mason Consolidated Schools (Monroe)',
-            58010: 'Monroe Public Schools',
-            58070: 'Ida Public School District',
-            63290: 'Walled Lake Consolidated Schools',
-            63010: 'Birmingham City School District',
-            63130: 'Hazel Park City School District',
-            63020: 'Ferndale Public Schools',
-            63260: 'Rochester Community School District',
-            63050: 'Berkley School District',
-            63040: 'School District of the City of Royal Oak',
-            50210: 'Utica Community Schools',
-            47010: 'Brighton Area Schools',
-            82010: 'Detroit City School District',
-            82250: 'Ecorse Public School District',
-            74040: 'Capac Community School District',
-            74130: 'Yale Public Schools',
-            63240: 'South Lyon Community Schools',
-            82100: 'Plymouth-Canton Community Schools',
-            81070: 'Lincoln Consolidated School District',
-            74010: 'Port Huron Area School District',
-            82430: 'Van Buren Public Schools',
-            81020: 'School District of Ypsilanti',
-            82340: 'Huron School District',
-            82240: 'Westwood Community Schools',
-            82030: 'Dearborn City School District',
-            82050: 'Garden City School District',
-            50020: 'East Detroit Public Schools',
-            50180: 'Richmond Community Schools',
-            81140: 'Whitmore Lake Public Schools',
-            47080: 'Pinckney Community Schools',
-            50070: 'Clintondale Community Schools',
-            50090: 'Fitzgerald Public Schools',
-            50220: 'Van Dyke Public Schools',
-            50010: 'Center Line Public Schools',
-            50050: 'Armada Area Schools',
-            50240: 'Warren Woods Public Schools',
-            50120: 'Lake Shore Public Schools (Macomb)',
-            50130: 'Lakeview Public Schools (Macomb)',
-            50030: 'Roseville Community Schools',
-            63250: 'Oak Park City School District',
-            63270: 'Clawson Public Schools',
-            63110: 'Oxford Community Schools',
-            63150: 'Troy School District',
-            63140: 'Madison Public Schools (Oakland)',
-            63180: 'Brandon School District',
-            63230: 'Lake Orion Community Schools',
-            50190: 'Romeo Community Schools',
-            63030: 'Pontiac City School District',
-            63160: 'West Bloomfield School District',
-            63080: 'Bloomfield Hills School District',
-            63070: 'Avondale School District',
-            82110: 'Redford Union School District',
-            63200: 'Farmington Public School District',
-            82120: 'River Rouge School District',
-            63060: 'Southfield Public School District',
-            82405: 'Southgate Community School District',
-            82400: 'Riverview Community School District',
-            82155: 'Trenton Public Schools',
-            81100: 'Milan Area Schools',
-            82390: 'Northville Public Schools',
-            63090: 'Clarenceville School District',
-            82070: 'Highland Park City Schools',
-            63100: 'Novi Community School District',
-            50200: 'South Lake Schools',
-            82365: 'Woodhaven-Brownstown School District',
-            82150: 'Taylor School District',
-            82040: 'Dearborn Heights School District #7',
-            82045: 'Melvindale-North Allen Park Schools',
-            82170: 'Wyandotte City School District',
-            82320: 'City of Harper Woods Schools',
-            50100: 'Fraser Public Schools',
-            63210: 'Holly Area School District',
-            63190: 'Clarkston Community School District',
-          }
-        },
-        'ISD': {
-          name: 'Intermediate School Districts',
-          singularName: 'Intermediate School District',
-          column_name: 'isdcode',
-          lookup: {
-            47: 'Livingston ESA',
-            50: 'Macomb ISD',
-            58: 'Monroe ISD',
-            63: 'Oakland Schools',
-            74: 'St. Clair County RESA',
-            81: 'Washtenaw ISD',
-            82: 'Wayne RESA',
-          }
         },
       }),
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
@@ -381,7 +226,22 @@ export default {
   },
   computed: {
     selectedName: function () {
-      return this.namesFromGeotype[this.geotype].lookup.get(this.selectedId.toString())
+      return this.namesFromGeotype['city'].lookup.get(this.selectedId.toString())
+    },
+    geotype: function (geoid) {
+      let geotype = this.selectedFeature.geotype
+      if (!geotype) {
+        if (geoid > 500 && geoid < 600) {
+          geotype = 'detroit_neighborhood'
+        } else if ([3, 93, 99, 115, 125, 147, 161, 163].includes(geoid)) {
+          geotype = 'county'
+        } else if (geotype === 'mcd') {
+          geotype = 'city'
+        } else {
+          geotype = 'city'
+        }
+      }
+      return geotype
     },
     jobChart: function () {
       return [{
@@ -607,7 +467,7 @@ export default {
       );
     },
     get_report_data: debounce(async function () {
-      let areas = `${this.namesFromGeotype[this.geotype].column_name} = ${this.selectedId}`;
+      let areas = `city_id = ${this.selectedId}`;
       if (this.selectedId === 8999) {
         areas = `large_area_id in (${this.large_area_ids.map(f => `${f}`).join(',')})`;
       }
@@ -694,12 +554,6 @@ export default {
   },
   watch: {
     selectedFeature: function () {
-      if (this.selectedFeature['geotype'] ) {
-        this.geotype = this.selectedFeature.geotype
-        if (this.geotype === 'mcd') {
-          this.geotype = 'city'
-        }
-      }
       this.$emit('geotype', this.geotype)
       if (this.selectedFeature['geoid']) {
         this.selectedId = this.selectedFeature.geoid
@@ -716,20 +570,10 @@ export default {
         .then(res => res.json())
         .then(res => {
           let communities = {};
-          let largeareas = {};
-          let counties = {};
           res.forEach(f => {
-            if (f.geotype === 'city' || f.geotype === 'mcd') {
               communities[f.geoid] = f.area_name;
-            } else if (f.geotype === 'largearea') {
-              largeareas[f.geoid] = f.area_name;
-            } else if (f.geotype === 'county') {
-              counties[f.geoid] = f.area_name;
-            }
           });
           this.namesFromGeotype['city'].lookup = this.sortObject(communities)
-          this.namesFromGeotype['largearea'].lookup = this.sortObject(largeareas)
-          this.namesFromGeotype['county'].lookup = this.sortObject(counties)
         });
 
     this.get_report_data()
@@ -864,8 +708,6 @@ table tbody tr.dashed th, table tbody tr.dashed td {
 .controls {
   background-color: #ffffff;
   padding: 5px;
-  display: grid;
-  grid-template-columns: 40% 60%;
   margin: 2px;
   border: solid 2px #000000;
   border-radius: 10px;
@@ -877,7 +719,8 @@ table tbody tr.dashed th, table tbody tr.dashed td {
   background-color: white;
   opacity: 0.9;
   padding: 4px;
-  pointer-events: auto;
+  font-size: medium;
+  font-weight: bolder;
 }
 
 @media (max-width: 1300px) {
@@ -901,7 +744,6 @@ table tbody tr.dashed th, table tbody tr.dashed td {
     padding: 0 4% 4% 4%;
   }
   .controls {
-    grid-template-columns:  unset;
     display: block;
   }
 }

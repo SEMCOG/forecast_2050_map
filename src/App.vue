@@ -236,7 +236,7 @@ margin-top: 5%; margin-bottom:5%;">
                   class="esri-widget" name="geo" id="geo" style="font-size: large; padding: 10px">
             <option value="city">Communities</option>
             <option value="county">Counties</option>
-            <option value="largearea">Large Areas</option>
+            <option value="detroit_neighborhood">Detroit Neighborhoods</option>
           </select>
 
           <label style="margin: 5px;" for="ind"> Choose Indicator:</label>
@@ -441,12 +441,12 @@ export default {
                    <td>{expression/pop_change_percent} </td>
                  </tr>
                  <tr>
-                 <th>&nbsp&nbsp School Age(5-17)</th>
+                 <th>&nbsp&nbsp School Age (Age 5-17)</th>
                    <td>{expression/pop_age_05_17_change_formatted} </td>
                    <td>{expression/pop_age_05_17_change_percent} </td>
                  </tr>
                  <tr>
-                 <th>&nbsp&nbsp Senior(65+)</th>
+                 <th>&nbsp&nbsp Senior (Age 65+)</th>
                    <td>{expression/pop_age_65_inf_change_formatted} </td>
                    <td>{expression/pop_age_65_inf_change_percent} </td>
                  </tr>
@@ -461,7 +461,7 @@ export default {
                    <td>{expression/housing_unit_change_percent} </td>
                  </tr>
                  <tr>
-                 <th>Total Jobs <sup>*</sup></th>
+                 <th style="padding-top: 0px;" >Total Jobs <sup style="font-size: x-small">*</sup></th>
                    <td>{expression/jobs_total_change_formatted} </td>
                    <td>{expression/jobs_total_change_percent} </td>
                  </tr>
@@ -479,6 +479,98 @@ export default {
         playSpeed: 6000,
         wheelControl: false,
       }
+    },
+    forecast_layer_renderer_detroit_neighborhoods: function () {
+      const more3kgain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#136400",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const gain501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#8ec61a",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss500lossto500gain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#f7f3c7",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FF9900",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const more3kloss = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#F11810",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const renderer = {
+        type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+        field: 'pop_change',
+        legendOptions: {
+          title: "Total Population 2020 - 2050"
+        },
+        classBreakInfos: [
+          {
+            minValue: 501,
+            maxValue: 10000000,
+            symbol: more3kgain,
+            label: "More than 500 gain"
+          },
+          {
+            minValue: 101,
+            maxValue: 500,
+            symbol: gain501to3k,
+            label: "Gain, 101 to 500"
+          },
+          {
+            minValue: -100,
+            maxValue: 100,
+            symbol: loss500lossto500gain,
+            label: "Little change, 100 loss to 100 gain"
+          },
+          {
+            minValue: -500,
+            maxValue: -101,
+            symbol: loss501to3k,
+            label: "Loss, 101 to 500"
+          },
+          {
+            minValue: -10000000,
+            maxValue: -501,
+            symbol: more3kloss,
+            label: "More than 500 loss"
+          }
+        ]
+      };
+      return renderer
     },
     forecast_layer_renderer: function () {
       const more3kgain = {
@@ -833,12 +925,35 @@ export default {
       };
       return renderer
     },
+    detroit_neighborhood_labels: function () {
+      const labelClass = {
+        // autocasts as new LabelClass()
+        symbol: {
+          type: "text",  // autocasts as new TextSymbol()
+          color: "#ffffff",
+          haloColor: "#8f6732",
+          haloSize: .5,
+          font: {  // autocast as new Font()
+            family: "Arial",
+            size: 8,
+          }
+        },
+        labelPlacement: "always-horizontal",
+        where: "geoid < 600",
+        minScale: 200000,
+        labelExpressionInfo: {
+          expression: "$feature.area_name"
+        }
+      };
+      return labelClass
+    },
     forecast_layer_info: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_july_draft_external_excel_v2/FeatureServer",
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_july_draft_external_excel_v2_direct/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
+        labelingInfo: [this.detroit_neighborhood_labels],
         popupTemplate: this.popup,
       });
     },
@@ -879,7 +994,7 @@ export default {
     forecast_layer: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_july_draft_external_excel_v2/FeatureServer",
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_july_draft_external_excel_v2_direct/FeatureServer",
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
@@ -1108,10 +1223,13 @@ export default {
       if (this.ind) {
         this.forecast_layer_renderer.field = this.ind
         this.forecast_layer_county_renderer.field = this.ind
+        this.forecast_layer_renderer_detroit_neighborhoods.field = this.ind
         this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         if (this.geotype === 'city') {
           this.forecast_layer.renderer = this.forecast_layer_renderer
+        } else if (this.geotype === 'detroit_neighborhood') {
+          this.forecast_layer.renderer = this.forecast_layer_renderer_detroit_neighborhoods
         } else {
           this.forecast_layer.renderer = this.forecast_layer_county_renderer
         }
@@ -1128,10 +1246,13 @@ export default {
         if (this.ind) {
           this.forecast_layer_renderer.field = this.ind
           this.forecast_layer_county_renderer.field = this.ind
+          this.forecast_layer_renderer_detroit_neighborhoods.field = this.ind
           this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
           this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
           if (this.geotype === 'city') {
             this.forecast_layer.renderer = this.forecast_layer_renderer
+          } else if (this.geotype === 'detroit_neighborhood') {
+            this.forecast_layer.renderer = this.forecast_layer_renderer_detroit_neighborhoods
           } else {
             this.forecast_layer.renderer = this.forecast_layer_county_renderer
           }
