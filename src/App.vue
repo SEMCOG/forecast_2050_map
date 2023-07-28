@@ -29,9 +29,9 @@
           infrastructure improvements – roads, bridges, water and sewer.</p>
         <h3>SEMCOG 2050 Regional Forecast – Release Dates</h3>
         <ul>
-          <li>Community Population and Household Distributions (by June 30, 2023)</li>
-          <li>Detroit Neighborhood Forecast (by June 30, 2023)</li>
-          <li>Transportation Analysis Zone Forecast (July 2023)</li>
+          <li>Community Population and Household Distributions - <strong>New Data Available!</strong></li>
+          <li>Detroit Neighborhood Forecast - <strong>New Data Available!</strong></li>
+          <li>Transportation Analysis Zone Forecast (August 2023)</li>
           <li>Intermediate and Local School District Forecast (August 2023)</li>
           <li>State House and Senate District Forecast (September 2023)</li>
           <li>Watershed and Sub-Watershed Forecast (September 2023)</li>
