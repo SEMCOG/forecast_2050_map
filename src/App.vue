@@ -1064,7 +1064,7 @@ export default {
 
     this.view.popup.watch("selectedFeature", (graphic) => {
       if (graphic) {
-        this.selectedFeature = this.view.popup.selectedFeature.attributes
+        this.selectedFeature = this.view.popup.features[0].attributes
         let actions = this.view.popup.features.map((f, i) => {
           return {
             title: `${f.attributes.area_name}`,
@@ -1122,7 +1122,7 @@ export default {
     };
     const searchWidget = new Search({
       view: this.view,
-      allPlaceholder: "Search Community Name or Address",
+      allPlaceholder: "Search Community, County or Detroit Neighborhood",
       includeDefaultSources: false,
       sources: [
         {
@@ -1358,8 +1358,8 @@ export default {
 }
 
 .esri-search.esri-widget {
-  width: 350px;
-  height: 66px;
+  width: 425px;
+  height: 70px;
   /*inset: 15px 12px 50px;*/
 }
 
