@@ -930,16 +930,16 @@ export default {
         // autocasts as new LabelClass()
         symbol: {
           type: "text",  // autocasts as new TextSymbol()
-          color: "#ffffff",
-          haloColor: "#8f6732",
+          color: "#000000",
+          haloColor: "rgba(255,255,255,0.5)",
           haloSize: .5,
           font: {  // autocast as new Font()
             family: "Arial",
-            size: 8,
+            size: 9,
           }
         },
         labelPlacement: "always-horizontal",
-        where: "geoid < 600",
+        where: "geoid> 500 and geoid < 600",
         minScale: 200000,
         labelExpressionInfo: {
           expression: "$feature.area_name"
