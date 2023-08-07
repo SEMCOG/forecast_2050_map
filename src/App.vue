@@ -950,7 +950,7 @@ export default {
     forecast_layer_info: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_july_draft_external_excel_v2_direct/FeatureServer",
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_whatnots_july_draft_external_excel/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
         labelingInfo: [this.detroit_neighborhood_labels],
@@ -994,7 +994,7 @@ export default {
     forecast_layer: function () {
       return new FeatureLayer({
         url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_july_draft_external_excel_v2_direct/FeatureServer",
+            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_whatnots_july_draft_external_excel/FeatureServer",
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
