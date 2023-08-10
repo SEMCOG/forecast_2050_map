@@ -1064,7 +1064,7 @@ export default {
 
     this.view.popup.watch("selectedFeature", (graphic) => {
       if (graphic) {
-        this.selectedFeature = this.view.popup.features[0].attributes
+        this.selectedFeature = this.view.popup.selectedFeature.attributes
         let actions = this.view.popup.features.map((f, i) => {
           return {
             title: `${f.attributes.area_name}`,
