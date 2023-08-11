@@ -474,6 +474,24 @@ export default {
       if (this.selectedId === 5) {
         areas = `large_area_id in (5)`;
       }
+      if (this.selectedId === 93) {
+        areas = `large_area_id in (93)`;
+      }
+      if (this.selectedId === 99) {
+        areas = `large_area_id in (99)`;
+      }
+      if (this.selectedId === 115) {
+        areas = `large_area_id in (115)`;
+      }
+      if (this.selectedId === 125) {
+        areas = `large_area_id in (125)`;
+      }
+      if (this.selectedId === 147) {
+        areas = `large_area_id in (147)`;
+      }
+      if (this.selectedId === 161) {
+        areas = `large_area_id in (161)`;
+      }
       if (this.selectedId === 163) {
         areas = `large_area_id in (5, 3)`;
       }
