@@ -1052,9 +1052,6 @@ export default {
           this.loaded = true
         });
 
-    this.view.popup.viewModel.includeDefaultActions = false;
-    this.view.popup.alignment = 'bottom-right'
-
     this.view.watch('focused', () => {
       this.view.navigation = {
         mouseWheelZoomEnabled: this.view.focused,
@@ -1065,20 +1062,7 @@ export default {
     this.view.popup.watch("selectedFeature", (graphic) => {
       if (graphic) {
         this.selectedFeature = this.view.popup.selectedFeature.attributes
-        let actions = this.view.popup.features.map((f, i) => {
-          return {
-            title: `${f.attributes.area_name}`,
-            id: `${i}`,
-            className: "esri-icon-applications"
-          }
-        })
-        this.view.popup.actions = actions
       }
-    });
-
-    this.view.popup.on("trigger-action", (event) => {
-      this.view.popup.selectedFeatureIndex = parseInt(event.action.id)
-      this.selectedFeature = this.view.popup.selectedFeature.attributes
     });
 
     this.view.whenLayerView(this.forecast_layer).then((layerView) => {
@@ -1215,6 +1199,12 @@ export default {
         };
       });
 
+      this.view.whenLayerView(this.forecast_layer_info).then((layerView) => {
+        layerView.filter = {
+          where: `geotype = '${this.geotype}'`
+        };
+      });
+
       let year_range = ' 2020 - 2050'
       if (this.ind === 'jobs_total_change') {
         year_range = ' 2019 - 2050'
@@ -1284,6 +1274,7 @@ export default {
 #mapContainer {
   grid-column: 1;
   grid-row: 3;
+  padding: 0 5% 5% 5%;
 }
 
 #report {
@@ -1400,6 +1391,7 @@ export default {
     margin: auto;
     width: 100%;
     height: 560px;
+    padding: unset;
   }
 }
   #ind_select>label{
@@ -1451,6 +1443,10 @@ export default {
 
   #ind_select>label{
     font-size: small;
+  }
+
+  #mapContainer {
+    padding: unset;
   }
 }
 

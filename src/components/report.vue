@@ -228,21 +228,6 @@ export default {
     selectedName: function () {
       return this.namesFromGeotype['city'].lookup.get(this.selectedId.toString())
     },
-    geotype: function (geoid) {
-      let geotype = this.selectedFeature.geotype
-      if (!geotype) {
-        if (geoid > 500 && geoid < 600) {
-          geotype = 'detroit_neighborhood'
-        } else if ([3, 93, 99, 115, 125, 147, 161, 163].includes(geoid)) {
-          geotype = 'county'
-        } else if (geotype === 'mcd') {
-          geotype = 'city'
-        } else {
-          geotype = 'city'
-        }
-      }
-      return geotype
-    },
     jobChart: function () {
       return [{
         labels: ['1/1/2019', '1/1/2020', '1/1/2025', '1/1/2030', '1/1/2035', '1/1/2040', '1/1/2045', '1/1/2050'],
@@ -450,6 +435,21 @@ export default {
       }
       return new_obj
     },
+    geotype: function (geoid) {
+      let mgeotype = this.selectedFeature.geotype
+      if (mgeotype === undefined) {
+        if (geoid > 500 && geoid < 600) {
+          mgeotype = 'detroit_neighborhood'
+        } else if ([3, 93, 99, 115, 125, 147, 161, 163].includes(geoid)) {
+          mgeotype = 'county'
+        } else if (mgeotype === 'mcd') {
+          mgeotype = 'city'
+        } else {
+          mgeotype = 'city'
+        }
+      }
+      return mgeotype
+    },
     filterRatio: function (ratio) {
       if (isFinite(ratio)) {
         ratio = this.format2dec(ratio)
@@ -572,10 +572,10 @@ export default {
   },
   watch: {
     selectedFeature: function () {
-      this.$emit('geotype', this.geotype)
       if (this.selectedFeature['geoid']) {
         this.selectedId = this.selectedFeature.geoid
       }
+      this.$emit('geotype', this.geotype(this.selectedId))
       this.get_report_data()
     },
     selectedId: function () {
@@ -607,7 +607,7 @@ export default {
   color: #2c3e50;
   margin-top: 10px;
   margin-bottom: 10px;
-  padding: 0 8% 8% 8%;
+  padding: 0 5% 5% 5%;
 }
 
 table {
