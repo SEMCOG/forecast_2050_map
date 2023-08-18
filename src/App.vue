@@ -63,7 +63,8 @@ margin-top: 5%; margin-bottom:5%;">
           Prior to General Assembly adoption, SEMCOG’s Executive Committee approved the draft 2050 Regional Forecast for
           Counties and Communities on February 24th, 2023.</p>
         <ul>
-          <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Regional%20Forecast%20by%20County%20and%20Community.pdf" target="_blank">2050 Regional Forecast by County and Community</a></li>
+          <li><a href="semcog_2050_RDF_community_final.xlsx">2050 Regional Forecast by County and Community Excel Spreadsheet</a></li>
+          <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Regional%20Forecast%20by%20County%20and%20Community.pdf" target="_blank">2050 Regional Forecast by County and Community Summary PDF</a></li>
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Forecast%20Exec%20Presentation.pdf" target="_blank">2050 Regional Forecast Presentation to the Executive Committee</a></li>
         </ul>
         <p>SEMCOG held three Community Stakeholder meetings during the second week of January 2023. At these meetings,
