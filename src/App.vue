@@ -950,12 +950,14 @@ export default {
     },
     forecast_layer_info: function () {
       return new FeatureLayer({
-        url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_whatnots_july_draft_external_excel/FeatureServer",
+        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_detroit_fix/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
         labelingInfo: [this.detroit_neighborhood_labels],
         popupTemplate: this.popup,
+        filter: {
+          where: `geotype = 'city'`
+        },
       });
     },
     events_layer: function () {
@@ -994,11 +996,13 @@ export default {
 
     forecast_layer: function () {
       return new FeatureLayer({
-        url:
-            "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_new_whatnots_july_draft_external_excel/FeatureServer",
+        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_detroit_fix/FeatureServer",
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
+        filter: {
+          where: `geotype = 'city'`
+        },
         opacity: .8,
       });
     },
