@@ -542,34 +542,34 @@ export default {
         },
         classBreakInfos: [
           {
-            minValue: 1000,
+            minValue: 500,
             maxValue: 10000000,
             symbol: more3kgain,
-            label: "More than 1,000 gain"
+            label: "More than 500 gain"
           },
           {
-            minValue: 301,
-            maxValue: 1000,
+            minValue: 100,
+            maxValue: 500,
             symbol: gain501to3k,
-            label: "Gain, 301 to 1,000"
+            label: "Gain, 100 to 500"
           },
           {
-            minValue: -300,
-            maxValue: 300,
+            minValue: -100,
+            maxValue: 100,
             symbol: loss500lossto500gain,
-            label: "Little change, 300 loss to 300 gain"
+            label: "Little change, 100 loss to 100 gain"
           },
           {
-            minValue: -1000,
-            maxValue: -301,
+            minValue: -500,
+            maxValue: -100,
             symbol: loss501to3k,
-            label: "Loss, 301 to 1,000"
+            label: "Loss, 100 to 500"
           },
           {
             minValue: -10000000,
-            maxValue: -1000,
+            maxValue: -500,
             symbol: more3kloss,
-            label: "More than 1,000 loss"
+            label: "More than 500 loss"
           }
         ]
       };
@@ -781,6 +781,24 @@ export default {
           new VectorTileLayer({
             portalItem: {
               id: "2efeb0852a794d09973908facff29987"
+            },
+          }),
+          new FeatureLayer({
+            portalItem: {
+              id: "191da58468344913bb1c3d0884999549"
+            },
+            legendEnabled: false,
+            popupEnabled: false,
+            renderer: {
+              type: 'simple',
+              symbol: {
+                type: "simple-fill", // autocasts as new SimpleFillSymbol()
+                color: [0, 0, 0, 0],
+                outline: {
+                  width: 1.5,
+                  color: '#000000'
+                }
+              }
             },
           })
         ],
@@ -1352,7 +1370,7 @@ export default {
             this.forecast_layer.featureEffect = this.forecast_layer_effect
           } else if (this.geotype === 'zone') {
             this.forecast_layer.renderer = this.forecast_layer_renderer_zones
-            this.forecast_layer_effect.filter.where = `${this.ind} > 300`
+            this.forecast_layer_effect.filter.where = `${this.ind} > 100`
             this.forecast_layer.featureEffect = this.forecast_layer_effect
           } else {
             this.forecast_layer.renderer = this.forecast_layer_county_renderer
