@@ -238,6 +238,7 @@ margin-top: 5%; margin-bottom:5%;">
             <option value="city">Communities</option>
             <option value="county">Counties</option>
             <option value="detroit_neighborhood">Detroit Neighborhoods</option>
+            <option value="zone">Traffic Analysis Zones</option>
           </select>
 
           <label style="margin: 5px;" for="ind"> Choose Indicator:</label>
@@ -254,6 +255,7 @@ margin-top: 5%; margin-bottom:5%;">
       </div>
     </div>
     <reportComponent v-bind:selectedFeature='selectedFeature'
+                     v-bind:geotype='geotype'
                      v-on:selected-id="selectedFeature = {geoid: $event}"
                      v-on:geotype="geotype = $event"
                      id="report"></reportComponent>
@@ -480,6 +482,98 @@ export default {
         playSpeed: 6000,
         wheelControl: false,
       }
+    },
+    forecast_layer_renderer_zones: function () {
+      const more3kgain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#136400",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const gain501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#8ec61a",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss500lossto500gain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#f7f3c7",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FF9900",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const more3kloss = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#F11810",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const renderer = {
+        type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+        field: 'pop_change',
+        legendOptions: {
+          title: "Total Population 2020 - 2050"
+        },
+        classBreakInfos: [
+          {
+            minValue: 1000,
+            maxValue: 10000000,
+            symbol: more3kgain,
+            label: "More than 1,000 gain"
+          },
+          {
+            minValue: 301,
+            maxValue: 1000,
+            symbol: gain501to3k,
+            label: "Gain, 301 to 1,000"
+          },
+          {
+            minValue: -300,
+            maxValue: 300,
+            symbol: loss500lossto500gain,
+            label: "Little change, 300 loss to 300 gain"
+          },
+          {
+            minValue: -1000,
+            maxValue: -301,
+            symbol: loss501to3k,
+            label: "Loss, 301 to 1,000"
+          },
+          {
+            minValue: -10000000,
+            maxValue: -1000,
+            symbol: more3kloss,
+            label: "More than 1,000 loss"
+          }
+        ]
+      };
+      return renderer
     },
     forecast_layer_renderer_detroit_neighborhoods: function () {
       const more3kgain = {
@@ -950,7 +1044,7 @@ export default {
     },
     forecast_layer_info: function () {
       return new FeatureLayer({
-        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_detroit_fix/FeatureServer",
+        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_zones/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
         labelingInfo: [this.detroit_neighborhood_labels],
@@ -996,7 +1090,7 @@ export default {
 
     forecast_layer: function () {
       return new FeatureLayer({
-        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_detroit_fix/FeatureServer",
+        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_zones/FeatureServer",
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
@@ -1219,12 +1313,15 @@ export default {
         this.forecast_layer_renderer.field = this.ind
         this.forecast_layer_county_renderer.field = this.ind
         this.forecast_layer_renderer_detroit_neighborhoods.field = this.ind
+        this.forecast_layer_renderer_zones.field = this.ind
         this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         if (this.geotype === 'city') {
           this.forecast_layer.renderer = this.forecast_layer_renderer
         } else if (this.geotype === 'detroit_neighborhood') {
           this.forecast_layer.renderer = this.forecast_layer_renderer_detroit_neighborhoods
+        } else if (this.geotype === 'zone') {
+          this.forecast_layer.renderer = this.forecast_layer_renderer_zones
         } else {
           this.forecast_layer.renderer = this.forecast_layer_county_renderer
         }
@@ -1242,17 +1339,24 @@ export default {
           this.forecast_layer_renderer.field = this.ind
           this.forecast_layer_county_renderer.field = this.ind
           this.forecast_layer_renderer_detroit_neighborhoods.field = this.ind
+          this.forecast_layer_renderer_zones.field = this.ind
           this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
           this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
           if (this.geotype === 'city') {
             this.forecast_layer.renderer = this.forecast_layer_renderer
+            this.forecast_layer_effect.filter.where = `${this.ind} > 500`
+            this.forecast_layer.featureEffect = this.forecast_layer_effect
           } else if (this.geotype === 'detroit_neighborhood') {
             this.forecast_layer.renderer = this.forecast_layer_renderer_detroit_neighborhoods
+            this.forecast_layer_effect.filter.where = `${this.ind} > 100`
+            this.forecast_layer.featureEffect = this.forecast_layer_effect
+          } else if (this.geotype === 'zone') {
+            this.forecast_layer.renderer = this.forecast_layer_renderer_zones
+            this.forecast_layer_effect.filter.where = `${this.ind} > 300`
+            this.forecast_layer.featureEffect = this.forecast_layer_effect
           } else {
             this.forecast_layer.renderer = this.forecast_layer_county_renderer
           }
-          this.forecast_layer_effect.filter.where = `${this.ind} > 500`
-          this.forecast_layer.featureEffect = this.forecast_layer_effect
         }
       }
     }

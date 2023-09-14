@@ -2,21 +2,21 @@
   <div id="report" v-if="report_data" style="margin: auto">
     <div class="controls no-print">
       <div style="margin-left: 36px;">
-        <span style="margin-left: 5px; margin-right: 3px; font-weight: bolder; font-size: 1.2em;">Selected Community is</span>
+        <span style="margin-left: 5px; margin-right: 3px; font-weight: bolder; font-size: 1.2em;">Selected {{selectedGeoType}} is</span>
         <select style="font-weight: bolder; font-size: 1.1em;" class='comm_dropdown'
-                v-on:change="selectedId = +$event.target.value">
-          <option disabled value="">Choose a Community</option>
+                v-on:change="selectedId = $event.target.value">
+          <option disabled value="">Choose a {{ selectedGeoType }}</option>
           <option
               v-bind:value="8999"
               v-bind:selected="!selectedId"
           >Southeast Michigan
           </option>
           <option
-              v-for="(list, key) in Array.from(namesFromGeotype['city'].lookup)"
+              v-for="key in Object.keys(this.geotypeLookup)"
               v-bind:key="key"
-              v-bind:value="list[0]"
-              v-bind:selected="selectedId===parseInt(list[0], 10)"
-          >{{ list[1]}}
+              v-bind:value="key"
+              v-bind:selected="selectedId===parseInt(key, 10)"
+          >{{ geotypeLookup[key]}}
           </option>
         </select>
         <calcite-button icon-start="print" kind="neutral" style="margin-left: 20px;" v-on:click="openToPrint()">Print</calcite-button>
@@ -126,11 +126,12 @@ export default {
   components: {
     lineChart
   },
-  props: ['selectedFeature'],
+  props: ['selectedFeature', 'geotype'],
   data: function () {
     return {
       report_data: null,
       queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/new_whatnots_july_draft_external_excel_no_det_city/FeatureServer/0",
+      zone_queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_13sectors_refinement_090823_taz/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
@@ -139,6 +140,24 @@ export default {
           name: 'Communities',
           singularName: 'Community',
           column_name: 'city_id',
+          lookup: undefined
+        },
+        'county': {
+          name: 'Counties',
+          singularName: 'County',
+          column_name: 'large_area_id',
+          lookup: undefined
+        },
+        'detroit_neighborhood': {
+          name: 'Detroit Neighborhoods',
+          singularName: 'Detroit Neighborhood',
+          column_name: 'city_id',
+          lookup: undefined
+        },
+        'zone': {
+          name: 'Traffic Analysis Zones',
+          singularName: 'Traffic Analysis Zone',
+          column_name: 'zone_id',
           lookup: undefined
         },
       }),
@@ -226,7 +245,13 @@ export default {
   },
   computed: {
     selectedName: function () {
-      return this.namesFromGeotype['city'].lookup.get(this.selectedId.toString())
+      return this.namesFromGeotype[this.geotype].lookup[this.selectedId]
+    },
+    selectedGeoType: function () {
+      return this.namesFromGeotype[this.geotype].singularName
+    },
+    geotypeLookup: function () {
+      return this.namesFromGeotype[this.geotype].lookup
     },
     jobChart: function () {
       return [{
@@ -435,21 +460,6 @@ export default {
       }
       return new_obj
     },
-    geotype: function (geoid) {
-      let mgeotype = this.selectedFeature.geotype
-      if (mgeotype === undefined) {
-        if (geoid > 500 && geoid < 600) {
-          mgeotype = 'detroit_neighborhood'
-        } else if ([3, 93, 99, 115, 125, 147, 161, 163].includes(geoid)) {
-          mgeotype = 'county'
-        } else if (mgeotype === 'mcd') {
-          mgeotype = 'city'
-        } else {
-          mgeotype = 'city'
-        }
-      }
-      return mgeotype
-    },
     filterRatio: function (ratio) {
       if (isFinite(ratio)) {
         ratio = this.format2dec(ratio)
@@ -470,6 +480,12 @@ export default {
       let areas = `city_id = ${this.selectedId}`;
       if (this.selectedId === 8999) {
         areas = `large_area_id in (${this.large_area_ids.map(f => `${f}`).join(',')})`;
+      }
+      if (this.geotype === 'zone') {
+        areas = `zone_id = ${this.selectedId}`;
+      }
+      if (this.geotype === 'zone' && this.selectedId === 8999) {
+        areas = `1 = 1`;
       }
       if (this.selectedId === 5) {
         areas = `large_area_id in (5)`;
@@ -514,6 +530,7 @@ export default {
       let inds = `indicator_ in (${indicators_query.map(f => `'${f}'`).join(',')})`;
       // create the Query object
       let queryObject = new Query();
+      console.log(areas)
       queryObject.where = areas + ` AND ` + inds
       queryObject.returnGeometry = false;
 
@@ -561,14 +578,21 @@ export default {
       let report_data = {}
       // call the executeQueryJSON() method
 
-      await query.executeQueryJSON(this.queryUrl, queryObject).then(function (results) {
+      let url = this.queryUrl
+      if (this.geotype === 'zone') {
+        url = this.zone_queryUrl
+      }
+
+      await query.executeQueryJSON(url, queryObject).then(function (results) {
         let records = results.features
         records.map((r) => report_data[r.attributes.indicator_] = r.attributes)
       });
 
       report_data['hhsize'] = {};
       this.years.map((d) => {
-        report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))
+        if (report_data['hh_pop'][d] && report_data['hh'][d]) {
+          report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))
+        }
       })
       this.report_data = report_data
     }, 500)
@@ -578,12 +602,13 @@ export default {
       if (this.selectedFeature['geoid']) {
         this.selectedId = this.selectedFeature.geoid
       }
-      this.$emit('geotype', this.geotype(this.selectedId))
+      this.$emit('geotype', this.geotype)
       this.get_report_data()
     },
     selectedId: function () {
       this.get_report_data()
       this.$emit('selected-id', this.selectedId)
+      this.$emit('geotype', this.geotype)
     },
   },
   mounted() {
@@ -591,10 +616,24 @@ export default {
         .then(res => res.json())
         .then(res => {
           let communities = {};
+          let detroit_neighborhoods = {};
+          let counties = {};
+          let zones = {};
           res.forEach(f => {
+            if (f.geotype === 'city' || f.geotype === 'mcd') {
               communities[f.geoid] = f.area_name;
+            } else if (f.geotype === 'largearea' || f.geotype === 'county') {
+              counties[f.geoid] = f.area_name;
+            } else if (f.geotype === 'detroit_neighborhood') {
+              detroit_neighborhoods[f.geoid] = f.area_name;
+            } else if (f.geotype === 'zone') {
+              zones[f.geoid] = f.area_name;
+            }
           });
-          this.namesFromGeotype['city'].lookup = this.sortObject(communities)
+          this.namesFromGeotype['city'].lookup = communities
+          this.namesFromGeotype['county'].lookup = counties
+          this.namesFromGeotype['detroit_neighborhood'].lookup = detroit_neighborhoods
+          this.namesFromGeotype['zone'].lookup = zones
         });
 
     this.get_report_data()
