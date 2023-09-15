@@ -489,7 +489,7 @@ export default {
         color: "#136400",
         style: "solid",
         outline: {
-          width: 1,
+          width: .7,
           color: '#000000'
         }
       };
@@ -499,7 +499,7 @@ export default {
         color: "#8ec61a",
         style: "solid",
         outline: {
-          width: 1,
+          width: .7,
           color: '#000000'
         }
       };
@@ -509,7 +509,7 @@ export default {
         color: "#f7f3c7",
         style: "solid",
         outline: {
-          width: 1,
+          width: .7,
           color: '#000000'
         }
       };
@@ -519,7 +519,7 @@ export default {
         color: "#FF9900",
         style: "solid",
         outline: {
-          width: 1,
+          width: .7,
           color: '#000000'
         }
       };
@@ -529,7 +529,7 @@ export default {
         color: "#F11810",
         style: "solid",
         outline: {
-          width: 1,
+          width: .7,
           color: '#000000'
         }
       };
@@ -778,29 +778,12 @@ export default {
           id: "08c50fc63f374449a1c9128bf0ad40d8"
         },
         referenceLayers: [
+          this.mcd_layer,
           new VectorTileLayer({
             portalItem: {
               id: "2efeb0852a794d09973908facff29987"
             },
           }),
-          new FeatureLayer({
-            portalItem: {
-              id: "191da58468344913bb1c3d0884999549"
-            },
-            legendEnabled: false,
-            popupEnabled: false,
-            renderer: {
-              type: 'simple',
-              symbol: {
-                type: "simple-fill", // autocasts as new SimpleFillSymbol()
-                color: [0, 0, 0, 0],
-                outline: {
-                  width: 1.5,
-                  color: '#000000'
-                }
-              }
-            },
-          })
         ],
       });
 
@@ -941,6 +924,15 @@ export default {
         ]
       };
       return renderer
+    },
+    forecast_layer_zones_effect: function () {
+      const includedEffect = "drop-shadow(1px, 1px, 2px)";
+      return new FeatureEffect({
+        filter: new FeatureFilter({
+          where: "pop_change > 100"
+        }),
+        includedEffect: includedEffect
+      });
     },
     forecast_layer_effect: function () {
       const includedEffect = "drop-shadow(3px, 3px, 4px)";
@@ -1105,7 +1097,28 @@ export default {
         //featureEffect: this.forecast_layer_effect,
       });
     },
-
+    mcd_layer: function () {
+      return new FeatureLayer({
+        portalItem: {
+          id: "191da58468344913bb1c3d0884999549"
+        },
+        legendEnabled: false,
+        popupEnabled: false,
+        visible: false,
+        opacity: 0.5,
+        renderer: {
+          type: 'simple',
+          symbol: {
+            type: "simple-fill", // autocasts as new SimpleFillSymbol()
+            color: [0, 0, 0, 0],
+            outline: {
+              width: .8,
+              color: '#ffffff'
+            }
+          }
+        },
+      })
+    },
     forecast_layer: function () {
       return new FeatureLayer({
         url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_zones/FeatureServer",
@@ -1310,6 +1323,7 @@ export default {
       }
     },
     geotype: function () {
+      this.mcd_layer.visible = false
       this.view.whenLayerView(this.forecast_layer).then((layerView) => {
         layerView.filter = {
           where: `geotype = '${this.geotype}'`
@@ -1332,14 +1346,19 @@ export default {
         this.forecast_layer_county_renderer.field = this.ind
         this.forecast_layer_renderer_detroit_neighborhoods.field = this.ind
         this.forecast_layer_renderer_zones.field = this.ind
+
         this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+        this.forecast_layer_renderer_detroit_neighborhoods.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+        this.forecast_layer_renderer_zones.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         if (this.geotype === 'city') {
           this.forecast_layer.renderer = this.forecast_layer_renderer
         } else if (this.geotype === 'detroit_neighborhood') {
           this.forecast_layer.renderer = this.forecast_layer_renderer_detroit_neighborhoods
         } else if (this.geotype === 'zone') {
           this.forecast_layer.renderer = this.forecast_layer_renderer_zones
+          this.forecast_layer.featureEffect = this.forecast_layer_zones_effect
+          this.mcd_layer.visible = true
         } else {
           this.forecast_layer.renderer = this.forecast_layer_county_renderer
         }
@@ -1358,8 +1377,11 @@ export default {
           this.forecast_layer_county_renderer.field = this.ind
           this.forecast_layer_renderer_detroit_neighborhoods.field = this.ind
           this.forecast_layer_renderer_zones.field = this.ind
+
           this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
           this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
+          this.forecast_layer_renderer_detroit_neighborhoods.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+          this.forecast_layer_renderer_zones.legendOptions.title = this.ind_lookup[this.ind].name + year_range
           if (this.geotype === 'city') {
             this.forecast_layer.renderer = this.forecast_layer_renderer
             this.forecast_layer_effect.filter.where = `${this.ind} > 500`
@@ -1370,8 +1392,8 @@ export default {
             this.forecast_layer.featureEffect = this.forecast_layer_effect
           } else if (this.geotype === 'zone') {
             this.forecast_layer.renderer = this.forecast_layer_renderer_zones
-            this.forecast_layer_effect.filter.where = `${this.ind} > 100`
-            this.forecast_layer.featureEffect = this.forecast_layer_effect
+            this.forecast_layer.featureEffect = this.forecast_layer_zones_effect
+            this.mcd_layer.visible = true
           } else {
             this.forecast_layer.renderer = this.forecast_layer_county_renderer
           }
