@@ -31,10 +31,9 @@
         <ul>
           <li>Community Population and Household Distributions - <strong>New Data Available!</strong></li>
           <li>Detroit Neighborhood Forecast - <strong>New Data Available!</strong></li>
-          <li>Transportation Analysis Zone Forecast (August 2023)</li>
-          <li>Intermediate and Local School District Forecast (August 2023)</li>
-          <li>State House and Senate District Forecast (September 2023)</li>
-          <li>Watershed and Sub-Watershed Forecast (September 2023)</li>
+          <li>Transportation Analysis Zone Forecast - <strong>New Data Available!</strong></li>
+          <li>Intermediate and Local School District Forecast (September 2023)</li>
+          <li>State House and Senate District Forecast (October 2023)</li>
         </ul>
         <div style="display: grid;
     grid-template-columns: 1fr 1fr;
@@ -64,6 +63,7 @@ margin-top: 5%; margin-bottom:5%;">
           Counties and Communities on February 24th, 2023.</p>
         <ul>
           <li><a href="semcog_2050_RDF_community_final.xlsx">2050 Regional Forecast by County and Community Excel Spreadsheet</a></li>
+          <li><a href="semcog_2050_RDF_taz_final.xlsx">2050 Regional Forecast by Traffic Analysis Zone Excel Spreadsheet</a></li>
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Regional%20Forecast%20by%20County%20and%20Community.pdf" target="_blank">2050 Regional Forecast by County and Community Summary PDF</a></li>
           <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Forecast%20Exec%20Presentation.pdf" target="_blank">2050 Regional Forecast Presentation to the Executive Committee</a></li>
         </ul>
