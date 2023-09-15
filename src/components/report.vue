@@ -464,7 +464,7 @@ export default {
       if (isFinite(ratio)) {
         ratio = this.format2dec(ratio)
       } else {
-        ratio = "0"
+        ratio = 0
       }
       return ratio
     },
@@ -590,9 +590,7 @@ export default {
 
       report_data['hhsize'] = {};
       this.years.map((d) => {
-        if (report_data['hh_pop'][d] && report_data['hh'][d]) {
-          report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))
-        }
+        report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))
       })
       this.report_data = report_data
     }, 500)
