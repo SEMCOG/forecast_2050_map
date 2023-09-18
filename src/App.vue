@@ -778,12 +778,13 @@ export default {
           id: "08c50fc63f374449a1c9128bf0ad40d8"
         },
         referenceLayers: [
-          this.mcd_layer,
+
           new VectorTileLayer({
             portalItem: {
               id: "2efeb0852a794d09973908facff29987"
             },
           }),
+            this.mcd_layer,
         ],
       });
 
@@ -1044,7 +1045,7 @@ export default {
           }
         },
         labelPlacement: "always-horizontal",
-        where: "geoid> 500 and geoid < 600",
+        where: "geoid> 500 and geoid < 600 and geotype = 'detroit_neighborhood'",
         minScale: 200000,
         labelExpressionInfo: {
           expression: "$feature.area_name"
@@ -1105,15 +1106,15 @@ export default {
         legendEnabled: false,
         popupEnabled: false,
         visible: false,
-        opacity: 0.5,
+        opacity: 1,
         renderer: {
           type: 'simple',
           symbol: {
             type: "simple-fill", // autocasts as new SimpleFillSymbol()
             color: [0, 0, 0, 0],
             outline: {
-              width: .8,
-              color: '#ffffff'
+              width: 1.3,
+              color: '#001246'
             }
           }
         },
