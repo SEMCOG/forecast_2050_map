@@ -484,13 +484,15 @@ export default {
       }
     },
     forecast_layer_renderer_zones: function () {
+      const lineWidth = .5
+      const lineColor = '#3f3f3f'
       const more3kgain = {
         type: "simple-fill", // autocasts as new SimpleFillSymbol()
         color: "#136400",
         style: "solid",
         outline: {
-          width: .7,
-          color: '#000000'
+          width: lineWidth,
+          color: lineColor
         }
       };
 
@@ -499,8 +501,8 @@ export default {
         color: "#8ec61a",
         style: "solid",
         outline: {
-          width: .7,
-          color: '#000000'
+          width: lineWidth,
+          color: lineColor
         }
       };
 
@@ -509,8 +511,8 @@ export default {
         color: "#f7f3c7",
         style: "solid",
         outline: {
-          width: .7,
-          color: '#000000'
+          width: lineWidth,
+          color: lineColor
         }
       };
 
@@ -519,8 +521,8 @@ export default {
         color: "#FF9900",
         style: "solid",
         outline: {
-          width: .7,
-          color: '#000000'
+          width: lineWidth,
+          color: lineColor
         }
       };
 
@@ -529,8 +531,8 @@ export default {
         color: "#F11810",
         style: "solid",
         outline: {
-          width: .7,
-          color: '#000000'
+          width: lineWidth,
+          color: lineColor
         }
       };
 
@@ -926,10 +928,10 @@ export default {
       return renderer
     },
     forecast_layer_zones_effect: function () {
-      const includedEffect = "drop-shadow(1px, 1px, 2px)";
+      const includedEffect = "";
       return new FeatureEffect({
         filter: new FeatureFilter({
-          where: "pop_change > 100"
+          where: "1=1"
         }),
         includedEffect: includedEffect
       });
@@ -1112,7 +1114,7 @@ export default {
             type: "simple-fill", // autocasts as new SimpleFillSymbol()
             color: [0, 0, 0, 0],
             outline: {
-              width: 1.5,
+              width: 1,
               color: '#001246'
             }
           }
@@ -1353,14 +1355,17 @@ export default {
         this.forecast_layer_renderer_zones.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         if (this.geotype === 'city') {
           this.forecast_layer.renderer = this.forecast_layer_renderer
+          this.forecast_layer.featureEffect = this.forecast_layer_effect
         } else if (this.geotype === 'detroit_neighborhood') {
           this.forecast_layer.renderer = this.forecast_layer_renderer_detroit_neighborhoods
+          this.forecast_layer.featureEffect = this.forecast_layer_effect
         } else if (this.geotype === 'zone') {
           this.forecast_layer.renderer = this.forecast_layer_renderer_zones
           this.forecast_layer.featureEffect = this.forecast_layer_zones_effect
           this.mcd_layer.visible = true
         } else {
           this.forecast_layer.renderer = this.forecast_layer_county_renderer
+          this.forecast_layer.featureEffect = this.forecast_layer_effect
         }
       }
     },
@@ -1396,6 +1401,7 @@ export default {
             this.mcd_layer.visible = true
           } else {
             this.forecast_layer.renderer = this.forecast_layer_county_renderer
+            this.forecast_layer.featureEffect = this.forecast_layer_effect
           }
         }
       }
