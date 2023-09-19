@@ -778,13 +778,12 @@ export default {
           id: "08c50fc63f374449a1c9128bf0ad40d8"
         },
         referenceLayers: [
-
+          this.mcd_layer,
           new VectorTileLayer({
             portalItem: {
               id: "2efeb0852a794d09973908facff29987"
             },
           }),
-            this.mcd_layer,
         ],
       });
 
@@ -1113,7 +1112,7 @@ export default {
             type: "simple-fill", // autocasts as new SimpleFillSymbol()
             color: [0, 0, 0, 0],
             outline: {
-              width: 1.3,
+              width: 1.5,
               color: '#001246'
             }
           }
