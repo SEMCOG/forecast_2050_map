@@ -1059,6 +1059,7 @@ export default {
         url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_zones/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
+        //outFields: ['*'],
         labelingInfo: [this.detroit_neighborhood_labels],
         popupTemplate: this.popup,
         filter: {
@@ -1127,9 +1128,6 @@ export default {
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
-        filter: {
-          where: `geotype = 'city'`
-        },
         opacity: .8,
       });
     },
@@ -1153,7 +1151,19 @@ export default {
         this.highlight?.remove();
         this.highlight = layerView.highlight(objectids)
       })
-    }
+    },
+    // getRelatedToSelected: async function (selectedGeom) {
+    //   const featureLayerView = await this.view.whenLayerView(this.forecast_layer_info);
+    //   const query = featureLayerView.layer.createQuery();
+    //   query.geometry = selectedGeom;
+    //   query.where = '1=1'
+    //   const results = await featureLayerView.queryFeatures(query);
+    //   results.features.forEach((f)=> {
+    //     console.log(f.attributes.geotype)
+    //     console.log(f.attributes.geoid)
+    //   })
+    //   //console.log(results)
+    // }
   },
   mounted() {
     this.map = new Map({basemap: this.basemaps[0]})
@@ -1194,7 +1204,14 @@ export default {
     this.view.popup.watch("selectedFeature", (graphic) => {
       if (graphic) {
         this.selectedFeature = this.view.popup.selectedFeature.attributes
+        //this.getRelatedToSelected(this.view.popup.selectedFeature.geometry)
       }
+    });
+
+    this.view.whenLayerView(this.forecast_layer_info).then((layerView) => {
+      layerView.filter = {
+        where: `geotype = '${this.geotype}'`
+      };
     });
 
     this.view.whenLayerView(this.forecast_layer).then((layerView) => {
