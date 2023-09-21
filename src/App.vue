@@ -254,6 +254,30 @@ margin-top: 5%; margin-bottom:5%;">
         </div>
       </div>
     </div>
+    <div style="grid-row: 4; margin-left: 5%; margin-right: 5%; margin-bottom: 1%">
+      <div v-if="relatedGeos.length > 0" style="font-size: 1.2rem; font-weight: 700; line-height: 1.2;"> Select Related
+        Data
+      </div>
+      <div
+          style="display: grid; grid-template-columns: repeat(4, 300px) ;"
+          v-if="this.selectedFeature.geoid !== 8999">
+        <div v-if="relatedCounties.length > 0">Counties <br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedCounties" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
+        </div>
+        <div v-if="relatedCities.length > 0">Communities <br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedCities" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
+        </div>
+        <div v-if="relatedNeighborhoods.length > 0">Detroit Neighborhoods <br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedNeighborhoods" v-bind:key="g.geoid"> {{
+              g.name
+            }}
+          </calcite-button>
+        </div>
+        <div v-if="relatedZones.length > 0">Zones <br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedZones" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
+        </div>
+      </div>
+    </div>
     <reportComponent v-bind:selectedFeature='selectedFeature'
                      v-bind:geotype='geotype'
                      v-on:selected-id="selectedFeature = {geoid: $event}"
@@ -291,6 +315,7 @@ import {
 import 'hooper/dist/hooper.css';
 import { Timeline, TimelineItem } from "vue-cute-timeline";
 import "vue-cute-timeline/dist/index.css";
+import "@esri/calcite-components/dist/components/calcite-button";
 
 
 
@@ -327,6 +352,7 @@ export default {
       geotype: geotype,
       ind: ind,
       selectedFeature: geoid,
+      relatedGeos: [],
       highlight: null,
       loaded: false,
       printOnLoad: this.$route.query.print,
@@ -482,6 +508,25 @@ export default {
         playSpeed: 6000,
         wheelControl: false,
       }
+    },
+    relatedGeosFiltered: function () {
+      let filtered = []
+      if (this.relatedGeos.length > 0) {
+        filtered = this.relatedGeos.filter((g) => g.geotype !== this.geotype)
+      }
+      return filtered
+    },
+    relatedZones: function () {
+      return this.relatedGeosFiltered.filter((g) => g.geotype === 'zone')
+    },
+    relatedNeighborhoods: function () {
+      return this.relatedGeosFiltered.filter((g) => g.geotype === 'detroit_neighborhood')
+    },
+    relatedCities: function () {
+      return this.relatedGeosFiltered.filter((g) => g.geotype === 'city')
+    },
+    relatedCounties: function () {
+      return this.relatedGeosFiltered.filter((g) => g.geotype === 'county')
     },
     forecast_layer_renderer_zones: function () {
       const lineWidth = .5
@@ -1059,7 +1104,7 @@ export default {
         url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_zones/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
-        //outFields: ['*'],
+        outFields: ['*'],
         labelingInfo: [this.detroit_neighborhood_labels],
         popupTemplate: this.popup,
         filter: {
@@ -1152,18 +1197,29 @@ export default {
         this.highlight = layerView.highlight(objectids)
       })
     },
-    // getRelatedToSelected: async function (selectedGeom) {
-    //   const featureLayerView = await this.view.whenLayerView(this.forecast_layer_info);
-    //   const query = featureLayerView.layer.createQuery();
-    //   query.geometry = selectedGeom;
-    //   query.where = '1=1'
-    //   const results = await featureLayerView.queryFeatures(query);
-    //   results.features.forEach((f)=> {
-    //     console.log(f.attributes.geotype)
-    //     console.log(f.attributes.geoid)
-    //   })
-    //   //console.log(results)
-    // }
+    setSelected: function (f) {
+      this.selectedFeature = {'geoid': f.geoid, 'geotype': f.geotype}
+      this.geotype = f.geotype
+      this.view.goTo(f.extent.expand(1.8), {animate: true})
+    },
+    getRelatedToSelected: async function (selectedGeom) {
+      const featureLayerView = await this.view.whenLayerView(this.forecast_layer_info);
+      const query = featureLayerView.layer.createQuery();
+      query.geometry = selectedGeom;
+      query.where = '1=1'
+      const results = await featureLayerView.queryFeatures(query);
+      let related_geos = []
+      results.features.forEach((f) => {
+        let feature = {
+          'geoid': f.attributes.geoid,
+          'geotype': f.attributes.geotype,
+          'name': f.attributes.area_name,
+          'extent': f.geometry.extent
+        }
+        related_geos.push(feature)
+      })
+      this.relatedGeos = related_geos
+    }
   },
   mounted() {
     this.map = new Map({basemap: this.basemaps[0]})
@@ -1188,6 +1244,10 @@ export default {
     this.map.add(this.demos_layer)
     this.map.add(this.events_layer)
 
+    this.view.on("click", (event) => {
+      this.getRelatedToSelected(event.mapPoint)
+    });
+
     reactiveUtils.watch(
         () => this.view?.updating,
         () => {
@@ -1204,7 +1264,6 @@ export default {
     this.view.popup.watch("selectedFeature", (graphic) => {
       if (graphic) {
         this.selectedFeature = this.view.popup.selectedFeature.attributes
-        //this.getRelatedToSelected(this.view.popup.selectedFeature.geometry)
       }
     });
 
@@ -1433,7 +1492,7 @@ export default {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: max-content auto 700px auto;
+  grid-template-rows: max-content auto 700px auto auto;
   grid-template-columns: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -1446,13 +1505,13 @@ export default {
 #mapContainer {
   grid-column: 1;
   grid-row: 3;
-  padding: 0 5% 5% 5%;
+  padding: 0 5% 2% 5%;
 }
 
 #report {
   width: inherit;
   grid-column: 1;
-  grid-row: 4;
+  grid-row: 5;
 }
 
 .insight_section {
