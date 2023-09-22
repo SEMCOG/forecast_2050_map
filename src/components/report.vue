@@ -4,7 +4,7 @@
       <div style="margin-left: 36px;">
         <span style="margin-left: 5px; margin-right: 3px; font-weight: bolder; font-size: 1.2em;">Selected {{selectedGeoType}} is</span>
         <select style="font-weight: bolder; font-size: 1.1em;" class='comm_dropdown'
-                v-on:change="selectedId = $event.target.value">
+                v-on:change="selectedId = $event.target.value; $emit('dropdown-change');">
           <option disabled value="">Choose a {{ selectedGeoType }}</option>
           <option
               v-bind:value="8999"
@@ -21,6 +21,10 @@
         </select>
         <calcite-button icon-start="print" kind="neutral" style="margin-left: 20px;" v-on:click="openToPrint()">Print</calcite-button>
         <calcite-button icon-start="reset" kind="neutral" style="margin-left: 20px;" v-on:click="selectedId = 8999">Reset to Region</calcite-button>
+        <span style="display: inline-block; left: 15px; position: relative; top: 3px;">
+          <calcite-loader v-if="loaded === false" inline="false" type="indeterminate"
+                          label="Loading report..."></calcite-loader>
+        </span>
       </div>
     </div>
     <img src="header_report_new.png" alt="logo" width="50%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
@@ -130,6 +134,7 @@ export default {
   data: function () {
     return {
       report_data: null,
+      loaded: false,
       queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/new_whatnots_july_draft_external_excel_no_det_city/FeatureServer/0",
       zone_queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_13sectors_refinement_090823_taz/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
@@ -586,8 +591,7 @@ export default {
       await query.executeQueryJSON(url, queryObject).then(function (results) {
         let records = results.features
         records.map((r) => report_data[r.attributes.indicator_] = r.attributes)
-      });
-
+      }).then(() => this.loaded = true);
       report_data['hhsize'] = {};
       this.years.map((d) => {
         report_data['hhsize'][d] = this.filterRatio((report_data['hh_pop'][d] / report_data['hh'][d]))
@@ -597,16 +601,21 @@ export default {
   },
   watch: {
     selectedFeature: function () {
+      this.loaded = false
       if (this.selectedFeature['geoid']) {
         this.selectedId = this.selectedFeature.geoid
       }
       this.$emit('geotype', this.geotype)
       this.get_report_data()
     },
-    selectedId: function () {
-      this.get_report_data()
-      this.$emit('selected-id', this.selectedId)
-      this.$emit('geotype', this.geotype)
+    selectedId: {
+      immediate: true,
+      handler: function () {
+        this.loaded = false
+        this.get_report_data()
+        this.$emit('selected-id', this.selectedId)
+        this.$emit('geotype', this.geotype)
+      }
     },
   },
   mounted() {

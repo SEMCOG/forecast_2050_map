@@ -254,9 +254,8 @@ margin-top: 5%; margin-bottom:5%;">
         </div>
       </div>
     </div>
-    <div style="grid-row: 4; margin-left: 5%; margin-right: 5%; margin-bottom: 1%">
-      <div v-if="relatedGeos.length > 0" style="font-size: 1.2rem; font-weight: 700; line-height: 1.2;"> Select Related
-        Data
+    <div style="grid-row: 4; margin-left: 5%; margin-right: 5%; margin-bottom: 5px">
+      <div v-if="relatedGeos.length > 0" style="font-size: 1.2rem; font-weight: 700; line-height: 1.2;"> Click the buttons below to see data for related geographies
       </div>
       <div
           style="display: grid; grid-template-columns: repeat(4, 300px) ;"
@@ -281,6 +280,7 @@ margin-top: 5%; margin-bottom:5%;">
     <reportComponent v-bind:selectedFeature='selectedFeature'
                      v-bind:geotype='geotype'
                      v-on:selected-id="selectedFeature = {geoid: $event}"
+                     v-on:dropdown-change="relatedGeos = []"
                      v-on:geotype="geotype = $event"
                      id="report"></reportComponent>
   </div>
@@ -1344,6 +1344,7 @@ export default {
       if (result.source.name === 'Communities') {
         this.setHightlight(result.result.feature.attributes.objectid)
         searchWidget.clear()
+        this.relatedGeos = []
       }
     });
     this.view.ui.add(searchWidget, {
@@ -1505,7 +1506,7 @@ export default {
 #mapContainer {
   grid-column: 1;
   grid-row: 3;
-  padding: 0 5% 2% 5%;
+  padding: 0 5% 5px 5%;
 }
 
 #report {
