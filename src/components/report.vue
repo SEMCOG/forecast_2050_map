@@ -251,13 +251,21 @@ export default {
   },
   computed: {
     selectedName: function () {
-      return this.namesFromGeotype[this.geotype].lookup[this.selectedId]
+      let name = ''
+      if (this.geotypeLookup) {
+        name = this.geotypeLookup[this.selectedId]
+      }
+      return name
     },
     selectedGeoType: function () {
       return this.namesFromGeotype[this.geotype].singularName
     },
     geotypeLookup: function () {
-      return this.namesFromGeotype[this.geotype].lookup
+      let lookup = {}
+      if (this.namesFromGeotype[this.geotype].lookup){
+        lookup = this.namesFromGeotype[this.geotype].lookup
+      }
+      return lookup
     },
     jobChart: function () {
       return [{
