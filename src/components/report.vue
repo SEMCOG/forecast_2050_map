@@ -3,7 +3,8 @@
     <div class="controls no-print">
       <div style="margin-left: 36px;">
         <span style="margin-left: 5px; margin-right: 3px; font-weight: bolder; font-size: 1.2em;">Selected {{selectedGeoType}} is</span>
-        <select style="font-weight: bolder; font-size: 1.1em;" class='comm_dropdown'
+        <select v-if="geotypeLookup"
+            style="font-weight: bolder; font-size: 1.1em;" class='comm_dropdown'
                 v-on:change="selectedId = $event.target.value; $emit('dropdown-change');">
           <option disabled value="">Choose a {{ selectedGeoType }}</option>
           <option
