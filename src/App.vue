@@ -1195,6 +1195,7 @@ export default {
         outFields: ['*'],
         labelingInfo: [this.detroit_neighborhood_labels],
         popupTemplate: this.popup,
+        definitionExpression: "geoid not in (44,46,38,78,25,33,76,25030,25050,25100,25250,33200,38050,44020,46040,46050,46060,33220,38040,76060,76080,78020,78060)"
       });
     },
     events_layer: function () {
@@ -1252,6 +1253,28 @@ export default {
         },
       })
     },
+    isd_out_region_layer: function () {
+      return new FeatureLayer({
+        url: 'https://gis.semcog.org/server/rest/services/Hosted/isds_outregion/FeatureServer',
+        legendEnabled: true,
+        title: 'Not included in Forecast Summary',
+        popupEnabled: false,
+        visible: false,
+        opacity: 1,
+        renderer: {
+          type: 'simple',
+          symbol: {
+            type: "simple-fill", // autocasts as new SimpleFillSymbol()
+            color: '#000',
+            outline: {
+              width: 1.5,
+              color: '#000'
+            },
+            style: 'backward-diagonal',
+          }
+        },
+      })
+    },
     forecast_layer: function () {
       return new FeatureLayer({
         url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_schools/FeatureServer",
@@ -1259,6 +1282,7 @@ export default {
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
         opacity: .8,
+        definitionExpression: "geoid not in (44,46,38,78,25,33,76,25030,25050,25100,25250,33200,38050,44020,46040,46050,46060,33220,38040,76060,76080,78020,78060)"
       });
     },
     query: function () {
@@ -1325,6 +1349,7 @@ export default {
     this.view.ui.move(["zoom"], "bottom-right");
     this.view.ui.add(this.basemapGallery, "top-right");
 
+    this.map.add(this.isd_out_region_layer)
     this.map.add(this.forecast_layer)
     this.map.add(this.forecast_layer_info)
     this.map.add(this.demos_layer)
@@ -1489,6 +1514,7 @@ export default {
     },
     geotype: function () {
       this.mcd_layer.visible = false
+      this.isd_out_region_layer.visible = false
       this.view.whenLayerView(this.forecast_layer).then((layerView) => {
         layerView.filter = {
           where: `geotype = '${this.geotype}'`
@@ -1531,6 +1557,11 @@ export default {
         } else if (this.geotype === 'schooldistrict') {
           this.forecast_layer.renderer = this.forecast_layer_renderer
           this.forecast_layer.featureEffect = this.forecast_layer_effect
+          this.isd_out_region_layer.visible = true
+        } else if (this.geotype === 'isd') {
+          this.forecast_layer.renderer = this.forecast_layer_county_renderer
+          this.forecast_layer.featureEffect = this.forecast_layer_effect
+          this.isd_out_region_layer.visible = true
         } else {
           this.forecast_layer.renderer = this.forecast_layer_county_renderer
           this.forecast_layer.featureEffect = this.forecast_layer_effect
