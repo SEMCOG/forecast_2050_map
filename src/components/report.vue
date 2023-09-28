@@ -71,8 +71,9 @@
       </tbody>
     </table>
 
-    <h2 class="page-break">Employment by Sector</h2>
-    <table style="width: 100%; box-shadow: 2px 2px 17px #cbc7c7;">
+    <h2 v-if="!(geotype=== 'schooldistrict' || geotype === 'isd')" class="page-break">Employment by Sector</h2>
+    <table v-if="!(geotype=== 'schooldistrict' || geotype === 'isd')"
+        style="width: 100%; box-shadow: 2px 2px 17px #cbc7c7;">
       <thead>
       <tr>
         <th style="width: 25%"></th>
@@ -108,7 +109,9 @@
       </tbody>
     </table>
 
-    <lineChart v-bind:chartData="jobChart[0]"
+    <lineChart
+        v-if="!(geotype=== 'schooldistrict' || geotype === 'isd')"
+        v-bind:chartData="jobChart[0]"
                v-bind:options="jobChart[1]"
                v-bind:style="chartStyle"/>
     <div>
@@ -138,6 +141,7 @@ export default {
       loaded: false,
       queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/new_whatnots_july_draft_external_excel_no_det_city/FeatureServer/0",
       zone_queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_13sectors_refinement_090823_taz/FeatureServer/0",
+      school_queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/new_school_whatnots_13sectors_refinement_090823/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
@@ -166,6 +170,18 @@ export default {
           column_name: 'zone_id',
           lookup: undefined
         },
+        'schooldistrict': {
+          name: 'School Districts',
+          singularName: 'School District',
+          column_name: 'school_id',
+          lookup: undefined
+        },
+        'isd': {
+          name: 'Intermediate School Districts',
+          singularName: 'Intermediate School District',
+          column_name: 'isd_id',
+          lookup: undefined
+        },
       }),
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
       dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, 'pop_race_1': true, "hh": true},
@@ -178,9 +194,9 @@ export default {
         "pop_age_00_04", "pop_age_05_17", "pop_age_18_24","pop_age_25_64", "pop_age_65_84", "pop_age_85_inf",
         "housing_units", "hhsize", "hh", "with_children","without_children", "with_seniors", "without_seniors", 'hh_size_1'],
       age_inds: ["pop_age_85_inf", "pop_age_65_84", "pop_age_25_64", "pop_age_18_24", "pop_age_05_17", "pop_age_00_04"],
-      summary_inds:["pop", "hh", "jobs_total", "housing_units"],
       summary_inds_colors: {
         'pop': '#5F4690',
+        'pop_age_05_17': '#cebc3f',
         'hh': '#1D6996',
         'housing_units': '#38A6A5',
         'jobs_total': '#0F8554',
@@ -267,6 +283,90 @@ export default {
       }
       return lookup
     },
+    queryStats: function () {
+      let stats = [{
+        onStatisticField: "yr2019",
+        outStatisticFieldName: "yr2019",
+        statisticType: "sum"
+      }, {
+        onStatisticField: "yr2020",
+        outStatisticFieldName: "yr2020",
+        statisticType: "sum"
+      },
+        {
+          onStatisticField: "yr2025",
+          outStatisticFieldName: "yr2025",
+          statisticType: "sum"
+        },
+        {
+          onStatisticField: "yr2030",
+          outStatisticFieldName: "yr2030",
+          statisticType: "sum"
+        },
+        {
+          onStatisticField: "yr2035",
+          outStatisticFieldName: "yr2035",
+          statisticType: "sum"
+        },
+        {
+          onStatisticField: "yr2040",
+          outStatisticFieldName: "yr2040",
+          statisticType: "sum"
+        }, {
+          onStatisticField: "yr2045",
+          outStatisticFieldName: "yr2045",
+          statisticType: "sum"
+        },
+        {
+          onStatisticField: "yr2050",
+          outStatisticFieldName: "yr2050",
+          statisticType: "sum"
+        }]
+
+      if (this.geotype === 'schooldistrict' || this.geotype === 'isd') {
+        stats = [{
+          onStatisticField: "yr2020",
+          outStatisticFieldName: "yr2020",
+          statisticType: "sum"
+        },
+          {
+            onStatisticField: "yr2025",
+            outStatisticFieldName: "yr2025",
+            statisticType: "sum"
+          },
+          {
+            onStatisticField: "yr2030",
+            outStatisticFieldName: "yr2030",
+            statisticType: "sum"
+          },
+          {
+            onStatisticField: "yr2035",
+            outStatisticFieldName: "yr2035",
+            statisticType: "sum"
+          },
+          {
+            onStatisticField: "yr2040",
+            outStatisticFieldName: "yr2040",
+            statisticType: "sum"
+          }, {
+            onStatisticField: "yr2045",
+            outStatisticFieldName: "yr2045",
+            statisticType: "sum"
+          },
+          {
+            onStatisticField: "yr2050",
+            outStatisticFieldName: "yr2050",
+            statisticType: "sum"
+          }]
+      }
+      return stats
+    },
+    summary_inds: function () {
+      return ["pop", "hh", "jobs_total", "housing_units"]
+    },
+    summarySchool_inds: function () {
+      return ["pop", "pop_age_05_17", "hh", "housing_units"]
+    },
     jobChart: function () {
       return [{
         labels: ['1/1/2019', '1/1/2020', '1/1/2025', '1/1/2030', '1/1/2035', '1/1/2040', '1/1/2045', '1/1/2050'],
@@ -276,7 +376,7 @@ export default {
             fill: false,
             pointRadius: 6,
             borderColor: this.job_ind_colors[i],
-            data: this.job_years.map(y => this.report_data[i][y]),
+            data: this.job_years.map(y => this.report_data[i] ? this.report_data[i][y] : 0 ),
           }
         }),
       }, {
@@ -352,39 +452,56 @@ export default {
       }]
     },
     summaryChart: function () {
-      let datasets = this.summary_inds.map((i) => {
+      let datasets = []
+      if ((this.geotype === 'schooldistrict' || this.geotype === 'isd')) {
+        datasets = this.summarySchool_inds.map((i) => {
           return {
             label: this.indNameLookup[i],
             fill: false,
             pointRadius: 6,
             backgroundColor: this.summary_inds_colors[i],
             borderColor: this.summary_inds_colors[i],
-            data: this.years.map(y => this.report_data[i][y]),
+            data: this.years.map(y =>  this.report_data[i] ? this.report_data[i][y] : 0),
           }
-      })
-      let line_continue = {
-        fill: false,
-        label: '2019-2025 Total Jobs',
-        pointRadius: 6,
-        backgroundColor: this.summary_inds_colors['jobs_total'],
-        borderColor: this.summary_inds_colors['jobs_total'],
-        borderDash: [6, 6],
-        data: [this.report_data['jobs_total']['yr2019'], this.report_data['jobs_total']['yr2025']]
-      }
-      let scatter = {
-        label: '2019 Total Jobs Level',
-        type: 'scatter',
-        pointRadius: 7,
-        backgroundColor: '#e50707',
-        data: [{
-          x: 2020,
-          y: this.report_data['jobs_total']['yr2019']
-        }],
-      }
+        })
+      } else {
+        datasets = this.summary_inds.map((i) => {
+          return {
+            label: this.indNameLookup[i],
+            fill: false,
+            pointRadius: 6,
+            backgroundColor: this.summary_inds_colors[i],
+            borderColor: this.summary_inds_colors[i],
+            data: this.years.map(y =>  this.report_data[i] ? this.report_data[i][y] : 0),
+          }
+        })
 
-      datasets.push(scatter)
-      datasets.push(line_continue)
+        let line_job_data_2019 = this.report_data['jobs_total'] ? this.report_data['jobs_total']['yr2019'] : 0
+        let line_job_data_2025 = this.report_data['jobs_total'] ? this.report_data['jobs_total']['yr2025'] : 0
 
+        let line_continue = {
+          fill: false,
+          label: '2019-2025 Total Jobs',
+          pointRadius: 6,
+          backgroundColor: this.summary_inds_colors['jobs_total'],
+          borderColor: this.summary_inds_colors['jobs_total'],
+          borderDash: [6, 6],
+          data: [line_job_data_2019, line_job_data_2025]
+        }
+        let scatter = {
+          label: '2019 Total Jobs Level',
+          type: 'scatter',
+          pointRadius: 7,
+          backgroundColor: '#e50707',
+          data: [{
+            x: 2020,
+            y: line_job_data_2019
+          }],
+        }
+
+        datasets.push(scatter)
+        datasets.push(line_continue)
+      }
       return [{
         labels: [2020, 2025, 2030, 2035, 2040, 2045, 2050],
         datasets: datasets,
@@ -492,13 +609,25 @@ export default {
     },
     get_report_data: debounce(async function () {
       let areas = `city_id = ${this.selectedId}`;
+      let indicators_query = this.hh_inds.concat(this.indicators_jobs);
       if (this.selectedId === 8999) {
         areas = `large_area_id in (${this.large_area_ids.map(f => `${f}`).join(',')})`;
       }
       if (this.geotype === 'zone') {
         areas = `zone_id = ${this.selectedId}`;
       }
+      if (this.geotype === 'schooldistrict') {
+        areas = `school_id = ${this.selectedId}`;
+        indicators_query = this.hh_inds
+      }
+      if (this.geotype === 'isd') {
+        areas = `isd_id = ${this.selectedId}`;
+        indicators_query = this.hh_inds
+      }
       if (this.geotype === 'zone' && this.selectedId === 8999) {
+        areas = `1 = 1`;
+      }
+      if ((this.geotype === 'schooldistrict' || this.geotype === 'isd') && this.selectedId === 8999) {
         areas = `1 = 1`;
       }
       if (this.selectedId === 5) {
@@ -540,7 +669,7 @@ export default {
       if (this.selectedId === 8010) {
         areas = `city_id in (3065, 6120)`;
       }
-      let indicators_query = this.hh_inds.concat(this.indicators_jobs);
+
       let inds = `indicator_ in (${indicators_query.map(f => `'${f}'`).join(',')})`;
       // create the Query object
       let queryObject = new Query();
@@ -548,44 +677,7 @@ export default {
       queryObject.where = areas + ` AND ` + inds
       queryObject.returnGeometry = false;
 
-      queryObject.outStatistics = [{
-        onStatisticField: "yr2019",
-        outStatisticFieldName: "yr2019",
-        statisticType: "sum"
-      }, {
-        onStatisticField: "yr2020",
-        outStatisticFieldName: "yr2020",
-        statisticType: "sum"
-      },
-        {
-          onStatisticField: "yr2025",
-          outStatisticFieldName: "yr2025",
-          statisticType: "sum"
-        },
-        {
-          onStatisticField: "yr2030",
-          outStatisticFieldName: "yr2030",
-          statisticType: "sum"
-        },
-        {
-          onStatisticField: "yr2035",
-          outStatisticFieldName: "yr2035",
-          statisticType: "sum"
-        },
-        {
-          onStatisticField: "yr2040",
-          outStatisticFieldName: "yr2040",
-          statisticType: "sum"
-        }, {
-          onStatisticField: "yr2045",
-          outStatisticFieldName: "yr2045",
-          statisticType: "sum"
-        },
-      {
-          onStatisticField: "yr2050",
-          outStatisticFieldName: "yr2050",
-          statisticType: "sum"
-        }];
+      queryObject.outStatistics = this.queryStats;
       queryObject.groupByFieldsForStatistics = ["indicator_"];
 
       queryObject.outFields = ["indicator_, yr2019, yr2020, yr2025, yr2030, yr2035, yr2040, yr2045, yr2050"];
@@ -596,7 +688,10 @@ export default {
       if (this.geotype === 'zone') {
         url = this.zone_queryUrl
       }
-
+      if (this.geotype === 'schooldistrict' || this.geotype === 'isd') {
+        url = this.school_queryUrl
+        queryObject.outFields = ["indicator_, yr2020, yr2025, yr2030, yr2035, yr2040, yr2045, yr2050"];
+      }
       await query.executeQueryJSON(url, queryObject).then(function (results) {
         let records = results.features
         records.map((r) => report_data[r.attributes.indicator_] = r.attributes)
@@ -611,11 +706,10 @@ export default {
   watch: {
     selectedFeature: function () {
       this.loaded = false
+      this.get_report_data()
       if (this.selectedFeature['geoid']) {
         this.selectedId = this.selectedFeature.geoid
       }
-      this.$emit('geotype', this.geotype)
-      this.get_report_data()
     },
     selectedId: {
       immediate: true,
@@ -635,6 +729,8 @@ export default {
           let detroit_neighborhoods = {};
           let counties = {};
           let zones = {};
+          let schooldistricts = {};
+          let isds = {};
           res.forEach(f => {
             if (f.geotype === 'city' || f.geotype === 'mcd') {
               communities[f.geoid] = f.area_name;
@@ -644,12 +740,18 @@ export default {
               detroit_neighborhoods[f.geoid] = f.area_name;
             } else if (f.geotype === 'zone') {
               zones[f.geoid] = f.area_name;
+            } else if (f.geotype === 'schooldistrict') {
+              schooldistricts[f.geoid] = f.area_name;
+            } else if (f.geotype === 'isd') {
+              isds[f.geoid] = f.area_name;
             }
           });
           this.namesFromGeotype['city'].lookup = communities
           this.namesFromGeotype['county'].lookup = counties
           this.namesFromGeotype['detroit_neighborhood'].lookup = detroit_neighborhoods
           this.namesFromGeotype['zone'].lookup = zones
+          this.namesFromGeotype['schooldistrict'].lookup = schooldistricts
+          this.namesFromGeotype['isd'].lookup = isds
         });
 
     this.get_report_data()

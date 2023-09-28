@@ -1788,6 +1788,90 @@
     "geotype": "detroit_neighborhood"
   },
   {
+    "gid": 6,
+    "area_name": "Livingston ESA",
+    "geoid": 47,
+    "geotype": "isd"
+  },
+  {
+    "gid": 7,
+    "area_name": "Macomb ISD",
+    "geoid": 50,
+    "geotype": "isd"
+  },
+  {
+    "gid": 8,
+    "area_name": "Monroe ISD",
+    "geoid": 58,
+    "geotype": "isd"
+  },
+  {
+    "gid": 9,
+    "area_name": "Oakland Schools",
+    "geoid": 63,
+    "geotype": "isd"
+  },
+  {
+    "gid": 10,
+    "area_name": "St. Clair County RESA",
+    "geoid": 74,
+    "geotype": "isd"
+  },
+  {
+    "gid": 13,
+    "area_name": "Washtenaw ISD",
+    "geoid": 81,
+    "geotype": "isd"
+  },
+  {
+    "gid": 14,
+    "area_name": "Wayne RESA",
+    "geoid": 82,
+    "geotype": "isd"
+  },
+  {
+    "gid": 4,
+    "area_name": null,
+    "geoid": 44,
+    "geotype": "isd"
+  },
+  {
+    "gid": 11,
+    "area_name": null,
+    "geoid": 76,
+    "geotype": "isd"
+  },
+  {
+    "gid": 1,
+    "area_name": null,
+    "geoid": 25,
+    "geotype": "isd"
+  },
+  {
+    "gid": 3,
+    "area_name": null,
+    "geoid": 38,
+    "geotype": "isd"
+  },
+  {
+    "gid": 5,
+    "area_name": null,
+    "geoid": 46,
+    "geotype": "isd"
+  },
+  {
+    "gid": 2,
+    "area_name": null,
+    "geoid": 33,
+    "geotype": "isd"
+  },
+  {
+    "gid": 12,
+    "area_name": null,
+    "geoid": 78,
+    "geotype": "isd"
+  },
+  {
     "gid": 91,
     "area_name": "Grosse Pointe Shores (Macomb)",
     "geoid": 3045,
@@ -1834,6 +1918,774 @@
     "area_name": "Northville (Wayne)",
     "geoid": 1130,
     "geotype": "mcd"
+  },
+  {
+    "gid": 40,
+    "area_name": "Airport Community School District",
+    "geoid": 58020,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 77,
+    "area_name": "Algonac Community School District",
+    "geoid": 74030,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 97,
+    "area_name": "Allen Park Public Schools",
+    "geoid": 82020,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 9,
+    "area_name": "Almont Community Schools",
+    "geoid": 44020,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 21,
+    "area_name": "Anchor Bay School District",
+    "geoid": 50040,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 87,
+    "area_name": "Ann Arbor Public Schools",
+    "geoid": 81010,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 22,
+    "area_name": "Armada Area Schools",
+    "geoid": 50050,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 54,
+    "area_name": "Avondale School District",
+    "geoid": 63070,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 41,
+    "area_name": "Bedford Public Schools",
+    "geoid": 58030,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 52,
+    "area_name": "Berkley School District",
+    "geoid": 63050,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 48,
+    "area_name": "Birmingham City School District",
+    "geoid": 63010,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 10,
+    "area_name": "Blissfield Community Schools",
+    "geoid": 46040,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 55,
+    "area_name": "Bloomfield Hills School District",
+    "geoid": 63080,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 63,
+    "area_name": "Brandon School District",
+    "geoid": 63180,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 13,
+    "area_name": "Brighton Area Schools",
+    "geoid": 47010,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 11,
+    "area_name": "Britton-Macon Area School District",
+    "geoid": 46050,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 83,
+    "area_name": "Brown City Community Schools",
+    "geoid": 76060,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 85,
+    "area_name": "Byron Area Schools",
+    "geoid": 78020,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 78,
+    "area_name": "Capac Community School District",
+    "geoid": 74040,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 18,
+    "area_name": "Center Line Public Schools",
+    "geoid": 50010,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 89,
+    "area_name": "Chelsea School District",
+    "geoid": 81040,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 24,
+    "area_name": "Chippewa Valley Schools",
+    "geoid": 50080,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 122,
+    "area_name": "City of Harper Woods Schools",
+    "geoid": 82320,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 56,
+    "area_name": "Clarenceville School District",
+    "geoid": 63090,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 64,
+    "area_name": "Clarkston Community School District",
+    "geoid": 63190,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 72,
+    "area_name": "Clawson Public Schools",
+    "geoid": 63270,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 12,
+    "area_name": "Clinton Community Schools",
+    "geoid": 46060,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 23,
+    "area_name": "Clintondale Community Schools",
+    "geoid": 50070,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 7,
+    "area_name": "Columbia School District",
+    "geoid": 38040,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 117,
+    "area_name": "Crestwood School District",
+    "geoid": 82230,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 84,
+    "area_name": "Croswell-Lexington Community Schools",
+    "geoid": 76080,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 98,
+    "area_name": "Dearborn City School District",
+    "geoid": 82030,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 99,
+    "area_name": "Dearborn Heights School District #7",
+    "geoid": 82040,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 96,
+    "area_name": "Detroit City School District",
+    "geoid": 82010,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 90,
+    "area_name": "Dexter Community School District",
+    "geoid": 81050,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 42,
+    "area_name": "Dundee Community Schools",
+    "geoid": 58050,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 79,
+    "area_name": "East China School District",
+    "geoid": 74050,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 19,
+    "area_name": "East Detroit Public Schools",
+    "geoid": 50020,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 119,
+    "area_name": "Ecorse Public School District",
+    "geoid": 82250,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 65,
+    "area_name": "Farmington Public School District",
+    "geoid": 63200,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 3,
+    "area_name": "Fenton Area Public Schools",
+    "geoid": 25100,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 49,
+    "area_name": "Ferndale Public Schools",
+    "geoid": 63020,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 25,
+    "area_name": "Fitzgerald Public Schools",
+    "geoid": 50090,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 116,
+    "area_name": "Flat Rock Community Schools",
+    "geoid": 82180,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 14,
+    "area_name": "Fowlerville Community Schools",
+    "geoid": 47030,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 26,
+    "area_name": "Fraser Public Schools",
+    "geoid": 50100,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 101,
+    "area_name": "Garden City School District",
+    "geoid": 82050,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 120,
+    "area_name": "Gibraltar School District",
+    "geoid": 82290,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 2,
+    "area_name": "Goodrich Area Schools",
+    "geoid": 25050,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 1,
+    "area_name": "Grand Blanc Community Schools",
+    "geoid": 25030,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 8,
+    "area_name": "Grass Lake Community Schools",
+    "geoid": 38050,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 121,
+    "area_name": "Grosse Ile Township Schools",
+    "geoid": 82300,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 102,
+    "area_name": "Grosse Pointe Public Schools",
+    "geoid": 82055,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 103,
+    "area_name": "Hamtramck Public Schools",
+    "geoid": 82060,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 15,
+    "area_name": "Hartland Consolidated Schools",
+    "geoid": 47060,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 59,
+    "area_name": "Hazel Park City School District",
+    "geoid": 63130,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 104,
+    "area_name": "Highland Park City Schools",
+    "geoid": 82070,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 66,
+    "area_name": "Holly Area School District",
+    "geoid": 63210,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 16,
+    "area_name": "Howell Public Schools",
+    "geoid": 47070,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 123,
+    "area_name": "Huron School District",
+    "geoid": 82340,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 67,
+    "area_name": "Huron Valley Schools",
+    "geoid": 63220,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 43,
+    "area_name": "Ida Public School District",
+    "geoid": 58070,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 44,
+    "area_name": "Jefferson Schools (Monroe)",
+    "geoid": 58080,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 68,
+    "area_name": "Lake Orion Community Schools",
+    "geoid": 63230,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 27,
+    "area_name": "Lake Shore Public Schools (Macomb)",
+    "geoid": 50120,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 28,
+    "area_name": "Lakeview Public Schools (Macomb)",
+    "geoid": 50130,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 73,
+    "area_name": "Lamphere Public Schools",
+    "geoid": 63280,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 29,
+    "area_name": "L'Anse Creuse Public Schools",
+    "geoid": 50140,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 91,
+    "area_name": "Lincoln Consolidated School District",
+    "geoid": 81070,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 105,
+    "area_name": "Lincoln Park Public Schools",
+    "geoid": 82090,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 4,
+    "area_name": "Linden Community Schools",
+    "geoid": 25250,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 106,
+    "area_name": "Livonia Public Schools",
+    "geoid": 82095,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 60,
+    "area_name": "Madison Public Schools (Oakland)",
+    "geoid": 63140,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 92,
+    "area_name": "Manchester Community Schools",
+    "geoid": 81080,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 80,
+    "area_name": "Marysville Public Schools",
+    "geoid": 74100,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 45,
+    "area_name": "Mason Consolidated Schools (Monroe)",
+    "geoid": 58090,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 100,
+    "area_name": "Melvindale-North Allen Park Schools",
+    "geoid": 82045,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 81,
+    "area_name": "Memphis Community Schools",
+    "geoid": 74120,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 93,
+    "area_name": "Milan Area Schools",
+    "geoid": 81100,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 39,
+    "area_name": "Monroe Public Schools",
+    "geoid": 58010,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 86,
+    "area_name": "Morrice Area Schools",
+    "geoid": 78060,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 30,
+    "area_name": "Mt. Clemens Community School District",
+    "geoid": 50160,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 31,
+    "area_name": "New Haven Community Schools",
+    "geoid": 50170,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 125,
+    "area_name": "Northville Public Schools",
+    "geoid": 82390,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 57,
+    "area_name": "Novi Community School District",
+    "geoid": 63100,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 70,
+    "area_name": "Oak Park City School District",
+    "geoid": 63250,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 58,
+    "area_name": "Oxford Community Schools",
+    "geoid": 63110,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 17,
+    "area_name": "Pinckney Community Schools",
+    "geoid": 47080,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 107,
+    "area_name": "Plymouth-Canton Community Schools",
+    "geoid": 82100,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 50,
+    "area_name": "Pontiac City School District",
+    "geoid": 63030,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 76,
+    "area_name": "Port Huron Area School District",
+    "geoid": 74010,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 108,
+    "area_name": "Redford Union School District",
+    "geoid": 82110,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 32,
+    "area_name": "Richmond Community Schools",
+    "geoid": 50180,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 109,
+    "area_name": "River Rouge School District",
+    "geoid": 82120,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 126,
+    "area_name": "Riverview Community School District",
+    "geoid": 82400,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 71,
+    "area_name": "Rochester Community School District",
+    "geoid": 63260,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 33,
+    "area_name": "Romeo Community Schools",
+    "geoid": 50190,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 110,
+    "area_name": "Romulus Community Schools",
+    "geoid": 82130,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 20,
+    "area_name": "Roseville Community Schools",
+    "geoid": 50030,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 94,
+    "area_name": "Saline Area Schools",
+    "geoid": 81120,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 51,
+    "area_name": "School District of the City of Royal Oak",
+    "geoid": 63040,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 88,
+    "area_name": "School District of Ypsilanti",
+    "geoid": 81020,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 53,
+    "area_name": "Southfield Public School District",
+    "geoid": 63060,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 127,
+    "area_name": "Southgate Community School District",
+    "geoid": 82405,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 34,
+    "area_name": "South Lake Schools",
+    "geoid": 50200,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 69,
+    "area_name": "South Lyon Community Schools",
+    "geoid": 63240,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 111,
+    "area_name": "South Redford School District",
+    "geoid": 82140,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 5,
+    "area_name": "Stockbridge Community Schools",
+    "geoid": 33200,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 46,
+    "area_name": "Summerfield School District",
+    "geoid": 58100,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 112,
+    "area_name": "Taylor School District",
+    "geoid": 82150,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 113,
+    "area_name": "Trenton Public Schools",
+    "geoid": 82155,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 61,
+    "area_name": "Troy School District",
+    "geoid": 63150,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 35,
+    "area_name": "Utica Community Schools",
+    "geoid": 50210,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 128,
+    "area_name": "Van Buren Public Schools",
+    "geoid": 82430,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 36,
+    "area_name": "Van Dyke Public Schools",
+    "geoid": 50220,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 74,
+    "area_name": "Walled Lake Consolidated Schools",
+    "geoid": 63290,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 37,
+    "area_name": "Warren Consolidated Schools",
+    "geoid": 50230,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 38,
+    "area_name": "Warren Woods Public Schools",
+    "geoid": 50240,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 75,
+    "area_name": "Waterford School District",
+    "geoid": 63300,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 114,
+    "area_name": "Wayne-Westland Community School District",
+    "geoid": 82160,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 6,
+    "area_name": "Webberville Community Schools",
+    "geoid": 33220,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 62,
+    "area_name": "West Bloomfield School District",
+    "geoid": 63160,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 118,
+    "area_name": "Westwood Community Schools",
+    "geoid": 82240,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 47,
+    "area_name": "Whiteford Agricultural Schools",
+    "geoid": 58110,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 95,
+    "area_name": "Whitmore Lake Public Schools",
+    "geoid": 81140,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 124,
+    "area_name": "Woodhaven-Brownstown School District",
+    "geoid": 82365,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 115,
+    "area_name": "Wyandotte City School District",
+    "geoid": 82170,
+    "geotype": "schooldistrict"
+  },
+  {
+    "gid": 82,
+    "area_name": "Yale Public Schools",
+    "geoid": 74130,
+    "geotype": "schooldistrict"
   },
   {
     "gid": 2026,

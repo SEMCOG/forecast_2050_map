@@ -239,6 +239,8 @@ margin-top: 5%; margin-bottom:5%;">
             <option value="county">Counties</option>
             <option value="detroit_neighborhood">Detroit Neighborhoods</option>
             <option value="zone">Traffic Analysis Zones</option>
+            <option value="schooldistrict">School District</option>
+            <option value="isd">Intermediate School District</option>
           </select>
 
           <label style="margin: 5px;" for="ind"> Choose Indicator:</label>
@@ -266,13 +268,23 @@ margin-top: 5%; margin-bottom:5%;">
         <div style="grid-column: 2" v-if="relatedCities.length > 0">Communities <br>
           <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedCities" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
         </div>
-        <div style="grid-column: 3" v-if="relatedNeighborhoods.length > 0">Detroit Neighborhoods <br>
+        <div style="grid-column: 3" v-if="relatedSchoolDistricts.length > 0">School Districts <br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedSchoolDistricts" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
+        </div>
+        <div style="grid-column: 4" v-if="relatedISDs.length > 0">ISDs<br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedISDs" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
+        </div>
+        <div style="grid-column: 5" v-if="relatedNeighborhoods.length > 0">Detroit Neighborhoods <br>
           <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedNeighborhoods" v-bind:key="g.geoid"> {{
               g.name
             }}
           </calcite-button>
         </div>
-        <div style="grid-column: 4" v-if="relatedZones.length > 0">Zones <br>
+        <div style="grid-column: 6" v-if="relatedZones.length > 0">Zones <br>
           <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedZones" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
         </div>
       </div>
@@ -281,7 +293,6 @@ margin-top: 5%; margin-bottom:5%;">
                      v-bind:geotype='geotype'
                      v-on:selected-id="selectedFeature = {geoid: $event}"
                      v-on:dropdown-change="relatedGeos = []"
-                     v-on:geotype="geotype = $event"
                      id="report"></reportComponent>
   </div>
 
@@ -307,16 +318,11 @@ import SemcogHeader from "./components/SemcogHeader.vue"
 import {diff} from 'deep-diff';
 import SimpleEsriMap from "@/components/SimpleEsriMap.vue";
 import SimpleEsriScene from "@/components/SimpleEsriScene.vue";
-import {
-  Hooper,
-  Slide,
-  Navigation as HooperNavigation
-  } from 'hooper';
+import {Hooper, Navigation as HooperNavigation, Slide} from 'hooper';
 import 'hooper/dist/hooper.css';
-import { Timeline, TimelineItem } from "vue-cute-timeline";
+import {Timeline, TimelineItem} from "vue-cute-timeline";
 import "vue-cute-timeline/dist/index.css";
 import "@esri/calcite-components/dist/components/calcite-button";
-
 
 
 export default {
@@ -453,6 +459,82 @@ export default {
         },
       ];
     },
+    popup_content: function () {
+      let content = `<a style="display: none;"> {geoid} {geotype}</a>
+                  <table style="width:100%">
+                  <tr>
+                  <th style="width:50%"></th>
+                 <th style="width:25%"><strong>Number</strong></th>
+                 <th style="width:25%"><strong>Percent</strong></th></tr>
+                 <tr>
+                 <th>Total Population</th>
+                   <td>{expression/pop_change_formatted} </td>
+                   <td>{expression/pop_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>&nbsp&nbsp School Age (Age 5-17)</th>
+                   <td>{expression/pop_age_05_17_change_formatted} </td>
+                   <td>{expression/pop_age_05_17_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>&nbsp&nbsp Senior (Age 65+)</th>
+                   <td>{expression/pop_age_65_inf_change_formatted} </td>
+                   <td>{expression/pop_age_65_inf_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>Total Households</th>
+                   <td>{expression/hh_change_formatted} </td>
+                   <td>{expression/hh_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>Total Housing Units</th>
+                   <td>{expression/housing_units_change_formatted} </td>
+                   <td>{expression/housing_unit_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th style="padding-top: 0px;" >Total Jobs <sup style="font-size: x-small">*</sup></th>
+                   <td>{expression/jobs_total_change_formatted} </td>
+                   <td>{expression/jobs_total_change_percent} </td>
+                 </tr>
+          </table>
+          <div style="font-size: x-small"><sup>*</sup> Total Jobs has a base year of 2019</div>`
+
+      if (this.geotype === 'schooldistrict' || this.geotype === 'isd') {
+        content = `<a style="display: none;"> {geoid} {geotype}</a>
+                  <table style="width:100%">
+                  <tr>
+                  <th style="width:50%"></th>
+                 <th style="width:25%"><strong>Number</strong></th>
+                 <th style="width:25%"><strong>Percent</strong></th></tr>
+                 <tr>
+                 <th>Total Population</th>
+                   <td>{expression/pop_change_formatted} </td>
+                   <td>{expression/pop_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>&nbsp&nbsp School Age (Age 5-17)</th>
+                   <td>{expression/pop_age_05_17_change_formatted} </td>
+                   <td>{expression/pop_age_05_17_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>&nbsp&nbsp Senior (Age 65+)</th>
+                   <td>{expression/pop_age_65_inf_change_formatted} </td>
+                   <td>{expression/pop_age_65_inf_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>Total Households</th>
+                   <td>{expression/hh_change_formatted} </td>
+                   <td>{expression/hh_change_percent} </td>
+                 </tr>
+                 <tr>
+                 <th>Total Housing Units</th>
+                   <td>{expression/housing_units_change_formatted} </td>
+                   <td>{expression/housing_unit_change_percent} </td>
+                 </tr>
+          </table>`
+      }
+      return content
+    },
     popup: function () {
       const template = {
         // autocasts as new PopupTemplate()
@@ -527,6 +609,12 @@ export default {
     },
     relatedCounties: function () {
       return this.relatedGeosFiltered.filter((g) => g.geotype === 'county')
+    },
+    relatedSchoolDistricts: function () {
+      return this.relatedGeosFiltered.filter((g) => g.geotype === 'schooldistrict')
+    },
+    relatedISDs: function () {
+      return this.relatedGeosFiltered.filter((g) => g.geotype === 'isd')
     },
     forecast_layer_renderer_zones: function () {
       const lineWidth = .5
@@ -1101,15 +1189,12 @@ export default {
     },
     forecast_layer_info: function () {
       return new FeatureLayer({
-        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_zones/FeatureServer",
+        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_schools/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
         outFields: ['*'],
         labelingInfo: [this.detroit_neighborhood_labels],
         popupTemplate: this.popup,
-        filter: {
-          where: `geotype = 'city'`
-        },
       });
     },
     events_layer: function () {
@@ -1169,7 +1254,7 @@ export default {
     },
     forecast_layer: function () {
       return new FeatureLayer({
-        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_zones/FeatureServer",
+        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_schools/FeatureServer",
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
@@ -1200,7 +1285,8 @@ export default {
     setSelected: function (f) {
       this.selectedFeature = {'geoid': f.geoid, 'geotype': f.geotype}
       this.geotype = f.geotype
-      this.view.goTo(f.extent.expand(1.8), {animate: true})
+      let extent = f.extent.clone()
+      this.view.goTo(extent.expand(1.8), {animate: true})
     },
     getRelatedToSelected: async function (selectedGeom) {
       const featureLayerView = await this.view.whenLayerView(this.forecast_layer_info);
@@ -1420,6 +1506,8 @@ export default {
         year_range = ' 2019 - 2050'
       }
 
+      this.forecast_layer_info.popupTemplate.content = this.popup_content
+
       if (this.ind) {
         this.forecast_layer_renderer.field = this.ind
         this.forecast_layer_county_renderer.field = this.ind
@@ -1440,6 +1528,9 @@ export default {
           this.forecast_layer.renderer = this.forecast_layer_renderer_zones
           this.forecast_layer.featureEffect = this.forecast_layer_zones_effect
           this.mcd_layer.visible = true
+        } else if (this.geotype === 'schooldistrict') {
+          this.forecast_layer.renderer = this.forecast_layer_renderer
+          this.forecast_layer.featureEffect = this.forecast_layer_effect
         } else {
           this.forecast_layer.renderer = this.forecast_layer_county_renderer
           this.forecast_layer.featureEffect = this.forecast_layer_effect
@@ -1476,6 +1567,9 @@ export default {
             this.forecast_layer.renderer = this.forecast_layer_renderer_zones
             this.forecast_layer.featureEffect = this.forecast_layer_zones_effect
             this.mcd_layer.visible = true
+          } else if (this.geotype === 'schooldistrict') {
+            this.forecast_layer.renderer = this.forecast_layer_renderer
+            this.forecast_layer.featureEffect = this.forecast_layer_effect
           } else {
             this.forecast_layer.renderer = this.forecast_layer_county_renderer
             this.forecast_layer.featureEffect = this.forecast_layer_effect
