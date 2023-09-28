@@ -32,7 +32,7 @@
           <li>Community Population and Household Distributions - <strong>New Data Available!</strong></li>
           <li>Detroit Neighborhood Forecast - <strong>New Data Available!</strong></li>
           <li>Transportation Analysis Zone Forecast - <strong>New Data Available!</strong></li>
-          <li>Intermediate and Local School District Forecast (September 2023)</li>
+          <li>Intermediate and Local School District Forecast - <strong>New Data Available!</strong></li>
           <li>State House and Senate District Forecast (October 2023)</li>
         </ul>
         <div style="display: grid;
