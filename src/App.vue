@@ -257,7 +257,7 @@ margin-top: 5%; margin-bottom:5%;">
       </div>
     </div>
     <div style="grid-row: 4; margin-left: 5%; margin-right: 5%; margin-bottom: 15px">
-      <div v-if="relatedGeos.length > 0" style="font-size: 1.2rem; font-weight: 700; line-height: 1.2;"> Click the buttons below to see data for related geographies
+      <div v-if="relatedGeos.length > 0 && this.selectedFeature.geoid !== 8999" style="font-size: 1.2rem; font-weight: 700; line-height: 1.2;"> Click the buttons below to see data for related geographies
       </div>
       <div id="relatedGeos"
           v-if="this.selectedFeature.geoid !== 8999">

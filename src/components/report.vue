@@ -611,9 +611,6 @@ export default {
       let id = parseInt(this.selectedId, 10)
       let areas = `city_id = ${id}`;
       let indicators_query = this.hh_inds.concat(this.indicators_jobs);
-      if (id === 8999) {
-        areas = `1=1`;
-      }
       if (this.geotype === 'zone') {
         areas = `zone_id = ${id}`;
       }
@@ -663,6 +660,10 @@ export default {
       }
       if (id === 8010) {
         areas = `city_id in (3065, 6120)`;
+      }
+
+      if (id === 8999) {
+        areas = `1=1`;
       }
 
       let inds = `indicator_ in (${indicators_query.map(f => `'${f}'`).join(',')})`;
