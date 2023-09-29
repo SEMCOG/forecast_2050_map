@@ -608,65 +608,60 @@ export default {
       );
     },
     get_report_data: debounce(async function () {
-      let areas = `city_id = ${this.selectedId}`;
+      let id = parseInt(this.selectedId, 10)
+      let areas = `city_id = ${id}`;
       let indicators_query = this.hh_inds.concat(this.indicators_jobs);
-      if (this.selectedId === 8999) {
-        areas = `large_area_id in (${this.large_area_ids.map(f => `${f}`).join(',')})`;
+      if (id === 8999) {
+        areas = `1=1`;
       }
       if (this.geotype === 'zone') {
-        areas = `zone_id = ${this.selectedId}`;
+        areas = `zone_id = ${id}`;
       }
       if (this.geotype === 'schooldistrict') {
-        areas = `school_id = ${this.selectedId}`;
+        areas = `school_id = ${id}`;
         indicators_query = this.hh_inds
       }
       if (this.geotype === 'isd') {
-        areas = `isd_id = ${this.selectedId}`;
+        areas = `isd_id = ${id}`;
         indicators_query = this.hh_inds
       }
-      if (this.geotype === 'zone' && this.selectedId === 8999) {
-        areas = `1 = 1`;
-      }
-      if ((this.geotype === 'schooldistrict' || this.geotype === 'isd') && this.selectedId === 8999) {
-        areas = `1 = 1`;
-      }
-      if (this.selectedId === 5) {
+      if (id === 5) {
         areas = `large_area_id in (5)`;
       }
-      if (this.selectedId === 3) {
+      if (id === 3) {
         areas = `large_area_id in (3)`;
       }
-      if (this.selectedId === 93) {
+      if (id === 93) {
         areas = `large_area_id in (93)`;
       }
-      if (this.selectedId === 99) {
+      if (id === 99) {
         areas = `large_area_id in (99)`;
       }
-      if (this.selectedId === 115) {
+      if (id === 115) {
         areas = `large_area_id in (115)`;
       }
-      if (this.selectedId === 125) {
+      if (id === 125) {
         areas = `large_area_id in (125)`;
       }
-      if (this.selectedId === 147) {
+      if (id === 147) {
         areas = `large_area_id in (147)`;
       }
-      if (this.selectedId === 161) {
+      if (id === 161) {
         areas = `large_area_id in (161)`;
       }
-      if (this.selectedId === 163) {
+      if (id === 163) {
         areas = `large_area_id in (5, 3)`;
       }
-      if (this.selectedId === 8005) {
+      if (id === 8005) {
         areas = `city_id in (1080, 3045)`;
       }
-      if (this.selectedId === 8020) {
+      if (id === 8020) {
         areas = `city_id in (2165, 1130)`;
       }
-      if (this.selectedId === 8015) {
+      if (id === 8015) {
         areas = `city_id in (5080, 4070)`;
       }
-      if (this.selectedId === 8010) {
+      if (id === 8010) {
         areas = `city_id in (3065, 6120)`;
       }
 
@@ -742,7 +737,7 @@ export default {
               zones[f.geoid] = f.area_name;
             } else if (f.geotype === 'schooldistrict') {
               schooldistricts[f.geoid] = f.area_name;
-            } else if (f.geotype === 'isd') {
+            } else if (f.geotype === 'isd' && f.area_name) {
               isds[f.geoid] = f.area_name;
             }
           });
