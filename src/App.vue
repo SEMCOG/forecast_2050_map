@@ -235,12 +235,12 @@ margin-top: 5%; margin-bottom:5%;">
           <label style="margin: 5px;" for="geo"> Choose Geography: </label>
           <select v-model="geotype"
                   class="esri-widget" name="geo" id="geo" style="font-size: large; padding: 10px">
-            <option value="city">Communities</option>
-            <option value="county">Counties</option>
-            <option value="detroit_neighborhood">Detroit Neighborhoods</option>
-            <option value="zone">Traffic Analysis Zones</option>
-            <option value="schooldistrict">School District</option>
+            <option value="county">County</option>
+            <option value="city">Community</option>
+            <option value="detroit_neighborhood">Detroit Neighborhood</option>
             <option value="isd">Intermediate School District</option>
+            <option value="schooldistrict">School District</option>
+            <option value="zone">Traffic Analysis Zone</option>
           </select>
 
           <label style="margin: 5px;" for="ind"> Choose Indicator:</label>
@@ -256,35 +256,35 @@ margin-top: 5%; margin-bottom:5%;">
         </div>
       </div>
     </div>
-    <div style="grid-row: 4; margin-left: 5%; margin-right: 5%; margin-bottom: 5px">
+    <div style="grid-row: 4; margin-left: 5%; margin-right: 5%; margin-bottom: 15px">
       <div v-if="relatedGeos.length > 0" style="font-size: 1.2rem; font-weight: 700; line-height: 1.2;"> Click the buttons below to see data for related geographies
       </div>
-      <div
-          style="display: grid; grid-auto-columns: auto; grid-gap: 5px; max-width: fit-content;"
+      <div id="relatedGeos"
           v-if="this.selectedFeature.geoid !== 8999">
-        <div style="grid-column: 1" v-if="relatedCounties.length > 0">Counties <br>
+        <div style="grid-column: 1" v-if="relatedCounties.length > 0">County <br>
           <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedCounties" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
         </div>
-        <div style="grid-column: 2" v-if="relatedCities.length > 0">Communities <br>
+        <div style="grid-column: 2" v-if="relatedCities.length > 0">Community <br>
           <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedCities" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
         </div>
-        <div style="grid-column: 3" v-if="relatedSchoolDistricts.length > 0">School Districts <br>
+        <div style="grid-column: 3" v-if="relatedNeighborhoods.length > 0">Detroit Neighborhood <br>
           <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
-                          v-for="g in relatedSchoolDistricts" v-bind:key="g.geoid"> {{ g.name }}
-          </calcite-button>
-        </div>
-        <div style="grid-column: 4" v-if="relatedISDs.length > 0">ISDs<br>
-          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
-                          v-for="g in relatedISDs" v-bind:key="g.geoid"> {{ g.name }}
-          </calcite-button>
-        </div>
-        <div style="grid-column: 5" v-if="relatedNeighborhoods.length > 0">Detroit Neighborhoods <br>
-          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedNeighborhoods" v-bind:key="g.geoid"> {{
+                          v-for="g in relatedNeighborhoods" v-bind:key="g.geoid"> {{
               g.name
             }}
           </calcite-button>
         </div>
-        <div style="grid-column: 6" v-if="relatedZones.length > 0">Zones <br>
+                <div style="grid-column: 4" v-if="relatedISDs.length > 0">ISD<br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedISDs" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
+        </div>
+        <div style="grid-column: 5" v-if="relatedSchoolDistricts.length > 0">School District <br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedSchoolDistricts" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
+        </div>
+        <div style="grid-column: 6" v-if="relatedZones.length > 0">Zone <br>
           <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedZones" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
         </div>
       </div>
@@ -1631,7 +1631,15 @@ export default {
 #mapContainer {
   grid-column: 1;
   grid-row: 3;
-  padding: 0 5% 5px 5%;
+  padding: 0 5% 20px 5%;
+}
+
+#relatedGeos {
+  display: grid;
+  grid-auto-columns: auto;
+  grid-gap: 5px;
+  max-width: fit-content;
+  padding: 5px;
 }
 
 #report {
@@ -1804,6 +1812,10 @@ export default {
 
   #mapContainer {
     padding: unset;
+  }
+
+  #relatedGeos {
+    display: block;
   }
 }
 
