@@ -115,7 +115,7 @@
                v-bind:options="jobChart[1]"
                v-bind:style="chartStyle"/>
     <div>
-      <p style="text-align: center; margin-top: 25px" class="report-footer">1001 Woodward, Suite 1400  •  Detroit, Michigan 48226  •  (313) 961-4266  •  Fax (313) 961-4869  •
+      <p class="report-footer">1001 Woodward, Suite 1400  •  Detroit, Michigan 48226  •  (313) 961-4266  •  Fax (313) 961-4869  •
         <a href="https://semcog.org">semcog.org</a></p>
     </div>
   </div>
@@ -844,14 +844,18 @@ table tbody tr.dashed th, table tbody tr.dashed td {
   border-top-left-radius: .1px;
 }
 
-.report-footer h6 {
+.report-footer {
   text-align: center;
   padding-top: 20px;
+  margin-top: 25px;
 }
 
 @media print {
   .report-footer {
-    position: fixed;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 25px;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -954,12 +958,6 @@ table tbody tr.dashed th, table tbody tr.dashed td {
     display: block !important;
   }
 
-  .report-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
   #report{
     display: block !important;
     grid-row: unset !important;
