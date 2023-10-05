@@ -55,18 +55,26 @@ margin-top: 5%; margin-bottom:5%;">
         </div>
         <img src="header_report_new.png" alt="logo" width="50%"
              style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
-        <h3>County and Community Forecast</h3>
+        <h3>Regional Forecast Documents</h3>
         <p>SEMCOG’s General Assembly adopted the 2050 Regional Forecast for Counties and Communities on March 23rd,
           2023. This includes SEMCOG’s forecast of total population, household, and employment change for each community
           and county in Southeast Michigan, for the period 2020 through 2050.
           Prior to General Assembly adoption, SEMCOG’s Executive Committee approved the draft 2050 Regional Forecast for
           Counties and Communities on February 24th, 2023.</p>
         <ul>
-          <li><a href="semcog_2050_RDF_community_final.xlsx">2050 Regional Forecast by County and Community Excel Spreadsheet</a></li>
-          <li><a href="semcog_2050_RDF_taz_final.xlsx">2050 Regional Forecast by Traffic Analysis Zone Excel Spreadsheet</a></li>
-          <li><a href="semcog_2050_RDF_schools_final.xlsx">2050 Regional Forecast by School District and ISD Excel Spreadsheet</a></li>
-          <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Regional%20Forecast%20by%20County%20and%20Community.pdf" target="_blank">2050 Regional Forecast by County and Community Summary PDF</a></li>
-          <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Forecast%20Exec%20Presentation.pdf" target="_blank">2050 Regional Forecast Presentation to the Executive Committee</a></li>
+          <li><a
+              href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Forecast%20Exec%20Presentation.pdf"
+              target="_blank">2050 Regional Forecast Presentation to the Executive Committee</a></li>
+          <li><a
+              href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Regional%20Forecast%20by%20County%20and%20Community.pdf"
+              target="_blank">2050 Regional Forecast by County and Community Summary PDF</a></li>
+
+          <li><a href="semcog_2050_RDF_community_final.xlsx">2050 Regional Forecast by Community Excel Spreadsheet</a>
+          </li>
+          <li><a href="semcog_2050_RDF_taz_final.xlsx">2050 Regional Forecast by Traffic Analysis Zone Excel
+            Spreadsheet</a></li>
+          <li><a href="semcog_2050_RDF_schools_final.xlsx">2050 Regional Forecast by School District and ISD Excel
+            Spreadsheet</a></li>
         </ul>
         <p>SEMCOG held three Community Stakeholder meetings during the second week of January 2023. At these meetings,
           SEMCOG released its draft 30-year forecast of population, households, and jobs for each county and community
