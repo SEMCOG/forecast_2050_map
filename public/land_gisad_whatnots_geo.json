@@ -1830,15 +1830,9 @@
     "geotype": "isd"
   },
   {
-    "gid": 4,
+    "gid": 3,
     "area_name": null,
-    "geoid": 44,
-    "geotype": "isd"
-  },
-  {
-    "gid": 11,
-    "area_name": null,
-    "geoid": 76,
+    "geoid": 38,
     "geotype": "isd"
   },
   {
@@ -1848,9 +1842,9 @@
     "geotype": "isd"
   },
   {
-    "gid": 3,
+    "gid": 4,
     "area_name": null,
-    "geoid": 38,
+    "geoid": 44,
     "geotype": "isd"
   },
   {
@@ -1860,15 +1854,21 @@
     "geotype": "isd"
   },
   {
-    "gid": 2,
-    "area_name": null,
-    "geoid": 33,
-    "geotype": "isd"
-  },
-  {
     "gid": 12,
     "area_name": null,
     "geoid": 78,
+    "geotype": "isd"
+  },
+  {
+    "gid": 11,
+    "area_name": null,
+    "geoid": 76,
+    "geotype": "isd"
+  },
+  {
+    "gid": 2,
+    "area_name": null,
+    "geoid": 33,
     "geotype": "isd"
   },
   {
@@ -1918,6 +1918,462 @@
     "area_name": "Northville (Wayne)",
     "geoid": 1130,
     "geotype": "mcd"
+  },
+  {
+    "gid": 1,
+    "area_name": "MI House District 1",
+    "geoid": 1,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 10,
+    "area_name": "MI House District 10",
+    "geoid": 10,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 11,
+    "area_name": "MI House District 11",
+    "geoid": 11,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 12,
+    "area_name": "MI House District 12",
+    "geoid": 12,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 13,
+    "area_name": "MI House District 13",
+    "geoid": 13,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 14,
+    "area_name": "MI House District 14",
+    "geoid": 14,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 15,
+    "area_name": "MI House District 15",
+    "geoid": 15,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 16,
+    "area_name": "MI House District 16",
+    "geoid": 16,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 17,
+    "area_name": "MI House District 17",
+    "geoid": 17,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 18,
+    "area_name": "MI House District 18",
+    "geoid": 18,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 19,
+    "area_name": "MI House District 19",
+    "geoid": 19,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 2,
+    "area_name": "MI House District 2",
+    "geoid": 2,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 20,
+    "area_name": "MI House District 20",
+    "geoid": 20,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 21,
+    "area_name": "MI House District 21",
+    "geoid": 21,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 22,
+    "area_name": "MI House District 22",
+    "geoid": 22,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 23,
+    "area_name": "MI House District 23",
+    "geoid": 23,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 24,
+    "area_name": "MI House District 24",
+    "geoid": 24,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 25,
+    "area_name": "MI House District 25",
+    "geoid": 25,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 26,
+    "area_name": "MI House District 26",
+    "geoid": 26,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 27,
+    "area_name": "MI House District 27",
+    "geoid": 27,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 28,
+    "area_name": "MI House District 28",
+    "geoid": 28,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 29,
+    "area_name": "MI House District 29",
+    "geoid": 29,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 3,
+    "area_name": "MI House District 3",
+    "geoid": 3,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 30,
+    "area_name": "MI House District 30",
+    "geoid": 30,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 31,
+    "area_name": "MI House District 31",
+    "geoid": 31,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 32,
+    "area_name": "MI House District 32",
+    "geoid": 32,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 33,
+    "area_name": "MI House District 33",
+    "geoid": 33,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 4,
+    "area_name": "MI House District 4",
+    "geoid": 4,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 46,
+    "area_name": "MI House District 46",
+    "geoid": 46,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 47,
+    "area_name": "MI House District 47",
+    "geoid": 47,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 48,
+    "area_name": "MI House District 48",
+    "geoid": 48,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 49,
+    "area_name": "MI House District 49",
+    "geoid": 49,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 5,
+    "area_name": "MI House District 5",
+    "geoid": 5,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 50,
+    "area_name": "MI House District 50",
+    "geoid": 50,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 51,
+    "area_name": "MI House District 51",
+    "geoid": 51,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 52,
+    "area_name": "MI House District 52",
+    "geoid": 52,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 53,
+    "area_name": "MI House District 53",
+    "geoid": 53,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 54,
+    "area_name": "MI House District 54",
+    "geoid": 54,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 55,
+    "area_name": "MI House District 55",
+    "geoid": 55,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 56,
+    "area_name": "MI House District 56",
+    "geoid": 56,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 57,
+    "area_name": "MI House District 57",
+    "geoid": 57,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 58,
+    "area_name": "MI House District 58",
+    "geoid": 58,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 59,
+    "area_name": "MI House District 59",
+    "geoid": 59,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 6,
+    "area_name": "MI House District 6",
+    "geoid": 6,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 60,
+    "area_name": "MI House District 60",
+    "geoid": 60,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 61,
+    "area_name": "MI House District 61",
+    "geoid": 61,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 62,
+    "area_name": "MI House District 62",
+    "geoid": 62,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 63,
+    "area_name": "MI House District 63",
+    "geoid": 63,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 64,
+    "area_name": "MI House District 64",
+    "geoid": 64,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 65,
+    "area_name": "MI House District 65",
+    "geoid": 65,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 66,
+    "area_name": "MI House District 66",
+    "geoid": 66,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 68,
+    "area_name": "MI House District 68",
+    "geoid": 68,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 7,
+    "area_name": "MI House District 7",
+    "geoid": 7,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 72,
+    "area_name": "MI House District 72",
+    "geoid": 72,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 8,
+    "area_name": "MI House District 8",
+    "geoid": 8,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 9,
+    "area_name": "MI House District 9",
+    "geoid": 9,
+    "geotype": "mi_house"
+  },
+  {
+    "gid": 1,
+    "area_name": "MI Senate District 1",
+    "geoid": 1,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 10,
+    "area_name": "MI Senate District 10",
+    "geoid": 10,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 11,
+    "area_name": "MI Senate District 11",
+    "geoid": 11,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 12,
+    "area_name": "MI Senate District 12",
+    "geoid": 12,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 13,
+    "area_name": "MI Senate District 13",
+    "geoid": 13,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 14,
+    "area_name": "MI Senate District 14",
+    "geoid": 14,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 15,
+    "area_name": "MI Senate District 15",
+    "geoid": 15,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 16,
+    "area_name": "MI Senate District 16",
+    "geoid": 16,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 2,
+    "area_name": "MI Senate District 2",
+    "geoid": 2,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 22,
+    "area_name": "MI Senate District 22",
+    "geoid": 22,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 23,
+    "area_name": "MI Senate District 23",
+    "geoid": 23,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 24,
+    "area_name": "MI Senate District 24",
+    "geoid": 24,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 25,
+    "area_name": "MI Senate District 25",
+    "geoid": 25,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 3,
+    "area_name": "MI Senate District 3",
+    "geoid": 3,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 4,
+    "area_name": "MI Senate District 4",
+    "geoid": 4,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 5,
+    "area_name": "MI Senate District 5",
+    "geoid": 5,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 6,
+    "area_name": "MI Senate District 6",
+    "geoid": 6,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 7,
+    "area_name": "MI Senate District 7",
+    "geoid": 7,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 8,
+    "area_name": "MI Senate District 8",
+    "geoid": 8,
+    "geotype": "mi_senate"
+  },
+  {
+    "gid": 9,
+    "area_name": "MI Senate District 9",
+    "geoid": 9,
+    "geotype": "mi_senate"
   },
   {
     "gid": 40,
@@ -2686,6 +3142,54 @@
     "area_name": "Yale Public Schools",
     "geoid": 74130,
     "geotype": "schooldistrict"
+  },
+  {
+    "gid": 10,
+    "area_name": "US Congress District 10",
+    "geoid": 10,
+    "geotype": "us_congress"
+  },
+  {
+    "gid": 11,
+    "area_name": "US Congress District 11",
+    "geoid": 11,
+    "geotype": "us_congress"
+  },
+  {
+    "gid": 12,
+    "area_name": "US Congress District 12",
+    "geoid": 12,
+    "geotype": "us_congress"
+  },
+  {
+    "gid": 13,
+    "area_name": "US Congress District 13",
+    "geoid": 13,
+    "geotype": "us_congress"
+  },
+  {
+    "gid": 5,
+    "area_name": "US Congress District 5",
+    "geoid": 5,
+    "geotype": "us_congress"
+  },
+  {
+    "gid": 6,
+    "area_name": "US Congress District 6",
+    "geoid": 6,
+    "geotype": "us_congress"
+  },
+  {
+    "gid": 7,
+    "area_name": "US Congress District 7",
+    "geoid": 7,
+    "geotype": "us_congress"
+  },
+  {
+    "gid": 9,
+    "area_name": "US Congress District 9",
+    "geoid": 9,
+    "geotype": "us_congress"
   },
   {
     "gid": 2026,

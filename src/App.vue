@@ -33,7 +33,7 @@
           <li>Detroit Neighborhood Forecast - <strong>New Data Available!</strong></li>
           <li>Transportation Analysis Zone Forecast - <strong>New Data Available!</strong></li>
           <li>Intermediate and Local School District Forecast - <strong>New Data Available!</strong></li>
-          <li>State House and Senate District Forecast (October 2023)</li>
+          <li>State House and Senate District Forecast - <strong>New Data Available!</strong></li>
         </ul>
         <div style="display: grid;
     grid-template-columns: 1fr 1fr;
@@ -250,6 +250,9 @@ margin-top: 5%; margin-bottom:5%;">
             <option value="isd">Intermediate School District</option>
             <option value="schooldistrict">School District</option>
             <option value="zone">Traffic Analysis Zone</option>
+            <option value="mi_senate">Michigan State Senate District</option>
+            <option value="mi_house">Michigan State House District</option>
+            <option value="us_congress">US Congressional District</option>
           </select>
 
           <label style="margin: 5px;" for="ind"> Choose Indicator:</label>
@@ -294,7 +297,24 @@ margin-top: 5%; margin-bottom:5%;">
           </calcite-button>
         </div>
         <div style="grid-column: 6" v-if="relatedZones.length > 0">Zone <br>
-          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedZones" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedZones" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
+        </div>
+        <div style="grid-column: 7" v-if="relatedMISenate.length > 0">MI Senate District <br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedMISenate" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
+        </div>
+        <div style="grid-column: 8" v-if="relatedMIHouse.length > 0">MI House District <br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedMIHouse" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
+        </div>
+        <div style="grid-column: 9" v-if="relatedUSCongress.length > 0">US Congress District <br>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedUSCongress" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
         </div>
       </div>
     </div>
@@ -625,6 +645,15 @@ export default {
     relatedISDs: function () {
       return this.relatedGeosFiltered.filter((g) => g.geotype === 'isd')
     },
+    relatedMIHouse: function () {
+      return this.relatedGeosFiltered.filter((g) => g.geotype === 'mi_house')
+    },
+    relatedMISenate: function () {
+      return this.relatedGeosFiltered.filter((g) => g.geotype === 'mi_senate')
+    },
+    relatedUSCongress: function () {
+      return this.relatedGeosFiltered.filter((g) => g.geotype === 'us_congress')
+    },
     forecast_layer_renderer_zones: function () {
       const lineWidth = .5
       const lineColor = '#3f3f3f'
@@ -898,6 +927,282 @@ export default {
             maxValue: -3000,
             symbol: more3kloss,
             label: "More than 3,000 loss"
+          }
+        ]
+      };
+      return renderer
+    },
+    forecast_layer_renderer_us_congress: function () {
+      const more3kgain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#136400",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const gain501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#8ec61a",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss500lossto500gain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#f7f3c7",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FF9900",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const more3kloss = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#F11810",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const renderer = {
+        type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+        field: 'pop_change',
+        legendOptions: {
+          title: "Total Population 2020 - 2050"
+        },
+        classBreakInfos: [
+          {
+            minValue: 50000,
+            maxValue: 10000000,
+            symbol: more3kgain,
+            label: "More than 50,001 gain"
+          },
+          {
+            minValue: 25001,
+            maxValue: 50000,
+            symbol: gain501to3k,
+            label: "Gain, 25,001 to 50,000"
+          },
+          {
+            minValue: -25000,
+            maxValue: 25000,
+            symbol: loss500lossto500gain,
+            label: "Little change, 25,000 loss to 25,000 gain"
+          },
+          {
+            minValue: -50000,
+            maxValue: -25001,
+            symbol: loss501to3k,
+            label: "Loss, 25,001 to 50,000"
+          },
+          {
+            minValue: -10000000,
+            maxValue: -50001,
+            symbol: more3kloss,
+            label: "More than 50,001 loss"
+          }
+        ]
+      };
+      return renderer
+    },
+    forecast_layer_renderer_mi_house: function () {
+      const more3kgain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#136400",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const gain501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#8ec61a",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss500lossto500gain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#f7f3c7",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FF9900",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const more3kloss = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#F11810",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const renderer = {
+        type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+        field: 'pop_change',
+        legendOptions: {
+          title: "Total Population 2020 - 2050"
+        },
+        classBreakInfos: [
+          {
+            minValue: 9001,
+            maxValue: 10000000,
+            symbol: more3kgain,
+            label: "More than 9,001 gain"
+          },
+          {
+            minValue: 3001,
+            maxValue: 9000,
+            symbol: gain501to3k,
+            label: "Gain, 3,001 to 9,000"
+          },
+          {
+            minValue: -1000,
+            maxValue: 3000,
+            symbol: loss500lossto500gain,
+            label: "Little change, 1000 loss to 3000 gain"
+          },
+          {
+            minValue: -3000,
+            maxValue: -1001,
+            symbol: loss501to3k,
+            label: "Loss, 1001 to 3,000"
+          },
+          {
+            minValue: -10000000,
+            maxValue: -3001,
+            symbol: more3kloss,
+            label: "More than 3,001 loss"
+          }
+        ]
+      };
+      return renderer
+    },
+    forecast_layer_renderer_mi_senate: function () {
+      const more3kgain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#136400",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const gain501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#8ec61a",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss500lossto500gain = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#f7f3c7",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const loss501to3k = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FF9900",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const more3kloss = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#F11810",
+        style: "solid",
+        outline: {
+          width: 1,
+          color: '#000000'
+        }
+      };
+
+      const renderer = {
+        type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+        field: 'pop_change',
+        legendOptions: {
+          title: "Total Population 2020 - 2050"
+        },
+        classBreakInfos: [
+          {
+            minValue: 20001,
+            maxValue: 10000000,
+            symbol: more3kgain,
+            label: "More than 20,001 gain"
+          },
+          {
+            minValue: 13001,
+            maxValue: 20000,
+            symbol: gain501to3k,
+            label: "Gain, 13,001 to 20,000"
+          },
+          {
+            minValue: -5000,
+            maxValue: 13000,
+            symbol: loss500lossto500gain,
+            label: "Little change, 5000 loss to 13,000 gain"
+          },
+          {
+            minValue: -15000,
+            maxValue: -5001,
+            symbol: loss501to3k,
+            label: "Loss, 5,001 to 15,000"
+          },
+          {
+            minValue: -10000000,
+            maxValue: -15001,
+            symbol: more3kloss,
+            label: "More than 15,001 loss"
           }
         ]
       };
@@ -1198,13 +1503,13 @@ export default {
     },
     forecast_layer_info: function () {
       return new FeatureLayer({
-        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_schools/FeatureServer",
+        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_legislative/FeatureServer",
         opacity: 0.001,
         legendEnabled: false,
         outFields: ['*'],
         labelingInfo: [this.detroit_neighborhood_labels],
         popupTemplate: this.popup,
-        definitionExpression: "geoid not in (44,46,38,78,25,33,76,25030,25050,25100,25250,33200,38050,44020,46040,46050,46060,33220,38040,76060,76080,78020,78060)"
+        definitionExpression: "not (geoid in (44,46,38,78,25,33,76,25030,25050,25100,25250,33200,38050,44020,46040,46050,46060,33220,38040,76060,76080,78020,78060) and geotype in ('isd', 'schooldistrict'))"
       });
     },
     events_layer: function () {
@@ -1286,12 +1591,12 @@ export default {
     },
     forecast_layer: function () {
       return new FeatureLayer({
-        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_schools/FeatureServer",
+        url: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_geo_with_legislative/FeatureServer",
         title: 'Forecast Change',
         renderer: this.forecast_layer_renderer,
         featureEffect: this.forecast_layer_effect,
         opacity: .8,
-        definitionExpression: "geoid not in (44,46,38,78,25,33,76,25030,25050,25100,25250,33200,38050,44020,46040,46050,46060,33220,38040,76060,76080,78020,78060)"
+        definitionExpression: "not (geoid in (44,46,38,78,25,33,76,25030,25050,25100,25250,33200,38050,44020,46040,46050,46060,33220,38040,76060,76080,78020,78060) and geotype in ('isd', 'schooldistrict'))"
       });
     },
     query: function () {
@@ -1571,6 +1876,15 @@ export default {
           this.forecast_layer.renderer = this.forecast_layer_county_renderer
           this.forecast_layer.featureEffect = this.forecast_layer_effect
           this.isd_out_region_layer.visible = true
+        } else if (this.geotype === 'mi_senate') {
+          this.forecast_layer.renderer = this.forecast_layer_renderer_mi_senate
+          this.forecast_layer.featureEffect = this.forecast_layer_effect
+        } else if (this.geotype === 'mi_house') {
+          this.forecast_layer.renderer = this.forecast_layer_renderer_mi_house
+          this.forecast_layer.featureEffect = this.forecast_layer_effect
+        } else if (this.geotype === 'us_congress') {
+          this.forecast_layer.renderer = this.forecast_layer_renderer_us_congress
+          this.forecast_layer.featureEffect = this.forecast_layer_effect
         } else {
           this.forecast_layer.renderer = this.forecast_layer_county_renderer
           this.forecast_layer.featureEffect = this.forecast_layer_effect
@@ -1610,13 +1924,22 @@ export default {
           } else if (this.geotype === 'schooldistrict') {
             this.forecast_layer.renderer = this.forecast_layer_renderer
             this.forecast_layer.featureEffect = this.forecast_layer_effect
-          } else {
-            this.forecast_layer.renderer = this.forecast_layer_county_renderer
+          } else if (this.geotype === 'mi_senate') {
+            this.forecast_layer.renderer = this.forecast_layer_renderer_mi_senate
             this.forecast_layer.featureEffect = this.forecast_layer_effect
+          } else if (this.geotype === 'mi_house') {
+            this.forecast_layer.renderer = this.forecast_layer_renderer_mi_house
+            this.forecast_layer.featureEffect = this.forecast_layer_effect
+          } else if (this.geotype === 'us_congress') {
+            this.forecast_layer.renderer = this.forecast_layer_renderer_us_congress
+            this.forecast_layer.featureEffect = this.forecast_layer_effect
+          } else {
+              this.forecast_layer.renderer = this.forecast_layer_county_renderer
+              this.forecast_layer.featureEffect = this.forecast_layer_effect
+            }
           }
         }
       }
-    }
   }
 }
 </script>

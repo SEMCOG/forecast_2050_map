@@ -180,6 +180,24 @@ export default {
           column_name: 'isd_id',
           lookup: undefined
         },
+        'mi_senate': {
+          name: 'Michigan State Senate Districts',
+          singularName: 'Michigan State Senate District',
+          column_name: 'isd_id',
+          lookup: undefined
+        },
+        'mi_house': {
+          name: 'Michigan State House Districts',
+          singularName: 'Michigan State House District',
+          column_name: 'isd_id',
+          lookup: undefined
+        },
+        'us_congress': {
+          name: 'US Congressional Districts',
+          singularName: 'US Congressional District',
+          column_name: 'isd_id',
+          lookup: undefined
+        },
       }),
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
       dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, 'pop_race_1': true, "hh": true},
@@ -620,6 +638,15 @@ export default {
         areas = `isd_id = ${id}`;
         indicators_query = this.hh_inds
       }
+      if (this.geotype === 'mi_senate') {
+        areas = `mi_senate_id = ${id}`;
+      }
+      if (this.geotype === 'mi_house') {
+        areas = `mi_house_id = ${id}`;
+      }
+      if (this.geotype === 'us_congress') {
+        areas = `us_congress_id = ${id}`;
+      }
       if (id === 5) {
         areas = `large_area_id in (5)`;
       }
@@ -719,6 +746,9 @@ export default {
           let zones = {};
           let schooldistricts = {};
           let isds = {};
+          let us_congress = {};
+          let mi_house = {};
+          let mi_senate = {};
           res.forEach(f => {
             if (f.geotype === 'city' || f.geotype === 'mcd') {
               communities[f.geoid] = f.area_name;
@@ -732,6 +762,12 @@ export default {
               schooldistricts[f.geoid] = f.area_name;
             } else if (f.geotype === 'isd' && f.area_name) {
               isds[f.geoid] = f.area_name;
+            } else if (f.geotype === 'mi_senate') {
+              mi_senate[f.geoid] = f.area_name;
+            } else if (f.geotype === 'mi_house') {
+              mi_house[f.geoid] = f.area_name;
+            } else if (f.geotype === 'us_congress') {
+              us_congress[f.geoid] = f.area_name;
             }
           });
           this.namesFromGeotype['city'].lookup = communities
@@ -740,6 +776,9 @@ export default {
           this.namesFromGeotype['zone'].lookup = zones
           this.namesFromGeotype['schooldistrict'].lookup = schooldistricts
           this.namesFromGeotype['isd'].lookup = isds
+          this.namesFromGeotype['us_congress'].lookup = us_congress
+          this.namesFromGeotype['mi_senate'].lookup = mi_senate
+          this.namesFromGeotype['mi_house'].lookup = mi_house
         });
 
     this.get_report_data()
