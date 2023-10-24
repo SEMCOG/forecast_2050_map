@@ -139,9 +139,7 @@ export default {
     return {
       report_data: null,
       loaded: false,
-      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/new_whatnots_july_draft_external_excel_no_det_city/FeatureServer/0",
-      zone_queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_13sectors_refinement_090823_taz/FeatureServer/0",
-      school_queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/new_school_whatnots_13sectors_refinement_090823/FeatureServer/0",
+      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_13sectors_refinement_combined/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
@@ -663,7 +661,7 @@ export default {
       }
 
       if (id === 8999) {
-        areas = `1=1`;
+        areas = `region_id = 8999`;
       }
 
       let inds = `indicator_ in (${indicators_query.map(f => `'${f}'`).join(',')})`;
@@ -679,16 +677,10 @@ export default {
       queryObject.outFields = ["indicator_, yr2019, yr2020, yr2025, yr2030, yr2035, yr2040, yr2045, yr2050"];
       let report_data = {}
       // call the executeQueryJSON() method
-
-      let url = this.queryUrl
-      if (this.geotype === 'zone') {
-        url = this.zone_queryUrl
-      }
       if (this.geotype === 'schooldistrict' || this.geotype === 'isd') {
-        url = this.school_queryUrl
         queryObject.outFields = ["indicator_, yr2020, yr2025, yr2030, yr2035, yr2040, yr2045, yr2050"];
       }
-      await query.executeQueryJSON(url, queryObject).then(function (results) {
+      await query.executeQueryJSON(this.queryUrl, queryObject).then(function (results) {
         let records = results.features
         records.map((r) => report_data[r.attributes.indicator_] = r.attributes)
       }).then(() => this.loaded = true);
