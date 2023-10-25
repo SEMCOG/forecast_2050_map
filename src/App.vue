@@ -12,7 +12,8 @@
 
     <div style="display: none;" class="report-watermark">DRAFT</div>
     <div id="intro" class="no-print">
-      <img src="SEM_0042.jpg" alt="" style="width: 100%; height: 330px; position: relative; object-fit: cover;" v-if="!printOnLoad">
+      <img src="SEM_0042.jpg" alt="" style="width: 100%; height: 330px; position: relative; object-fit: cover;"
+           v-if="!printOnLoad">
       <div class="blog_margin">
         <div style="font-weight: bold; font-size: 3rem;">2050 Southeast Michigan Regional Development Forecast</div>
         <div style="font-weight: bold; font-size: 2rem;">About</div>
@@ -87,103 +88,141 @@ margin-top: 5%; margin-bottom:5%;">
           next 30 years. The regional control totals for the 2050 forecast were presented at SEMCOG’s October 13, 2022
           General Assembly meeting. The slides of the presentation and related materials can be found below.</p>
         <ul>
-        <li><a href="https://semcog.org/blog/2050-regional-forecast-challenges-and-opportunities" target="_blank">2050 Regional Forecast: Challenges and Opportunities</a></li>
-          <li><a href="https://semcog.org/Portals/0/Documents/Plans-For-The-Region/Regional-Forecast/2050RegionalForecastPresentationOctober2022.pdf" target="_blank">2050 Regional Forecast Presentation</a></li>
-          <li><a href="https://www.youtube.com/watch?v=GihciBkwIvU&t=18s" target="_blank">Recorded Interview with University of Michigan Economists</a></li>
-          <li><a href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=SEMCOG%202050%20Forecast%20Summary.pdf" target="_blank">SEMCOG 2050 Regional Forecast Summary</a></li>
+          <li><a href="https://semcog.org/blog/2050-regional-forecast-challenges-and-opportunities" target="_blank">2050
+            Regional Forecast: Challenges and Opportunities</a></li>
+          <li><a
+              href="https://semcog.org/Portals/0/Documents/Plans-For-The-Region/Regional-Forecast/2050RegionalForecastPresentationOctober2022.pdf"
+              target="_blank">2050 Regional Forecast Presentation</a></li>
+          <li><a href="https://www.youtube.com/watch?v=GihciBkwIvU&t=18s" target="_blank">Recorded Interview with
+            University of Michigan Economists</a></li>
+          <li><a
+              href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=SEMCOG%202050%20Forecast%20Summary.pdf"
+              target="_blank">SEMCOG 2050 Regional Forecast Summary</a></li>
         </ul>
         <div style="font-size: 1.2em;">Questions?</div>
         <p>Forecast Data: <a href="mailto:nutting@semcog.org">Jeff Nutting</a>, Forecast Map: <a
             href="mailto:misiuk@semcog.org">Chad Misiuk</a></p>
       </div>
-      <div class="blog_margin" style="margin-top: 5%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;"><calcite-icon style="color: #894444" icon="users" scale="l"></calcite-icon> Demographic
+      <div class="blog_margin" style="margin-top: 5%; font-size: 2.2rem; font-weight: 700; line-height: 1.2;">
+        <calcite-icon style="color: #894444" icon="users" scale="l"></calcite-icon>
+        Demographic
         Insights
       </div>
-      <p class="blog_margin">The region is projected to grow by 315,000 people in the next 3 decades. It will also be older, and racially
+      <p class="blog_margin">The region is projected to grow by 315,000 people in the next 3 decades. It will also be
+        older, and racially
         and ethnically diverse. The region is projected to experience significant demographic transitions in the coming
         years because of declining birth rates and aging population. By the end of this decade, all the baby boomers
         will be older than 65 and, the older population is projected to outnumber the children (under 18 years) for the
         first time in the region’s history. Because of these transformative trends, net international migration is
         expected to overtake natural increase as a leading cause of population growth in the coming decades.</p>
-      <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your community. Moving your mouse over a slide carousel will pause the slides. You can right click to download a slide as an image.</p>
+      <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your
+        community. Moving your mouse over a slide carousel will pause the slides. You can right click to download a
+        slide as an image.</p>
       <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_left" :settings="demographics_carousel">
-          <slide >
-            <div style="width: auto; height: auto"><img src="slides/demographics1.JPG" style=" max-width: 100%; height: auto;" alt="Demographic Shifts from 2020 to 2050"></div>
+          <slide>
+            <div style="width: auto; height: auto"><img src="slides/demographics1.JPG"
+                                                        style=" max-width: 100%; height: auto;"
+                                                        alt="Demographic Shifts from 2020 to 2050"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="slides/demographics2.JPG" style=" max-width: 100%; height: auto;" alt="Birth Rates continue to fall as Region gets Older"></div>
+            <div style="width: auto; height: auto"><img src="slides/demographics2.JPG"
+                                                        style=" max-width: 100%; height: auto;"
+                                                        alt="Birth Rates continue to fall as Region gets Older"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="slides/demographics3.JPG" style=" max-width: 100%; height: auto;" alt="Demographic Components driving Population Growth"></div>
+            <div style="width: auto; height: auto"><img src="slides/demographics3.JPG"
+                                                        style=" max-width: 100%; height: auto;"
+                                                        alt="Demographic Components driving Population Growth"></div>
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
         <SimpleEsriMap class="small_map_right" v-bind:item_id="'ca831d7efac147fdb2f6e4de902af4c9'"></SimpleEsriMap>
       </div>
 
-      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;"><calcite-icon style="color: #0f2d53" icon="credits" scale="l"></calcite-icon> Economic
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">
+        <calcite-icon style="color: #0f2d53" icon="credits" scale="l"></calcite-icon>
+        Economic
         Insights
       </div>
-      <p class="blog_margin">Southeast Michigan’s economy will experience modest growth over the next 30 years. Employment growth will be
+      <p class="blog_margin">Southeast Michigan’s economy will experience modest growth over the next 30 years.
+        Employment growth will be
         limited by a continued labor shortage, but sectors such as healthcare, professional and technical services,
         transportation and warehousing, and construction will provide jobs for our residents. Employment in the
         manufacturing sector remains stable through 2030, but will start to decline after 2030 as the auto industry
         increasingly turns its attention to electric vehicle production.</p>
-      <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your community. Moving your mouse over a slide carousel will pause the slides. You can right click to download a slide as an image.</p>
+      <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your
+        community. Moving your mouse over a slide carousel will pause the slides. You can right click to download a
+        slide as an image.</p>
       <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_right" :settings="demographics_carousel">
           <slide>
-            <div style="width: auto; height: auto"><img src="slides/economics1.JPG" style=" max-width: 100%; height: auto;"
+            <div style="width: auto; height: auto"><img src="slides/economics1.JPG"
+                                                        style=" max-width: 100%; height: auto;"
                                                         alt="Employment Growth is Strongest in the Next 10 Years"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="slides/economics2.JPG" style=" max-width: 100%; height: auto;"
+            <div style="width: auto; height: auto"><img src="slides/economics2.JPG"
+                                                        style=" max-width: 100%; height: auto;"
                                                         alt="Shifting Employment Sectors"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="slides/economics3.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt="Aging Population = Greater Demand for Health Services"></div>
+            <div style="width: auto; height: auto"><img src="slides/economics3.JPG"
+                                                        style=" max-width: 100%; height: auto;"
+                                                        alt="Aging Population = Greater Demand for Health Services">
+            </div>
           </slide>
-                    <slide>
-            <div style="width: auto; height: auto"><img src="slides/economics4.JPG" style=" max-width: 100%; height: auto;"
-                                                        alt="Labor Shortages Continue (Especially for Full-Time Jobs)"></div>
+          <slide>
+            <div style="width: auto; height: auto"><img src="slides/economics4.JPG"
+                                                        style=" max-width: 100%; height: auto;"
+                                                        alt="Labor Shortages Continue (Especially for Full-Time Jobs)">
+            </div>
           </slide>
-                    <slide>
-            <div style="width: auto; height: auto"><img src="slides/economics5.JPG" style=" max-width: 100%; height: auto;"
+          <slide>
+            <div style="width: auto; height: auto"><img src="slides/economics5.JPG"
+                                                        style=" max-width: 100%; height: auto;"
                                                         alt="Skills! – All Jobs will Require Increased Skills"></div>
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
         <SimpleEsriMap class="small_map_left" v-bind:item_id="'a559dc05adc24255bd5df1f7cf440d8f'"></SimpleEsriMap>
       </div>
-      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;"><calcite-icon style="color: #8f6732" icon="plans" scale="l"></calcite-icon> Land Use Insights
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">
+        <calcite-icon style="color: #8f6732" icon="plans" scale="l"></calcite-icon>
+        Land Use Insights
       </div>
-      <p class="blog_margin">A regional forecast needs the best possible local data to establish the correct future development trends in
+      <p class="blog_margin">A regional forecast needs the best possible local data to establish the correct future
+        development trends in
         each community. For that reason, our staff has been meeting with communities to understand their future growth
         expectations and collect data on planned development. Future residential growth is expected to be more evenly
         split between single-family and multi-family housing units. The region will add over 100 million square feet of
         new nonresidential buildings, concentrated in buildings that are fewer in number but larger in size.</p>
-      <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your community. Moving your mouse over a slide carousel will pause the slides. You can right click to download a slide as an image.</p>
+      <p class="blog_margin">Use the map below to pan, zoom (using the +, or double click), or search to explore your
+        community. Moving your mouse over a slide carousel will pause the slides. You can right click to download a
+        slide as an image.</p>
       <div class="insight_section" v-if="!printOnLoad">
         <hooper class="carousel_left" :settings="demographics_carousel">
           <slide>
-            <div style="width: auto; height: auto"><img src="slides/landuse1.JPG" style=" max-width: 100%; height: auto;"
+            <div style="width: auto; height: auto"><img src="slides/landuse1.JPG"
+                                                        style=" max-width: 100%; height: auto;"
                                                         alt="Capturing Planned Development"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="slides/landuse2.JPG" style=" max-width: 100%; height: auto;"
+            <div style="width: auto; height: auto"><img src="slides/landuse2.JPG"
+                                                        style=" max-width: 100%; height: auto;"
                                                         alt="Building Distribution is Changing"></div>
           </slide>
           <slide>
-            <div style="width: auto; height: auto"><img src="slides/landuse3.JPG" style=" max-width: 100%; height: auto;"
+            <div style="width: auto; height: auto"><img src="slides/landuse3.JPG"
+                                                        style=" max-width: 100%; height: auto;"
                                                         alt="Future Buildings are Getting Larger"></div>
           </slide>
           <hooper-navigation slot="hooper-addons"></hooper-navigation>
         </hooper>
-        <SimpleEsriScene class="small_map_right" v-bind:item_id="'c450a4667c4e414ab444977eab553841'" ></SimpleEsriScene>
+        <SimpleEsriScene class="small_map_right" v-bind:item_id="'c450a4667c4e414ab444977eab553841'"></SimpleEsriScene>
       </div>
-      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">A Dynamic and Changing Region
+      <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">A Dynamic and Changing
+        Region
       </div>
       <div class="blog_margin" style="margin-bottom: 5%; font-size: large">
         Timeline
@@ -232,8 +271,10 @@ margin-top: 5%; margin-bottom:5%;">
       </div>
       <div class="blog_margin" style="font-size: 2.2rem; font-weight: 700; line-height: 1.2;">Forecast Map
       </div>
-      <p class="blog_margin">Use the map below to explore the results visually. Use the dropdown on the left to choose a layer topic of
-        interest, and view that topic by the different geography types. Search for your community name in the search box (recommended) Click on a geography to get more information.
+      <p class="blog_margin">Use the map below to explore the results visually. Use the dropdown on the left to choose a
+        layer topic of
+        interest, and view that topic by the different geography types. Search for your community name in the search box
+        (recommended) Click on a geography to get more information.
         View and print the report beneath the map.</p>
 
     </div>
@@ -269,15 +310,21 @@ margin-top: 5%; margin-bottom:5%;">
       </div>
     </div>
     <div class="no-print" style="grid-row: 4; margin-left: 5%; margin-right: 5%; margin-bottom: 15px">
-      <div v-if="relatedGeos.length > 0 && this.selectedFeature.geoid !== 8999" style="font-size: 1.2rem; font-weight: 700; line-height: 1.2;"> Click the buttons below to see data for related geographies
+      <div v-if="relatedGeos.length > 0 && this.selectedFeature.geoid !== 8999"
+           style="font-size: 1.2rem; font-weight: 700; line-height: 1.2;"> Click the buttons below to see data for
+        related geographies
       </div>
       <div id="relatedGeos"
-          v-if="this.selectedFeature.geoid !== 8999">
+           v-if="this.selectedFeature.geoid !== 8999">
         <div style="grid-column: 1" v-if="relatedCounties.length > 0">County <br>
-          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedCounties" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedCounties" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
         </div>
         <div style="grid-column: 2" v-if="relatedCities.length > 0">Community <br>
-          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)" v-for="g in relatedCities" v-bind:key="g.geoid"> {{ g.name }}</calcite-button>
+          <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
+                          v-for="g in relatedCities" v-bind:key="g.geoid"> {{ g.name }}
+          </calcite-button>
         </div>
         <div style="grid-column: 3" v-if="relatedNeighborhoods.length > 0">Detroit Neighborhood <br>
           <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
@@ -286,7 +333,7 @@ margin-top: 5%; margin-bottom:5%;">
             }}
           </calcite-button>
         </div>
-                <div style="grid-column: 4" v-if="relatedISDs.length > 0">ISD<br>
+        <div style="grid-column: 4" v-if="relatedISDs.length > 0">ISD<br>
           <calcite-button icon-start="layer-zoom-to" kind="neutral" v-on:click="setSelected(g)"
                           v-for="g in relatedISDs" v-bind:key="g.geoid"> {{ g.name }}
           </calcite-button>
@@ -1758,7 +1805,7 @@ export default {
           name: "ArcGIS World Geocoding Service",
           placeholder: "example: 1001 Woodward Ave",
           apiKey: "AAPKab43b82c206f4924a4ee7da9b0083af12OZiCnNjKER45-_5-D3Xz8dqugaMDaI1QI_ip0jyrPpsjEoTarUyAGlbN8ixvWMr",
-          filter:searchExtent,
+          filter: searchExtent,
           singleLineFieldName: "SingleLine",
           url: "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer"
         }
@@ -1813,8 +1860,7 @@ export default {
               })
             }
         )
-      }
-      else {
+      } else {
         this.highlight?.remove();
       }
     },
@@ -1853,11 +1899,18 @@ export default {
         this.forecast_layer_county_renderer.field = this.ind
         this.forecast_layer_renderer_detroit_neighborhoods.field = this.ind
         this.forecast_layer_renderer_zones.field = this.ind
+        this.forecast_layer_renderer_us_congress.field = this.ind
+        this.forecast_layer_renderer_mi_senate.field = this.ind
+        this.forecast_layer_renderer_mi_house.field = this.ind
+        this.map.basemap = this.basemaps[0]
 
         this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         this.forecast_layer_renderer_detroit_neighborhoods.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         this.forecast_layer_renderer_zones.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+        this.forecast_layer_renderer_us_congress.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+        this.forecast_layer_renderer_mi_senate.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+        this.forecast_layer_renderer_mi_house.legendOptions.title = this.ind_lookup[this.ind].name + year_range
         if (this.geotype === 'city') {
           this.forecast_layer.renderer = this.forecast_layer_renderer
           this.forecast_layer.featureEffect = this.forecast_layer_effect
@@ -1879,12 +1932,15 @@ export default {
         } else if (this.geotype === 'mi_senate') {
           this.forecast_layer.renderer = this.forecast_layer_renderer_mi_senate
           this.forecast_layer.featureEffect = this.forecast_layer_effect
+          this.map.basemap = this.basemaps[3]
         } else if (this.geotype === 'mi_house') {
           this.forecast_layer.renderer = this.forecast_layer_renderer_mi_house
           this.forecast_layer.featureEffect = this.forecast_layer_effect
+          this.map.basemap = this.basemaps[4]
         } else if (this.geotype === 'us_congress') {
           this.forecast_layer.renderer = this.forecast_layer_renderer_us_congress
           this.forecast_layer.featureEffect = this.forecast_layer_effect
+          this.map.basemap = this.basemaps[2]
         } else {
           this.forecast_layer.renderer = this.forecast_layer_county_renderer
           this.forecast_layer.featureEffect = this.forecast_layer_effect
@@ -1904,11 +1960,17 @@ export default {
           this.forecast_layer_county_renderer.field = this.ind
           this.forecast_layer_renderer_detroit_neighborhoods.field = this.ind
           this.forecast_layer_renderer_zones.field = this.ind
+          this.forecast_layer_renderer_us_congress.field = this.ind
+          this.forecast_layer_renderer_mi_senate.field = this.ind
+          this.forecast_layer_renderer_mi_house.field = this.ind
 
           this.forecast_layer_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
           this.forecast_layer_county_renderer.legendOptions.title = this.ind_lookup[this.ind].name + ", " + year_range
           this.forecast_layer_renderer_detroit_neighborhoods.legendOptions.title = this.ind_lookup[this.ind].name + year_range
           this.forecast_layer_renderer_zones.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+          this.forecast_layer_renderer_us_congress.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+          this.forecast_layer_renderer_mi_senate.legendOptions.title = this.ind_lookup[this.ind].name + year_range
+          this.forecast_layer_renderer_mi_house.legendOptions.title = this.ind_lookup[this.ind].name + year_range
           if (this.geotype === 'city') {
             this.forecast_layer.renderer = this.forecast_layer_renderer
             this.forecast_layer_effect.filter.where = `${this.ind} > 500`
@@ -1927,19 +1989,22 @@ export default {
           } else if (this.geotype === 'mi_senate') {
             this.forecast_layer.renderer = this.forecast_layer_renderer_mi_senate
             this.forecast_layer.featureEffect = this.forecast_layer_effect
+            this.map.basemap = this.basemaps[3]
           } else if (this.geotype === 'mi_house') {
             this.forecast_layer.renderer = this.forecast_layer_renderer_mi_house
             this.forecast_layer.featureEffect = this.forecast_layer_effect
+            this.map.basemap = this.basemaps[4]
           } else if (this.geotype === 'us_congress') {
             this.forecast_layer.renderer = this.forecast_layer_renderer_us_congress
             this.forecast_layer.featureEffect = this.forecast_layer_effect
+            this.map.basemap = this.basemaps[2]
           } else {
-              this.forecast_layer.renderer = this.forecast_layer_county_renderer
-              this.forecast_layer.featureEffect = this.forecast_layer_effect
-            }
+            this.forecast_layer.renderer = this.forecast_layer_county_renderer
+            this.forecast_layer.featureEffect = this.forecast_layer_effect
           }
         }
       }
+    }
   }
 }
 </script>
@@ -2030,14 +2095,14 @@ export default {
 }
 
 .report-watermark {
-    position: fixed;
-    color: rgba(241, 21, 31, 0.5);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    font-size: 6em;
-    z-index: 3000;
-    pointer-events: none;
+  position: fixed;
+  color: rgba(241, 21, 31, 0.5);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  font-size: 6em;
+  z-index: 3000;
+  pointer-events: none;
 }
 
 .blog_margin {
@@ -2073,7 +2138,7 @@ export default {
     display: none !important;
   }
 
-  .esri-ui-top-right  {
+  .esri-ui-top-right {
     display: none !important;
   }
 
@@ -2091,18 +2156,20 @@ export default {
     padding: unset;
   }
 }
-  #ind_select>label{
-    font-size: medium;
-  }
+
+#ind_select > label {
+  font-size: medium;
+}
 
 @media (max-width: 1300px) {
-    .blog_margin {
-        margin-left: 5%;
-        margin-right: 5%
-    }
-    .insight_section {
-        grid-template-rows: auto;
-    }
+  .blog_margin {
+    margin-left: 5%;
+    margin-right: 5%
+  }
+
+  .insight_section {
+    grid-template-rows: auto;
+  }
 }
 
 @media (max-width: 576px) {
@@ -2122,7 +2189,7 @@ export default {
     grid-row: 2
   }
 
-    .carousel_right {
+  .carousel_right {
     grid-column: 1;
     grid-row: 1
   }
@@ -2138,7 +2205,7 @@ export default {
     grid-template-rows: auto auto;
   }
 
-  #ind_select>label{
+  #ind_select > label {
     font-size: small;
   }
 
