@@ -647,31 +647,31 @@ export default {
       if (this.geotype === 'us_congress') {
         areas = `us_congress_id = ${id}`;
       }
-      if (id === 5) {
+      if (id === 5 && this.geotype === 'city') {
         areas = `large_area_id in (5)`;
       }
-      if (id === 3) {
+      if (id === 3 && this.geotype === 'county') {
         areas = `large_area_id in (3)`;
       }
-      if (id === 93) {
+      if (id === 93 && this.geotype === 'county') {
         areas = `large_area_id in (93)`;
       }
-      if (id === 99) {
+      if (id === 99 && this.geotype === 'county') {
         areas = `large_area_id in (99)`;
       }
-      if (id === 115) {
+      if (id === 115 && this.geotype === 'county') {
         areas = `large_area_id in (115)`;
       }
-      if (id === 125) {
+      if (id === 125 && this.geotype === 'county') {
         areas = `large_area_id in (125)`;
       }
-      if (id === 147) {
+      if (id === 147 && this.geotype === 'county') {
         areas = `large_area_id in (147)`;
       }
-      if (id === 161) {
+      if (id === 161 && this.geotype === 'county') {
         areas = `large_area_id in (161)`;
       }
-      if (id === 163) {
+      if (id === 163 && this.geotype === 'county') {
         areas = `large_area_id in (5, 3)`;
       }
       if (id === 8005) {
