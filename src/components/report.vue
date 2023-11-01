@@ -659,6 +659,9 @@ export default {
       if (id === 8010) {
         areas = `city_id in (3065, 6120)`;
       }
+      if (id === 8025) {
+        areas = `city_id in (3090, 6142)`;
+      }
 
       if (id === 8999) {
         areas = `region_id = 8999`;
