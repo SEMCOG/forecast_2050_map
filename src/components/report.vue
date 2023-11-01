@@ -134,7 +134,7 @@ export default {
   components: {
     lineChart
   },
-  props: ['selectedFeature', 'geotype'],
+  props: ['selectedFeature', 'geotype', 'namesFromGeotype'],
   data: function () {
     return {
       report_data: null,
@@ -143,62 +143,6 @@ export default {
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
-      namesFromGeotype: Object.freeze({
-        'city': {
-          name: 'Communities',
-          singularName: 'Community',
-          column_name: 'city_id',
-          lookup: undefined
-        },
-        'county': {
-          name: 'Counties',
-          singularName: 'County',
-          column_name: 'large_area_id',
-          lookup: undefined
-        },
-        'detroit_neighborhood': {
-          name: 'Detroit Neighborhoods',
-          singularName: 'Detroit Neighborhood',
-          column_name: 'city_id',
-          lookup: undefined
-        },
-        'zone': {
-          name: 'Traffic Analysis Zones',
-          singularName: 'Traffic Analysis Zone',
-          column_name: 'zone_id',
-          lookup: undefined
-        },
-        'schooldistrict': {
-          name: 'School Districts',
-          singularName: 'School District',
-          column_name: 'school_id',
-          lookup: undefined
-        },
-        'isd': {
-          name: 'Intermediate School Districts',
-          singularName: 'Intermediate School District',
-          column_name: 'isd_id',
-          lookup: undefined
-        },
-        'mi_senate': {
-          name: 'Michigan State Senate Districts',
-          singularName: 'Michigan State Senate District',
-          column_name: 'isd_id',
-          lookup: undefined
-        },
-        'mi_house': {
-          name: 'Michigan State House Districts',
-          singularName: 'Michigan State House District',
-          column_name: 'isd_id',
-          lookup: undefined
-        },
-        'us_congress': {
-          name: 'US Congressional Districts',
-          singularName: 'US Congressional District',
-          column_name: 'isd_id',
-          lookup: undefined
-        },
-      }),
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
       dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, 'pop_race_1': true, "hh": true},
       years: ['yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
@@ -740,50 +684,6 @@ export default {
     },
   },
   mounted() {
-    fetch('land_gisad_whatnots_geo.json')
-        .then(res => res.json())
-        .then(res => {
-          let communities = {};
-          let detroit_neighborhoods = {};
-          let counties = {};
-          let zones = {};
-          let schooldistricts = {};
-          let isds = {};
-          let us_congress = {};
-          let mi_house = {};
-          let mi_senate = {};
-          res.forEach(f => {
-            if (f.geotype === 'city' || f.geotype === 'mcd') {
-              communities[f.geoid] = f.area_name;
-            } else if (f.geotype === 'largearea' || f.geotype === 'county') {
-              counties[f.geoid] = f.area_name;
-            } else if (f.geotype === 'detroit_neighborhood') {
-              detroit_neighborhoods[f.geoid] = f.area_name;
-            } else if (f.geotype === 'zone') {
-              zones[f.geoid] = f.area_name;
-            } else if (f.geotype === 'schooldistrict') {
-              schooldistricts[f.geoid] = f.area_name;
-            } else if (f.geotype === 'isd' && f.area_name) {
-              isds[f.geoid] = f.area_name;
-            } else if (f.geotype === 'mi_senate') {
-              mi_senate[f.geoid] = f.area_name;
-            } else if (f.geotype === 'mi_house') {
-              mi_house[f.geoid] = f.area_name;
-            } else if (f.geotype === 'us_congress') {
-              us_congress[f.geoid] = f.area_name;
-            }
-          });
-          this.namesFromGeotype['city'].lookup = communities
-          this.namesFromGeotype['county'].lookup = counties
-          this.namesFromGeotype['detroit_neighborhood'].lookup = detroit_neighborhoods
-          this.namesFromGeotype['zone'].lookup = zones
-          this.namesFromGeotype['schooldistrict'].lookup = schooldistricts
-          this.namesFromGeotype['isd'].lookup = isds
-          this.namesFromGeotype['us_congress'].lookup = us_congress
-          this.namesFromGeotype['mi_senate'].lookup = mi_senate
-          this.namesFromGeotype['mi_house'].lookup = mi_house
-        });
-
     this.get_report_data()
   }
 }
