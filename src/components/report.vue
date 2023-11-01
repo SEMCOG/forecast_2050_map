@@ -30,6 +30,7 @@
     </div>
     <img src="header_report_new.png" alt="logo" width="50%" style="align-content: center; margin-top: 20px; margin-bottom: 10px;" class="no-print">
     <h1>{{ selectedName || 'Southeast Michigan' }} - 2050 Forecast Summary Report</h1>
+    <div v-if="['mi_senate', 'mi_house', 'us_congress'].includes(this.geotype)" style="font-size: small; margin-bottom: 10px">*Note: Forecast results are limited to only those portions of a legislative district that are within the boundaries of the SEMCOG region.</div>
     <lineChart v-bind:chartData="summaryChart[0]"
                v-bind:options="summaryChart[1]"
                v-bind:style="chartStyle"/>
