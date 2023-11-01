@@ -1945,7 +1945,7 @@ export default {
       if (!popup_geoids.includes(this.selectedFeature.geoid)) {
         this.view.popup.close()
       }
-      if (this.selectedFeature && this.selectedFeature.geoid !== 8999) {
+      if (this.selectedFeature && parseInt(this.selectedFeature.geoid, 10) !== 8999) {
         this.view.whenLayerView(this.forecast_layer_info).then((layerView) => {
               let queryObject = new Query();
               queryObject.where = 'geoid = ' + this.selectedFeature.geoid
