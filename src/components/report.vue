@@ -134,7 +134,7 @@ export default {
   components: {
     lineChart
   },
-  props: ['selectedFeature', 'geotype'],
+  props: ['selectedFeature', 'geotype', 'namesFromGeotype'],
   data: function () {
     return {
       report_data: null,
@@ -623,28 +623,28 @@ export default {
       if (id === 5) {
         areas = `large_area_id in (5)`;
       }
-      if (id === 3) {
+      if (id === 3 && this.geotype === 'county') {
         areas = `large_area_id in (3)`;
       }
-      if (id === 93) {
+      if (id === 93 && this.geotype === 'county') {
         areas = `large_area_id in (93)`;
       }
-      if (id === 99) {
+      if (id === 99 && this.geotype === 'county') {
         areas = `large_area_id in (99)`;
       }
-      if (id === 115) {
+      if (id === 115 && this.geotype === 'county') {
         areas = `large_area_id in (115)`;
       }
-      if (id === 125) {
+      if (id === 125 && this.geotype === 'county') {
         areas = `large_area_id in (125)`;
       }
-      if (id === 147) {
+      if (id === 147 && this.geotype === 'county') {
         areas = `large_area_id in (147)`;
       }
-      if (id === 161) {
+      if (id === 161 && this.geotype === 'county') {
         areas = `large_area_id in (161)`;
       }
-      if (id === 163) {
+      if (id === 163 && this.geotype === 'county') {
         areas = `large_area_id in (5, 3)`;
       }
       if (id === 8005) {
@@ -713,38 +713,6 @@ export default {
     },
   },
   mounted() {
-    fetch('land_gisad_whatnots_geo.json')
-        .then(res => res.json())
-        .then(res => {
-          let communities = {};
-          let detroit_neighborhoods = {};
-          let counties = {};
-          let zones = {};
-          let schooldistricts = {};
-          let isds = {};
-          res.forEach(f => {
-            if (f.geotype === 'city' || f.geotype === 'mcd') {
-              communities[f.geoid] = f.area_name;
-            } else if (f.geotype === 'largearea' || f.geotype === 'county') {
-              counties[f.geoid] = f.area_name;
-            } else if (f.geotype === 'detroit_neighborhood') {
-              detroit_neighborhoods[f.geoid] = f.area_name;
-            } else if (f.geotype === 'zone') {
-              zones[f.geoid] = f.area_name;
-            } else if (f.geotype === 'schooldistrict') {
-              schooldistricts[f.geoid] = f.area_name;
-            } else if (f.geotype === 'isd' && f.area_name) {
-              isds[f.geoid] = f.area_name;
-            }
-          });
-          this.namesFromGeotype['city'].lookup = communities
-          this.namesFromGeotype['county'].lookup = counties
-          this.namesFromGeotype['detroit_neighborhood'].lookup = detroit_neighborhoods
-          this.namesFromGeotype['zone'].lookup = zones
-          this.namesFromGeotype['schooldistrict'].lookup = schooldistricts
-          this.namesFromGeotype['isd'].lookup = isds
-        });
-
     this.get_report_data()
   }
 }

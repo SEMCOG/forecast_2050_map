@@ -300,6 +300,7 @@ margin-top: 5%; margin-bottom:5%;">
     </div>
     <reportComponent v-bind:selectedFeature='selectedFeature'
                      v-bind:geotype='geotype'
+                     v-bind:namesFromGeotype='namesFromGeotype'
                      v-on:selected-id="selectedFeature = {geoid: $event}"
                      v-on:dropdown-change="relatedGeos = []"
                      id="report"></reportComponent>
@@ -371,6 +372,62 @@ export default {
       highlight: null,
       loaded: false,
       printOnLoad: this.$route.query.print,
+      namesFromGeotype: Object.freeze({
+        'city': {
+          name: 'Communities',
+          singularName: 'Community',
+          column_name: 'city_id',
+          lookup: undefined
+        },
+        'county': {
+          name: 'Counties',
+          singularName: 'County',
+          column_name: 'large_area_id',
+          lookup: undefined
+        },
+        'detroit_neighborhood': {
+          name: 'Detroit Neighborhoods',
+          singularName: 'Detroit Neighborhood',
+          column_name: 'city_id',
+          lookup: undefined
+        },
+        'zone': {
+          name: 'Traffic Analysis Zones',
+          singularName: 'Traffic Analysis Zone',
+          column_name: 'zone_id',
+          lookup: undefined
+        },
+        'schooldistrict': {
+          name: 'School Districts',
+          singularName: 'School District',
+          column_name: 'school_id',
+          lookup: undefined
+        },
+        'isd': {
+          name: 'Intermediate School Districts',
+          singularName: 'Intermediate School District',
+          column_name: 'isd_id',
+          lookup: undefined
+        },
+        'mi_senate': {
+          name: 'Michigan State Senate Districts',
+          singularName: 'Michigan State Senate District',
+          column_name: 'isd_id',
+          lookup: undefined
+        },
+        'mi_house': {
+          name: 'Michigan State House Districts',
+          singularName: 'Michigan State House District',
+          column_name: 'isd_id',
+          lookup: undefined
+        },
+        'us_congress': {
+          name: 'US Congressional Districts',
+          singularName: 'US Congressional District',
+          column_name: 'isd_id',
+          lookup: undefined
+        },
+      }),
       ind_lookup: {
         'pop_change': {name: 'Total Population'},
         'hh_change': {name: 'Total Households'},
@@ -1341,6 +1398,50 @@ export default {
     }
   },
   mounted() {
+    fetch('land_gisad_whatnots_geo.json')
+        .then(res => res.json())
+        .then(res => {
+          let communities = {};
+          let detroit_neighborhoods = {};
+          let counties = {};
+          let zones = {};
+          let schooldistricts = {};
+          let isds = {};
+          let us_congress = {};
+          let mi_house = {};
+          let mi_senate = {};
+          res.forEach(f => {
+            if (f.geotype === 'city' || f.geotype === 'mcd') {
+              communities[f.geoid] = f.area_name;
+            } else if (f.geotype === 'largearea' || f.geotype === 'county') {
+              counties[f.geoid] = f.area_name;
+            } else if (f.geotype === 'detroit_neighborhood') {
+              detroit_neighborhoods[f.geoid] = f.area_name;
+            } else if (f.geotype === 'zone') {
+              zones[f.geoid] = f.area_name;
+            } else if (f.geotype === 'schooldistrict') {
+              schooldistricts[f.geoid] = f.area_name;
+            } else if (f.geotype === 'isd' && f.area_name) {
+              isds[f.geoid] = f.area_name;
+            } else if (f.geotype === 'mi_senate') {
+              mi_senate[f.geoid] = f.area_name;
+            } else if (f.geotype === 'mi_house') {
+              mi_house[f.geoid] = f.area_name;
+            } else if (f.geotype === 'us_congress') {
+              us_congress[f.geoid] = f.area_name;
+            }
+          });
+          this.namesFromGeotype['city'].lookup = communities
+          this.namesFromGeotype['county'].lookup = counties
+          this.namesFromGeotype['detroit_neighborhood'].lookup = detroit_neighborhoods
+          this.namesFromGeotype['zone'].lookup = zones
+          this.namesFromGeotype['schooldistrict'].lookup = schooldistricts
+          this.namesFromGeotype['isd'].lookup = isds
+          this.namesFromGeotype['us_congress'].lookup = us_congress
+          this.namesFromGeotype['mi_senate'].lookup = mi_senate
+          this.namesFromGeotype['mi_house'].lookup = mi_house
+        });
+
     this.map = new Map({basemap: this.basemaps[0]})
 
     this.view = new MapView({
