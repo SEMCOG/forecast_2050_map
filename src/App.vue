@@ -33,7 +33,7 @@
           <li>Detroit Neighborhood Forecast - <strong>New Data Available!</strong></li>
           <li>Transportation Analysis Zone Forecast - <strong>New Data Available!</strong></li>
           <li>Intermediate and Local School District Forecast - <strong>New Data Available!</strong></li>
-          <li>State House and Senate District Forecast (October 2023)</li>
+          <li>State House and Senate District Forecast (November 2023)</li>
         </ul>
         <div style="display: grid;
     grid-template-columns: 1fr 1fr;
