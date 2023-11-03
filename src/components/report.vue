@@ -143,44 +143,6 @@ export default {
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
-      namesFromGeotype: Object.freeze({
-        'city': {
-          name: 'Communities',
-          singularName: 'Community',
-          column_name: 'city_id',
-          lookup: undefined
-        },
-        'county': {
-          name: 'Counties',
-          singularName: 'County',
-          column_name: 'large_area_id',
-          lookup: undefined
-        },
-        'detroit_neighborhood': {
-          name: 'Detroit Neighborhoods',
-          singularName: 'Detroit Neighborhood',
-          column_name: 'city_id',
-          lookup: undefined
-        },
-        'zone': {
-          name: 'Traffic Analysis Zones',
-          singularName: 'Traffic Analysis Zone',
-          column_name: 'zone_id',
-          lookup: undefined
-        },
-        'schooldistrict': {
-          name: 'School Districts',
-          singularName: 'School District',
-          column_name: 'school_id',
-          lookup: undefined
-        },
-        'isd': {
-          name: 'Intermediate School Districts',
-          singularName: 'Intermediate School District',
-          column_name: 'isd_id',
-          lookup: undefined
-        },
-      }),
       not_indent: {"pop": true, "housing_units": true, "hhsize": true, "hh": true},
       dash: {"hh_pop": true, "pop_age_00_04": true, "housing_units": true, 'pop_race_1': true, "hh": true},
       years: ['yr2020', 'yr2025', 'yr2030', 'yr2035', 'yr2040', 'yr2045', 'yr2050'],
