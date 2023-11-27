@@ -139,7 +139,7 @@ export default {
     return {
       report_data: null,
       loaded: false,
-      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/whatnots_13sectors_refinement_combined/FeatureServer/0",
+      queryUrl: "https://gis.semcog.org/server/rest/services/Hosted/new_combined_whatnots_13sectors_refinement_fix/FeatureServer/0",
       selectedId: this.selectedFeature.geoid || 8999,
       chartStyle: {width: '100%', height: '500px'},
       large_area_ids: [3, 5, 93, 99, 115, 125, 147, 161],
