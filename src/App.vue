@@ -68,7 +68,9 @@ margin-top: 5%; margin-bottom:5%;">
           <li><a
               href="https://semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=2050%20Regional%20Forecast%20by%20County%20and%20Community.pdf"
               target="_blank">2050 Regional Forecast by County and Community Summary PDF</a></li>
-
+          <li><a
+              href="https://www.semcog.org/desktopmodules/SEMCOG.Publications/GetFile.ashx?filename=Quick%20Facts_2050%20Forecast%20of%20SchoolAge%20Population.pdf"
+              target="_blank">2050 Regional Forecast by School District Quick Facts PDF</a></li>
           <li><a href="semcog_2050_RDF_community_final.xlsx">2050 Regional Forecast by Community Excel Spreadsheet</a>
           </li>
           <li><a href="semcog_2050_RDF_taz_final.xlsx">2050 Regional Forecast by Traffic Analysis Zone Excel
