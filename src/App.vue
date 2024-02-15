@@ -30,9 +30,9 @@
           infrastructure improvements – roads, bridges, water and sewer.</p>
         <h3>SEMCOG 2050 Regional Forecast – Release Dates</h3>
         <ul>
-          <li>Community Population and Household Distributions - <strong>New Data Available!</strong></li>
-          <li>Detroit Neighborhood Forecast - <strong>New Data Available!</strong></li>
-          <li>Transportation Analysis Zone Forecast - <strong>New Data Available!</strong></li>
+          <li>Community Population and Household Distributions</li>
+          <li>Detroit Neighborhood Forecast</li>
+          <li>Transportation Analysis Zone Forecast</li>
           <li>Intermediate and Local School District Forecast - <strong>New Data Available!</strong></li>
           <li>State House and Senate District Forecast - <strong>New Data Available!</strong></li>
         </ul>
