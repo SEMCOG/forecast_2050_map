@@ -94,7 +94,7 @@ margin-top: 5%; margin-bottom:5%;">
           <li><a href="https://semcog.org/blog/2050-regional-forecast-challenges-and-opportunities" target="_blank">2050
             Regional Forecast: Challenges and Opportunities</a></li>
           <li><a
-              href="https://semcog.org/Portals/0/Documents/Plans-For-The-Region/Regional-Forecast/2050RegionalForecastPresentationOctober2022.pdf"
+              href="https://www.semcog.org/wp-content/uploads/2025/08/2050RegionalForecastPresentationOctober2022.pdf"
               target="_blank">2050 Regional Forecast Presentation</a></li>
           <li><a href="https://www.youtube.com/watch?v=GihciBkwIvU&t=18s" target="_blank">Recorded Interview with
             University of Michigan Economists</a></li>
