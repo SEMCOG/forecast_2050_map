@@ -25,7 +25,7 @@
         <p>SEMCOG began development in late 2021 of the 2050 Regional Forecast, which provides a thirty-year analysis of
           change in population, households, jobs, and land use for each community in the seven-county region. We produce
           a new forecast of the region's future once every five years.</p>
-        <p>The Regional Forecast and is critical in understanding how many people will live and work in our region in
+        <p>The Regional Forecast is critical in understanding how many people will live and work in our region in
           the future. Knowing where households and jobs will be located helps us understand where to plan future
           infrastructure improvements – roads, bridges, water and sewer.</p>
         <h3>SEMCOG 2050 Regional Forecast – Release Dates</h3>
