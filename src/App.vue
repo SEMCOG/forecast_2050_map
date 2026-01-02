@@ -1481,11 +1481,14 @@ export default {
       }
     })
 
-    this.view.popup.watch("selectedFeature", (graphic) => {
-      if (graphic) {
-        this.selectedFeature = this.view.popup.selectedFeature.attributes
-      }
-    });
+    reactiveUtils.watch(
+        () => this.view.popup.selectedFeature,
+        (graphic) => {
+          if (graphic) {
+            this.selectedFeature = this.view.popup.selectedFeature.attributes
+          }
+        },
+    )
 
     this.view.whenLayerView(this.forecast_layer_info).then((layerView) => {
       layerView.filter = {
@@ -1586,11 +1589,13 @@ export default {
   },
   watch: {
     selectedFeature: function () {
-      let popup_geoids = this.view.popup.features.map((f) => {
-        return f.attributes.geoid
-      })
-      if (!popup_geoids.includes(this.selectedFeature.geoid)) {
-        this.view.popup.close()
+      if (this.view.popup.features && this.view.popup.features.length > 0) {
+        let popup_geoids = this.view.popup.features.map((f) => {
+          return f.attributes.geoid
+        })
+        if (!popup_geoids.includes(this.selectedFeature.geoid)) {
+          this.view.popup.close()
+        }
       }
       if (this.selectedFeature && parseInt(this.selectedFeature.geoid, 10) !== 8999) {
         this.view.whenLayerView(this.forecast_layer_info).then((layerView) => {
